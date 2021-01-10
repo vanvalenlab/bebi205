@@ -1,7 +1,8 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: intro
-- file: content
+
+- part: Course Notebooks
   sections:
-    - file: markdown
-    - file: notebooks
+    - file: notebooks/data-science-in-python
+    - file: notebooks/deep-learning-concepts
