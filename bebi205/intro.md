@@ -64,7 +64,7 @@ Notebooks
 ---
 Papers
 ^^^
-Focal loss paper?
+Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss for dense object detection.](https://arxiv.org/abs/1708.02002v2) In *Proceedings of the IEEE international conference on computer vision* (pp. 2980-2988).
 ````
 
 ### Week 4
@@ -93,7 +93,7 @@ Ronneberger, O., Fischer, P., & Brox, T. (2015). [U-net: Convolutional networks 
 
 Lin, T. Y., Dollár, P., Girshick, R., He, K., Hariharan, B., & Belongie, S. (2017). [Feature pyramid networks for object detection.](http://arxiv.org/abs/1612.03144v2) In *Proceedings of the IEEE conference on computer vision and pattern recognition* (pp. 2117-2125).
 
-Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss for dense object detection.](https://arxiv.org/abs/1708.02002v2) In *Proceedings of the IEEE international conference on computer vision* (pp. 2980-2988).
+RetinaNet?
 
 Bai, M., & Urtasun, R. (2017). [Deep watershed transform for instance segmentation.](https://arxiv.org/abs/1611.08303v2) In *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition* (pp. 5221-5229).
 ````
@@ -183,3 +183,15 @@ Papers
 ^^^
 
 ````
+
+## Other Readings
+
+Janssens, R., Zhang, X., Kauffmann, A., de Weck, A., & Durand, E. Y. (2020). [Fully unsupervised deep mode of action learning for phenotyping high-content cellular images.](https://doi.org/10.1101/2020.07.22.215459) *bioRxiv*, 215459.
+
+Hie, B., Zhong, E. D., Berger, B., & Bryson, B. (2021). [Learning the language of viral evolution and escape.](https://doi.org/10.1126/science.abd7331) *Science*, 371(6526), 284–288.
+
+## Datasets
+
+[Broad Bioimage Benchmark Collection](https://bbbc.broadinstitute.org/image_sets)
+: Identification and segmentation of cells and embryos in bright field, DIC and fluorescent images
+: Phenotype classification of *C. elegans* and cells
