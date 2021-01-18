@@ -1,5 +1,36 @@
 # Syllabus
 
+## Objective
+
+## Course Instructor
+Professor David Van Valen
+`vanvalen [at] caltech [dot] edu`
+Office Hours:
+
+## Teaching Assistant
+Morgan Schwartz
+`msschwartz [at] caltech [dot] edu`
+Office Hours
+
+## Lectures
+Lectures will be held Monday/Wednesday 1-2:30 PM PST. The zoom links and subsequent recordings are available on Canvas.
+
+## Assignments
+
+## Collaboration
+
+## Grading
+
+## Academic Integrity
+Caltech’s Honor Code: “No member of the Caltech community shall take unfair advantage of any other member of the Caltech community.”
+
+Understanding and Avoiding Plagiarism: Plagiarism is the appropriation of another person's ideas, processes, results, or words without giving appropriate credit, and it violates the honor code in a fundamental way. You can find more information at: http://writing.caltech.edu/resources/plagiarism (Links to an external site.).
+
+## Students with Documented Disabilities
+Students who may need an academic accommodation based on the impact of a disability must initiate the request with Caltech Accessibility Services for Students (CASS).  Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact CASS as soon as possible, since timely notice is needed to coordinate accommodations. http://cass.caltech.edu/ (Links to an external site.)
+
+Undergraduate students should contact Dr. Lesley Nye, Associate Dean of Undergraduate Students (administrative contact: Beth Larranaga) and graduate students should contact Dr. Kate McAnulty, Associate Dean of Graduate Studies (administrative contact: Jacob Dalton).
+
 ## Course Schedule
 
 ### Week 1
