@@ -16,6 +16,8 @@ Notebooks
 {doc}`notebooks/data-science-in-python`
 
 {doc}`notebooks/deep-learning-concepts`
+
+{doc}`exercises/week1`
 ---
 
 Papers
@@ -42,6 +44,8 @@ Notebooks
 {doc}`notebooks/sequences`
 
 {doc}`notebooks/tf-dataset`
+
+{doc}`exercises/week2`
 ---
 Papers
 ^^^
@@ -61,6 +65,8 @@ Lecture 6: Loss functions and optimizers. Classification - cross entropies, clas
 Notebooks
 ^^^
 {doc}`notebooks/optimizer`
+
+{doc}`exercises/week3`
 ---
 Papers
 ^^^
@@ -82,6 +88,8 @@ Notebooks
 {doc}`notebooks/custom-layers`
 
 {doc}`notebooks/vision-model`
+
+{doc}`exercises/week4`
 ---
 Papers
 ^^^
@@ -109,6 +117,8 @@ Lecture 10: Sequence model applications. DeepBind and others.
 Notebooks
 ^^^
 {doc}`notebooks/sequence-model`
+
+{doc}`exercises/week5`
 ---
 Papers
 ^^^
@@ -126,6 +136,8 @@ Lecture 12: Tips and tricks 2: How to debug when things go wrong. Follow the dat
 Notebooks
 ^^^
 {doc}`notebooks/debugging`
+
+{doc}`exercises/week6`
 ---
 Papers
 ^^^
