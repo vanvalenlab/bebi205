@@ -1,4 +1,0 @@
-# Weekly Exercises
-
-```{tableofcontents}
-```
