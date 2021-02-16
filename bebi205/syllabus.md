@@ -39,14 +39,16 @@ Lectures
 ^^^
 **Lecture 1:** Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)
 
-**Lecture 2:** Conceptual overview of deep learning. Supervised vs unsupervised, Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting
+**Lecture 2:** Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors
 ---
 
 Notebooks
 ^^^
 {doc}`notebooks/data-science-in-python`
 
-{doc}`notebooks/deep-learning-concepts`
+{doc}`notebooks/images`
+
+{doc}`notebooks/sequences`
 ---
 
 Papers
@@ -62,15 +64,15 @@ Eraslan, G., Avsec, Z., Gagneur, J., & Theis, F. J. (2019). [Deep learning: new 
 ````{panels}
 Lectures
 ^^^
-Lecture 3: Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors
+**Lecture 3:** Conceptual overview of deep learning. Supervised vs unsupervised, Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting
 
-Lecture 4: Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
+**Lecture 4:** Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
 ---
 Notebooks
 ^^^
-{doc}`notebooks/images`
+{doc}`notebooks/deep-learning-concepts`
 
-{doc}`notebooks/sequences`
+{doc}`notebooks/linear-classifier`
 
 {doc}`notebooks/tf-dataset`
 ---
@@ -85,9 +87,9 @@ Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification 
 ````{panels}
 Lectures
 ^^^
-Lecture 5: Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
+**Lecture 5:** Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
 
-Lecture 6: Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
+**Lecture 6:** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
 ---
 Notebooks
 ^^^
@@ -102,9 +104,9 @@ Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss f
 ````{panels}
 Lectures
 ^^^
-Lecture 7: Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
+**Lecture 7:** Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
 
-Lecture 8: Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
+**Lecture 8:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
 ---
 Notebooks
 ^^^
@@ -133,9 +135,9 @@ Bai, M., & Urtasun, R. (2017). [Deep watershed transform for instance segmentati
 ````{panels}
 Lectures
 ^^^
-Lecture 9: Sequence models. 1D convolution, recurrent layers, attention, modern language models.
+**Lecture 9:** Sequence models. 1D convolution, recurrent layers, attention, modern language models.
 
-Lecture 10: Sequence model applications. DeepBind and others.
+**Lecture 10:** Sequence model applications. DeepBind and others.
 ---
 Notebooks
 ^^^
@@ -150,9 +152,9 @@ Papers
 ````{panels}
 Lectures
 ^^^
-Lecture 11: Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
+**Lecture 11:** Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 
-Lecture 12: Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
+**Lecture 12:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 ---
 Notebooks
 ^^^

@@ -7,9 +7,10 @@
 - file: notebooks-toc
   sections:
     - file: notebooks/data-science-in-python
-    - file: notebooks/deep-learning-concepts
     - file: notebooks/images
     - file: notebooks/sequences
+    # - file: notebooks/linear-classifier
+    - file: notebooks/deep-learning-concepts
     - file: notebooks/tf-dataset
     - file: notebooks/optimizer
     - file: notebooks/dl-building-blocks
