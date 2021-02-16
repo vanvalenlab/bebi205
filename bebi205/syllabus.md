@@ -169,6 +169,9 @@ Papers
 ````{panels}
 Lectures
 ^^^
+**Lecture 13:**
+
+**Lecture 14:**
 ---
 Notebooks
 ^^^
@@ -182,6 +185,9 @@ Papers
 ````{panels}
 Lectures
 ^^^
+**Lecture 15:**
+
+**Lecture 16:**
 ---
 Notebooks
 ^^^
@@ -195,6 +201,9 @@ Papers
 ````{panels}
 Lectures
 ^^^
+**Lecture 17:** Guest Lecture by Mohammed Al Quarishi
+
+**Lecture 18:** Guest Lecture by Bryan Bryson
 ---
 Notebooks
 ^^^
@@ -208,6 +217,9 @@ Papers
 ````{panels}
 Lectures
 ^^^
+**Lecture 19:**
+
+**Lecture 20:**
 ---
 Notebooks
 ^^^
