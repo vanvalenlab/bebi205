@@ -1,6 +1,6 @@
 # Course Schedule
 
-## Week 1
+## Week 1 - 3/29, 3/31
 ````{panels}
 Lectures
 ^^^
@@ -27,13 +27,13 @@ LeCun, Y., Bengio, Y., & Hinton, G. (2015). [Deep learning.](https://doi.org/10.
 Eraslan, G., Avsec, Z., Gagneur, J., & Theis, F. J. (2019). [Deep learning: new computational modelling techniques for genomics.](https://doi.org/10.1038/s41576-019-0122-6) *Nature Reviews Genetics*, 20(7), 389-403.
 ````
 
-## Week 2
+## Week 2 - 4/5, 4/7
 ````{panels}
 Lectures
 ^^^
-**Lecture 3:** Conceptual overview of deep learning. Supervised vs unsupervised, Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting
+**Lecture 3:** Example Linear Classifier
 
-**Lecture 4:** Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
+**Lecture 4:** Conceptual overview of deep learning. Supervised vs unsupervised, Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting
 ---
 Notebooks
 ^^^
@@ -50,33 +50,37 @@ Gamper, J., Koohbanani, N. A., Benet, K., Khuram, A., & Rajpoot, N. (2019). [Pan
 Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification with deep convolutional neural networks.](https://doi.org/10.1145/3065386) *Communications of the ACM*, 60(6), 84-90.
 ````
 
-## Week 3
+## Week 3 - 4/12, 4/14
 ````{panels}
 Lectures
 ^^^
-**Lecture 5:** Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
+**Lecture 5:** Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
 
-**Lecture 6:** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
+**Lecture 6:** Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
 ---
 Notebooks
 ^^^
-{doc}`notebooks/optimizer`
+Deepcell Label Workshop?
+
+{doc}`notebooks/linear-classifier-tf`
 ---
 Papers
 ^^^
 Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss for dense object detection.](https://arxiv.org/abs/1708.02002v2) In *Proceedings of the IEEE international conference on computer vision* (pp. 2980-2988).
 ````
 
-## Week 4
+## Week 4 - 4/19, 4/21
 ````{panels}
 Lectures
 ^^^
-**Lecture 7:** Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
+**Lecture 7:** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
 
-**Lecture 8:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
+**Lecture 8:** Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
 ---
 Notebooks
 ^^^
+{doc}`notebooks/optimizer`
+
 {doc}`notebooks/dl-building-blocks`
 
 {doc}`notebooks/custom-layers`
@@ -98,13 +102,13 @@ RetinaNet?
 Bai, M., & Urtasun, R. (2017). [Deep watershed transform for instance segmentation.](https://arxiv.org/abs/1611.08303v2) In *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition* (pp. 5221-5229).
 ````
 
-## Week 5
+## Week 5 - 4/26, 4/28
 ````{panels}
 Lectures
 ^^^
-**Lecture 9:** Sequence models. 1D convolution, recurrent layers, attention, modern language models.
+**Lecture 9:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
 
-**Lecture 10:** Sequence model applications. DeepBind and others.
+**Lecture 10:** Sequence models. 1D convolution, recurrent layers, attention, modern language models.
 ---
 Notebooks
 ^^^
@@ -115,13 +119,13 @@ Papers
 
 ````
 
-## Week 6
+## Week 6 - 5/3, 5/5
 ````{panels}
 Lectures
 ^^^
-**Lecture 11:** Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
+**Lecture 11:** Sequence model applications. DeepBind and others.
 
-**Lecture 12:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
+**Lecture 12:** Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 ---
 Notebooks
 ^^^
@@ -132,13 +136,13 @@ Papers
 
 ````
 
-## Week 7
+## Week 7 - 5/10, 5/12
 ````{panels}
 Lectures
 ^^^
 **Lecture 13:** Guest Lecture by Uri Manor
 
-**Lecture 14:**
+**Lecture 14:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 ---
 Notebooks
 ^^^
@@ -148,7 +152,7 @@ Papers
 
 ````
 
-## Week 8
+## Week 8 - 5/17, 5/19
 ````{panels}
 Lectures
 ^^^
@@ -164,7 +168,7 @@ Papers
 
 ````
 
-## Week 9
+## Week 9 - 5/24, 5/26
 ````{panels}
 Lectures
 ^^^
@@ -180,7 +184,7 @@ Papers
 
 ````
 
-## Week 10
+## Week 10 - 5/31, 6/2
 ````{panels}
 Lectures
 ^^^
