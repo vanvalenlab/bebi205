@@ -50,3 +50,7 @@ Hie, B., Zhong, E. D., Berger, B., & Bryson, B. (2021). [Learning the language o
 : Phenotype classification of *C. elegans* and cells
 
 [Dryad](https://datadryad.org/search?f%5Bdc_subject_sm%5D%5B%5D=Biological+sciences)
+: Public database for publication associated datasets
+
+[Therapeutics Data Commons](https://tdcommons.ai/)
+: A collection of datasets spanning four therapeutics areas (i.e., Target Discovery, Activity, Efficacy and Safety, and Manufacturing) and two types of biomedical products (i.e., Small-Molecule Drugs and Biologics).
