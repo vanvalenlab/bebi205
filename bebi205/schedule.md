@@ -4,9 +4,9 @@
 ````{panels}
 Lectures
 ^^^
-**Lecture 1:** Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)
+[**Lecture 1:**](https://drive.google.com/file/d/1ajarGa-ECDXP_UooTstb6QGN7sNzFrin/view?usp=sharing) Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)
 
-**Lecture 2:** Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors
+[**Lecture 2:**](https://drive.google.com/file/d/1jNkFFUivzfltfgtZ7o7QCIXWqU9KWr7T/view?usp=sharing) Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors
 ---
 
 Notebooks
@@ -31,17 +31,13 @@ Eraslan, G., Avsec, Z., Gagneur, J., & Theis, F. J. (2019). [Deep learning: new 
 ````{panels}
 Lectures
 ^^^
-**Lecture 3:** Example Linear Classifier
+[**Lecture 3:**](https://drive.google.com/file/d/1iy8lqlBactkxKtx0DRPlnlu1ZKV6ocT0/view?usp=sharing) Example Linear Classifier
 
-**Lecture 4:** Conceptual overview of deep learning. Supervised vs unsupervised, Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting
+[**Lecture 4:**](https://drive.google.com/file/d/1qXV2nsgBX0uLVcOhZ0XzOZ3GQMI47le3/view?usp=sharing) Conceptual overview of deep learning. Supervised vs unsupervised, Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
 ---
 Notebooks
 ^^^
-{doc}`notebooks/deep-learning-concepts`
-
 {doc}`notebooks/linear-classifier`
-
-{doc}`notebooks/tf-dataset`
 ---
 Papers
 ^^^
@@ -54,13 +50,13 @@ Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification 
 ````{panels}
 Lectures
 ^^^
-**Lecture 5:** Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
+**Lecture 5:** DeepCell Label Workshop
 
 **Lecture 6:** Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
 ---
 Notebooks
 ^^^
-Deepcell Label Workshop?
+{doc}`notebooks/tf-dataset`
 
 {doc}`notebooks/linear-classifier-tf`
 ---
@@ -84,8 +80,6 @@ Notebooks
 {doc}`notebooks/dl-building-blocks`
 
 {doc}`notebooks/custom-layers`
-
-{doc}`notebooks/vision-model`
 ---
 Papers
 ^^^
@@ -112,11 +106,19 @@ Lectures
 ---
 Notebooks
 ^^^
+{doc}`notebooks/vision-model`
+
 {doc}`notebooks/sequence-model`
 ---
 Papers
 ^^^
+Poplin, R. et al. (2018). [A universal SNP and small-indel variant caller using deep neural networks.](https://doi.org/10.1038/nbt.4235) *Nature biotechnology*, 36(10), 983-987.
 
+Alipanahi, B., Delong, A., Weirauch, M. T., & Frey, B. J. (2015). [Predicting the sequence specificities of DNA-and RNA-binding proteins by deep learning.](https://doi.org/10.1038/nbt.3300) *Nature biotechnology*, 33(8), 831-838.
+
+Zhou, J., & Troyanskaya, O. G. (2015). [Predicting effects of noncoding variants with deep learning–based sequence model.](https://doi.org/10.1038/nmeth.3547) *Nature methods*, 12(10), 931-934.
+
+Hie, B., Zhong, E. D., Berger, B., & Bryson, B. (2021). [Learning the language of viral evolution and escape.](https://doi.org/10.1126/science.abd7331) *Science*, 371(6526), 284-288.
 ````
 
 ## Week 6 - 5/3, 5/5
@@ -142,7 +144,7 @@ Lectures
 ^^^
 **Lecture 13:** Guest Lecture by Uri Manor
 
-**Lecture 14:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
+**Lecture 14:** Guest Lecture by Barbara E Engelhardt
 ---
 Notebooks
 ^^^
@@ -156,7 +158,7 @@ Papers
 ````{panels}
 Lectures
 ^^^
-**Lecture 15:**
+**Lecture 15:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 
 **Lecture 16:**
 ---
@@ -188,9 +190,9 @@ Papers
 ````{panels}
 Lectures
 ^^^
-**Lecture 19:**
+**Lecture 19:** Student Presentations
 
-**Lecture 20:**
+**Lecture 20:** Student Presentations
 ---
 Notebooks
 ^^^

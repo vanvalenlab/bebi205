@@ -5,8 +5,8 @@
 
 #######################################################################################
 # Book settings
-title                       : bebi205  # The title of the book. Will be placed in the left navbar.
-author                      : David Van Valen  # The author of the book
+title                       : "BEBi205: Deep Learning for Biological Data"  # The title of the book. Will be placed in the left navbar.
+author                      : David Van Valen and Morgan Schwartz  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")

@@ -4,15 +4,16 @@
 
 - file: schedule
 
-- file: lecture-toc
+- file: final-project
+
+# - file: lecture-toc
 
 - file: notebooks-toc
   sections:
     - file: notebooks/data-science-in-python
     - file: notebooks/images
     - file: notebooks/sequences
-    # - file: notebooks/linear-classifier
-    - file: notebooks/deep-learning-concepts
+    - file: notebooks/linear-classifier
     - file: notebooks/tf-dataset
     - file: notebooks/optimizer
     - file: notebooks/dl-building-blocks
