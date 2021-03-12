@@ -28,7 +28,7 @@ Lectures will be held Monday/Wednesday 1-2:30 PM PST. The zoom links and subsequ
     - Final presentation or report
 
 ### Journal Club
-Each student will lead a ~20 presentation on a paper assigned for a given week. A sign up sheet will be available on Canvas.
+Each student will lead a ~20 presentation on a paper assigned for a given week. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.
 
 ## Compute Resources
 ## Academic Integrity
