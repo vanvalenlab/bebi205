@@ -12,8 +12,10 @@ A preliminary proposal is due in week 5. Please submit your proposal through Can
 
 The instructors will provide brief feedback by the end of the week on each proposal.
 
-## Final Deliverable
-You may choose between a presentation and a written report for the final deliverable for your project. Presentations will be scheduled during week 10 (5/31, 6/2), length TBD. The written report should be around 4 pages. In either form you should address the following topics:
+## Final Presentation
+Each group will give a 5-10 minute presentation during week 10 (5/31, 6/2). Focus on highlighting how you are using deep learning to solve a problem.
+## Final Report
+The written report should be around 4 pages and will be due at the end of finals period. You should address the following topics:
 
 * Introduction - Describe the problem you are working on and why it is important.
 * Data - Describe the data you are working with. What type of data is it and how was it generated? Did you perform any preprocessing on the data?
