@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : "BEBi205: Deep Learning for Biological Data"  # The title of the book. Will be placed in the left navbar.
+title                       : "BEBi 205: Deep Learning for Biological Data"  # The title of the book. Will be placed in the left navbar.
 author                      : David Van Valen and Morgan Schwartz  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
@@ -66,8 +66,3 @@ repository:
 
 #######################################################################################
 # Advanced and power-user settings
-sphinx:
-  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
-  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
-  config                    :   # key-value pairs to directly over-ride the Sphinx configuration
-    html_extra_path: ['lectures']
