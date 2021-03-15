@@ -519,9 +519,6 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/linear-classifier-key_9_0.png" src="../_images/linear-classifier-key_9_0.png" />
-</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -531,6 +528,9 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
     <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Label &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/linear-classifier-key_10_0.png" src="../_images/linear-classifier-key_10_0.png" />
 </div>
 </div>
 <p>For this exercise, we will want to flatten the training data into a vector.</p>
@@ -603,6 +603,14 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the number of c
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-20-fdad291e4476&gt;&quot;</span><span class="gt">, line </span><span class="mi">15</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="c1"># Add weights matrix here</span>
+                                      <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -652,6 +660,14 @@ and provides a convenient way to convert our class scores into probabilities</p>
 
 <span class="c1"># Assign methods to class</span>
 <span class="nb">setattr</span><span class="p">(</span><span class="n">LinearClassifier</span><span class="p">,</span> <span class="s1">&#39;predict&#39;</span><span class="p">,</span> <span class="n">predict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-24-2a0266a36920&gt;&quot;</span><span class="gt">, line </span><span class="mi">9</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="c1"># matrix multiplication</span>
+                               <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -859,12 +875,12 @@ where <span class="math notranslate nohighlight">\(1\)</span> is an indicator fu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Recall: 0.4117647058823529
-Training Precision: 0.5121951219512195
-Training F1 Score: 0.4565217391304348
-Testing Recall: 0.38461538461538464
-Testing Precision: 0.35714285714285715
-Testing F1 Score: 0.3703703703703704
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Recall: 0.3488372093023256
+Training Precision: 0.5357142857142857
+Training F1 Score: 0.4225352112676056
+Testing Recall: 0.38095238095238093
+Testing Precision: 0.7272727272727273
+Testing F1 Score: 0.5
 </pre></div>
 </div>
 </div>

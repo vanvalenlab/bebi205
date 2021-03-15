@@ -988,7 +988,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">161</span><span class="o">-</span><span class="mi">78</span><span class="n">fc9745d9cf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">&lt;ipython-input-24-78fc9745d9cf&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;monkey&#39;</span><span class="p">])</span>  <span class="c1"># KeyError: &#39;monkey&#39; not a key of d</span>
 
 <span class="ne">KeyError</span>: &#39;monkey&#39;
@@ -1014,11 +1014,6 @@ wet
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;fish&#39;</span><span class="p">]</span>        <span class="c1"># Remove an element from a dictionary</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fish&#39;</span><span class="p">,</span> <span class="s1">&#39;N/A&#39;</span><span class="p">))</span> <span class="c1"># &quot;fish&quot; is no longer a key; prints &quot;N/A&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N/A
 </pre></div>
 </div>
 </div>
@@ -1103,7 +1098,7 @@ False
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-2
+3
 </pre></div>
 </div>
 </div>
@@ -1136,8 +1131,8 @@ False
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#1: fish
-#2: dog
-#3: cat
+#2: cat
+#3: dog
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1184,7 @@ False
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">174</span><span class="o">-</span><span class="n">c8aeb8cd20ae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">&lt;ipython-input-35-c8aeb8cd20ae&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
@@ -1650,8 +1645,8 @@ Caught exception: abort
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.05270705 0.71948821]
- [0.01138693 0.65330505]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.48053284 0.91259894]
+ [0.40260486 0.31897294]]
 </pre></div>
 </div>
 </div>
@@ -2360,7 +2355,7 @@ original array:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fef883b24d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2f2cb5b310&gt;]
 </pre></div>
 </div>
 <img alt="../_images/data-science-in-python-key_194_1.png" src="../_images/data-science-in-python-key_194_1.png" />
@@ -2383,7 +2378,7 @@ original array:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fef87f2c110&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2f2cb797d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/data-science-in-python-key_196_1.png" src="../_images/data-science-in-python-key_196_1.png" />
@@ -3999,10 +3994,11 @@ MaxHR               190
 ExAng                 1
 Oldpeak             4.2
 Slope                 3
-Ca                  2.0
+Ca                    2
 Thal         reversable
 AHD                 Yes
 dtype: object
+-----------------------
 Age = 69
 </pre></div>
 </div>
