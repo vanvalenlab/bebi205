@@ -146,25 +146,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
-     In order to translate point
-     <span class="math notranslate nohighlight">
-      \(P(x,y)\)
-     </span>
-     by
-     <span class="math notranslate nohighlight">
-      \((\delta x, \delta y)\)
-     </span>
-     , we multiply P by the translation matrix
-$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
-\begin{bmatrix}
-1 &amp; 0 &amp; 0\
-0 &amp; 1 &amp; 0\
-\delta x &amp; \delta y &amp; 1
-\end{bmatrix}
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="optimizer.html">
      Optimizers
     </a>
@@ -304,77 +285,49 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   TensorFlow Data
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-datasets">
+   Image Datasets
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#image-datasets">
-     Image Datasets
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extract">
+     Extract
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transform">
+     Transform
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#extract">
-       Extract
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#shuffle">
+       Shuffle
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#transform">
-       Transform
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#augment">
+       Augment
       </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#shuffle">
-         Shuffle
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#augment">
-         Augment
-        </a>
-       </li>
-      </ul>
      </li>
     </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
-   In order to translate point
-   <span class="math notranslate nohighlight">
-    \(P(x,y)\)
-   </span>
-   by
-   <span class="math notranslate nohighlight">
-    \((\delta x, \delta y)\)
-   </span>
-   , we multiply P by the translation matrix
-$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
-\begin{bmatrix}
-1 &amp; 0 &amp; 0\
-0 &amp; 1 &amp; 0\
-\delta x &amp; \delta y &amp; 1
-\end{bmatrix}
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-image-augmentation">
+   Exercise - Image Augmentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sequence-datasets">
+   Sequence Datasets
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise-image-augmentation">
-     Exercise - Image Augmentation
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot-dna">
+     One Hot DNA
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sequence-datasets">
-     Sequence Datasets
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#one-hot-dna">
-       One Hot DNA
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -402,88 +355,9 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 </div>
 <p>This indicates that you are being asked to write a piece of code to complete the notebook.</p>
 <p>We need to pip install <code class="docutils literal notranslate"><span class="pre">tensorflow_addons</span></code> which has useful image transformation functions that are compatible with the tensorflow backend.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install tensorflow-addons
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tensorflow-addons
-?25l  Downloading https://files.pythonhosted.org/packages/74/e3/56d2fe76f0bb7c88ed9b2a6a557e25e83e252aec08f13de34369cd850a0b/tensorflow_addons-0.12.1-cp37-cp37m-manylinux2010_x86_64.whl (703kB)
-
-     |▌                               | 10kB 11.3MB/s eta 0:00:01
-     |█                               | 20kB 14.6MB/s eta 0:00:01
-     |█▍                              | 30kB 6.9MB/s eta 0:00:01
-     |█▉                              | 40kB 6.9MB/s eta 0:00:01
-     |██▎                             | 51kB 4.7MB/s eta 0:00:01
-     |██▉                             | 61kB 5.2MB/s eta 0:00:01
-     |███▎                            | 71kB 5.0MB/s eta 0:00:01
-     |███▊                            | 81kB 5.2MB/s eta 0:00:01
-     |████▏                           | 92kB 4.9MB/s eta 0:00:01
-     |████▋                           | 102kB 4.4MB/s eta 0:00:01
-     |█████▏                          | 112kB 4.4MB/s eta 0:00:01
-     |█████▋                          | 122kB 4.4MB/s eta 0:00:01
-     |██████                          | 133kB 4.4MB/s eta 0:00:01
-     |██████▌                         | 143kB 4.4MB/s eta 0:00:01
-     |███████                         | 153kB 4.4MB/s eta 0:00:01
-     |███████▌                        | 163kB 4.4MB/s eta 0:00:01
-     |████████                        | 174kB 4.4MB/s eta 0:00:01
-     |████████▍                       | 184kB 4.4MB/s eta 0:00:01
-     |████████▉                       | 194kB 4.4MB/s eta 0:00:01
-     |█████████▎                      | 204kB 4.4MB/s eta 0:00:01
-     |█████████▉                      | 215kB 4.4MB/s eta 0:00:01
-     |██████████▎                     | 225kB 4.4MB/s eta 0:00:01
-     |██████████▊                     | 235kB 4.4MB/s eta 0:00:01
-     |███████████▏                    | 245kB 4.4MB/s eta 0:00:01
-     |███████████▋                    | 256kB 4.4MB/s eta 0:00:01
-     |████████████▏                   | 266kB 4.4MB/s eta 0:00:01
-     |████████████▋                   | 276kB 4.4MB/s eta 0:00:01
-     |█████████████                   | 286kB 4.4MB/s eta 0:00:01
-     |█████████████▌                  | 296kB 4.4MB/s eta 0:00:01
-     |██████████████                  | 307kB 4.4MB/s eta 0:00:01
-     |██████████████▍                 | 317kB 4.4MB/s eta 0:00:01
-     |███████████████                 | 327kB 4.4MB/s eta 0:00:01
-     |███████████████▍                | 337kB 4.4MB/s eta 0:00:01
-     |███████████████▉                | 348kB 4.4MB/s eta 0:00:01
-     |████████████████▎               | 358kB 4.4MB/s eta 0:00:01
-     |████████████████▊               | 368kB 4.4MB/s eta 0:00:01
-     |█████████████████▎              | 378kB 4.4MB/s eta 0:00:01
-     |█████████████████▊              | 389kB 4.4MB/s eta 0:00:01
-     |██████████████████▏             | 399kB 4.4MB/s eta 0:00:01
-     |██████████████████▋             | 409kB 4.4MB/s eta 0:00:01
-     |███████████████████             | 419kB 4.4MB/s eta 0:00:01
-     |███████████████████▋            | 430kB 4.4MB/s eta 0:00:01
-     |████████████████████            | 440kB 4.4MB/s eta 0:00:01
-     |████████████████████▌           | 450kB 4.4MB/s eta 0:00:01
-     |█████████████████████           | 460kB 4.4MB/s eta 0:00:01
-     |█████████████████████▍          | 471kB 4.4MB/s eta 0:00:01
-     |██████████████████████          | 481kB 4.4MB/s eta 0:00:01
-     |██████████████████████▍         | 491kB 4.4MB/s eta 0:00:01
-     |██████████████████████▉         | 501kB 4.4MB/s eta 0:00:01
-     |███████████████████████▎        | 512kB 4.4MB/s eta 0:00:01
-     |███████████████████████▊        | 522kB 4.4MB/s eta 0:00:01
-     |████████████████████████▎       | 532kB 4.4MB/s eta 0:00:01
-     |████████████████████████▊       | 542kB 4.4MB/s eta 0:00:01
-     |█████████████████████████▏      | 552kB 4.4MB/s eta 0:00:01
-     |█████████████████████████▋      | 563kB 4.4MB/s eta 0:00:01
-     |██████████████████████████      | 573kB 4.4MB/s eta 0:00:01
-     |██████████████████████████▋     | 583kB 4.4MB/s eta 0:00:01
-     |███████████████████████████     | 593kB 4.4MB/s eta 0:00:01
-     |███████████████████████████▌    | 604kB 4.4MB/s eta 0:00:01
-     |████████████████████████████    | 614kB 4.4MB/s eta 0:00:01
-     |████████████████████████████▍   | 624kB 4.4MB/s eta 0:00:01
-     |████████████████████████████▉   | 634kB 4.4MB/s eta 0:00:01
-     |█████████████████████████████▍  | 645kB 4.4MB/s eta 0:00:01
-     |█████████████████████████████▉  | 655kB 4.4MB/s eta 0:00:01
-     |██████████████████████████████▎ | 665kB 4.4MB/s eta 0:00:01
-     |██████████████████████████████▊ | 675kB 4.4MB/s eta 0:00:01
-     |███████████████████████████████▏| 686kB 4.4MB/s eta 0:00:01
-     |███████████████████████████████▊| 696kB 4.4MB/s eta 0:00:01
-     |████████████████████████████████| 706kB 4.4MB/s 
-?25hRequirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.7/dist-packages (from tensorflow-addons) (2.7.1)
-Installing collected packages: tensorflow-addons
-Successfully installed tensorflow-addons-0.12.1
 </pre></div>
 </div>
 </div>
@@ -592,20 +466,14 @@ Successfully installed tensorflow-addons-0.12.1
 <div class="section" id="augment">
 <h4>Augment<a class="headerlink" href="#augment" title="Permalink to this headline">¶</a></h4>
 <p>Finally, we augment the dataset by performing random transformations to each batch of samples. In order to to this, we revisit the transformation matrices discussed previously. When we initially discussed transformations, we used 2x2 matrices to rotate, reflect, etc a 2D image. For dataset augmentation, we also want to translate the image such that it is shifted in 2D space away from its original center point. In order to do this, we will use a 3x3 matrix and consider each point <span class="math notranslate nohighlight">\(P(x,y) = \begin{bmatrix}x&amp;y&amp;1\end{bmatrix}\)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
-<h1>In order to translate point <span class="math notranslate nohighlight">\(P(x,y)\)</span> by <span class="math notranslate nohighlight">\((\delta x, \delta y)\)</span>, we multiply P by the translation matrix
-$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
+<p>In order to translate point <span class="math notranslate nohighlight">\(P(x,y)\)</span> by <span class="math notranslate nohighlight">\((\delta x, \delta y)\)</span>, we multiply P by the translation matrix
+<span class="math notranslate nohighlight">\(\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 \begin{bmatrix}
-1 &amp; 0 &amp; 0\
-0 &amp; 1 &amp; 0\
-\delta x &amp; \delta y &amp; 1
-\end{bmatrix}<a class="headerlink" href="#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix" title="Permalink to this headline">¶</a></h1>
-<p>\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}
-$$</p>
+    1 &amp; 0 &amp; 0\\
+    0 &amp; 1 &amp; 0\\
+    \delta x &amp; \delta y &amp; 1
+\end{bmatrix} = 
+\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\)</span></p>
 <p>In order to apply random transformations to the dataset, we can use the <code class="docutils literal notranslate"><span class="pre">dataset.map</span></code> function which will apply any python function to each element in the dataset. First we will write a function to calculate a random transformation matrix that scales the data within the limits of a specified zoom range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -660,7 +528,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-dataset-key_21_0.png" src="../_images/tf-dataset-key_21_0.png" />
+<img alt="../_images/tf-dataset-key_22_0.png" src="../_images/tf-dataset-key_22_0.png" />
 </div>
 </div>
 <p>We are now ready to write an augmentation function that can be fed into <code class="docutils literal notranslate"><span class="pre">dataset.map</span></code>. The inputs for our new function should match the output of <code class="docutils literal notranslate"><span class="pre">dataset.take(1)</span></code> which in this case is a tuple with an X and y value.</p>
@@ -687,9 +555,9 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-dataset-key_23_0.png" src="../_images/tf-dataset-key_23_0.png" />
-<img alt="../_images/tf-dataset-key_23_1.png" src="../_images/tf-dataset-key_23_1.png" />
-<img alt="../_images/tf-dataset-key_23_2.png" src="../_images/tf-dataset-key_23_2.png" />
+<img alt="../_images/tf-dataset-key_24_0.png" src="../_images/tf-dataset-key_24_0.png" />
+<img alt="../_images/tf-dataset-key_24_1.png" src="../_images/tf-dataset-key_24_1.png" />
+<img alt="../_images/tf-dataset-key_24_2.png" src="../_images/tf-dataset-key_24_2.png" />
 </div>
 </div>
 <p>Next, the dataset is broken into batches for model training. The batch size determines how many datapoints are fed through a model before the model is updated.</p>
@@ -699,6 +567,9 @@ $$</p>
 <p>In this examples we have applied each transformation to the dataset sequentially, but practically it’s most convenient to apply them in a single line as shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span><span class="n">reshuffle_each_iteration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">augment</span><span class="p">)</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="exercise-image-augmentation">
 <h2>Exercise - Image Augmentation<a class="headerlink" href="#exercise-image-augmentation" title="Permalink to this headline">¶</a></h2>
@@ -756,9 +627,9 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-dataset-key_27_0.png" src="../_images/tf-dataset-key_27_0.png" />
-<img alt="../_images/tf-dataset-key_27_1.png" src="../_images/tf-dataset-key_27_1.png" />
-<img alt="../_images/tf-dataset-key_27_2.png" src="../_images/tf-dataset-key_27_2.png" />
+<img alt="../_images/tf-dataset-key_28_0.png" src="../_images/tf-dataset-key_28_0.png" />
+<img alt="../_images/tf-dataset-key_28_1.png" src="../_images/tf-dataset-key_28_1.png" />
+<img alt="../_images/tf-dataset-key_28_2.png" src="../_images/tf-dataset-key_28_2.png" />
 </div>
 </div>
 </div>
