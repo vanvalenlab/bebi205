@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TensorFlow Data &#8212; bebi205</title>
+    <title>TensorFlow Data &#8212; BEBi 205: Deep Learning for Biological Data</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -44,7 +44,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -54,14 +54,24 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/tf-dataset.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Optimizers" href="optimizer.html" />
-    <link rel="prev" title="Deep Learning Concepts" href="deep-learning-concepts.html" />
+    <link rel="prev" title="The Linear Classifier" href="linear-classifier.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/tf-dataset.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="TensorFlow Data" />
+<meta property="og:description" content="TensorFlow Data  Some code cells will be marked with  ########################## ######## To Do ########### ##########################   This indicates that you" />
+<meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -79,7 +89,7 @@
   <img src="../_static/logo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">bebi205</h1>
+  <h1 class="site-logo" id="site-title">BEBi 205: Deep Learning for Biological Data</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -101,8 +111,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../lecture-toc.html">
-   Lecture Slides
+  <a class="reference internal" href="../final-project.html">
+   Final Project
   </a>
  </li>
  <li class="toctree-l1 current active collapsible-parent">
@@ -126,18 +136,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="deep-learning-concepts.html">
-     Deep Learning Concepts
+    <a class="reference internal" href="linear-classifier.html">
+     The Linear Classifier
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      TensorFlow Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#exercise">
-     Exercise
     </a>
    </li>
    <li class="toctree-l2">
@@ -191,21 +196,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -223,7 +228,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -244,13 +249,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -274,37 +279,38 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   TensorFlow Data
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-datasets">
+   Image Datasets
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#extract">
      Extract
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#transform">
      Transform
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#shuffle">
        Shuffle
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#augment">
        Augment
       </a>
@@ -313,15 +319,28 @@
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-image-augmentation">
+   Exercise - Image Augmentation
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sequence-datasets">
+   Sequence Datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot-dna">
+     One Hot DNA
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -331,6 +350,13 @@
                 
   <div class="section" id="tensorflow-data">
 <h1>TensorFlow Data<a class="headerlink" href="#tensorflow-data" title="Permalink to this headline">¶</a></h1>
+<p>Some code cells will be marked with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
+<span class="c1">######## To Do ###########</span>
+<span class="c1">##########################</span>
+</pre></div>
+</div>
+<p>This indicates that you are being asked to write a piece of code to complete the notebook.</p>
 <p>We need to pip install <code class="docutils literal notranslate"><span class="pre">tensorflow_addons</span></code> which has useful image transformation functions that are compatible with the tensorflow backend.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -339,8 +365,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tensorflow-addons in /usr/local/lib/python3.6/dist-packages (0.12.1)
-Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dist-packages (from tensorflow-addons) (2.7.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tensorflow-addons in /usr/local/lib/python3.7/dist-packages (0.12.1)
+Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.7/dist-packages (from tensorflow-addons) (2.7.1)
 </pre></div>
 </div>
 </div>
@@ -351,12 +377,15 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 <span class="kn">import</span> <span class="nn">tensorflow_addons</span> <span class="k">as</span> <span class="nn">tfa</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Any machine learning model is composed of two primary components: model design and training data. While model design and architecture receive significant attention, any model is only as good as the data which it was trained on. We’ll discuss how to prepare labeled training data in more detail later. Here we will focus on the most efficient way to wrangle your training data and feed it into a model. TensorFlow models expect to receive data wrapped in an iterator, such that if you call <code class="docutils literal notranslate"><span class="pre">next(data)</span></code> the output is a single data point and its corresponding label.</p>
-<p>TensorFlow has introduced the <code class="docutils literal notranslate"><span class="pre">tf.data</span></code> API to serve as an end-to-end pipeline for handling data in the context of machine learning. The core of the <code class="docutils literal notranslate"><span class="pre">tf.data</span></code> API is the <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> object. We will download the MNIST dataset to use as an example for this tutorial.</p>
+<div class="section" id="image-datasets">
+<h2>Image Datasets<a class="headerlink" href="#image-datasets" title="Permalink to this headline">¶</a></h2>
+<p>TensorFlow has introduced the <code class="docutils literal notranslate"><span class="pre">tf.data</span></code> API to serve as an end-to-end pipeline for handling data in the context of machine learning. The core of the <code class="docutils literal notranslate"><span class="pre">tf.data</span></code> API is the <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> object. We will download the MNIST dataset to use as an example of image data for this tutorial.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
@@ -387,14 +416,14 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;8&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;0&#39;)
 </pre></div>
 </div>
-<img alt="../_images/tf-dataset_8_1.png" src="../_images/tf-dataset_8_1.png" />
+<img alt="../_images/tf-dataset_9_1.png" src="../_images/tf-dataset_9_1.png" />
 </div>
 </div>
 <div class="section" id="extract">
-<h2>Extract<a class="headerlink" href="#extract" title="Permalink to this headline">¶</a></h2>
+<h3>Extract<a class="headerlink" href="#extract" title="Permalink to this headline">¶</a></h3>
 <p>This step addresses the task of reading your dataset and passing it to the Dataset object. There are six different input methods available which are detailed in the <a class="reference external" href="https://www.tensorflow.org/guide/data#reading_input_data">docs</a>. When your dataset can be fully loaded into memory, it can be converted to a tensor and passed directly to the object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -419,15 +448,15 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-dataset_11_0.png" src="../_images/tf-dataset_11_0.png" />
+<img alt="../_images/tf-dataset_12_0.png" src="../_images/tf-dataset_12_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="transform">
-<h2>Transform<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h2>
+<h3>Transform<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h3>
 <p>At this stage we can perform any transformations to our data prior to training. This can be as simple as shuffling the dataset prior to retrieving batches or applying random rotations for data augmentation.</p>
 <div class="section" id="shuffle">
-<h3>Shuffle<a class="headerlink" href="#shuffle" title="Permalink to this headline">¶</a></h3>
+<h4>Shuffle<a class="headerlink" href="#shuffle" title="Permalink to this headline">¶</a></h4>
 <p>The first step prior to passing data to a model for training is to shuffle the data such that the order in which the model receives the data is random. The function <code class="docutils literal notranslate"><span class="pre">dataset.shuffle</span></code> requires the arguement <code class="docutils literal notranslate"><span class="pre">buffer_size</span></code> which determines how many elements in the dataset are considered during random selection of each point. For perfect shuffling, <code class="docutils literal notranslate"><span class="pre">buffer_size</span></code> should be the greater than or equal to the size of the dataset. However, this carries a significant memory burden so typiclly <code class="docutils literal notranslate"><span class="pre">buffer_size</span></code> is a fraction of the dataset size.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -438,20 +467,16 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 </div>
 </div>
 <div class="section" id="augment">
-<h3>Augment<a class="headerlink" href="#augment" title="Permalink to this headline">¶</a></h3>
+<h4>Augment<a class="headerlink" href="#augment" title="Permalink to this headline">¶</a></h4>
 <p>Finally, we augment the dataset by performing random transformations to each batch of samples. In order to to this, we revisit the transformation matrices discussed previously. When we initially discussed transformations, we used 2x2 matrices to rotate, reflect, etc a 2D image. For dataset augmentation, we also want to translate the image such that it is shifted in 2D space away from its original center point. In order to do this, we will use a 3x3 matrix and consider each point <span class="math notranslate nohighlight">\(P(x,y) = \begin{bmatrix}x&amp;y&amp;1\end{bmatrix}\)</span>.</p>
-<p>In order to translate point <span class="math notranslate nohighlight">\(P(x,y)\)</span> by <span class="math notranslate nohighlight">\((\delta x, \delta y)\)</span>, we multiply P by the translation matrix</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
+<p>In order to translate point <span class="math notranslate nohighlight">\(P(x,y)\)</span> by <span class="math notranslate nohighlight">\((\delta x, \delta y)\)</span>, we multiply P by the translation matrix
+<span class="math notranslate nohighlight">\(\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 \begin{bmatrix}
     1 &amp; 0 &amp; 0\\
     0 &amp; 1 &amp; 0\\
     \delta x &amp; \delta y &amp; 1
-\end{bmatrix}
-=
-\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}
-\end{split}\]</div>
+\end{bmatrix} = 
+\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\)</span></p>
 <p>In order to apply random transformations to the dataset, we can use the <code class="docutils literal notranslate"><span class="pre">dataset.map</span></code> function which will apply any python function to each element in the dataset. First we will write a function to calculate a random transformation matrix that scales the data within the limits of a specified zoom range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -463,20 +488,15 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
     <span class="c1"># Build the matrix</span>
     <span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="n">zx</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">zy</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">compute_random_zoom</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">compute_random_zoom</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.80131298, 0.        , 0.        ],
-       [0.        , 1.67630283, 0.        ],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.59692916, 0.        , 0.        ],
+       [0.        , 0.54342923, 0.        ],
        [0.        , 0.        , 1.        ]])
 </pre></div>
 </div>
@@ -491,7 +511,7 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.80131298, 0.        , 0.        , 0.        , 1.67630283,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.59692916, 0.        , 0.        , 0.        , 0.54342923,
        0.        , 0.        , 0.        ])
 </pre></div>
 </div>
@@ -511,7 +531,7 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-dataset_21_0.png" src="../_images/tf-dataset_21_0.png" />
+<img alt="../_images/tf-dataset_22_0.png" src="../_images/tf-dataset_22_0.png" />
 </div>
 </div>
 <p>We are now ready to write an augmentation function that can be fed into <code class="docutils literal notranslate"><span class="pre">dataset.map</span></code>. The inputs for our new function should match the output of <code class="docutils literal notranslate"><span class="pre">dataset.take(1)</span></code> which in this case is a tuple with an X and y value.</p>
@@ -527,20 +547,10 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
     <span class="n">imt</span> <span class="o">=</span> <span class="n">tfa</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">fill_mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">imt</span><span class="p">,</span><span class="n">label</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aug_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">augment</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">im</span><span class="p">,</span><span class="n">label</span> <span class="ow">in</span> <span class="n">aug_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+
+<span class="n">aug_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">augment</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">im</span><span class="p">,</span><span class="n">label</span> <span class="ow">in</span> <span class="n">aug_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">label</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
@@ -548,25 +558,427 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-dataset_25_0.png" src="../_images/tf-dataset_25_0.png" />
-<img alt="../_images/tf-dataset_25_1.png" src="../_images/tf-dataset_25_1.png" />
-<img alt="../_images/tf-dataset_25_2.png" src="../_images/tf-dataset_25_2.png" />
+<img alt="../_images/tf-dataset_24_0.png" src="../_images/tf-dataset_24_0.png" />
+<img alt="../_images/tf-dataset_24_1.png" src="../_images/tf-dataset_24_1.png" />
+<img alt="../_images/tf-dataset_24_2.png" src="../_images/tf-dataset_24_2.png" />
 </div>
 </div>
 <p>Next, the dataset is broken into batches for model training. The batch size determines how many datapoints are fed through a model before the model is updated.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this examples we have applied each transformation to the dataset sequentially, but practically it’s most convenient to apply them in a single line as shown below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span><span class="n">reshuffle_each_iteration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">augment</span><span class="p">)</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="exercise">
-<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="exercise-image-augmentation">
+<h2>Exercise - Image Augmentation<a class="headerlink" href="#exercise-image-augmentation" title="Permalink to this headline">¶</a></h2>
 <p>Try expanding the <code class="docutils literal notranslate"><span class="pre">augment</span></code> function to include at least one additional transformation such as rotation. Remember that you use the dot product of two matrices to combine two transformations into one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
+<span class="c1">######## To Do ###########</span>
+<span class="c1">##########################</span>
+
+<span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Add your transformations here</span>
+
+    <span class="k">return</span> <span class="n">imt</span><span class="p">,</span><span class="n">label</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sequence-datasets">
+<h2>Sequence Datasets<a class="headerlink" href="#sequence-datasets" title="Permalink to this headline">¶</a></h2>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">tf.data</span></code> to prepare sequencing data for training. We will use a dataset published as part of the DREAM5 challenge and included as part of the supplement in Alphani et al. 2015.</p>
+<p>Alipanahi, B., Delong, A., Weirauch, M.T., and Frey, B.J. (2015). Predicting the sequence specificities of DNA- and RNA-binding proteins by deep learning. Nature Biotechnology 33, 831–838.</p>
+<p>For more information on the 2013 DREAM5 Motif Recognition Challenge protocols and evaluation,
+please refer to Weirauch et al., 2013 (Nature Biotechnology, doi:10.1038/nbt.2486)</p>
+<p>We’ll start by loading ChipSeq data for a single transcription factor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csfile</span> <span class="o">=</span> <span class="s1">&#39;https://storage.googleapis.com/datasets-spring2021/dream5/chipseq/TF_23_CHIP_100_full_genomic.seq&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csfile</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TGTGCTGAGTGACAGACTCATCAAGGCATGGCACTTCACACCTCTT...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>TTGGCAAGCCTTTGCACTGGCAGTCAAGAACTCAGGAGTGAGAGGG...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>TTCTGGAGGTGTTAAATGGGAAGGTGGCAGGGCCCTGCACACACAC...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CCCACCAGCAGACAGAGGGACAGCCTTCACAGATGATCCTGTATTT...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>CCAGTTTCTGACAGCCTTGTCACACTAGGTGTTAAGTGAAAAACAT...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>AAAGGACAGGGACCTAGATAAAAAGATTACAGGGAACACTAGAACT...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>TTTAAAGAAATATCCAAATACTTTTCATTATGAAATAGAATTTGAT...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>TCCCCCTTCCCATTCTGTTCATCATGGTAATAGCTGGCCCTGTGTA...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>ATGATCTGAATCAAGATTTACCCAATTTCAATTGAATTCTTTTCTA...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>TCAGGGAAAAGAGACTATCCCTATTTTATTTACAGAAGCAAAGAAC...</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>We need to check the length of each sequence to see if they are consistent or if we will need to pad/truncate to achieve a consistent length.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([101])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="one-hot-dna">
+<h3>One Hot DNA<a class="headerlink" href="#one-hot-dna" title="Permalink to this headline">¶</a></h3>
+<p>Since are sequences are all the same length (101 bases), we can continue and look at applying one hot encoding to our data. <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> has a useful preprocessing function <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> that we can use, but we will need to provide our data in an array instead of a pandas dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
+<span class="c1">######## To Do ###########</span>
+<span class="c1">##########################</span>
+
+<span class="c1"># Write a function that takes in a dataframe of sequences and labels </span>
+<span class="c1"># And returns two arrays, X and y</span>
+<span class="c1"># X.shape = (number of samples, length of sequence)</span>
+<span class="c1"># Y.shape = (number of samples, 1)</span>
+
+<span class="k">def</span> <span class="nf">seq_to_array</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+
+    <span class="c1"># Add your code here</span>
+
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xraw</span><span class="p">,</span><span class="n">yraw</span> <span class="o">=</span> <span class="n">seq_to_array</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Xraw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Xraw</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yraw</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yraw</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1000, 101)
+[&#39;T&#39; &#39;G&#39; &#39;T&#39; &#39;G&#39; &#39;C&#39; &#39;T&#39; &#39;G&#39; &#39;A&#39; &#39;G&#39; &#39;T&#39; &#39;G&#39; &#39;A&#39; &#39;C&#39; &#39;A&#39; &#39;G&#39; &#39;A&#39; &#39;C&#39; &#39;T&#39;
+ &#39;C&#39; &#39;A&#39; &#39;T&#39; &#39;C&#39; &#39;A&#39; &#39;A&#39; &#39;G&#39; &#39;G&#39; &#39;C&#39; &#39;A&#39; &#39;T&#39; &#39;G&#39; &#39;G&#39; &#39;C&#39; &#39;A&#39; &#39;C&#39; &#39;T&#39; &#39;T&#39;
+ &#39;C&#39; &#39;A&#39; &#39;C&#39; &#39;A&#39; &#39;C&#39; &#39;C&#39; &#39;T&#39; &#39;C&#39; &#39;T&#39; &#39;T&#39; &#39;A&#39; &#39;C&#39; &#39;A&#39; &#39;G&#39; &#39;A&#39; &#39;G&#39; &#39;C&#39; &#39;A&#39;
+ &#39;A&#39; &#39;A&#39; &#39;G&#39; &#39;C&#39; &#39;C&#39; &#39;T&#39; &#39;C&#39; &#39;G&#39; &#39;A&#39; &#39;A&#39; &#39;A&#39; &#39;T&#39; &#39;C&#39; &#39;A&#39; &#39;C&#39; &#39;C&#39; &#39;C&#39; &#39;G&#39;
+ &#39;G&#39; &#39;C&#39; &#39;A&#39; &#39;A&#39; &#39;A&#39; &#39;A&#39; &#39;T&#39; &#39;C&#39; &#39;T&#39; &#39;C&#39; &#39;C&#39; &#39;C&#39; &#39;T&#39; &#39;A&#39; &#39;G&#39; &#39;T&#39; &#39;C&#39; &#39;C&#39;
+ &#39;T&#39; &#39;G&#39; &#39;C&#39; &#39;C&#39; &#39;T&#39; &#39;C&#39; &#39;T&#39; &#39;T&#39; &#39;G&#39; &#39;G&#39; &#39;G&#39;]
+(1000, 1)
+[1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+
+<span class="n">onehotDNA</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The encoder expects that each column in the dataset is a unique feature set. Since we are dealing with one feature set (ATGC), we need to reshape our data to comply.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xpre</span> <span class="o">=</span> <span class="n">Xraw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Xpre</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(101000, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">onehotDNA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xpre</span><span class="p">)</span>
+<span class="n">onehotDNA</span><span class="o">.</span><span class="n">categories_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([&#39;A&#39;, &#39;C&#39;, &#39;G&#39;, &#39;T&#39;], dtype=&#39;&lt;U1&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xpost</span> <span class="o">=</span> <span class="n">onehotDNA</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xpre</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Xpost</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">Xpost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(101000, 4)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 0., 1.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.],
+       ...,
+       [0., 0., 1., 0.],
+       [1., 0., 0., 0.],
+       [1., 0., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">onehotDNA</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xpre</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now each character is one-hot encoded, but we need to reshape the array to restore the proper shape (number of samples, len of sequence, 4).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">Xpost</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Xraw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Xraw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1000, 101, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can compile all of the steps needed to get from the <code class="docutils literal notranslate"><span class="pre">.seq</span></code> file to the final form of the data into a single preprocessing function that returns a tensorflow dataset object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">load_seq</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csfile</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">Xraw</span><span class="p">,</span><span class="n">yraw</span> <span class="o">=</span> <span class="n">seq_to_array</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    
+    <span class="n">onehotDNA</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">()</span>
+
+    <span class="c1"># We can fit and transform in a single step now</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">onehotDNA</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xraw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+    <span class="c1"># Reshape to pull out individual samples</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Xraw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Xraw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">X</span><span class="p">,</span><span class="n">yraw</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">dataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_seq</span><span class="p">(</span><span class="n">csfile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">seq</span><span class="p">,</span><span class="n">label</span> <span class="ow">in</span> <span class="n">dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf.Tensor([1], shape=(1,), dtype=int64) 	 tf.Tensor(
+[[0. 0. 0. 1.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 1. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 1. 0.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 1. 0.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 1.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [1. 0. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 1. 0.]
+ [0. 1. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 1. 0. 0.]
+ [0. 0. 0. 1.]
+ [0. 0. 0. 1.]
+ [0. 0. 1. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 1. 0.]], shape=(101, 4), dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are now ready to shuffle and batch the dataset for training. In a future notebook, we’ll spend more time thinking about appropriate augmentation strategies for sequence data.</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -591,21 +1003,21 @@ Requirement already satisfied: typeguard&gt;=2.7 in /usr/local/lib/python3.6/dis
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="deep-learning-concepts.html" title="previous page">Deep Learning Concepts</a>
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="linear-classifier.html" title="previous page">The Linear Classifier</a>
     <a class='right-next' id="next-link" href="optimizer.html" title="next page">Optimizers</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By David Van Valen<br/>
+          By David Van Valen and Morgan Schwartz<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

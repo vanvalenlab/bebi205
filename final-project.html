@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lecture Slides &#8212; bebi205</title>
+    <title>Final Project &#8212; BEBi 205: Deep Learning for Biological Data</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -44,7 +44,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -52,6 +52,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="vanvalenlab.github.io/bebi205/final-project.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Course Notebooks" href="notebooks-toc.html" />
@@ -60,6 +61,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="vanvalenlab.github.io/bebi205/final-project.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Final Project" />
+<meta property="og:description" content="Final Project  Your final project will consist of half of your grade and serves as an opportunity for hands on exploration of using deep learning on a question " />
+<meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -77,7 +87,7 @@
   <img src="_static/logo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">bebi205</h1>
+  <h1 class="site-logo" id="site-title">BEBi 205: Deep Learning for Biological Data</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -100,7 +110,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Lecture Slides
+   Final Project
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
@@ -124,18 +134,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/deep-learning-concepts.html">
-     Deep Learning Concepts
+    <a class="reference internal" href="notebooks/linear-classifier.html">
+     The Linear Classifier
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="notebooks/tf-dataset.html">
      TensorFlow Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/tf-dataset.html#exercise">
-     Exercise
     </a>
    </li>
    <li class="toctree-l2">
@@ -189,21 +194,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -212,7 +217,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/lecture-toc.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/final-project.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -221,7 +226,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -232,29 +237,65 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Flecture-toc.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Ffinal-project.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/lecture-toc.md"><button
+        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/final-project.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-proposal-due-4-26">
+   Project Proposal - Due 4/26
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-presentation">
+   Final Presentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-report">
+   Final Report
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-ideas">
+   Project Ideas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publicly-available-datasets">
+   Publicly Available Datasets
+  </a>
+ </li>
+</ul>
+
+        </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -262,9 +303,55 @@
         
               <div>
                 
-  <div class="section" id="lecture-slides">
-<h1>Lecture Slides<a class="headerlink" href="#lecture-slides" title="Permalink to this headline">¶</a></h1>
-<p><span class="xref std std-doc">cookies-src.pdf</span></p>
+  <div class="section" id="final-project">
+<h1>Final Project<a class="headerlink" href="#final-project" title="Permalink to this headline">¶</a></h1>
+<p>Your final project will consist of half of your grade and serves as an opportunity for hands on exploration of using deep learning on a question of your choice. You may work on your own or in a group.</p>
+<div class="section" id="project-proposal-due-4-26">
+<h2>Project Proposal - Due 4/26<a class="headerlink" href="#project-proposal-due-4-26" title="Permalink to this headline">¶</a></h2>
+<p>A preliminary proposal is due in week 5. Please submit your proposal through Canvas. The proposal should be less than a page long and address the following questions:</p>
+<ol class="simple">
+<li><p>What problem are you investigating? Why is it interesting?</p></li>
+<li><p>What dataset are you going to use? How are you planning on acquiring the dataset and performing any necessary annotation?</p></li>
+<li><p>How is deep learning going to help you with your science? Is it automating a laborous task, performing inference or some other application? What method or algorithm are you implementing? Your answer does not need to be precise, but it should give us an idea of where you are heading.</p></li>
+<li><p>How are you going to evaluate your results? Consider both qualitative and quantitative analysis.</p></li>
+</ol>
+<p>The instructors will provide brief feedback by the end of the week on each proposal.</p>
+</div>
+<div class="section" id="final-presentation">
+<h2>Final Presentation<a class="headerlink" href="#final-presentation" title="Permalink to this headline">¶</a></h2>
+<p>Each group will give a 5-10 minute presentation during week 10 (5/31, 6/2). Focus on highlighting how you are using deep learning to solve a problem.</p>
+</div>
+<div class="section" id="final-report">
+<h2>Final Report<a class="headerlink" href="#final-report" title="Permalink to this headline">¶</a></h2>
+<p>The written report should be around 4 pages and will be due at the end of finals period. You should address the following topics:</p>
+<ul class="simple">
+<li><p>Introduction - Describe the problem you are working on and why it is important.</p></li>
+<li><p>Data - Describe the data you are working with. What type of data is it and how was it generated? Did you perform any preprocessing on the data?</p></li>
+<li><p>Method - Describe your approach to addressing the problem described in the introduction. Did you consider any alternative approaches? Why was your approach the right choice?</p></li>
+<li><p>Results - Describe your results including any qualitative or quantitative analysis you performed to evaluate your results.</p></li>
+<li><p>Conclusion - Summarize your key results and any conclusions. What future work could be done in this line of investigation?</p></li>
+</ul>
+</div>
+<div class="section" id="project-ideas">
+<h2>Project Ideas<a class="headerlink" href="#project-ideas" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="publicly-available-datasets">
+<h2>Publicly Available Datasets<a class="headerlink" href="#publicly-available-datasets" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://sites.google.com/site/anshulkundaje/idatasets">https://sites.google.com/site/anshulkundaje/idatasets</a></p>
+<p><a class="reference external" href="https://bbbc.broadinstitute.org/image_sets">Broad Bioimage Benchmark Collection</a>
+: Identification and segmentation of cells and embryos in bright field, DIC and fluorescent images
+: Phenotype classification of <em>C. elegans</em> and cells</p>
+<p><a class="reference external" href="https://datadryad.org/search?f%5Bdc_subject_sm%5D%5B%5D=Biological+sciences">Dryad</a>
+: Public database for publication associated datasets</p>
+<p><a class="reference external" href="https://tdcommons.ai/">Therapeutics Data Commons</a>
+: A collection of datasets spanning four therapeutics areas (i.e., Target Discovery, Activity, Efficacy and Safety, and Manufacturing) and two types of biomedical products (i.e., Small-Molecule Drugs and Biologics).</p>
+<p><a class="reference external" href="http://www.roadmapepigenomics.org/data/">Roadmap Epigenomics Project</a>
+: A collection of nearly 3,000 genome-wide datasets including histone modification, DNase, methylation and RNA-Seq datasets.</p>
+<p><a class="reference external" href="https://www.encodeproject.org/">ENCODE</a>
+: <a class="reference external" href="https://github.com/kundajelab/ENCODE_downloader">https://github.com/kundajelab/ENCODE_downloader</a></p>
+<p>[The Cancer Genome Atlas (TCGA)]</p>
+<p>[1000 Genomes Project]</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -289,21 +376,21 @@
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="schedule.html" title="previous page">Course Schedule</a>
     <a class='right-next' id="next-link" href="notebooks-toc.html" title="next page">Course Notebooks</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By David Van Valen<br/>
+          By David Van Valen and Morgan Schwartz<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
