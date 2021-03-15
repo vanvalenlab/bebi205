@@ -10,11 +10,11 @@
 
 - file: notebooks-toc
   sections:
-    - file: notebooks/data-science-in-python
+    - file: notebooks/data-science-in-python-key
     - file: notebooks/images
-    - file: notebooks/sequences
-    - file: notebooks/linear-classifier
-    - file: notebooks/tf-dataset
+    - file: notebooks/sequences-key
+    - file: notebooks/linear-classifier-key
+    - file: notebooks/tf-dataset-key
     - file: notebooks/optimizer
     - file: notebooks/dl-building-blocks
     - file: notebooks/custom-layers

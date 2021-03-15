@@ -55,9 +55,9 @@ latex:
 
 #######################################################################################
 # Launch button settings
-launch_buttons:
-  notebook_interface        : "classic"  # The interface interactive links will activate ["classic", "jupyterlab"]
-  colab_url                 : "https://colab.research.google.com" # The URL of Google Colab (https://colab.research.google.com)
+# launch_buttons:
+#   notebook_interface        : "classic"  # The interface interactive links will activate ["classic", "jupyterlab"]
+#   colab_url                 : "https://colab.research.google.com" # The URL of Google Colab (https://colab.research.google.com)
 
 repository:
   url                       : https://github.com/vanvalenlab/bebi205  # The URL to your book's repository
