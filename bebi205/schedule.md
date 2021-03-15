@@ -178,7 +178,7 @@ Lectures
 ````
 
 ## Week 10 - 5/31, 6/2
-````{panel}
+````{panels}
 Lectures
 ^^^
 **Lecture 19:** Student Presentations
