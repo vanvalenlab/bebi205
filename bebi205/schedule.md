@@ -11,11 +11,11 @@ Lectures
 
 Notebooks
 ^^^
-{doc}`notebooks/data-science-in-python`
+{doc}`notebooks/data-science-in-python-key`
 
 {doc}`notebooks/images`
 
-{doc}`notebooks/sequences`
+{doc}`notebooks/sequences-key`
 ---
 
 Papers
@@ -37,7 +37,7 @@ Lectures
 ---
 Notebooks
 ^^^
-{doc}`notebooks/linear-classifier`
+{doc}`notebooks/linear-classifier-key`
 ---
 Papers
 ^^^
@@ -56,7 +56,7 @@ Lectures
 ---
 Notebooks
 ^^^
-{doc}`notebooks/tf-dataset`
+{doc}`notebooks/tf-dataset-key`
 
 {doc}`notebooks/linear-classifier-tf`
 ---
