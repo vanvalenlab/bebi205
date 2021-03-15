@@ -54,10 +54,10 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/sequences.html" />
+    <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/sequences-key.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The Linear Classifier" href="linear-classifier.html" />
+    <link rel="next" title="The Linear Classifier" href="linear-classifier-key.html" />
     <link rel="prev" title="Images as Data" href="images.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,10 +65,10 @@
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/sequences.html" />
+<meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/sequences-key.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Sequences" />
-<meta property="og:description" content="Sequences  import os import errno import urllib.request import numpy as np  At the most basic level, sequences are simply a string and could be manipulated as s" />
+<meta property="og:description" content="Sequences  Open in Colab Open key in Colab  import os import errno import urllib.request import numpy as np  At the most basic level, sequences are simply a str" />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -121,7 +121,7 @@
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="data-science-in-python.html">
+    <a class="reference internal" href="data-science-in-python-key.html">
      Data Science in Python
     </a>
    </li>
@@ -136,13 +136,32 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="linear-classifier.html">
+    <a class="reference internal" href="linear-classifier-key.html">
      The Linear Classifier
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset.html">
+    <a class="reference internal" href="tf-dataset-key.html">
      TensorFlow Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf-dataset-key.html#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
+     In order to translate point
+     <span class="math notranslate nohighlight">
+      \(P(x,y)\)
+     </span>
+     by
+     <span class="math notranslate nohighlight">
+      \((\delta x, \delta y)\)
+     </span>
+     , we multiply P by the translation matrix
+$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
+\begin{bmatrix}
+1 &amp; 0 &amp; 0\
+0 &amp; 1 &amp; 0\
+\delta x &amp; \delta y &amp; 1
+\end{bmatrix}
     </a>
    </li>
    <li class="toctree-l2">
@@ -219,7 +238,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/sequences.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebooks/sequences-key.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -239,10 +258,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/sequences.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/sequences-key.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/sequences.ipynb"><button
+        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/sequences-key.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -262,18 +281,13 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/vanvalenlab/bebi205/master?urlpath=tree/bebi205/notebooks/sequences.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/vanvalenlab/bebi205/master?urlpath=tree/bebi205/notebooks/sequences-key.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -329,6 +343,8 @@
                 
   <div class="section" id="sequences">
 <h1>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
+<a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -700,6 +716,25 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 </div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_hot_dna</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+
+    <span class="c1"># Convert seq from string to array</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">seq</span><span class="p">))</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">raw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">raw</span><span class="o">==</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">raw</span><span class="o">==</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">raw</span><span class="o">==</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">raw</span><span class="o">==</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="n">one_hot_dna</span><span class="p">(</span><span class="n">dna</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="processing-branson-sequence-data">
 <h2>Processing Branson Sequence Data<a class="headerlink" href="#processing-branson-sequence-data" title="Permalink to this headline">¶</a></h2>
@@ -774,7 +809,13 @@ pad_sequences<span class="o">?</span>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">seq_num</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">lengths</span><span class="p">))</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -808,7 +849,7 @@ pad_sequences<span class="o">?</span>
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="images.html" title="previous page">Images as Data</a>
-    <a class='right-next' id="next-link" href="linear-classifier.html" title="next page">The Linear Classifier</a>
+    <a class='right-next' id="next-link" href="linear-classifier-key.html" title="next page">The Linear Classifier</a>
 
         </div>
         

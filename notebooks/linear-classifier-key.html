@@ -54,21 +54,21 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/linear-classifier.html" />
+    <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/linear-classifier-key.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="TensorFlow Data" href="tf-dataset.html" />
-    <link rel="prev" title="Sequences" href="sequences.html" />
+    <link rel="next" title="TensorFlow Data" href="tf-dataset-key.html" />
+    <link rel="prev" title="Sequences" href="sequences-key.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/linear-classifier.html" />
+<meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/linear-classifier-key.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="The Linear Classifier" />
-<meta property="og:description" content="The Linear Classifier  To illustrate the workflow for training a deep learning model in a supervised manner, this notebook will walk you through the simple case" />
+<meta property="og:description" content="The Linear Classifier  Open in Colab Open key in Colab  To illustrate the workflow for training a deep learning model in a supervised manner, this notebook will" />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -121,7 +121,7 @@
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="data-science-in-python.html">
+    <a class="reference internal" href="data-science-in-python-key.html">
      Data Science in Python
     </a>
    </li>
@@ -131,7 +131,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="sequences.html">
+    <a class="reference internal" href="sequences-key.html">
      Sequences
     </a>
    </li>
@@ -141,8 +141,27 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset.html">
+    <a class="reference internal" href="tf-dataset-key.html">
      TensorFlow Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf-dataset-key.html#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
+     In order to translate point
+     <span class="math notranslate nohighlight">
+      \(P(x,y)\)
+     </span>
+     by
+     <span class="math notranslate nohighlight">
+      \((\delta x, \delta y)\)
+     </span>
+     , we multiply P by the translation matrix
+$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
+\begin{bmatrix}
+1 &amp; 0 &amp; 0\
+0 &amp; 1 &amp; 0\
+\delta x &amp; \delta y &amp; 1
+\end{bmatrix}
     </a>
    </li>
    <li class="toctree-l2">
@@ -219,7 +238,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/linear-classifier.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebooks/linear-classifier-key.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -239,10 +258,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/linear-classifier.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/linear-classifier-key.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/linear-classifier.ipynb"><button
+        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/linear-classifier-key.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -262,18 +281,13 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/vanvalenlab/bebi205/master?urlpath=tree/bebi205/notebooks/linear-classifier.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/vanvalenlab/bebi205/master?urlpath=tree/bebi205/notebooks/linear-classifier-key.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -339,6 +353,11 @@
    Evaluate the model
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -353,6 +372,8 @@
                 
   <div class="section" id="the-linear-classifier">
 <h1>The Linear Classifier<a class="headerlink" href="#the-linear-classifier" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
+<a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>To illustrate the workflow for training a deep learning model in a supervised manner, this notebook will walk you through the simple case of training a linear classifier to recognize images of cats and dogs. While deep learning might seem intimidating, dont worry. Its conceptual underpinnings are rooted in linear algebra and calculus - if you can perform matrix multiplication and take derivatives you can understand what is happening in a deep learning workflow.</p>
 <p>Some code cells will be marked with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
@@ -467,11 +488,21 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(128, 64, 64, 1)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the dimensions of each array in the training data</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(128, 64, 64, 1) (128,)
 </pre></div>
 </div>
 </div>
@@ -488,6 +519,19 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/linear-classifier-key_9_0.png" src="../_images/linear-classifier-key_9_0.png" />
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Label &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>For this exercise, we will want to flatten the training data into a vector.</p>
 <div class="cell docutils container">
@@ -495,6 +539,11 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Flatten the images into vectors of size (# images, 16384, 1)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="o">*</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(128, 4096, 1)
 </pre></div>
 </div>
 </div>
@@ -534,7 +583,7 @@ W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 \end{equation}
 where <span class="math notranslate nohighlight">\(n\)</span> is the number of columns in the weight matrix (4096 in our case).</p>
 <p>Lets create the linear classifier using object oriented programming, which will help with organization</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinearClassifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
@@ -555,6 +604,29 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the number of c
 </div>
 </div>
 </div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinearClassifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="o">=</span><span class="n">image_size</span>
+        
+        <span class="c1"># Initialize weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_weights</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">_initialize_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        
+        <span class="c1">##########################</span>
+        <span class="c1">######## To Do ###########</span>
+        <span class="c1">##########################</span>
+        
+        <span class="c1"># Randomly initialize the weights matrix acccording to the glorot uniform initialization</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">),</span> 
+                                   <span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">),</span>
+                                   <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="p">))</span>          
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="apply-the-softmax-transform-to-complete-the-model-outputs">
 <h3>Apply the softmax transform to complete the model outputs<a class="headerlink" href="#apply-the-softmax-transform-to-complete-the-model-outputs" title="Permalink to this headline">¶</a></h3>
@@ -563,7 +635,7 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the number of c
 softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 \end{equation}
 and provides a convenient way to convert our class scores into probabilities</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
 <span class="c1">######## To Do ###########</span>
@@ -576,6 +648,28 @@ and provides a convenient way to convert our class scores into probabilities</p>
     <span class="n">y</span> <span class="o">=</span> <span class="c1"># matrix multiplication</span>
 
     <span class="n">y</span> <span class="o">=</span> <span class="c1"># Apply softmax</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="c1"># Assign methods to class</span>
+<span class="nb">setattr</span><span class="p">(</span><span class="n">LinearClassifier</span><span class="p">,</span> <span class="s1">&#39;predict&#39;</span><span class="p">,</span> <span class="n">predict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
+<span class="c1">######## To Do ###########</span>
+<span class="c1">##########################</span>
+
+<span class="c1"># Complete the predict function below to predict a label y from an input X</span>
+<span class="c1"># Pay careful attention to the shape of your data at each step</span>
+
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="o">.</span><span class="n">T</span> <span class="p">)</span>
+
+    <span class="c1"># Apply softmax - epsilon added for numerical stability</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">y</span>
 
 <span class="c1"># Assign methods to class</span>
@@ -606,6 +700,9 @@ and provides a convenient way to convert our class scores into probabilities</p>
     <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Label &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span><span class="s1">&#39;, Prediction &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/linear-classifier-key_23_0.png" src="../_images/linear-classifier-key_23_0.png" />
 </div>
 </div>
 <p>What do you notice about the initial results of the model?</p>
@@ -727,6 +824,9 @@ where <span class="math notranslate nohighlight">\(1\)</span> is an indicator fu
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/linear-classifier-key_28_0.png" src="../_images/linear-classifier-key_28_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -758,7 +858,20 @@ where <span class="math notranslate nohighlight">\(1\)</span> is an indicator fu
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Recall: 0.4117647058823529
+Training Precision: 0.5121951219512195
+Training F1 Score: 0.4565217391304348
+Testing Recall: 0.38461538461538464
+Testing Precision: 0.35714285714285715
+Testing F1 Score: 0.3703703703703704
+</pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>Try running your training algorithm a few times and record the results. What do you note about the overall performance? What about the differences between training runs? What about the difference in performance when evaluated on training data as opposed to validation data?</p>
 </div>
 </div>
@@ -788,8 +901,8 @@ where <span class="math notranslate nohighlight">\(1\)</span> is an indicator fu
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="sequences.html" title="previous page">Sequences</a>
-    <a class='right-next' id="next-link" href="tf-dataset.html" title="next page">TensorFlow Data</a>
+    <a class='left-prev' id="prev-link" href="sequences-key.html" title="previous page">Sequences</a>
+    <a class='right-next' id="next-link" href="tf-dataset-key.html" title="next page">TensorFlow Data</a>
 
         </div>
         
