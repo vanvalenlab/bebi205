@@ -17,7 +17,7 @@ Office Hours: TBD
 ## Teaching Assistant
 Morgan Schwartz<br/>
 `msschwartz[at]caltech[dot]edu`<br/>
-Office Hours: TBD
+Office Hours: Available for sign up through [Calendly](https://calendly.com/bebi205-office-hours)
 
 ## Lectures
 Lectures will be held Monday/Wednesday 1-2:30 PM PST. The zoom links and subsequent recordings are available on Canvas.
