@@ -68,7 +68,7 @@
 <meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/linear-classifier-key.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="The Linear Classifier" />
-<meta property="og:description" content="The Linear Classifier  Open in Colab Open key in Colab  To illustrate the workflow for training a deep learning model in a supervised manner, this notebook will" />
+<meta property="og:description" content="The Linear Classifier  Last updated Mar 16, 2021  Open in Colab Open key in Colab  To illustrate the workflow for training a deep learning model in a supervised" />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -146,25 +146,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset-key.html#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
-     In order to translate point
-     <span class="math notranslate nohighlight">
-      \(P(x,y)\)
-     </span>
-     by
-     <span class="math notranslate nohighlight">
-      \((\delta x, \delta y)\)
-     </span>
-     , we multiply P by the translation matrix
-$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
-\begin{bmatrix}
-1 &amp; 0 &amp; 0\
-0 &amp; 1 &amp; 0\
-\delta x &amp; \delta y &amp; 1
-\end{bmatrix}
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="optimizer.html">
      Optimizers
     </a>
@@ -177,11 +158,6 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
    <li class="toctree-l2">
     <a class="reference internal" href="custom-layers.html">
      Making a Custom Layer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vision-model.html">
-     Vision Model
     </a>
    </li>
    <li class="toctree-l2">
@@ -372,6 +348,7 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
                 
   <div class="section" id="the-linear-classifier">
 <h1>The Linear Classifier<a class="headerlink" href="#the-linear-classifier" title="Permalink to this headline">¶</a></h1>
+<p>Last updated Mar 16, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>To illustrate the workflow for training a deep learning model in a supervised manner, this notebook will walk you through the simple case of training a linear classifier to recognize images of cats and dogs. While deep learning might seem intimidating, dont worry. Its conceptual underpinnings are rooted in linear algebra and calculus - if you can perform matrix multiplication and take derivatives you can understand what is happening in a deep learning workflow.</p>
@@ -519,9 +496,6 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/linear-classifier-key_9_0.png" src="../_images/linear-classifier-key_9_0.png" />
-</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -531,6 +505,9 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
     <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Label &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/linear-classifier-key_10_0.png" src="../_images/linear-classifier-key_10_0.png" />
 </div>
 </div>
 <p>For this exercise, we will want to flatten the training data into a vector.</p>
@@ -583,7 +560,7 @@ W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 \end{equation}
 where <span class="math notranslate nohighlight">\(n\)</span> is the number of columns in the weight matrix (4096 in our case).</p>
 <p>Lets create the linear classifier using object oriented programming, which will help with organization</p>
-<div class="cell tag_hide-output docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinearClassifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
@@ -635,7 +612,7 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the number of c
 softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 \end{equation}
 and provides a convenient way to convert our class scores into probabilities</p>
-<div class="cell tag_hide-output docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
 <span class="c1">######## To Do ###########</span>
@@ -859,12 +836,12 @@ where <span class="math notranslate nohighlight">\(1\)</span> is an indicator fu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Recall: 0.4117647058823529
-Training Precision: 0.5121951219512195
-Training F1 Score: 0.4565217391304348
-Testing Recall: 0.38461538461538464
-Testing Precision: 0.35714285714285715
-Testing F1 Score: 0.3703703703703704
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Recall: 0.3488372093023256
+Training Precision: 0.5357142857142857
+Training F1 Score: 0.4225352112676056
+Testing Recall: 0.38095238095238093
+Testing Precision: 0.7272727272727273
+Testing F1 Score: 0.5
 </pre></div>
 </div>
 </div>

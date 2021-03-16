@@ -68,7 +68,7 @@
 <meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/images.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Images as Data" />
-<meta property="og:description" content="Images as Data  Open in Colab  import numpy as np import matplotlib.pyplot as plt import os  File Formats  Open source file formats  imageio is an incredibly us" />
+<meta property="og:description" content="Images as Data  Last updated Mar 16, 2021  Open in Colab  import numpy as np import matplotlib.pyplot as plt import os  File Formats  Open source file formats  " />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -146,25 +146,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset-key.html#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
-     In order to translate point
-     <span class="math notranslate nohighlight">
-      \(P(x,y)\)
-     </span>
-     by
-     <span class="math notranslate nohighlight">
-      \((\delta x, \delta y)\)
-     </span>
-     , we multiply P by the translation matrix
-$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
-\begin{bmatrix}
-1 &amp; 0 &amp; 0\
-0 &amp; 1 &amp; 0\
-\delta x &amp; \delta y &amp; 1
-\end{bmatrix}
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="optimizer.html">
      Optimizers
     </a>
@@ -177,11 +158,6 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
    <li class="toctree-l2">
     <a class="reference internal" href="custom-layers.html">
      Making a Custom Layer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vision-model.html">
-     Vision Model
     </a>
    </li>
    <li class="toctree-l2">
@@ -362,6 +338,7 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
                 
   <div class="section" id="images-as-data">
 <h1>Images as Data<a class="headerlink" href="#images-as-data" title="Permalink to this headline">¶</a></h1>
+<p>Last updated Mar 16, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/images.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -413,10 +390,10 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fad66e91050&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fcba17b6cd0&gt;
 </pre></div>
 </div>
-<img alt="../_images/images_11_1.png" src="../_images/images_11_1.png" />
+<img alt="../_images/images_10_1.png" src="../_images/images_10_1.png" />
 </div>
 </div>
 <p>This function supports a variety of <a class="reference external" href="https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.imshow.html">keyword arguments</a> that include changing the colormap used to display the image and changing the minimum and maximum values that scale the colormap. Matplotlib will generally default to using the <code class="docutils literal notranslate"><span class="pre">viridis</span></code> colormap, but we can choose from a range of <a class="reference external" href="https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html">options</a> supported by matplotlib. As an example, we will switch to using the <code class="docutils literal notranslate"><span class="pre">inferno</span></code> colormap and look at the effect of changing the minimum and maximum scaling values.</p>
@@ -447,10 +424,10 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fad6d2395d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fcba0d88a90&gt;
 </pre></div>
 </div>
-<img alt="../_images/images_14_1.png" src="../_images/images_14_1.png" />
+<img alt="../_images/images_13_1.png" src="../_images/images_13_1.png" />
 </div>
 </div>
 </div>
@@ -524,7 +501,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/images_23_0.png" src="../_images/images_23_0.png" />
+<img alt="../_images/images_22_0.png" src="../_images/images_22_0.png" />
 </div>
 </div>
 </div>
@@ -566,7 +543,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/images_25_0.png" src="../_images/images_25_0.png" />
+<img alt="../_images/images_24_0.png" src="../_images/images_24_0.png" />
 </div>
 </div>
 </div>
@@ -607,7 +584,7 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/images_27_0.png" src="../_images/images_27_0.png" />
+<img alt="../_images/images_26_0.png" src="../_images/images_26_0.png" />
 </div>
 </div>
 <p>We will revisit transformation matrices again when we begin peparing augmented data for model training.</p>

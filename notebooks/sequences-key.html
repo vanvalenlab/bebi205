@@ -68,7 +68,7 @@
 <meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/sequences-key.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Sequences" />
-<meta property="og:description" content="Sequences  Open in Colab Open key in Colab  import os import errno import urllib.request import numpy as np  At the most basic level, sequences are simply a str" />
+<meta property="og:description" content="Sequences  Last updated Mar 16, 2021  Open in Colab Open key in Colab  import os import errno import urllib.request import numpy as np  At the most basic level," />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -146,25 +146,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset-key.html#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
-     In order to translate point
-     <span class="math notranslate nohighlight">
-      \(P(x,y)\)
-     </span>
-     by
-     <span class="math notranslate nohighlight">
-      \((\delta x, \delta y)\)
-     </span>
-     , we multiply P by the translation matrix
-$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
-\begin{bmatrix}
-1 &amp; 0 &amp; 0\
-0 &amp; 1 &amp; 0\
-\delta x &amp; \delta y &amp; 1
-\end{bmatrix}
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="optimizer.html">
      Optimizers
     </a>
@@ -177,11 +158,6 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
    <li class="toctree-l2">
     <a class="reference internal" href="custom-layers.html">
      Making a Custom Layer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vision-model.html">
-     Vision Model
     </a>
    </li>
    <li class="toctree-l2">
@@ -343,6 +319,7 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
                 
   <div class="section" id="sequences">
 <h1>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h1>
+<p>Last updated Mar 16, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell docutils container">
@@ -364,19 +341,9 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
 </div>
 <p>This indicates that you are being asked to write a piece of code to complete the notebook.</p>
 <p>To get started, we will use pip to install the Biopython package if it’s not already available.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install biopython
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting biopython
-?25l  Downloading https://files.pythonhosted.org/packages/3a/cd/0098eaff841850c01da928c7f509b72fd3e1f51d77b772e24de9e2312471/biopython-1.78-cp37-cp37m-manylinux1_x86_64.whl (2.3MB)
-     |████████████████████████████████| 2.3MB 5.5MB/s 
-?25hRequirement already satisfied: numpy in /usr/local/lib/python3.7/dist-packages (from biopython) (1.19.5)
-Installing collected packages: biopython
-Successfully installed biopython-1.78
 </pre></div>
 </div>
 </div>
@@ -385,154 +352,10 @@ Successfully installed biopython-1.78
 <h2>Reading Sequence Files<a class="headerlink" href="#reading-sequence-files" title="Permalink to this headline">¶</a></h2>
 <p>We are going to look at some data from a recent paper published by Bryan Branson’s group at MIT. We’ll looked at the paper in more detail before Professor Branson gives a guest lecture later in the course.</p>
 <p>Hie, B., Zhong, E. D., Berger, B., &amp; Bryson, B. (2021). <a class="reference external" href="https://doi.org/10.1126/science.abd7331">Learning the language of viral evolution and escape.</a> Science, 371(6526), 284-288.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget http://cb.csail.mit.edu/cb/viral-mutation/data.tar.gz
 <span class="o">!</span>tar xvf data.tar.gz
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-03-12 03:37:14--  http://cb.csail.mit.edu/cb/viral-mutation/data.tar.gz
-Resolving cb.csail.mit.edu (cb.csail.mit.edu)... 128.30.2.148
-Connecting to cb.csail.mit.edu (cb.csail.mit.edu)|128.30.2.148|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 74057478 (71M) [application/x-gzip]
-Saving to: ‘data.tar.gz’
-
-data.tar.gz         100%[===================&gt;]  70.63M  10.0MB/s    in 8.0s    
-
-2021-03-12 03:37:22 (8.84 MB/s) - ‘data.tar.gz’ saved [74057478/74057478]
-
-data/
-data/escape_results.txt
-data/evcouplings/
-data/evcouplings/flu_h3_config.yaml
-data/evcouplings/flu_h1_config.yaml
-data/evcouplings/hiv_bf520_seq.fa
-data/evcouplings/hiv_env_seq.fa
-data/evcouplings/hiv_env_config.yaml
-data/evcouplings/sarscov2_config.yaml
-data/evcouplings/flu_h1_seq.fa
-data/evcouplings/hiv_bf520_config.yaml
-data/evcouplings/sarscov2_seq.fa
-data/evcouplings/flu_h3_seq.fa
-data/headlines/
-data/headlines/abcnews-date-text.csv
-data/headlines/headlines.txt
-data/hiv/
-data/hiv/bg505_regions.txt
-data/hiv/fitness_haddox2018/
-data/hiv/fitness_haddox2018/BG505-1_prefs.csv
-data/hiv/fitness_haddox2018/BG505-3_prefs.csv
-data/hiv/fitness_haddox2018/BG505-2_prefs.csv
-data/hiv/fitness_haddox2018/BF520-3_prefs.csv
-data/hiv/fitness_haddox2018/BF520-2_prefs.csv
-data/hiv/fitness_haddox2018/BF520-1_prefs.csv
-data/hiv/fitness_haddox2018/BF520_to_HXB2.csv
-data/hiv/fitness_haddox2018/BF520_env.fasta
-data/hiv/fitness_haddox2018/map_indices.py
-data/hiv/fitness_haddox2018/BF520_avgprefs.csv
-data/hiv/fitness_haddox2018/Env_protalignment_manualtweaks.fasta
-data/hiv/fitness_haddox2018/BG505_env.fasta
-data/hiv/fitness_haddox2018/BG505_avgprefs.csv
-data/hiv/fitness_haddox2018/BG505_to_HXB2.csv
-data/hiv/HIV-1_env_samelen.fa
-data/hiv/escape_dingens2019/
-data/hiv/escape_dingens2019/FileS4/
-data/hiv/escape_dingens2019/FileS4/fracsurvive/
-data/hiv/escape_dingens2019/FileS4/fracsurvive/VRC34.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/PGT151.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/VRC01.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/10E8.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/3BNC117.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/PGT145.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/PGT121.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/101074.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/PG9.csv
-data/hiv/escape_dingens2019/FileS4/fracsurvive/3BNC117-101074-pool.csv
-data/hiv/escape_dingens2019/FileS4/.DS_Store
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/PG9.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/PGT151.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/3BNC117.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/3BNC117-101074-pool.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/PGT121.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/101074.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/VRC34.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/PGT145.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/VRC01.csv
-data/hiv/escape_dingens2019/FileS4/fracsurviveaboveavg/10E8.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/
-data/hiv/escape_dingens2019/FileS4/diffsel/PGT121.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/101074.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/PGT145.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/10E8.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/.DS_Store
-data/hiv/escape_dingens2019/FileS4/diffsel/PG9.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/VRC34.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/3BNC117.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/3BNC117-101074-pool.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/VRC01.csv
-data/hiv/escape_dingens2019/FileS4/diffsel/PGT151.csv
-data/hiv/escape_dingens2019/BG505_to_HXB2.csv
-data/hiv/escape_dingens2019/Env_protalign_manualeditAD.fasta
-data/fitness_results.txt
-data/influenza/
-data/influenza/escape_lee2019/
-data/influenza/escape_lee2019/H3_site_to_PDB_4o5n.csv
-data/influenza/escape_lee2019/avg_sel_tidy.csv
-data/influenza/escape_lee2019/Perth2009_H3_HA.fa
-data/influenza/fitness_wu2020/
-data/influenza/fitness_wu2020/data_all.csv
-data/influenza/fitness_wu2020/HA_ecto.fa
-data/influenza/fitness_wu2020/data_pref.tsv
-data/influenza/fitness_wu2020/HumanH3N2_All_2018.fa
-data/influenza/fitness_wu2020/wildtypes.fa
-data/influenza/escape_doud2018/
-data/influenza/escape_doud2018/medianfracsurvivefiles/
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_FI6v3_median_avgsite.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_H17L7_median.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_S139_median.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_C179_median_avgsite.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_H17L7_median_avgsite.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_FI6v3_median.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_C179_median.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_H17L10_median_avgsite.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_S139_median_avgsite.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_H17L19_median.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_H17L19_median_avgsite.csv
-data/influenza/escape_doud2018/medianfracsurvivefiles/antibody_H17L10_median.csv
-data/influenza/escape_doud2018/pos_map.csv
-data/influenza/escape_doud2018/H1toH3_renumber.csv
-data/influenza/escape_doud2018/WSN1933_H1_HA.fa
-data/influenza/escape_doud2018/candidates.fa
-data/influenza/ird_influenzaA_HA_allspecies.fa
-data/influenza/ird_influenzaA_HA_allspecies_meta.tsv
-data/influenza/h3_regions.txt
-data/influenza/h1_regions.txt
-data/influenza/fitness_doud2016/
-data/influenza/fitness_doud2016/Supplemental_File_5_sequencing_library_primers.txt
-data/influenza/fitness_doud2016/Supplemental_File_3_HApreferences_rescaled.txt
-data/influenza/fitness_doud2016/Doud2016_HA_replicate-2_prefs.csv
-data/influenza/fitness_doud2016/Doud2016_HA_replicate-3_prefs.csv
-data/influenza/fitness_doud2016/Doud2016_HA_replicate-1_prefs.csv
-data/influenza/fitness_doud2016/Supplemental_File_2_HApreferences.txt
-data/influenza/fitness_doud2016/Supplemental_File_6_WSN_to_H3_numbering_conversion.txt
-data/cov/
-data/cov/cov_all.fa
-data/cov/cov2_spike_wt.fasta
-data/cov/starr2020cov2/
-data/cov/starr2020cov2/binding_Kds.csv
-data/cov/starr2020cov2/expression_meanFs.csv
-data/cov/starr2020cov2/single_mut_effects.csv
-data/cov/gisaid.fasta
-data/cov/sarscov2_regions.txt
-data/cov/viprbrc_db.fasta
-data/cov/sars_cov2_seqs.fa
-data/greaney2020cov2/
-data/greaney2020cov2/escape_fracs.csv
-data/greaney2020cov2/significant_escape_sites.csv
 </pre></div>
 </div>
 </div>
@@ -703,7 +526,7 @@ $<span class="math notranslate nohighlight">\(
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>Write a function that takes in a sequence of <span class="math notranslate nohighlight">\(n\)</span> bases as a string and produces an <span class="math notranslate nohighlight">\(n\times 4\)</span> array where the sequence is represented using one-hot encoding. You may also need to write code to turn the sequence from a string into an array.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
 <span class="c1">######## To Do ###########</span>
@@ -731,6 +554,49 @@ $<span class="math notranslate nohighlight">\(
     <span class="k">return</span> <span class="n">out</span>
 
 <span class="n">one_hot_dna</span><span class="p">(</span><span class="n">dna</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.],
+       [0., 0., 0., 1.],
+       [1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 1., 0., 0.],
+       [1., 0., 0., 0.],
+       [1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.],
+       [0., 0., 0., 1.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [1., 0., 0., 0.],
+       [1., 0., 0., 0.],
+       [1., 0., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 1., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.],
+       [0., 0., 0., 1.],
+       [0., 0., 0., 1.],
+       [0., 0., 1., 0.],
+       [1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [1., 0., 0., 0.],
+       [0., 0., 1., 0.]])
 </pre></div>
 </div>
 </div>
@@ -816,6 +682,11 @@ pad_sequences<span class="o">?</span>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>576
 </pre></div>
 </div>
 </div>

@@ -66,7 +66,7 @@
 <meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/data-science-in-python-key.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Data Science in Python" />
-<meta property="og:description" content="Data Science in Python  Open in Colab Open key in Colab  Introduction  Python is a general-purpose programming language and with the addition of a few popular l" />
+<meta property="og:description" content="Data Science in Python  Last updated Mar 16, 2021  Open in Colab Open key in Colab  Introduction  Python is a general-purpose programming language and with the " />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -144,25 +144,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset-key.html#in-order-to-translate-point-p-x-y-by-delta-x-delta-y-we-multiply-p-by-the-translation-matrix-begin-bmatrix-x-y-1-end-bmatrix-times-begin-bmatrix-1-0-0-0-1-0-delta-x-delta-y-1-end-bmatrix">
-     In order to translate point
-     <span class="math notranslate nohighlight">
-      \(P(x,y)\)
-     </span>
-     by
-     <span class="math notranslate nohighlight">
-      \((\delta x, \delta y)\)
-     </span>
-     , we multiply P by the translation matrix
-$$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
-\begin{bmatrix}
-1 &amp; 0 &amp; 0\
-0 &amp; 1 &amp; 0\
-\delta x &amp; \delta y &amp; 1
-\end{bmatrix}
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="optimizer.html">
      Optimizers
     </a>
@@ -175,11 +156,6 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
    <li class="toctree-l2">
     <a class="reference internal" href="custom-layers.html">
      Making a Custom Layer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vision-model.html">
-     Vision Model
     </a>
    </li>
    <li class="toctree-l2">
@@ -553,6 +529,7 @@ $$\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times
                 
   <div class="section" id="data-science-in-python">
 <h1>Data Science in Python<a class="headerlink" href="#data-science-in-python" title="Permalink to this headline">¶</a></h1>
+<p>Last updated Mar 16, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/data-science-in-python.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/data-science-in-python-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="section" id="introduction">
@@ -988,7 +965,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">161</span><span class="o">-</span><span class="mi">78</span><span class="n">fc9745d9cf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">&lt;ipython-input-24-78fc9745d9cf&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;monkey&#39;</span><span class="p">])</span>  <span class="c1"># KeyError: &#39;monkey&#39; not a key of d</span>
 
 <span class="ne">KeyError</span>: &#39;monkey&#39;
@@ -1014,11 +991,6 @@ wet
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;fish&#39;</span><span class="p">]</span>        <span class="c1"># Remove an element from a dictionary</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fish&#39;</span><span class="p">,</span> <span class="s1">&#39;N/A&#39;</span><span class="p">))</span> <span class="c1"># &quot;fish&quot; is no longer a key; prints &quot;N/A&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>N/A
 </pre></div>
 </div>
 </div>
@@ -1103,7 +1075,7 @@ False
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-2
+3
 </pre></div>
 </div>
 </div>
@@ -1136,8 +1108,8 @@ False
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#1: fish
-#2: dog
-#3: cat
+#2: cat
+#3: dog
 </pre></div>
 </div>
 </div>
@@ -1189,7 +1161,7 @@ False
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">174</span><span class="o">-</span><span class="n">c8aeb8cd20ae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">&lt;ipython-input-35-c8aeb8cd20ae&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
@@ -1650,8 +1622,8 @@ Caught exception: abort
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.05270705 0.71948821]
- [0.01138693 0.65330505]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.48053284 0.91259894]
+ [0.40260486 0.31897294]]
 </pre></div>
 </div>
 </div>
@@ -2360,10 +2332,10 @@ original array:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fef883b24d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2f2cb5b310&gt;]
 </pre></div>
 </div>
-<img alt="../_images/data-science-in-python-key_194_1.png" src="../_images/data-science-in-python-key_194_1.png" />
+<img alt="../_images/data-science-in-python-key_193_1.png" src="../_images/data-science-in-python-key_193_1.png" />
 </div>
 </div>
 <p>With just a little bit of extra work we can easily plot multiple lines at once, and add a title, legend, and axis labels:</p>
@@ -2383,10 +2355,10 @@ original array:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fef87f2c110&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2f2cb797d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/data-science-in-python-key_196_1.png" src="../_images/data-science-in-python-key_196_1.png" />
+<img alt="../_images/data-science-in-python-key_195_1.png" src="../_images/data-science-in-python-key_195_1.png" />
 </div>
 </div>
 </div>
@@ -2419,7 +2391,7 @@ original array:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/data-science-in-python-key_199_0.png" src="../_images/data-science-in-python-key_199_0.png" />
+<img alt="../_images/data-science-in-python-key_198_0.png" src="../_images/data-science-in-python-key_198_0.png" />
 </div>
 </div>
 <p>Alternatively the <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code> function creates a figure and an array of subplots which can be easily iterated over.</p>
@@ -2441,7 +2413,7 @@ original array:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Cosine&#39;)
 </pre></div>
 </div>
-<img alt="../_images/data-science-in-python-key_201_1.png" src="../_images/data-science-in-python-key_201_1.png" />
+<img alt="../_images/data-science-in-python-key_200_1.png" src="../_images/data-science-in-python-key_200_1.png" />
 </div>
 </div>
 <p>As always, you can read much more about the <code class="docutils literal notranslate"><span class="pre">subplot</span></code> function in the <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplot">documentation</a>. So far this is just a taste of what matplotlib can do for data visualization. Check out the <a class="reference external" href="https://matplotlib.org/gallery/index.html">gallery</a> provided in matplotlib’s documentation for more examples.</p>
@@ -3999,10 +3971,11 @@ MaxHR               190
 ExAng                 1
 Oldpeak             4.2
 Slope                 3
-Ca                  2.0
+Ca                    2
 Thal         reversable
 AHD                 Yes
 dtype: object
+-----------------------
 Age = 69
 </pre></div>
 </div>

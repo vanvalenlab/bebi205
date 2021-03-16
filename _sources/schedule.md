@@ -1,5 +1,7 @@
 # Course Schedule
-
+```{eval-rst}
+Last updated |lastupdate|
+```
 ## Week 1 - 3/29, 3/31
 ````{panels}
 Lectures
