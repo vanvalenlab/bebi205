@@ -1,4 +1,7 @@
 # Syllabus
+```{eval-rst}
+Last updated |lastupdate|
+```
 
 ## Objective
 This course is meant to be a practical introduction to deep learning methods for biological data. Our goal is to provide you with the tools necessary to apply these methods to your own data. We also want to give you enough conceptual knowledge to know what to do when things do not work.

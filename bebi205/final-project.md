@@ -1,4 +1,7 @@
 # Final Project
+```{eval-rst}
+Last updated |lastupdate|
+```
 
 Your final project will consist of half of your grade and serves as an opportunity for hands on exploration of using deep learning on a question of your choice. You may work on your own or in a group.
 
