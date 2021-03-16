@@ -10,3 +10,4 @@ imageio
 biopython
 tensorflow
 tensorflow-addons
+sphinxcontrib-lastupdate
