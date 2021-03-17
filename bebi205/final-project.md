@@ -30,24 +30,32 @@ The written report should be around 4 pages and will be due at the end of finals
 
 ## Publicly Available Datasets
 
-https://sites.google.com/site/anshulkundaje/idatasets
+[Dryad](https://datadryad.org/search?f%5Bdc_subject_sm%5D%5B%5D=Biological+sciences)
+: Public database for publication associated datasets
+### Images
 
 [Broad Bioimage Benchmark Collection](https://bbbc.broadinstitute.org/image_sets)
 : Identification and segmentation of cells and embryos in bright field, DIC and fluorescent images
 : Phenotype classification of *C. elegans* and cells
 
-[Dryad](https://datadryad.org/search?f%5Bdc_subject_sm%5D%5B%5D=Biological+sciences)
-: Public database for publication associated datasets
+[Human Protein Atlas](https://www.proteinatlas.org)
+: Extensive collection of microscopy-based data showing tissue-level and sub-cellular labeling of proteins with antibodies.
+
+[Allen Brain Atlas](https://portal.brain-map.org/)
+: Collection of single cell sequencing and microscopy data characterizing aspects of the brain.
+
+[Image Data Resource](https://idr.openmicroscopy.org/)
+: Public database of cellular imaging data
+
+[Reicher_PooledProteinTagging_2020](https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/Reicher_PooledProteinTagging_2020)
+: Data published in association with the paper "Pooled protein tagging, cellular imaging and in situ sequencing for monitoring drug action in real time"
+
+### Sequences
 
 [Therapeutics Data Commons](https://tdcommons.ai/)
 : A collection of datasets spanning four therapeutics areas (i.e., Target Discovery, Activity, Efficacy and Safety, and Manufacturing) and two types of biomedical products (i.e., Small-Molecule Drugs and Biologics).
 
-[Roadmap Epigenomics Project](http://www.roadmapepigenomics.org/data/)
-: A collection of nearly 3,000 genome-wide datasets including histone modification, DNase, methylation and RNA-Seq datasets.
+For a comprehensive list of available sequence datasets, please review the [list](https://sites.google.com/site/anshulkundaje/idatasets) published by Anush Kundaje
 
-[ENCODE](https://www.encodeproject.org/)
-: https://github.com/kundajelab/ENCODE_downloader
-
-[The Cancer Genome Atlas (TCGA)]
-
-[1000 Genomes Project]
+[immuneML](https://immuneml.uio.no/)
+: Open source ecosystem for analyzing adaptive immune receptor repertoires
