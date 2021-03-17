@@ -105,8 +105,6 @@ Lectures
 Notebooks
 ^^^
 {doc}`notebooks/vision-model`
-
-{doc}`notebooks/sequence-model`
 ---
 Papers
 ^^^
@@ -134,6 +132,8 @@ Lectures
 ---
 Notebooks
 ^^^
+{doc}`notebooks/sequence-model`
+
 {doc}`notebooks/debugging`
 ---
 Papers
