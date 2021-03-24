@@ -19,19 +19,24 @@ Morgan Schwartz<br/>
 `msschwartz[at]caltech[dot]edu`<br/>
 Office Hours: Available for sign up through [Calendly](https://calendly.com/bebi205-office-hours)
 
+## Course Communication
+This website will serve as the central hub for the course. Canvas will be used for distributing announcements and collecting any submissions for the course. Discussion threads have been established for course questions and coding problems or bugs.
 ## Lectures
-Lectures will be held Monday/Wednesday 1-2:30 PM PST. The zoom links and subsequent recordings are available on Canvas.
+Lectures will be held Monday/Wednesday 1-2:30 PM PST. Zoom links are available on Canvas. Lectures notes and recordings will be linked on the {doc}`schedule` and hosted on Google Drive. They will only be accessible through a Caltech gmail account.
 
 ## Grading
-- 25% Class Participation
-    - Engagement during class and office hours
-- 25% Journal Club
-- 50% {doc}`final-project`
-    - Project proposal
-    - Final presentation or report
+| Assignment                | Points | Due Date                   |
+|---------------------------|--------|----------------------------|
+| Class Participation       | 100    |                            |
+| Journal Club Presentation | 200    |                            |
+| Dataset Exploration       | 100    | 4/19                       |
+| Project Proposal          | 150    | 4/26                       |
+| Progress Report           | 100    | 5/17                       |
+| Final Presentation        | 100    | Seniors: 5/28; Others: 6/2 |
+| Final Report              | 250    | Seniors: 6/4; Others: 6/11 |
 
 ### Journal Club
-Each student will lead a ~20 presentation on a paper assigned for a given week. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.
+Each student will lead a ~20 minute presentation on a paper assigned for a given week. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.
 
 ## Compute Resources
 ## Academic Integrity
