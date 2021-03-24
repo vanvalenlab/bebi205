@@ -12,7 +12,7 @@ The course will be have two primary components.
 ## Course Instructor
 Professor David Van Valen<br/>
 `vanvalen[at]caltech[dot]edu`<br/>
-Office Hours: TBD
+Office Hours: Fridays 3-4pm (Zoom link through Canvas)
 
 ## Teaching Assistant
 Morgan Schwartz<br/>
