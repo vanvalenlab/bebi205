@@ -17,7 +17,6 @@
     - file: notebooks/tf-dataset-key
     - file: notebooks/optimizer
     - file: notebooks/dl-building-blocks
-    - file: notebooks/custom-layers
     - file: notebooks/vision-model
     - file: notebooks/sequence-model
     - file: notebooks/debugging
