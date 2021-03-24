@@ -39,6 +39,9 @@ Lectures will be held Monday/Wednesday 1-2:30 PM PST. Zoom links are available o
 Each student will lead a ~20 minute presentation on a paper assigned for a given week. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.
 
 ## Compute Resources
+Weekly course notebooks can be run in [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb#) for free. Each notebook in this book has one or two buttons that will launch the notebook and its key in Colab.
+
+Cluster access will be provided for your final projects and more information will be added in the next few weeks.
 ## Academic Integrity
 Caltech’s Honor Code: “No member of the Caltech community shall take unfair advantage of any other member of the Caltech community.”
 
