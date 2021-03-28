@@ -5,6 +5,7 @@ Last updated |lastupdate|
 
 Your final project will consist of half of your grade and serves as an opportunity for hands on exploration of using deep learning on a question of your choice. You may work on your own or in a group. There will be a series of brief assignments leading up to the final submission.
 
+(dataset-exploration)=
 ## Dataset Exploration - Due 4/19
 Please select a dataset that you are considering using for your final project. You may change your mind in the future as your project develops.
 
@@ -15,6 +16,7 @@ For this assignment, please submit a jupyter notebook (as an html file) that dem
 3. Set up a tensorflow `Dataset` object
 4. Call `Dataset.take(1)` in order to demonstrate what a single datapoint will look like
 
+(project-proposal)=
 ## Project Proposal - Due 4/26
 A preliminary proposal is due in week 5. Please submit your proposal through Canvas. The proposal should be less than a page long and address the following questions:
 
@@ -25,6 +27,7 @@ A preliminary proposal is due in week 5. Please submit your proposal through Can
 
 The instructors will provide brief feedback by the end of the week on each proposal.
 
+(progress-report)=
 ## Progress Report - Due 5/17
 Please submit a jupyter notebook (as an html file) documenting your progress towards the objectives described in your proposal. Describe any challenges you are currently facing and how you are planning to overcome them. We will do our best to provide feedback and advice as needed.
 
