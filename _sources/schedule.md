@@ -70,6 +70,7 @@ Ronneberger, O., Fischer, P., & Brox, T. (2015). [U-net: Convolutional networks 
 ````
 
 ## Week 4 - 4/19, 4/21
+**Assignment:** {ref}`dataset-exploration`
 ````{panels}
 Lectures
 ^^^
@@ -95,6 +96,7 @@ Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss f
 ````
 
 ## Week 5 - 4/26, 4/28
+**Assignment:** {ref}`project-proposal`
 ````{panels}
 Lectures
 ^^^
@@ -153,6 +155,7 @@ Lectures
 ````
 
 ## Week 8 - 5/17, 5/19
+**Assignment:** {ref}`progress-report`
 ````{panels}
 Lectures
 ^^^
