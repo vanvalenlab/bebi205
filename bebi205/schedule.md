@@ -60,7 +60,7 @@ Notebooks
 ^^^
 {doc}`notebooks/tf-dataset-key`
 
-{doc}`notebooks/linear-classifier-tf`
+{doc}`notebooks/tf-classifier`
 ---
 Papers
 ^^^
@@ -83,8 +83,6 @@ Notebooks
 {doc}`notebooks/optimizer`
 
 {doc}`notebooks/dl-building-blocks`
-
-{doc}`notebooks/custom-layers`
 ---
 Papers
 ^^^

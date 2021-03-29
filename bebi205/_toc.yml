@@ -15,6 +15,7 @@
     - file: notebooks/sequences-key
     - file: notebooks/linear-classifier-key
     - file: notebooks/tf-dataset-key
+    - file: notebooks/tf-classifier
     - file: notebooks/optimizer
     - file: notebooks/dl-building-blocks
     - file: notebooks/vision-model
