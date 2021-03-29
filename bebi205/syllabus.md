@@ -22,7 +22,7 @@ Office Hours: Available for sign up through [Calendly](https://calendly.com/bebi
 ## Course Communication
 This website will serve as the central hub for the course. Canvas will be used for distributing announcements and collecting any submissions for the course. Discussion threads have been established for course questions and coding problems or bugs.
 ## Lectures
-Lectures will be held Monday/Wednesday 1-2:30 PM PST. Zoom links are available on Canvas. Lectures notes and recordings will be linked on the {doc}`schedule` and hosted on Google Drive. They will only be accessible through a Caltech gmail account.
+Lectures will be held Monday/Wednesday 1-2:30 PM PST. Zoom links are available on Canvas. Lectures notes will be linked on the {doc}`schedule` and hosted on Google Drive. Lecture recordings will be posted in [this Google Drive folder](https://drive.google.com/drive/folders/1Q-ZpF6k61KKaHq4QoGlMcEXa6kioD0n_?usp=sharing). They will only be accessible through a Caltech gmail account.
 
 Live attendance of lectures is not required, but is necessary for the journal club and final presentations.
 
