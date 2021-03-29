@@ -24,19 +24,25 @@ This website will serve as the central hub for the course. Canvas will be used f
 ## Lectures
 Lectures will be held Monday/Wednesday 1-2:30 PM PST. Zoom links are available on Canvas. Lectures notes and recordings will be linked on the {doc}`schedule` and hosted on Google Drive. They will only be accessible through a Caltech gmail account.
 
+Live attendance of lectures is not required, but is necessary for the journal club and final presentations.
+
 ## Grading
 | Assignment                | Points | Due Date                   |
 |---------------------------|--------|----------------------------|
-| Class Participation       | 100    |                            |
-| Journal Club Presentation | 200    |                            |
-| Dataset Exploration       | 100    | 4/19                       |
-| Project Proposal          | 150    | 4/26                       |
-| Progress Report           | 100    | 5/17                       |
-| Final Presentation        | 100    | Seniors: 5/28; Others: 6/2 |
-| Final Report              | 250    | Seniors: 6/4; Others: 6/11 |
+| Journal Club Presentation | 250    |                            |
+| {doc}`final-project`:     | (750)  |                            |
+| - Dataset Exploration     | 150    | 4/19                       |
+| - Project Proposal        | 150    | 4/26                       |
+| - Progress Report         | 50     | 5/17                       |
+| - Final Presentation      | 100    | Seniors: 5/28; Others: 6/2 |
+| - Final Report            | 300    | Seniors: 6/4; Others: 6/11 |
+| **Class Total**           | 1000   |                            |
 
 ### Journal Club
-Each student will lead a ~20 minute presentation on a paper assigned for a given week. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.
+Students will assemble into groups of up to 4 individuals to present a single paper for journal club. Live attendance is required in order to give the presentation. Make-ups will not be available. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.
+
+### Late Assignments
+Late assignments will lose 10% for each day late. Extensions for due dates can be granted by the TA in light of extenuating circumstances. Please reach out prior to the deadline.
 
 ## Compute Resources
 Weekly course notebooks can be run in [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb#) for free. Each notebook in this book has one or two buttons that will launch the notebook and its key in Colab.
