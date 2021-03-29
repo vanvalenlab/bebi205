@@ -1,0 +1,1416 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image classification with TensorFlow &#8212; BEBi 205: Deep Learning for Biological Data</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/tf-classifier.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Optimizers" href="optimizer.html" />
+    <link rel="prev" title="TensorFlow Data" href="tf-dataset-key.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/tf-classifier.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Image classification with TensorFlow" />
+<meta property="og:description" content="Image classification with TensorFlow  In this notebook we will revisit the image classification problem with TensorFLow. You will see how to create models and h" />
+<meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">BEBi 205: Deep Learning for Biological Data</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../syllabus.html">
+   Syllabus
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../schedule.html">
+   Course Schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../final-project.html">
+   Class Project
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../notebooks-toc.html">
+   Course Notebooks
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="data-science-in-python-key.html">
+     Data Science in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="images.html">
+     Images as Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sequences-key.html">
+     Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="linear-classifier-key.html">
+     The Linear Classifier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf-dataset-key.html">
+     TensorFlow Data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Image classification with TensorFlow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="optimizer.html">
+     Optimizers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dl-building-blocks.html">
+     Deep Learning Building Blocks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vision-model.html">
+     Vision Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sequence-model.html">
+     Sequence Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="debugging.html">
+     Debugging
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/tf-classifier.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/vanvalenlab/bebi205"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/tf-classifier.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/tf-classifier.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/vanvalenlab/bebi205/master?urlpath=tree/bebi205/notebooks/tf-classifier.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   Load packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-supervised-machine-learning-workflow">
+   The supervised machine learning workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-training-data">
+   Create training data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-dataset-object">
+   Create dataset object
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-models">
+   Define models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specify-training-parameters">
+   Specify training parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-the-model">
+   Train the model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#benchmark-the-model">
+   Benchmark the model
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="image-classification-with-tensorflow">
+<h1>Image classification with TensorFlow<a class="headerlink" href="#image-classification-with-tensorflow" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook we will revisit the image classification problem with TensorFLow. You will see how to create models and how to access the machinery of stochastic gradient descent using the existing software tooling.</p>
+<div class="section" id="load-packages">
+<h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
+<p>In this cell, we will load the python packages we need for this notebook</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio</span>
+<span class="kn">import</span> <span class="nn">skimage</span>
+<span class="kn">import</span> <span class="nn">sklearn.model_selection</span>
+<span class="kn">import</span> <span class="nn">skimage.color</span>
+<span class="kn">import</span> <span class="nn">skimage.transform</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">gpus</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">gpu</span> <span class="ow">in</span> <span class="n">gpus</span><span class="p">:</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">set_memory_growth</span><span class="p">(</span><span class="n">gpu</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        
+<span class="kn">import</span> <span class="nn">tensorflow_addons</span> <span class="k">as</span> <span class="nn">tfa</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">deepcell</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-supervised-machine-learning-workflow">
+<h2>The supervised machine learning workflow<a class="headerlink" href="#the-supervised-machine-learning-workflow" title="Permalink to this headline">¶</a></h2>
+<p>Recall the workflow outlined in the linear classifier notebook</p>
+<ul class="simple">
+<li><p>Create a training dataset</p></li>
+<li><p>Specify a model</p></li>
+<li><p>Specify a loss function, optimization algorithm, and training parameters</p></li>
+<li><p>Train the model</p></li>
+<li><p>Benchmark the model
+We will implement these steps using TensorFlow in this notebook</p></li>
+</ul>
+</div>
+<div class="section" id="create-training-data">
+<h2>Create training data<a class="headerlink" href="#create-training-data" title="Permalink to this headline">¶</a></h2>
+<p>We will reuse our toy example of building a classifier that can distinguish cats from dogs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the training dataset from the cloud bucket</span>
+<span class="n">IMG_HEIGHT</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">IMG_WIDTH</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">IMG_CHANNEL</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">IMG_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="n">IMG_WIDTH</span><span class="p">,</span> <span class="n">IMG_HEIGHT</span><span class="p">)</span>
+
+<span class="c1"># Load the training dataset into memory</span>
+<span class="k">def</span> <span class="nf">load_training_data</span><span class="p">(</span><span class="n">direc</span><span class="p">,</span> <span class="n">n_cat_images</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">n_dog_images</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">direc</span><span class="p">)</span>
+    
+    <span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="n">cat_counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">dog_counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+        <span class="n">fullpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">direc</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">category</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s2">&quot;dog&quot;</span> <span class="ow">and</span> <span class="n">dog_counter</span> <span class="o">&lt;</span> <span class="n">n_dog_images</span><span class="p">:</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">IMG_SIZE</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">equalize_adapthist</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">rescale_intensity</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+            <span class="n">dog_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+        <span class="k">elif</span> <span class="n">category</span> <span class="o">==</span> <span class="s2">&quot;cat&quot;</span> <span class="ow">and</span> <span class="n">cat_counter</span> <span class="o">&lt;</span> <span class="n">n_cat_images</span><span class="p">:</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">IMG_SIZE</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">equalize_adapthist</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">rescale_intensity</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+            <span class="n">cat_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+    
+    <span class="c1"># Randomly shuffle</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cat_images</span> <span class="o">+</span> <span class="n">n_dog_images</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+        
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_training_data</span><span class="p">(</span><span class="s1">&#39;/data/bebi205/cats_and_dogs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize a collection of images in the training data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">...</span><span class="p">,:])</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Label &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf-classifier_6_0.png" src="../_images/tf-classifier_6_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="create-dataset-object">
+<h2>Create dataset object<a class="headerlink" href="#create-dataset-object" title="Permalink to this headline">¶</a></h2>
+<p>TensorFlow uses Dataset objects to feed data into the training pipeline. These objects were covered in more detail in the TensorFlow Dataset notebook. In this section, we will make a class that builds a dataset object and applies random augmentation operation (e.g. rotation, flipping, scaling).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dataset builder</span>
+<span class="k">class</span> <span class="nc">DatasetBuilder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">X</span><span class="p">,</span>
+                 <span class="n">y</span><span class="p">,</span>
+                 <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">rotation_range</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
+                 <span class="n">scale_range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">)):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rotation_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">(</span><span class="n">rotation_range</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_range</span> <span class="o">=</span> <span class="n">scale_range</span>
+        
+        <span class="c1"># Create dataset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_dataset</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">_augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">rotation_range</span><span class="o">/</span><span class="mi">360</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">tfa</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">random_flip_left_right</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">random_flip_up_down</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">_create_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">X_train</span><span class="p">,</span> <span class="n">X_temp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_temp</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">X_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X_temp</span><span class="p">,</span> <span class="n">y_temp</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        
+        <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+        <span class="n">val_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">))</span>
+        <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_augment</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_dataset</span> <span class="o">=</span> <span class="n">val_dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">DatasetBuilder</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the data augmentation</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">as_numpy_iterator</span><span class="p">()</span>
+<span class="n">X_temp</span><span class="p">,</span> <span class="n">y_temp</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X_temp</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">...</span><span class="p">,:])</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Label &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y_temp</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(64, 128, 128, 3)
+</pre></div>
+</div>
+<img alt="../_images/tf-classifier_10_1.png" src="../_images/tf-classifier_10_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="define-models">
+<h2>Define models<a class="headerlink" href="#define-models" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will define our machine learning models using TensorFlow. These models are composed of layers - each layer specifies a mathematical operation that is applied to its input. The nice thing about TensorFlow is that almost all of the machinery required for stochastic gradient descent is taken care of for us.</p>
+<ul class="simple">
+<li><p>Specify trainable variables? Check.</p></li>
+<li><p>Initialize trainable variables with random values? Check.</p></li>
+<li><p>Compute the layer outputs? Check.</p></li>
+<li><p>Compute gradients using backpropagation? Check.</p></li>
+<li><p>Perform all of the computations on GPUs to speed up training and inference? Check.
+All of the above (and more) are taken care of for us by TensorFlow - writing models often requires little math (although one practice that I encourage is keeping track of the input and output dimensions for each layer).</p></li>
+</ul>
+<p>Let define three different models so that we can evaluate their performance on this problem.</p>
+<ul class="simple">
+<li><p>Linear classifier</p></li>
+<li><p>Fully connected neural network</p></li>
+<li><p>Convolutional neural network (a simple one)</p></li>
+</ul>
+<p>To define these models, we will use a module in TensorFlow called Keras. Keras simple APIs for specifying models. In Keras, there are two different APIs you can use:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/guide/keras/sequential_model">Sequential API</a> - If your model is composed of a linear sequence of steps, this is the easier API to use.</p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/guide/keras/functional">Functional API</a> - If your model is more complicated, this API provides more flexibility. If you’re using the functional API, consider using a class with methods to write submodels.
+The TensorFlow documentation provides additional details about how to use each of these two APIs.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">Flatten</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span><span class="p">,</span> <span class="n">BatchNormalization</span><span class="p">,</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPool2D</span><span class="p">,</span> <span class="n">Softmax</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the linear classifier</span>
+<span class="k">def</span> <span class="nf">create_linear_classifier</span><span class="p">():</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">Input</span><span class="p">((</span><span class="n">IMG_HEIGHT</span><span class="p">,</span> <span class="n">IMG_WIDTH</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;linear_classifier_input&#39;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Softmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="n">linear_classifier</span> <span class="o">=</span> <span class="n">create_linear_classifier</span><span class="p">()</span>
+<span class="n">plot_model</span><span class="p">(</span><span class="n">linear_classifier</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf-classifier_13_0.png" src="../_images/tf-classifier_13_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the fully connected neural network</span>
+<span class="k">def</span> <span class="nf">create_fc_classifier</span><span class="p">():</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">Input</span><span class="p">((</span><span class="n">IMG_HEIGHT</span><span class="p">,</span> <span class="n">IMG_WIDTH</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;fc_classifier_input&#39;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Softmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="n">fc_classifier</span> <span class="o">=</span> <span class="n">create_fc_classifier</span><span class="p">()</span>
+<span class="n">plot_model</span><span class="p">(</span><span class="n">fc_classifier</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf-classifier_14_0.png" src="../_images/tf-classifier_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the convolutional neural network</span>
+<span class="k">def</span> <span class="nf">create_conv_classifier</span><span class="p">():</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">Input</span><span class="p">((</span><span class="n">IMG_HEIGHT</span><span class="p">,</span> <span class="n">IMG_WIDTH</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                   <span class="n">name</span><span class="o">=</span><span class="s1">&#39;conv_classifier_input&#39;</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 16, 16</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 8,8</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 4,4</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Activation</span><span class="p">(</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># 2,2</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Softmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="n">conv_classifier</span> <span class="o">=</span> <span class="n">create_conv_classifier</span><span class="p">()</span>
+<span class="n">plot_model</span><span class="p">(</span><span class="n">conv_classifier</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf-classifier_15_0.png" src="../_images/tf-classifier_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="specify-training-parameters">
+<h2>Specify training parameters<a class="headerlink" href="#specify-training-parameters" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will specify how we want to train the neural network. We will need to specify three things:</p>
+<ul class="simple">
+<li><p>The loss function. Because we are training a model for classification, we will use the categorical crossentropy</p></li>
+<li><p>The training algorithm. There are many flavors of stochastic gradient descent - for this problem, we will use a variant called Adam</p></li>
+<li><p>The training parameters. The training algorithm needs parameters like the learning rate, number of epochs, number of steps per epoch, etc. to be specified</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the loss function</span>
+<span class="n">loss_function</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">CategoricalCrossentropy</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the training algorithm</span>
+<span class="n">linear_optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">clipnorm</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">fc_optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">clipnorm</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">conv_optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">clipnorm</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define training parameters</span>
+<span class="n">training_steps_per_epoch</span><span class="o">=</span><span class="mi">512</span>
+<span class="n">n_epochs</span><span class="o">=</span><span class="mi">32</span>
+
+<span class="c1"># Define callbacks</span>
+<span class="n">linear_model_path</span> <span class="o">=</span> <span class="s1">&#39;/data/models/bebi205/linear&#39;</span>
+
+<span class="n">linear_callbacks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+        <span class="n">linear_model_path</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span>
+        <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">linear_callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span>
+        <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fc_model_path</span> <span class="o">=</span> <span class="s1">&#39;/data/models/bebi205/fc&#39;</span>
+
+<span class="n">fc_callbacks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+        <span class="n">fc_model_path</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span>
+        <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">fc_callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span>
+        <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">conv_model_path</span> <span class="o">=</span> <span class="s1">&#39;/data/models/bebi205/conv&#39;</span>
+
+<span class="n">conv_callbacks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span>
+        <span class="n">conv_model_path</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span>
+        <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">save_weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">conv_callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ReduceLROnPlateau</span><span class="p">(</span>
+        <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_lr</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Define metrics</span>
+<span class="n">recall_0</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Recall</span><span class="p">(</span><span class="n">class_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">recall_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Recall</span><span class="p">(</span><span class="n">class_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">precision_0</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Precision</span><span class="p">(</span><span class="n">class_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">precision_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Precision</span><span class="p">(</span><span class="n">class_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile models</span>
+<span class="n">linear_classifier</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">linear_optimizer</span><span class="p">,</span> 
+                          <span class="n">loss</span><span class="o">=</span><span class="n">loss_function</span><span class="p">,</span> 
+                          <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">recall_0</span><span class="p">,</span> <span class="n">recall_1</span><span class="p">,</span> <span class="n">precision_0</span><span class="p">,</span> <span class="n">precision_1</span><span class="p">])</span>
+
+<span class="n">fc_classifier</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">fc_optimizer</span><span class="p">,</span> 
+                          <span class="n">loss</span><span class="o">=</span><span class="n">loss_function</span><span class="p">,</span> 
+                          <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">recall_0</span><span class="p">,</span> <span class="n">recall_1</span><span class="p">,</span> <span class="n">precision_0</span><span class="p">,</span> <span class="n">precision_1</span><span class="p">])</span>
+
+<span class="n">conv_classifier</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">conv_optimizer</span><span class="p">,</span> 
+                          <span class="n">loss</span><span class="o">=</span><span class="n">loss_function</span><span class="p">,</span> 
+                          <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">recall_0</span><span class="p">,</span> <span class="n">recall_1</span><span class="p">,</span> <span class="n">precision_0</span><span class="p">,</span> <span class="n">precision_1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-the-model">
+<h2>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h2>
+<p>With the dataset, model, and training parameters defined, it is straightforward to train a model. Keras Model objects have a fit method that takes in the training parameters and executes the training algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the linear classifier</span>
+<span class="n">linear_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">train_dataset</span><span class="p">,</span>
+                      <span class="n">validation_data</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">val_dataset</span><span class="p">,</span>
+                      <span class="n">epochs</span><span class="o">=</span><span class="n">n_epochs</span><span class="p">,</span>
+                      <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">callbacks</span><span class="o">=</span><span class="n">linear_callbacks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/32
+103/103 [==============================] - 17s 152ms/step - loss: 3.7118 - recall: 0.5115 - recall_1: 0.5110 - precision: 0.5148 - precision_1: 0.5070 - val_loss: 1.2333 - val_recall: 0.9257 - val_recall_1: 0.1269 - val_precision: 0.5237 - val_precision_1: 0.6220
+
+Epoch 00001: val_loss improved from inf to 1.23329, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 2/32
+103/103 [==============================] - 15s 146ms/step - loss: 2.9236 - recall: 0.4683 - recall_1: 0.5180 - precision: 0.4985 - precision_1: 0.4876 - val_loss: 1.0794 - val_recall: 0.8321 - val_recall_1: 0.2463 - val_precision: 0.5338 - val_precision_1: 0.5858
+
+Epoch 00002: val_loss improved from 1.23329 to 1.07944, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 3/32
+103/103 [==============================] - 15s 144ms/step - loss: 3.3565 - recall: 0.5535 - recall_1: 0.4897 - precision: 0.5292 - precision_1: 0.5148 - val_loss: 1.7708 - val_recall: 0.9161 - val_recall_1: 0.1070 - val_precision: 0.5155 - val_precision_1: 0.5513
+
+Epoch 00003: val_loss did not improve from 1.07944
+Epoch 4/32
+103/103 [==============================] - 15s 146ms/step - loss: 3.4448 - recall: 0.5545 - recall_1: 0.4540 - precision: 0.5117 - precision_1: 0.4957 - val_loss: 2.5203 - val_recall: 0.0408 - val_recall_1: 0.9303 - val_precision: 0.3778 - val_precision_1: 0.4832
+
+Epoch 00004: val_loss did not improve from 1.07944
+Epoch 5/32
+103/103 [==============================] - 15s 146ms/step - loss: 3.3331 - recall: 0.5061 - recall_1: 0.5592 - precision: 0.5215 - precision_1: 0.5285 - val_loss: 5.1110 - val_recall: 0.0048 - val_recall_1: 0.9975 - val_precision: 0.6667 - val_precision_1: 0.4914
+
+Epoch 00005: val_loss did not improve from 1.07944
+
+Epoch 00005: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+Epoch 6/32
+103/103 [==============================] - 15s 146ms/step - loss: 3.6237 - recall: 0.4926 - recall_1: 0.5285 - precision: 0.5059 - precision_1: 0.5041 - val_loss: 0.8672 - val_recall: 0.7002 - val_recall_1: 0.3831 - val_precision: 0.5407 - val_precision_1: 0.5520
+
+Epoch 00006: val_loss improved from 1.07944 to 0.86725, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 7/32
+103/103 [==============================] - 15s 144ms/step - loss: 1.7365 - recall: 0.5338 - recall_1: 0.4838 - precision: 0.5135 - precision_1: 0.5031 - val_loss: 2.8970 - val_recall: 0.9784 - val_recall_1: 0.0721 - val_precision: 0.5224 - val_precision_1: 0.7632
+
+Epoch 00007: val_loss did not improve from 0.86725
+Epoch 8/32
+103/103 [==============================] - 15s 144ms/step - loss: 2.3155 - recall: 0.5537 - recall_1: 0.4833 - precision: 0.5180 - precision_1: 0.5161 - val_loss: 1.1853 - val_recall: 0.1775 - val_recall_1: 0.8930 - val_precision: 0.6325 - val_precision_1: 0.5114
+
+Epoch 00008: val_loss did not improve from 0.86725
+Epoch 9/32
+103/103 [==============================] - 15s 144ms/step - loss: 2.2149 - recall: 0.4894 - recall_1: 0.5226 - precision: 0.5043 - precision_1: 0.5024 - val_loss: 2.6514 - val_recall: 0.0336 - val_recall_1: 0.9876 - val_precision: 0.7368 - val_precision_1: 0.4963
+
+Epoch 00009: val_loss did not improve from 0.86725
+
+Epoch 00009: ReduceLROnPlateau reducing learning rate to 0.0002500000118743628.
+Epoch 10/32
+103/103 [==============================] - 15s 145ms/step - loss: 1.3123 - recall: 0.5462 - recall_1: 0.5158 - precision: 0.5357 - precision_1: 0.5266 - val_loss: 0.8366 - val_recall: 0.4341 - val_recall_1: 0.6866 - val_precision: 0.5896 - val_precision_1: 0.5391
+
+Epoch 00010: val_loss improved from 0.86725 to 0.83658, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 11/32
+103/103 [==============================] - 15s 146ms/step - loss: 1.2420 - recall: 0.5201 - recall_1: 0.5421 - precision: 0.5337 - precision_1: 0.5295 - val_loss: 1.5222 - val_recall: 0.9928 - val_recall_1: 0.0323 - val_precision: 0.5156 - val_precision_1: 0.8125
+
+Epoch 00011: val_loss did not improve from 0.83658
+Epoch 12/32
+103/103 [==============================] - 15s 144ms/step - loss: 0.9674 - recall: 0.5593 - recall_1: 0.5436 - precision: 0.5608 - precision_1: 0.5414 - val_loss: 1.3885 - val_recall: 0.9664 - val_recall_1: 0.0945 - val_precision: 0.5254 - val_precision_1: 0.7308
+
+Epoch 00012: val_loss did not improve from 0.83658
+Epoch 13/32
+103/103 [==============================] - 15s 143ms/step - loss: 1.0038 - recall: 0.5183 - recall_1: 0.5755 - precision: 0.5573 - precision_1: 0.5389 - val_loss: 0.8689 - val_recall: 0.2710 - val_recall_1: 0.8035 - val_precision: 0.5885 - val_precision_1: 0.5152
+
+Epoch 00013: val_loss did not improve from 0.83658
+
+Epoch 00013: ReduceLROnPlateau reducing learning rate to 0.0001250000059371814.
+Epoch 14/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.8831 - recall: 0.5352 - recall_1: 0.5572 - precision: 0.5602 - precision_1: 0.5395 - val_loss: 1.3397 - val_recall: 0.9760 - val_recall_1: 0.0647 - val_precision: 0.5198 - val_precision_1: 0.7222
+
+Epoch 00014: val_loss did not improve from 0.83658
+Epoch 15/32
+103/103 [==============================] - 15s 144ms/step - loss: 0.8244 - recall: 0.5923 - recall_1: 0.5287 - precision: 0.5622 - precision_1: 0.5602 - val_loss: 1.0307 - val_recall: 0.9760 - val_recall_1: 0.0896 - val_precision: 0.5265 - val_precision_1: 0.7826
+
+Epoch 00015: val_loss did not improve from 0.83658
+Epoch 16/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.8284 - recall: 0.5942 - recall_1: 0.5043 - precision: 0.5519 - precision_1: 0.5482 - val_loss: 0.8940 - val_recall: 0.9472 - val_recall_1: 0.1219 - val_precision: 0.5281 - val_precision_1: 0.6901
+
+Epoch 00016: val_loss did not improve from 0.83658
+
+Epoch 00016: ReduceLROnPlateau reducing learning rate to 6.25000029685907e-05.
+Epoch 17/32
+103/103 [==============================] - 15s 143ms/step - loss: 0.8261 - recall: 0.5510 - recall_1: 0.5352 - precision: 0.5487 - precision_1: 0.5378 - val_loss: 0.6908 - val_recall: 0.5683 - val_recall_1: 0.6219 - val_precision: 0.6093 - val_precision_1: 0.5814
+
+Epoch 00017: val_loss improved from 0.83658 to 0.69084, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 18/32
+103/103 [==============================] - 15s 144ms/step - loss: 0.7726 - recall: 0.5008 - recall_1: 0.6172 - precision: 0.5753 - precision_1: 0.5499 - val_loss: 0.8203 - val_recall: 0.9353 - val_recall_1: 0.1294 - val_precision: 0.5270 - val_precision_1: 0.6582
+
+Epoch 00018: val_loss did not improve from 0.69084
+Epoch 19/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.7071 - recall: 0.5718 - recall_1: 0.6011 - precision: 0.5936 - precision_1: 0.5800 - val_loss: 0.8310 - val_recall: 0.1703 - val_recall_1: 0.9179 - val_precision: 0.6827 - val_precision_1: 0.5161
+
+Epoch 00019: val_loss did not improve from 0.69084
+Epoch 20/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.7644 - recall: 0.5751 - recall_1: 0.5404 - precision: 0.5654 - precision_1: 0.5564 - val_loss: 0.7176 - val_recall: 0.8225 - val_recall_1: 0.2861 - val_precision: 0.5444 - val_precision_1: 0.6085
+
+Epoch 00020: val_loss did not improve from 0.69084
+
+Epoch 00020: ReduceLROnPlateau reducing learning rate to 3.125000148429535e-05.
+Epoch 21/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6973 - recall: 0.5646 - recall_1: 0.6071 - precision: 0.5954 - precision_1: 0.5771 - val_loss: 0.6716 - val_recall: 0.5827 - val_recall_1: 0.5597 - val_precision: 0.5786 - val_precision_1: 0.5639
+
+Epoch 00021: val_loss improved from 0.69084 to 0.67161, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 22/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.7052 - recall: 0.5705 - recall_1: 0.5716 - precision: 0.5762 - precision_1: 0.5663 - val_loss: 0.7807 - val_recall: 0.9400 - val_recall_1: 0.1194 - val_precision: 0.5255 - val_precision_1: 0.6575
+
+Epoch 00022: val_loss did not improve from 0.67161
+Epoch 23/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6964 - recall: 0.5959 - recall_1: 0.5651 - precision: 0.5854 - precision_1: 0.5760 - val_loss: 0.7569 - val_recall: 0.9233 - val_recall_1: 0.1393 - val_precision: 0.5267 - val_precision_1: 0.6364
+
+Epoch 00023: val_loss did not improve from 0.67161
+Epoch 24/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6983 - recall: 0.6113 - recall_1: 0.5561 - precision: 0.5866 - precision_1: 0.5850 - val_loss: 0.7248 - val_recall: 0.2734 - val_recall_1: 0.8682 - val_precision: 0.6826 - val_precision_1: 0.5353
+
+Epoch 00024: val_loss did not improve from 0.67161
+
+Epoch 00024: ReduceLROnPlateau reducing learning rate to 1.5625000742147677e-05.
+Epoch 25/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.7024 - recall: 0.5287 - recall_1: 0.6145 - precision: 0.5845 - precision_1: 0.5629 - val_loss: 0.7134 - val_recall: 0.8897 - val_recall_1: 0.1915 - val_precision: 0.5330 - val_precision_1: 0.6260
+
+Epoch 00025: val_loss did not improve from 0.67161
+Epoch 26/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6847 - recall: 0.6134 - recall_1: 0.5604 - precision: 0.5896 - precision_1: 0.5902 - val_loss: 0.6736 - val_recall: 0.5276 - val_recall_1: 0.6294 - val_precision: 0.5962 - val_precision_1: 0.5622
+
+Epoch 00026: val_loss did not improve from 0.67161
+Epoch 27/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6924 - recall: 0.5688 - recall_1: 0.5704 - precision: 0.5746 - precision_1: 0.5649 - val_loss: 0.6697 - val_recall: 0.6283 - val_recall_1: 0.5373 - val_precision: 0.5848 - val_precision_1: 0.5822
+
+Epoch 00027: val_loss improved from 0.67161 to 0.66968, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 28/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6870 - recall: 0.5870 - recall_1: 0.5822 - precision: 0.5911 - precision_1: 0.5785 - val_loss: 0.7103 - val_recall: 0.8873 - val_recall_1: 0.2065 - val_precision: 0.5370 - val_precision_1: 0.6385
+
+Epoch 00028: val_loss did not improve from 0.66968
+Epoch 29/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6907 - recall: 0.6234 - recall_1: 0.5596 - precision: 0.5903 - precision_1: 0.5966 - val_loss: 0.6807 - val_recall: 0.8561 - val_recall_1: 0.2910 - val_precision: 0.5561 - val_precision_1: 0.6610
+
+Epoch 00029: val_loss did not improve from 0.66968
+Epoch 30/32
+103/103 [==============================] - 15s 144ms/step - loss: 0.6980 - recall: 0.5625 - recall_1: 0.5695 - precision: 0.5710 - precision_1: 0.5614 - val_loss: 0.6773 - val_recall: 0.7962 - val_recall_1: 0.3259 - val_precision: 0.5506 - val_precision_1: 0.6065
+
+Epoch 00030: val_loss did not improve from 0.66968
+
+Epoch 00030: ReduceLROnPlateau reducing learning rate to 7.812500371073838e-06.
+Epoch 31/32
+103/103 [==============================] - 15s 143ms/step - loss: 0.6846 - recall: 0.5425 - recall_1: 0.6250 - precision: 0.5963 - precision_1: 0.5726 - val_loss: 0.6667 - val_recall: 0.6835 - val_recall_1: 0.4627 - val_precision: 0.5689 - val_precision_1: 0.5849
+
+Epoch 00031: val_loss improved from 0.66968 to 0.66671, saving model to /data/models/bebi205/linear
+INFO:tensorflow:Assets written to: /data/models/bebi205/linear/assets
+Epoch 32/32
+103/103 [==============================] - 15s 144ms/step - loss: 0.6839 - recall: 0.5654 - recall_1: 0.5964 - precision: 0.5902 - precision_1: 0.5719 - val_loss: 0.6719 - val_recall: 0.7386 - val_recall_1: 0.3731 - val_precision: 0.5500 - val_precision_1: 0.5792
+
+Epoch 00032: val_loss did not improve from 0.66671
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x7efa8e21e400&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the fully connected neural network</span>
+<span class="n">fc_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">train_dataset</span><span class="p">,</span>
+                  <span class="n">validation_data</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">val_dataset</span><span class="p">,</span>
+                  <span class="n">epochs</span><span class="o">=</span><span class="n">n_epochs</span><span class="p">,</span>
+                  <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">callbacks</span><span class="o">=</span><span class="n">fc_callbacks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/32
+103/103 [==============================] - 17s 149ms/step - loss: 0.8126 - recall: 0.6216 - recall_1: 0.4587 - precision: 0.5419 - precision_1: 0.5409 - val_loss: 2.2140 - val_recall: 0.0000e+00 - val_recall_1: 1.0000 - val_precision: 0.0000e+00 - val_precision_1: 0.4908
+
+Epoch 00001: val_loss improved from inf to 2.21402, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 2/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6989 - recall: 0.6168 - recall_1: 0.5339 - precision: 0.5758 - precision_1: 0.5760 - val_loss: 0.7440 - val_recall: 0.4700 - val_recall_1: 0.5945 - val_precision: 0.5460 - val_precision_1: 0.5196
+
+Epoch 00002: val_loss improved from 2.21402 to 0.74405, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 3/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6844 - recall: 0.6225 - recall_1: 0.5280 - precision: 0.5795 - precision_1: 0.5723 - val_loss: 0.8466 - val_recall: 0.0647 - val_recall_1: 0.9602 - val_precision: 0.6279 - val_precision_1: 0.4974
+
+Epoch 00003: val_loss did not improve from 0.74405
+Epoch 4/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6753 - recall: 0.5899 - recall_1: 0.5828 - precision: 0.5905 - precision_1: 0.5824 - val_loss: 0.7350 - val_recall: 0.3621 - val_recall_1: 0.7463 - val_precision: 0.5968 - val_precision_1: 0.5300
+
+Epoch 00004: val_loss improved from 0.74405 to 0.73501, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 5/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6751 - recall: 0.6172 - recall_1: 0.5522 - precision: 0.5849 - precision_1: 0.5853 - val_loss: 0.7270 - val_recall: 0.7698 - val_recall_1: 0.3458 - val_precision: 0.5497 - val_precision_1: 0.5915
+
+Epoch 00005: val_loss improved from 0.73501 to 0.72704, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 6/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6730 - recall: 0.6011 - recall_1: 0.5751 - precision: 0.5926 - precision_1: 0.5838 - val_loss: 0.6948 - val_recall: 0.7986 - val_recall_1: 0.3259 - val_precision: 0.5513 - val_precision_1: 0.6093
+
+Epoch 00006: val_loss improved from 0.72704 to 0.69481, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 7/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6688 - recall: 0.5978 - recall_1: 0.5964 - precision: 0.5981 - precision_1: 0.5960 - val_loss: 0.6992 - val_recall: 0.7002 - val_recall_1: 0.4030 - val_precision: 0.5489 - val_precision_1: 0.5645
+
+Epoch 00007: val_loss did not improve from 0.69481
+Epoch 8/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6679 - recall: 0.6125 - recall_1: 0.5752 - precision: 0.5951 - precision_1: 0.5928 - val_loss: 0.6687 - val_recall: 0.6499 - val_recall_1: 0.5124 - val_precision: 0.5803 - val_precision_1: 0.5852
+
+Epoch 00008: val_loss improved from 0.69481 to 0.66869, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 9/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6590 - recall: 0.6230 - recall_1: 0.5788 - precision: 0.6027 - precision_1: 0.5996 - val_loss: 0.6661 - val_recall: 0.6451 - val_recall_1: 0.5249 - val_precision: 0.5848 - val_precision_1: 0.5877
+
+Epoch 00009: val_loss improved from 0.66869 to 0.66608, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 10/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6665 - recall: 0.6039 - recall_1: 0.5812 - precision: 0.5961 - precision_1: 0.5891 - val_loss: 0.6764 - val_recall: 0.5468 - val_recall_1: 0.6070 - val_precision: 0.5907 - val_precision_1: 0.5635
+
+Epoch 00010: val_loss did not improve from 0.66608
+Epoch 11/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6580 - recall: 0.6117 - recall_1: 0.5966 - precision: 0.6083 - precision_1: 0.6003 - val_loss: 0.6544 - val_recall: 0.7314 - val_recall_1: 0.4851 - val_precision: 0.5957 - val_precision_1: 0.6352
+
+Epoch 00011: val_loss improved from 0.66608 to 0.65436, saving model to /data/models/bebi205/fc
+INFO:tensorflow:Assets written to: /data/models/bebi205/fc/assets
+Epoch 12/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6574 - recall: 0.6392 - recall_1: 0.5573 - precision: 0.5952 - precision_1: 0.6028 - val_loss: 0.6639 - val_recall: 0.6835 - val_recall_1: 0.5000 - val_precision: 0.5864 - val_precision_1: 0.6036
+
+Epoch 00012: val_loss did not improve from 0.65436
+Epoch 13/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6618 - recall: 0.6271 - recall_1: 0.5692 - precision: 0.5976 - precision_1: 0.5995 - val_loss: 0.6894 - val_recall: 0.8633 - val_recall_1: 0.2786 - val_precision: 0.5538 - val_precision_1: 0.6627
+
+Epoch 00013: val_loss did not improve from 0.65436
+Epoch 14/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6587 - recall: 0.6162 - recall_1: 0.5883 - precision: 0.6037 - precision_1: 0.6009 - val_loss: 0.7292 - val_recall: 0.9209 - val_recall_1: 0.2139 - val_precision: 0.5486 - val_precision_1: 0.7227
+
+Epoch 00014: val_loss did not improve from 0.65436
+
+Epoch 00014: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+Epoch 15/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6536 - recall: 0.5975 - recall_1: 0.6208 - precision: 0.6168 - precision_1: 0.6018 - val_loss: 0.6768 - val_recall: 0.8345 - val_recall_1: 0.3308 - val_precision: 0.5640 - val_precision_1: 0.6584
+
+Epoch 00015: val_loss did not improve from 0.65436
+Epoch 16/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6530 - recall: 0.6361 - recall_1: 0.5909 - precision: 0.6133 - precision_1: 0.6141 - val_loss: 0.7112 - val_recall: 0.8753 - val_recall_1: 0.2463 - val_precision: 0.5464 - val_precision_1: 0.6556
+
+Epoch 00016: val_loss did not improve from 0.65436
+Epoch 17/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6536 - recall: 0.6093 - recall_1: 0.5964 - precision: 0.6078 - precision_1: 0.5979 - val_loss: 0.6723 - val_recall: 0.4868 - val_recall_1: 0.6940 - val_precision: 0.6227 - val_precision_1: 0.5659
+
+Epoch 00017: val_loss did not improve from 0.65436
+
+Epoch 00017: ReduceLROnPlateau reducing learning rate to 0.0002500000118743628.
+Epoch 18/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6508 - recall: 0.6058 - recall_1: 0.6085 - precision: 0.6119 - precision_1: 0.6024 - val_loss: 0.6821 - val_recall: 0.8465 - val_recall_1: 0.2960 - val_precision: 0.5550 - val_precision_1: 0.6503
+
+Epoch 00018: val_loss did not improve from 0.65436
+Epoch 19/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6493 - recall: 0.6147 - recall_1: 0.5995 - precision: 0.6121 - precision_1: 0.6022 - val_loss: 0.6648 - val_recall: 0.8106 - val_recall_1: 0.3358 - val_precision: 0.5587 - val_precision_1: 0.6308
+
+Epoch 00019: val_loss did not improve from 0.65436
+Epoch 20/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6563 - recall: 0.6079 - recall_1: 0.6014 - precision: 0.6122 - precision_1: 0.5971 - val_loss: 0.6761 - val_recall: 0.8321 - val_recall_1: 0.3159 - val_precision: 0.5579 - val_precision_1: 0.6447
+
+Epoch 00020: val_loss did not improve from 0.65436
+
+Epoch 00020: ReduceLROnPlateau reducing learning rate to 0.0001250000059371814.
+Epoch 21/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6471 - recall: 0.6082 - recall_1: 0.6219 - precision: 0.6216 - precision_1: 0.6084 - val_loss: 0.6808 - val_recall: 0.8513 - val_recall_1: 0.2985 - val_precision: 0.5573 - val_precision_1: 0.6593
+
+Epoch 00021: val_loss did not improve from 0.65436
+Epoch 22/32
+103/103 [==============================] - 15s 148ms/step - loss: 0.6436 - recall: 0.6132 - recall_1: 0.6352 - precision: 0.6315 - precision_1: 0.6170 - val_loss: 0.6735 - val_recall: 0.8177 - val_recall_1: 0.3159 - val_precision: 0.5536 - val_precision_1: 0.6256
+
+Epoch 00022: val_loss did not improve from 0.65436
+Epoch 23/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6481 - recall: 0.6044 - recall_1: 0.6279 - precision: 0.6246 - precision_1: 0.6077 - val_loss: 0.6736 - val_recall: 0.8369 - val_recall_1: 0.3259 - val_precision: 0.5629 - val_precision_1: 0.6583
+
+Epoch 00023: val_loss did not improve from 0.65436
+
+Epoch 00023: ReduceLROnPlateau reducing learning rate to 6.25000029685907e-05.
+Epoch 24/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6457 - recall: 0.6065 - recall_1: 0.6253 - precision: 0.6236 - precision_1: 0.6082 - val_loss: 0.6661 - val_recall: 0.8058 - val_recall_1: 0.3657 - val_precision: 0.5685 - val_precision_1: 0.6447
+
+Epoch 00024: val_loss did not improve from 0.65436
+Epoch 25/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6432 - recall: 0.6107 - recall_1: 0.6325 - precision: 0.6288 - precision_1: 0.6145 - val_loss: 0.6725 - val_recall: 0.8297 - val_recall_1: 0.3308 - val_precision: 0.5626 - val_precision_1: 0.6520
+
+Epoch 00025: val_loss did not improve from 0.65436
+Epoch 26/32
+103/103 [==============================] - 15s 145ms/step - loss: 0.6456 - recall: 0.6188 - recall_1: 0.6143 - precision: 0.6202 - precision_1: 0.6130 - val_loss: 0.6728 - val_recall: 0.8297 - val_recall_1: 0.3259 - val_precision: 0.5608 - val_precision_1: 0.6485
+
+Epoch 00026: val_loss did not improve from 0.65436
+
+Epoch 00026: ReduceLROnPlateau reducing learning rate to 3.125000148429535e-05.
+Epoch 27/32
+103/103 [==============================] - 15s 147ms/step - loss: 0.6452 - recall: 0.6163 - recall_1: 0.6114 - precision: 0.6159 - precision_1: 0.6118 - val_loss: 0.6731 - val_recall: 0.8321 - val_recall_1: 0.3308 - val_precision: 0.5633 - val_precision_1: 0.6552
+
+Epoch 00027: val_loss did not improve from 0.65436
+Epoch 28/32
+103/103 [==============================] - 15s 143ms/step - loss: 0.6458 - recall: 0.6271 - recall_1: 0.6240 - precision: 0.6316 - precision_1: 0.6195 - val_loss: 0.6713 - val_recall: 0.8201 - val_recall_1: 0.3433 - val_precision: 0.5644 - val_precision_1: 0.6479
+
+Epoch 00028: val_loss did not improve from 0.65436
+Epoch 29/32
+103/103 [==============================] - 15s 144ms/step - loss: 0.6450 - recall: 0.6145 - recall_1: 0.6312 - precision: 0.6309 - precision_1: 0.6148 - val_loss: 0.6663 - val_recall: 0.8153 - val_recall_1: 0.3483 - val_precision: 0.5648 - val_precision_1: 0.6452
+
+Epoch 00029: val_loss did not improve from 0.65436
+
+Epoch 00029: ReduceLROnPlateau reducing learning rate to 1.5625000742147677e-05.
+Epoch 30/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6395 - recall: 0.6385 - recall_1: 0.6254 - precision: 0.6347 - precision_1: 0.6294 - val_loss: 0.6674 - val_recall: 0.8201 - val_recall_1: 0.3433 - val_precision: 0.5644 - val_precision_1: 0.6479
+
+Epoch 00030: val_loss did not improve from 0.65436
+Epoch 31/32
+103/103 [==============================] - 15s 144ms/step - loss: 0.6415 - recall: 0.6275 - recall_1: 0.6160 - precision: 0.6277 - precision_1: 0.6158 - val_loss: 0.6668 - val_recall: 0.8201 - val_recall_1: 0.3483 - val_precision: 0.5662 - val_precision_1: 0.6512
+
+Epoch 00031: val_loss did not improve from 0.65436
+Epoch 32/32
+103/103 [==============================] - 15s 146ms/step - loss: 0.6428 - recall: 0.6176 - recall_1: 0.6209 - precision: 0.6260 - precision_1: 0.6125 - val_loss: 0.6676 - val_recall: 0.8177 - val_recall_1: 0.3483 - val_precision: 0.5655 - val_precision_1: 0.6481
+
+Epoch 00032: val_loss did not improve from 0.65436
+
+Epoch 00032: ReduceLROnPlateau reducing learning rate to 7.812500371073838e-06.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x7efa8e26da58&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the convolutional neural network</span>
+<span class="n">conv_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">train_dataset</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">val_dataset</span><span class="p">,</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="n">n_epochs</span><span class="p">,</span>
+                    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">callbacks</span><span class="o">=</span><span class="n">conv_callbacks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/32
+103/103 [==============================] - 17s 165ms/step - loss: 0.3076 - recall: 0.8679 - recall_1: 0.8671 - precision: 0.8705 - precision_1: 0.8645 - val_loss: 0.3842 - val_recall: 0.7973 - val_recall_1: 0.8619 - val_precision: 0.8263 - val_precision_1: 0.8377
+
+Epoch 00001: val_loss improved from 0.38560 to 0.38423, saving model to /data/models/bebi205/conv
+INFO:tensorflow:Assets written to: /data/models/bebi205/conv/assets
+Epoch 2/32
+103/103 [==============================] - 17s 170ms/step - loss: 0.2913 - recall: 0.8767 - recall_1: 0.8752 - precision: 0.8785 - precision_1: 0.8733 - val_loss: 0.4387 - val_recall: 0.7351 - val_recall_1: 0.8864 - val_precision: 0.8421 - val_precision_1: 0.8024
+
+Epoch 00002: val_loss did not improve from 0.38423
+Epoch 3/32
+103/103 [==============================] - 17s 167ms/step - loss: 0.2866 - recall: 0.8761 - recall_1: 0.8712 - precision: 0.8750 - precision_1: 0.8722 - val_loss: 0.3759 - val_recall: 0.8216 - val_recall_1: 0.8641 - val_precision: 0.8329 - val_precision_1: 0.8546
+
+Epoch 00003: val_loss improved from 0.38423 to 0.37594, saving model to /data/models/bebi205/conv
+INFO:tensorflow:Assets written to: /data/models/bebi205/conv/assets
+Epoch 4/32
+103/103 [==============================] - 17s 167ms/step - loss: 0.2883 - recall: 0.8818 - recall_1: 0.8743 - precision: 0.8783 - precision_1: 0.8778 - val_loss: 0.4123 - val_recall: 0.7595 - val_recall_1: 0.8953 - val_precision: 0.8567 - val_precision_1: 0.8187
+
+Epoch 00004: val_loss did not improve from 0.37594
+Epoch 5/32
+103/103 [==============================] - 17s 169ms/step - loss: 0.2891 - recall: 0.8791 - recall_1: 0.8687 - precision: 0.8733 - precision_1: 0.8746 - val_loss: 0.3799 - val_recall: 0.8486 - val_recall_1: 0.8575 - val_precision: 0.8307 - val_precision_1: 0.8730
+
+Epoch 00005: val_loss did not improve from 0.37594
+Epoch 6/32
+103/103 [==============================] - 17s 169ms/step - loss: 0.2864 - recall: 0.8824 - recall_1: 0.8693 - precision: 0.8742 - precision_1: 0.8777 - val_loss: 0.3760 - val_recall: 0.8541 - val_recall_1: 0.8463 - val_precision: 0.8208 - val_precision_1: 0.8756
+
+Epoch 00006: val_loss did not improve from 0.37594
+
+Epoch 00006: ReduceLROnPlateau reducing learning rate to 3.125000148429535e-05.
+Epoch 7/32
+103/103 [==============================] - 18s 172ms/step - loss: 0.2877 - recall: 0.8809 - recall_1: 0.8746 - precision: 0.8785 - precision_1: 0.8770 - val_loss: 0.3616 - val_recall: 0.8432 - val_recall_1: 0.8597 - val_precision: 0.8320 - val_precision_1: 0.8694
+
+Epoch 00007: val_loss improved from 0.37594 to 0.36159, saving model to /data/models/bebi205/conv
+INFO:tensorflow:Assets written to: /data/models/bebi205/conv/assets
+Epoch 8/32
+103/103 [==============================] - 18s 171ms/step - loss: 0.2883 - recall: 0.8779 - recall_1: 0.8792 - precision: 0.8821 - precision_1: 0.8749 - val_loss: 0.3650 - val_recall: 0.8270 - val_recall_1: 0.8708 - val_precision: 0.8407 - val_precision_1: 0.8593
+
+Epoch 00008: val_loss did not improve from 0.36159
+Epoch 9/32
+103/103 [==============================] - 17s 168ms/step - loss: 0.2799 - recall: 0.8854 - recall_1: 0.8792 - precision: 0.8830 - precision_1: 0.8817 - val_loss: 0.3776 - val_recall: 0.8000 - val_recall_1: 0.8909 - val_precision: 0.8580 - val_precision_1: 0.8439
+
+Epoch 00009: val_loss did not improve from 0.36159
+Epoch 10/32
+103/103 [==============================] - 18s 170ms/step - loss: 0.2776 - recall: 0.8803 - recall_1: 0.8749 - precision: 0.8787 - precision_1: 0.8765 - val_loss: 0.3623 - val_recall: 0.8730 - val_recall_1: 0.8441 - val_precision: 0.8219 - val_precision_1: 0.8897
+
+Epoch 00010: val_loss did not improve from 0.36159
+
+Epoch 00010: ReduceLROnPlateau reducing learning rate to 1.5625000742147677e-05.
+Epoch 11/32
+103/103 [==============================] - 17s 169ms/step - loss: 0.2782 - recall: 0.8869 - recall_1: 0.8767 - precision: 0.8811 - precision_1: 0.8828 - val_loss: 0.3648 - val_recall: 0.8351 - val_recall_1: 0.8575 - val_precision: 0.8284 - val_precision_1: 0.8632
+
+Epoch 00011: val_loss did not improve from 0.36159
+Epoch 12/32
+103/103 [==============================] - 17s 166ms/step - loss: 0.2789 - recall: 0.8863 - recall_1: 0.8749 - precision: 0.8794 - precision_1: 0.8820 - val_loss: 0.3640 - val_recall: 0.8297 - val_recall_1: 0.8686 - val_precision: 0.8388 - val_precision_1: 0.8609
+
+Epoch 00012: val_loss did not improve from 0.36159
+Epoch 13/32
+103/103 [==============================] - 17s 169ms/step - loss: 0.2739 - recall: 0.8878 - recall_1: 0.8761 - precision: 0.8806 - precision_1: 0.8835 - val_loss: 0.3674 - val_recall: 0.8243 - val_recall_1: 0.8641 - val_precision: 0.8333 - val_precision_1: 0.8565
+
+Epoch 00013: val_loss did not improve from 0.36159
+
+Epoch 00013: ReduceLROnPlateau reducing learning rate to 7.812500371073838e-06.
+Epoch 14/32
+103/103 [==============================] - 17s 167ms/step - loss: 0.2768 - recall: 0.8860 - recall_1: 0.8854 - precision: 0.8884 - precision_1: 0.8830 - val_loss: 0.3738 - val_recall: 0.8135 - val_recall_1: 0.8731 - val_precision: 0.8408 - val_precision_1: 0.8503
+
+Epoch 00014: val_loss did not improve from 0.36159
+Epoch 15/32
+103/103 [==============================] - 17s 169ms/step - loss: 0.2770 - recall: 0.8842 - recall_1: 0.8786 - precision: 0.8823 - precision_1: 0.8805 - val_loss: 0.3753 - val_recall: 0.8270 - val_recall_1: 0.8686 - val_precision: 0.8384 - val_precision_1: 0.8590
+
+Epoch 00015: val_loss did not improve from 0.36159
+Epoch 16/32
+103/103 [==============================] - 18s 173ms/step - loss: 0.2710 - recall: 0.8824 - recall_1: 0.8823 - precision: 0.8853 - precision_1: 0.8793 - val_loss: 0.3682 - val_recall: 0.8351 - val_recall_1: 0.8575 - val_precision: 0.8284 - val_precision_1: 0.8632
+
+Epoch 00016: val_loss did not improve from 0.36159
+
+Epoch 00016: ReduceLROnPlateau reducing learning rate to 3.906250185536919e-06.
+Epoch 17/32
+103/103 [==============================] - 18s 174ms/step - loss: 0.2712 - recall: 0.8911 - recall_1: 0.8805 - precision: 0.8847 - precision_1: 0.8871 - val_loss: 0.3718 - val_recall: 0.8270 - val_recall_1: 0.8641 - val_precision: 0.8338 - val_precision_1: 0.8584
+
+Epoch 00017: val_loss did not improve from 0.36159
+Epoch 18/32
+103/103 [==============================] - 18s 172ms/step - loss: 0.2754 - recall: 0.8812 - recall_1: 0.8798 - precision: 0.8830 - precision_1: 0.8779 - val_loss: 0.3728 - val_recall: 0.8270 - val_recall_1: 0.8641 - val_precision: 0.8338 - val_precision_1: 0.8584
+
+Epoch 00018: val_loss did not improve from 0.36159
+Epoch 19/32
+103/103 [==============================] - 18s 174ms/step - loss: 0.2718 - recall: 0.8839 - recall_1: 0.8764 - precision: 0.8804 - precision_1: 0.8800 - val_loss: 0.3704 - val_recall: 0.8351 - val_recall_1: 0.8575 - val_precision: 0.8284 - val_precision_1: 0.8632
+
+Epoch 00019: val_loss did not improve from 0.36159
+
+Epoch 00019: ReduceLROnPlateau reducing learning rate to 1.9531250927684596e-06.
+Epoch 20/32
+103/103 [==============================] - 18s 174ms/step - loss: 0.2754 - recall: 0.8875 - recall_1: 0.8777 - precision: 0.8819 - precision_1: 0.8834 - val_loss: 0.3723 - val_recall: 0.8243 - val_recall_1: 0.8708 - val_precision: 0.8402 - val_precision_1: 0.8575
+
+Epoch 00020: val_loss did not improve from 0.36159
+Epoch 21/32
+103/103 [==============================] - 18s 174ms/step - loss: 0.2672 - recall: 0.8917 - recall_1: 0.8817 - precision: 0.8858 - precision_1: 0.8877 - val_loss: 0.3736 - val_recall: 0.8243 - val_recall_1: 0.8686 - val_precision: 0.8379 - val_precision_1: 0.8571
+
+Epoch 00021: val_loss did not improve from 0.36159
+Epoch 22/32
+103/103 [==============================] - 18s 176ms/step - loss: 0.2761 - recall: 0.8866 - recall_1: 0.8736 - precision: 0.8784 - precision_1: 0.8821 - val_loss: 0.3723 - val_recall: 0.8297 - val_recall_1: 0.8708 - val_precision: 0.8411 - val_precision_1: 0.8612
+
+Epoch 00022: val_loss did not improve from 0.36159
+
+Epoch 00022: ReduceLROnPlateau reducing learning rate to 9.765625463842298e-07.
+Epoch 23/32
+103/103 [==============================] - 18s 177ms/step - loss: 0.2741 - recall: 0.8833 - recall_1: 0.8814 - precision: 0.8846 - precision_1: 0.8800 - val_loss: 0.3729 - val_recall: 0.8270 - val_recall_1: 0.8686 - val_precision: 0.8384 - val_precision_1: 0.8590
+
+Epoch 00023: val_loss did not improve from 0.36159
+Epoch 24/32
+103/103 [==============================] - 18s 174ms/step - loss: 0.2714 - recall: 0.8857 - recall_1: 0.8730 - precision: 0.8778 - precision_1: 0.8812 - val_loss: 0.3709 - val_recall: 0.8297 - val_recall_1: 0.8641 - val_precision: 0.8342 - val_precision_1: 0.8603
+
+Epoch 00024: val_loss did not improve from 0.36159
+Epoch 25/32
+103/103 [==============================] - 18s 177ms/step - loss: 0.2714 - recall: 0.8884 - recall_1: 0.8857 - precision: 0.8889 - precision_1: 0.8852 - val_loss: 0.3715 - val_recall: 0.8297 - val_recall_1: 0.8641 - val_precision: 0.8342 - val_precision_1: 0.8603
+
+Epoch 00025: val_loss did not improve from 0.36159
+
+Epoch 00025: ReduceLROnPlateau reducing learning rate to 4.882812731921149e-07.
+Epoch 26/32
+103/103 [==============================] - 18s 175ms/step - loss: 0.2735 - recall: 0.8974 - recall_1: 0.8721 - precision: 0.8784 - precision_1: 0.8920 - val_loss: 0.3711 - val_recall: 0.8270 - val_recall_1: 0.8664 - val_precision: 0.8361 - val_precision_1: 0.8587
+
+Epoch 00026: val_loss did not improve from 0.36159
+Epoch 27/32
+103/103 [==============================] - 18s 175ms/step - loss: 0.2747 - recall: 0.8812 - recall_1: 0.8823 - precision: 0.8852 - precision_1: 0.8782 - val_loss: 0.3739 - val_recall: 0.8270 - val_recall_1: 0.8686 - val_precision: 0.8384 - val_precision_1: 0.8590
+
+Epoch 00027: val_loss did not improve from 0.36159
+Epoch 28/32
+103/103 [==============================] - 18s 175ms/step - loss: 0.2735 - recall: 0.8818 - recall_1: 0.8826 - precision: 0.8855 - precision_1: 0.8788 - val_loss: 0.3712 - val_recall: 0.8297 - val_recall_1: 0.8619 - val_precision: 0.8320 - val_precision_1: 0.8600
+
+Epoch 00028: val_loss did not improve from 0.36159
+
+Epoch 00028: ReduceLROnPlateau reducing learning rate to 2.4414063659605745e-07.
+Epoch 29/32
+103/103 [==============================] - 18s 177ms/step - loss: 0.2813 - recall: 0.8830 - recall_1: 0.8764 - precision: 0.8803 - precision_1: 0.8792 - val_loss: 0.3710 - val_recall: 0.8297 - val_recall_1: 0.8641 - val_precision: 0.8342 - val_precision_1: 0.8603
+
+Epoch 00029: val_loss did not improve from 0.36159
+Epoch 30/32
+103/103 [==============================] - 18s 176ms/step - loss: 0.2740 - recall: 0.8851 - recall_1: 0.8808 - precision: 0.8843 - precision_1: 0.8816 - val_loss: 0.3720 - val_recall: 0.8270 - val_recall_1: 0.8641 - val_precision: 0.8338 - val_precision_1: 0.8584
+
+Epoch 00030: val_loss did not improve from 0.36159
+Epoch 31/32
+103/103 [==============================] - 18s 176ms/step - loss: 0.2706 - recall: 0.8884 - recall_1: 0.8842 - precision: 0.8876 - precision_1: 0.8850 - val_loss: 0.3724 - val_recall: 0.8270 - val_recall_1: 0.8686 - val_precision: 0.8384 - val_precision_1: 0.8590
+
+Epoch 00031: val_loss did not improve from 0.36159
+
+Epoch 00031: ReduceLROnPlateau reducing learning rate to 1.2207031829802872e-07.
+Epoch 32/32
+103/103 [==============================] - 19s 182ms/step - loss: 0.2698 - recall: 0.8893 - recall_1: 0.8764 - precision: 0.8811 - precision_1: 0.8849 - val_loss: 0.3729 - val_recall: 0.8270 - val_recall_1: 0.8664 - val_precision: 0.8361 - val_precision_1: 0.8587
+
+Epoch 00032: val_loss did not improve from 0.36159
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x7efc9c5dddd8&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="benchmark-the-model">
+<h2>Benchmark the model<a class="headerlink" href="#benchmark-the-model" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will benchmark each model to assess the performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize some predictions</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">as_numpy_iterator</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+    
+    <span class="c1"># Get an example image</span>
+    <span class="n">X_sample</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[[</span><span class="n">i</span><span class="p">],</span><span class="o">...</span><span class="p">]</span>
+    
+    <span class="c1"># Predict the label</span>
+    <span class="n">y_pred_linear</span> <span class="o">=</span> <span class="n">linear_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_sample</span><span class="p">)</span>
+    <span class="n">y_pred_fc</span> <span class="o">=</span> <span class="n">fc_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_sample</span><span class="p">)</span>
+    <span class="n">y_pred_conv</span> <span class="o">=</span> <span class="n">conv_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_sample</span><span class="p">)</span>
+    
+    <span class="c1"># Display results</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X_sample</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Label &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span><span class="s1">&#39;, Conv prediction &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y_pred_conv</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf-classifier_26_0.png" src="../_images/tf-classifier_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate predictions</span>
+<span class="n">test_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">test_dataset</span><span class="o">.</span><span class="n">as_numpy_iterator</span><span class="p">())</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">test_list</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">test_list</span><span class="p">]</span>
+
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Compute linear classifier metrics</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linear_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">recall</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Linear Recall: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">recall</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Linear Precision: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Linear F1 Score: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1</span><span class="p">))</span>
+
+<span class="c1"># Compute conv metrics</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">fc_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">recall</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fully Connected Recall: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">recall</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fully Connected Precision: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fully Connected F1 Score: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1</span><span class="p">))</span>
+
+<span class="c1"># Compute conv metrics</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">conv_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">recall</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Conv Recall: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">recall</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Conv Precision: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Conv F1 Score: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linear Recall: 0.3492822966507177
+Linear Precision: 0.6375545851528385
+Linear F1 Score: 0.45131375579598143
+Fully Connected Recall: 0.35406698564593303
+Fully Connected Precision: 0.6851851851851852
+Fully Connected F1 Score: 0.4668769716088329
+Conv Recall: 0.8899521531100478
+Conv Precision: 0.8493150684931506
+Conv F1 Score: 0.869158878504673
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="tf-dataset-key.html" title="previous page">TensorFlow Data</a>
+    <a class='right-next' id="next-link" href="optimizer.html" title="next page">Optimizers</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By David Van Valen and Morgan Schwartz<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
