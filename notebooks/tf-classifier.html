@@ -66,7 +66,7 @@
 <meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/tf-classifier.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Image classification with TensorFlow" />
-<meta property="og:description" content="Image classification with TensorFlow  Last updated Mar 29, 2021  Open in Colab  In this notebook we will revisit the image classification problem with TensorFLo" />
+<meta property="og:description" content="Image classification with TensorFlow  Last updated Mar 30, 2021  Open in Colab  In this notebook we will revisit the image classification problem with TensorFLo" />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -337,12 +337,19 @@
                 
   <div class="section" id="image-classification-with-tensorflow">
 <h1>Image classification with TensorFlow<a class="headerlink" href="#image-classification-with-tensorflow" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Mar 29, 2021</p>
+<p>Last updated Mar 30, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/tf-classifier.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>In this notebook we will revisit the image classification problem with TensorFLow. You will see how to create models and how to access the machinery of stochastic gradient descent using the existing software tooling.</p>
 <div class="section" id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <p>In this cell, we will load the python packages we need for this notebook</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install tensorflow-addons
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imageio</span>
@@ -361,7 +368,6 @@
         
 <span class="kn">import</span> <span class="nn">tensorflow_addons</span> <span class="k">as</span> <span class="nn">tfa</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">deepcell</span>
 </pre></div>
 </div>
 </div>
@@ -381,58 +387,27 @@ We will implement these steps using TensorFlow in this notebook</p></li>
 </div>
 <div class="section" id="create-training-data">
 <h2>Create training data<a class="headerlink" href="#create-training-data" title="Permalink to this headline">¶</a></h2>
-<p>We will reuse our toy example of building a classifier that can distinguish cats from dogs.</p>
+<p>We will reuse our toy example of building a classifier that can distinguish cats from dogs. The dataset that we are working with is a subset of <a class="reference external" href="https://www.kaggle.com/c/dogs-vs-cats/overview">Kaggle’s Dogs vs. Cats dataset</a>.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://storage.googleapis.com/datasets-spring2021/cats-and-dogs.npz
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the training dataset from the cloud bucket</span>
-<span class="n">IMG_HEIGHT</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">IMG_WIDTH</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">IMG_CHANNEL</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">IMG_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="n">IMG_WIDTH</span><span class="p">,</span> <span class="n">IMG_HEIGHT</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data from the downloaded npz file</span>
+<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;cats-and-dogs.npz&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
 
-<span class="c1"># Load the training dataset into memory</span>
-<span class="k">def</span> <span class="nf">load_training_data</span><span class="p">(</span><span class="n">direc</span><span class="p">,</span> <span class="n">n_cat_images</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span> <span class="n">n_dog_images</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
-    <span class="n">filenames</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">direc</span><span class="p">)</span>
-    
-    <span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="n">cat_counter</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">dog_counter</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
-        <span class="n">fullpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">direc</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-        <span class="n">category</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s2">&quot;dog&quot;</span> <span class="ow">and</span> <span class="n">dog_counter</span> <span class="o">&lt;</span> <span class="n">n_dog_images</span><span class="p">:</span>
-            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">IMG_SIZE</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">equalize_adapthist</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">rescale_intensity</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-            <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-            <span class="n">dog_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-            
-        <span class="k">elif</span> <span class="n">category</span> <span class="o">==</span> <span class="s2">&quot;cat&quot;</span> <span class="ow">and</span> <span class="n">cat_counter</span> <span class="o">&lt;</span> <span class="n">n_cat_images</span><span class="p">:</span>
-            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">IMG_SIZE</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">equalize_adapthist</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-            <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">rescale_intensity</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">out_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-            <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-            <span class="n">cat_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-    
-    <span class="c1"># Randomly shuffle</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cat_images</span> <span class="o">+</span> <span class="n">n_dog_images</span><span class="p">)</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    
-    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
-        
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_training_data</span><span class="p">(</span><span class="s1">&#39;/data/bebi205/cats_and_dogs&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8192, 128, 128, 3) (8192,)
 </pre></div>
 </div>
 </div>
@@ -448,7 +423,7 @@ We will implement these steps using TensorFlow in this notebook</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-classifier_6_0.png" src="../_images/tf-classifier_6_0.png" />
+<img alt="../_images/tf-classifier_8_0.png" src="../_images/tf-classifier_8_0.png" />
 </div>
 </div>
 </div>
@@ -526,7 +501,7 @@ We will implement these steps using TensorFlow in this notebook</p></li>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(64, 128, 128, 3)
 </pre></div>
 </div>
-<img alt="../_images/tf-classifier_10_1.png" src="../_images/tf-classifier_10_1.png" />
+<img alt="../_images/tf-classifier_12_1.png" src="../_images/tf-classifier_12_1.png" />
 </div>
 </div>
 </div>
@@ -580,7 +555,7 @@ The TensorFlow documentation provides additional details about how to use each o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-classifier_13_0.png" src="../_images/tf-classifier_13_0.png" />
+<img alt="../_images/tf-classifier_15_0.png" src="../_images/tf-classifier_15_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -607,7 +582,7 @@ The TensorFlow documentation provides additional details about how to use each o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-classifier_14_0.png" src="../_images/tf-classifier_14_0.png" />
+<img alt="../_images/tf-classifier_16_0.png" src="../_images/tf-classifier_16_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -644,7 +619,7 @@ The TensorFlow documentation provides additional details about how to use each o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-classifier_15_0.png" src="../_images/tf-classifier_15_0.png" />
+<img alt="../_images/tf-classifier_17_0.png" src="../_images/tf-classifier_17_0.png" />
 </div>
 </div>
 </div>
@@ -1292,7 +1267,7 @@ Epoch 00032: val_loss did not improve from 0.36159
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/tf-classifier_26_0.png" src="../_images/tf-classifier_26_0.png" />
+<img alt="../_images/tf-classifier_28_0.png" src="../_images/tf-classifier_28_0.png" />
 </div>
 </div>
 <div class="cell docutils container">

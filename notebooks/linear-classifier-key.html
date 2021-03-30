@@ -68,7 +68,7 @@
 <meta property="og:url"         content="vanvalenlab.github.io/bebi205/notebooks/linear-classifier-key.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="The Linear Classifier" />
-<meta property="og:description" content="The Linear Classifier  Last updated Mar 29, 2021  Open in Colab Open key in Colab  To illustrate the workflow for training a deep learning model in a supervised" />
+<meta property="og:description" content="The Linear Classifier  Last updated Mar 30, 2021  Open in Colab Open key in Colab  To illustrate the workflow for training a deep learning model in a supervised" />
 <meta property="og:image"       content="vanvalenlab.github.io/bebi205/_static/logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -353,7 +353,7 @@
                 
   <div class="section" id="the-linear-classifier">
 <h1>The Linear Classifier<a class="headerlink" href="#the-linear-classifier" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Mar 29, 2021</p>
+<p>Last updated Mar 30, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>To illustrate the workflow for training a deep learning model in a supervised manner, this notebook will walk you through the simple case of training a linear classifier to recognize images of cats and dogs. While deep learning might seem intimidating, dont worry. Its conceptual underpinnings are rooted in linear algebra and calculus - if you can perform matrix multiplication and take derivatives you can understand what is happening in a deep learning workflow.</p>
@@ -377,6 +377,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
@@ -396,100 +397,32 @@
 </div>
 <div class="section" id="create-training-data">
 <h2>Create training data<a class="headerlink" href="#create-training-data" title="Permalink to this headline">¶</a></h2>
-<p>The starting point of every machine learning project is data. In this case, we will start with a collection of grey scale images of cats and dogs. Each image is a multi-dimensional array with size (128, 128, 1) - the first two dimensions are spatial while the last is a channel dimension (one channel because it is a grey scale image - for an RGB image there would be 3 channels).</p>
-<div class="cell docutils container">
+<p>The starting point of every machine learning project is data. In this case, we will start with a collection of RGB images of cats and dogs. Each image is a multi-dimensional array with size (128, 128, 1) - the first two dimensions are spatial while the last is a channel dimension (one channel because it is a grey scale image - for an RGB image there would be 3 channels). The dataset that we are working with is a subset of <a class="reference external" href="https://www.kaggle.com/c/dogs-vs-cats/overview">Kaggle’s Dogs vs. Cats dataset</a>.</p>
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download the training dataset from the cloud bucket</span>
-
-<span class="c1"># Load the training dataset into memory</span>
-<span class="k">def</span> <span class="nf">load_training_data</span><span class="p">(</span><span class="n">cat_csv</span><span class="p">,</span> <span class="n">dog_csv</span><span class="p">,</span> <span class="n">n_cat_images</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">n_dog_images</span><span class="o">=</span><span class="mi">64</span><span class="p">):</span>
-    <span class="n">cat_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">cat_csv</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    <span class="n">dog_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dog_csv</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-    
-    <span class="c1"># Keep only the flickr addresses</span>
-    <span class="n">cat_df</span> <span class="o">=</span> <span class="n">cat_df</span><span class="p">[</span><span class="n">cat_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;flickr&#39;</span><span class="p">)]</span>
-    <span class="n">dog_df</span> <span class="o">=</span> <span class="n">dog_df</span><span class="p">[</span><span class="n">dog_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;flickr&#39;</span><span class="p">)]</span>
-
-    <span class="c1"># Load images using imageio</span>
-    <span class="n">cat_image_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">dog_image_list</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cat_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">cat_image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cat_image_list</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_cat_images</span><span class="p">:</span>
-            <span class="k">break</span>
-            
-    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">dog_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">dog_image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imageio</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dog_image_list</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_dog_images</span><span class="p">:</span>
-            <span class="k">break</span>
-    
-    <span class="c1"># Resize and grey scale images</span>
-    <span class="n">resized_cat_image_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">cat_image_list</span><span class="p">:</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">resized_cat_image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-    <span class="n">cat_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">resized_cat_image_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    
-    <span class="n">resized_dog_image_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">dog_image_list</span><span class="p">:</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">rgb2gray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span>
-        <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">resized_dog_image_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-    <span class="n">dog_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">resized_dog_image_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        
-    <span class="c1"># Create labels</span>
-    <span class="n">cat_labels</span> <span class="o">=</span> <span class="n">n_cat_images</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">dog_labels</span> <span class="o">=</span> <span class="n">n_dog_images</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">cat_images</span><span class="p">,</span> <span class="n">dog_images</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">cat_labels</span><span class="p">,</span> <span class="n">dog_labels</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    
-    <span class="c1"># Randomly shuffle</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cat_images</span> <span class="o">+</span> <span class="n">n_dog_images</span><span class="p">)</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-        
-    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
-
-<span class="n">cat_csv</span> <span class="o">=</span> <span class="s1">&#39;https://storage.googleapis.com/datasets-spring2021/Cat-URLs.csv&#39;</span>
-<span class="n">dog_csv</span> <span class="o">=</span> <span class="s1">&#39;https://storage.googleapis.com/datasets-spring2021/Dog-URLs.csv&#39;</span>
-
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_training_data</span><span class="p">(</span><span class="n">cat_csv</span><span class="p">,</span> <span class="n">dog_csv</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(128, 64, 64, 1)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://storage.googleapis.com/datasets-spring2021/cats-and-dogs-bw.npz
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the dimensions of each array in the training data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data from the downloaded npz file</span>
+<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;cats-and-dogs-bw.npz&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(128, 64, 64, 1) (128,)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8192, 128, 128, 1) (8192,)
 </pre></div>
 </div>
 </div>
 </div>
-<p>In the previous cell, you probably observed that there are 4 dimensions rather than the 3 you might have been expecting. This is because while each image is (64, 64, 1), the full dataset has many images. The different images are stacked along the first dimension. The full size of the training images is (# images, 64, 64, 1) - the first dimension is often called the batch dimension.</p>
+<p>In the previous cell, you probably observed that there are 4 dimensions rather than the 3 you might have been expecting. This is because while each image is (128, 128, 1), the full dataset has many images. The different images are stacked along the first dimension. The full size of the training images is (# images, 128, 128, 1) - the first dimension is often called the batch dimension.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
@@ -519,13 +452,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Flatten the images into vectors of size (# images, 16384, 1)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="o">*</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="o">*</span><span class="mi">128</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(128, 4096, 1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8192, 16384, 1)
 </pre></div>
 </div>
 </div>
@@ -568,7 +501,7 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the number of c
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinearClassifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="mi">16384</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="o">=</span><span class="n">image_size</span>
         
         <span class="c1"># Initialize weights</span>
@@ -589,7 +522,7 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the number of c
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LinearClassifier</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_size</span><span class="o">=</span><span class="mi">16384</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span><span class="o">=</span><span class="n">image_size</span>
         
         <span class="c1"># Initialize weights</span>
@@ -672,7 +605,7 @@ and provides a convenient way to convert our class scores into probabilities</p>
     <span class="n">X_sample</span> <span class="o">=</span> <span class="n">X</span><span class="p">[[</span><span class="n">i</span><span class="p">],</span><span class="o">...</span><span class="p">]</span>
     
     <span class="c1"># Reshape flattened vector to image</span>
-    <span class="n">X_reshape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_sample</span><span class="p">,</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">X_reshape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_sample</span><span class="p">,</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">))</span>
     
     <span class="c1"># Predict the label</span>
     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">lc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_sample</span><span class="p">)</span>
@@ -795,7 +728,7 @@ where <span class="math notranslate nohighlight">\(1\)</span> is an indicator fu
     <span class="n">X_sample</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[[</span><span class="n">i</span><span class="p">],</span><span class="o">...</span><span class="p">]</span>
     
     <span class="c1"># Reshape flattened vector to image</span>
-    <span class="n">X_reshape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_sample</span><span class="p">,</span> <span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">))</span>
+    <span class="n">X_reshape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_sample</span><span class="p">,</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span><span class="mi">128</span><span class="p">))</span>
     
     <span class="c1"># Predict the label</span>
     <span class="n">y_pred</span> <span class="o">=</span> <span class="n">lc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_sample</span><span class="p">)</span>
@@ -841,12 +774,12 @@ where <span class="math notranslate nohighlight">\(1\)</span> is an indicator fu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Recall: 0.3488372093023256
-Training Precision: 0.5357142857142857
-Training F1 Score: 0.4225352112676056
-Testing Recall: 0.38095238095238093
-Testing Precision: 0.7272727272727273
-Testing F1 Score: 0.5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Recall: 0.458455522971652
+Training Precision: 0.5228539576365663
+Training F1 Score: 0.4885416666666666
+Testing Recall: 0.4780915287244401
+Testing Precision: 0.5190274841437632
+Testing F1 Score: 0.49771920932589964
 </pre></div>
 </div>
 </div>
