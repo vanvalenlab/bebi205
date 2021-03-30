@@ -41,6 +41,11 @@ Live attendance of lectures is not required, but is necessary for the journal cl
 ### Journal Club
 Students will assemble into groups of up to 4 individuals to present a single paper for journal club. Live attendance is required in order to give the presentation. Make-ups will not be available. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.
 
+Journal club presentations should be between 15-20 minutes. You should prepare ~10 slides in order to walk us through the relevant figures and address the following points:
+
+- What problem is the paper trying to solve?
+- How do they solve the problem?
+
 ### Late Assignments
 Late assignments will lose 10% for each day late. Extensions for due dates can be granted by the TA in light of extenuating circumstances. Please reach out prior to the deadline.
 
