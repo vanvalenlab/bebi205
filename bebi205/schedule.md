@@ -52,7 +52,7 @@ Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification 
 ````{panels}
 Lectures
 ^^^
-**Lecture 5:** Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
+[**Lecture 5:**](https://drive.google.com/file/d/1zqbwcGU3krDjC3lZ9bXCW919-SWJYRUh/view?usp=sharing) Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
 
 **Lecture 6:** DeepCell Label Workshop
 ---
