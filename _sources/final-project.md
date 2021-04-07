@@ -5,8 +5,7 @@ Last updated |lastupdate|
 
 The majority of the class will be graded based on a project that will span the duration the course. You should begin thinking about the project you would like to pursue during the first few weeks of the course. Your class project serves as an opportunity for hands on exploration of using deep learning on a biological question of your choice. You may work on your own or in a group. There will be a series of brief assignments leading up to the final submission.
 
-## Assignment 0: Group Selection - Due 4/12
-Please email the TA with a list of group members (1-4) for the course project. All subsequent assignments will be submitted as a group.
+Your project for this course will require writing a substantial amount of code to implement a deep learning model. The official language/package for this class is Python and Tensorflow and the instructors will be able to provide assistance with debugging your code. You may choose to work with another language or package, but there will not be able to provide any support.
 
 (dataset-exploration)=
 ## Assignment 1: Preliminary Proposal and Dataset Exploration - Due 4/19
