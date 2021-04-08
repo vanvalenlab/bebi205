@@ -120,6 +120,7 @@ Alipanahi, B., Delong, A., Weirauch, M. T., & Frey, B. J. (2015). [Predicting th
 
 Zhou, J., & Troyanskaya, O. G. (2015). [Predicting effects of noncoding variants with deep learning–based sequence model.](https://doi.org/10.1038/nmeth.3547) *Nature methods*, 12(10), 931-934.
 
+Avsec, Z. et al (2021). [Effective gene expression prediction from sequence by integrating long-range interactions.](https://doi.org/10.1101/2021.04.07.438649) BioRxiv 438649.
 ````
 
 ## Week 6 - 5/3, 5/5
