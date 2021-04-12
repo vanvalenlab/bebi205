@@ -19,7 +19,6 @@
     - file: notebooks/tf-dataset-key
     - file: notebooks/tf-classifier
     - file: notebooks/optimizer
-    - file: notebooks/dl-building-blocks
     - file: notebooks/vision-model
     - file: notebooks/sequence-model
     - file: notebooks/debugging

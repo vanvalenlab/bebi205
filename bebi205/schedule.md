@@ -81,8 +81,6 @@ Lectures
 Notebooks
 ^^^
 {doc}`notebooks/optimizer`
-
-{doc}`notebooks/dl-building-blocks`
 ---
 Papers
 ^^^
