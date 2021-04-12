@@ -35,7 +35,7 @@ Lectures
 ^^^
 [**Lecture 3:**](https://drive.google.com/file/d/1iy8lqlBactkxKtx0DRPlnlu1ZKV6ocT0/view?usp=sharing) Example Linear Classifier
 
-[**Lecture 4:**](https://drive.google.com/file/d/1qXV2nsgBX0uLVcOhZ0XzOZ3GQMI47le3/view?usp=sharing) Conceptual overview of deep learning. Supervised vs unsupervised, Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
+[**Lecture 4:**](https://drive.google.com/file/d/1qXV2nsgBX0uLVcOhZ0XzOZ3GQMI47le3/view?usp=sharing) Conceptual overview of deep learning. Supervised vs unsupervised,
 ---
 Notebooks
 ^^^
@@ -52,7 +52,7 @@ Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification 
 ````{panels}
 Lectures
 ^^^
-[**Lecture 5:**](https://drive.google.com/file/d/1zqbwcGU3krDjC3lZ9bXCW919-SWJYRUh/view?usp=sharing) Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
+[**Lecture 5:**](https://drive.google.com/file/d/1qXV2nsgBX0uLVcOhZ0XzOZ3GQMI47le3/view?usp=sharing) Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
 
 **Lecture 6:** DeepCell Label Workshop
 ---
@@ -74,15 +74,13 @@ Ronneberger, O., Fischer, P., & Brox, T. (2015). [U-net: Convolutional networks 
 ````{panels}
 Lectures
 ^^^
-**Lecture 7:** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
+[**Lecture 7:**](https://drive.google.com/file/d/1zqbwcGU3krDjC3lZ9bXCW919-SWJYRUh/view?usp=sharing) Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
 
-**Lecture 8:** Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
+**Lecture 8:** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
 ---
 Notebooks
 ^^^
 {doc}`notebooks/optimizer`
-
-{doc}`notebooks/dl-building-blocks`
 ---
 Papers
 ^^^
@@ -98,9 +96,10 @@ Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss f
 ````{panels}
 Lectures
 ^^^
-**Lecture 9:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
+**Lecture 9:** Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
 
-**Lecture 10:** Sequence models. 1D convolution, recurrent layers, attention, modern language models.
+
+**Lecture 10:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
 ---
 Notebooks
 ^^^
@@ -127,7 +126,7 @@ Avsec, Z. et al (2021). [Effective gene expression prediction from sequence by i
 ````{panels}
 Lectures
 ^^^
-**Lecture 11:** Sequence model applications. DeepBind and others.
+**Lecture 11:** Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others.
 
 **Lecture 12:** Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 ---
@@ -161,9 +160,6 @@ Lectures
 **Lecture 15:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 
 **Lecture 16:**
----
-Notebooks
-^^^
 ---
 Papers
 ^^^
