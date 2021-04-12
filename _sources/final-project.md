@@ -7,6 +7,9 @@ The majority of the class will be graded based on a project that will span the d
 
 Your project for this course will require writing a substantial amount of code to implement a deep learning model. The official language/package for this class is Python and Tensorflow and the instructors will be able to provide assistance with debugging your code. You may choose to work with another language or package, but there will not be able to provide any support.
 
+## Assignment 0: Group Selection - Due 4/12
+Please email the TA with a list of group members (1-4) for the course project. All subsequent assignments will be submitted as a group.
+
 (dataset-exploration)=
 ## Assignment 1: Preliminary Proposal and Dataset Exploration - Due 4/19
 Please select a preliminary dataset that you are considering using for your final project. In a few sentences, describe what question or task you are planning to address with this dataset. You may change your mind in the future as your project develops.
