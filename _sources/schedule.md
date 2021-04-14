@@ -120,6 +120,10 @@ Alipanahi, B., Delong, A., Weirauch, M. T., & Frey, B. J. (2015). [Predicting th
 Zhou, J., & Troyanskaya, O. G. (2015). [Predicting effects of noncoding variants with deep learning–based sequence model.](https://doi.org/10.1038/nmeth.3547) *Nature methods*, 12(10), 931-934.
 
 Avsec, Z. et al (2021). [Effective gene expression prediction from sequence by integrating long-range interactions.](https://doi.org/10.1101/2021.04.07.438649) BioRxiv 438649.
+
+Gurovich, Y. et al. (2019). [Identifying facial phenotypes of genetic disorders using deep learning.](https://doi.org/10.1038/s41591-018-0279-0) Nature Medicine 25, 60–64.
+
+Young, T., Hazarika, D., Poria, S., and Cambria, E. (2017). [Recent Trends in Deep Learning Based Natural Language Processing.](https://arxiv.org/abs/1708.02709v8) ArXiv.
 ````
 
 ## Week 6 - 5/3, 5/5
