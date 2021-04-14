@@ -54,7 +54,7 @@ Lectures
 ^^^
 [**Lecture 5:**](https://drive.google.com/file/d/1qXV2nsgBX0uLVcOhZ0XzOZ3GQMI47le3/view?usp=sharing) Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
 
-**Lecture 6:** DeepCell Label Workshop
+**Lecture 6:** [DeepCell Label](label.deepcell.org) Workshop. [Introductory materials](https://github.com/vanvalenlab/intro-to-deepcell/blob/master/data_labeling/DeepCell_Label_interactive_demo.md)
 ---
 Notebooks
 ^^^
