@@ -493,11 +493,12 @@ While there is no hard and fast rule, 80%, 10%, 10% splits are a reasonable star
 </ul>
 <div class="section" id="create-the-matrix-of-weights">
 <h3>Create the matrix of weights<a class="headerlink" href="#create-the-matrix-of-weights" title="Permalink to this headline">¶</a></h3>
-<p>Properly initializing weights is essential for getting deep learning methods to work correctly. The two most common initialization methods you’ll see in this class are <a class="reference external" href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf?hc_location=ufi%5D">glorot uniform (also known as Xavier) initialization</a> and <a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html">he initialization</a> - both papers are worth reading. For this exercise, we will randomly initialize weights by using glorot uniform initialization. In this initialization method, we sample our weights according to the formula
-\begin{equation}
+<p>Properly initializing weights is essential for getting deep learning methods to work correctly. The two most common initialization methods you’ll see in this class are <a class="reference external" href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf?hc_location=ufi%5D">glorot uniform (also known as Xavier) initialization</a> and <a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html">he initialization</a> - both papers are worth reading. For this exercise, we will randomly initialize weights by using glorot uniform initialization. In this initialization method, we sample our weights according to the formula</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eb59abb3-74c7-414b-8031-0c2a6a989979">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eb59abb3-74c7-414b-8031-0c2a6a989979" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
-\end{equation}
-where <span class="math notranslate nohighlight">\(n\)</span> is the number of columns in the weight matrix (4096 in our case).</p>
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of columns in the weight matrix (4096 in our case).</p>
 <p>Lets create the linear classifier using object oriented programming, which will help with organization</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -546,11 +547,12 @@ where <span class="math notranslate nohighlight">\(n\)</span> is the number of c
 </div>
 <div class="section" id="apply-the-softmax-transform-to-complete-the-model-outputs">
 <h3>Apply the softmax transform to complete the model outputs<a class="headerlink" href="#apply-the-softmax-transform-to-complete-the-model-outputs" title="Permalink to this headline">¶</a></h3>
-<p>Our LinearClassifier class needs a method to perform predictions - which in our case is performing matrix multiplication and then applying the softmax transform. Recall from class that the softmax transform is given by
-\begin{equation}
+<p>Our LinearClassifier class needs a method to perform predictions - which in our case is performing matrix multiplication and then applying the softmax transform. Recall from class that the softmax transform is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2665fbc4-8d4c-409a-ab61-6bfdf644a57d">
+<span class="eqno">(4)<a class="headerlink" href="#equation-2665fbc4-8d4c-409a-ab61-6bfdf644a57d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
-\end{equation}
-and provides a convenient way to convert our class scores into probabilities</p>
+\end{equation}\]</div>
+<p>and provides a convenient way to convert our class scores into probabilities</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################</span>
@@ -634,10 +636,11 @@ and provides a convenient way to convert our class scores into probabilities</p>
 </ul>
 <p>Recall that the origin of this update rule is from multivariable calculus - the gradient tells us the direction in which the loss function increases the most. So to minimize the loss function we move in the opposite direction of the gradient.</p>
 <p>Also recall from the course notes that for this problem we can compute the gradient analytically. The gradient is given by</p>
-<p>\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4b00965e-ee7e-4522-bec8-5f762e731b7c">
+<span class="eqno">(5)<a class="headerlink" href="#equation-4b00965e-ee7e-4522-bec8-5f762e731b7c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\partial loss}{\partial W_{ij}} = \left(p_i - 1(i \mbox{ is correct}) \right)x_j,
-\end{equation}
-where <span class="math notranslate nohighlight">\(1\)</span> is an indicator function that is 1 if the statement inside the parentheses is true and 0 if it is false.</p>
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(1\)</span> is an indicator function that is 1 if the statement inside the parentheses is true and 0 if it is false.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>

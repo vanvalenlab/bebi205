@@ -455,12 +455,13 @@
 <h2>Image Transformations<a class="headerlink" href="#image-transformations" title="Permalink to this headline">¶</a></h2>
 <p>In the course of training a machine learning model, we can augment the training dataset by performing image transformations to present the model with the same data in a new form. These transformations can take the form of reflections, rotations, scaling and others. In its simplest form, any transformation can be applied to an image by multiplying it with an appropriate transformation matrix. We will briefly review the linear algebra behind transformation matrices before looking at code examples.</p>
 <p>For this discussion, we will consider the point <span class="math notranslate nohighlight">\(P(x,y) = \begin{bmatrix}x&amp;y\end{bmatrix}\)</span>. Any transformation matrix is a modification of the identity matrix
-$<span class="math notranslate nohighlight">\(
-\begin{bmatrix}
+$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-95debd57-2e8e-42c0-a97d-b74d58c9ed19">
+<span class="eqno">(1)<a class="headerlink" href="#equation-95debd57-2e8e-42c0-a97d-b74d58c9ed19" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
     1 &amp; 0 \\
     0 &amp; 1 \\
-\end{bmatrix}
-\)</span>$</p>
+\end{bmatrix}\]</div>
+<p>$$</p>
 <p>For each code example, we will apply the transformation to a 1x1 square whose bottom left corner is the origin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

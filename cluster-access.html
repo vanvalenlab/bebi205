@@ -418,14 +418,16 @@ sh ./Miniconda3-latest-Linux-x86_64.sh
 <h2>Launching a notebook<a class="headerlink" href="#launching-a-notebook" title="Permalink to this headline">¶</a></h2>
 <p>You are now set up to launch a notebook for interactive computing. From the HPC Portal, select Interactive Apps &gt; Jupyter Lab (or Notebook). This will bring up a form to configure the compute resources that will be used for the session. As a general guide, the more hours and/or hardware that you request the longer your session will take to start.</p>
 <p>The settings below are a recommended starting point for compute resources for image processing jobs. You may need to experiment a bit to find out what works best for your task. Please be mindful of shutting down instances when you don’t need them and minimizing the compute power that you request. This will help us continue to receive department funding for cluster access in the future.</p>
-<p>Number of hours
-: Generally should be under 48 hours</p>
-<p>Number of cores
-: 2 cores</p>
-<p>Memory per core
-: 32-64 GBs of memory total</p>
-<p>Number of GPUs
-: If you are training a model, you should request 1 GPU.</p>
+<dl class="simple myst">
+<dt>Number of hours</dt><dd><p>Generally should be under 48 hours</p>
+</dd>
+<dt>Number of cores</dt><dd><p>2 cores</p>
+</dd>
+<dt>Memory per core</dt><dd><p>32-64 GBs of memory total</p>
+</dd>
+<dt>Number of GPUs</dt><dd><p>If you are training a model, you should request 1 GPU.</p>
+</dd>
+</dl>
 <p>Your job may take a few minutes to a few hours to launch depending on how much compute power you requested. After the resources are available, you should see a button to open your Jupyter session. After opening jupyter, make sure to select the bebi205 kernel for your notebook.</p>
 <p><img alt="Kernel drop down menu" src="_images/jupyter-kernel.png" /></p>
 </div>

@@ -519,15 +519,16 @@ RNA to protein: MAIVMGR*KGAR*
 <h2>One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">¶</a></h2>
 <p>For most machine learning applications, DNA or RNA sequence is represented using one-hot encoding. In this schema, each nucleotide is treated as its own class such that DNA sequence would be represented as four classes. Each class/nucleotide has a binary value of 0 (absent) or 1 (present).</p>
 <p>For example, the sequence <code class="docutils literal notranslate"><span class="pre">ATGTC</span></code> would be encoded as
-$<span class="math notranslate nohighlight">\(
-\begin{bmatrix}
+$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5853817e-49ad-44ca-8d27-87e2ef4a72b8">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5853817e-49ad-44ca-8d27-87e2ef4a72b8" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
     1&amp;0&amp;0&amp;0\\
     0&amp;1&amp;0&amp;0\\
     0&amp;0&amp;0&amp;1\\
     0&amp;1&amp;0&amp;0\\
     0&amp;0&amp;1&amp;0
-\end{bmatrix}
-\)</span>$</p>
+\end{bmatrix}\]</div>
+<p>$$</p>
 </div>
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
