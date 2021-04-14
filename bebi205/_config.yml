@@ -29,8 +29,10 @@ execute:
 #######################################################################################
 # Parse and render settings
 parse:
-  myst_extended_syntax      : false  # enable MyST extended syntax support (see documents for details)
+  myst_extended_syntax      : true  # enable MyST extended syntax support (see documents for details)
   myst_url_schemes          : [mailto, http, https]  # URI schemes that will be recognised as external URLs in Markdown links
+  myst_enable_extensions:
+    - amsmath
 
 #######################################################################################
 # HTML-specific settings
@@ -68,3 +70,6 @@ repository:
 # Advanced and power-user settings
 sphinx:
   extra_extensions: [sphinxcontrib.lastupdate]
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
