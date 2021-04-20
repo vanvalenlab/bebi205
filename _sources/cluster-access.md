@@ -10,6 +10,10 @@ The Caltech HPC Cluster requires multi-factor authentication. You can set this u
 ## Accessing the cluster
 The first time that you access the cluster you need to log in via SSH. Afterwards you can instead log in through the browser.
 
+```{warning}
+From this point onward, you always need to be connected to the Caltech VPN in order to access the cluster through the terminal or the browser.
+```
+
 ### SSH Access
 1. From the command line, run
 ```bash
@@ -17,6 +21,10 @@ ssh your-username@login.hpc.caltech.edu
 ```
 2. Follow the prompts to enter your access.caltech.edu password
 3. Follow the prompt to complete multi-factor authentication using Duo
+
+```{note}
+Your password will always be your default Caltech password that you use to log in to access.caltech.edu.
+```
 
 ### Browser Access
 Open [https://ondemand.hpc.caltech.edu/](https://ondemand.hpc.caltech.edu/) and login with your Caltech username and password
