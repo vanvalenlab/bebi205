@@ -76,7 +76,7 @@ Lectures
 ^^^
 [**Lecture 7:**](https://drive.google.com/file/d/1zqbwcGU3krDjC3lZ9bXCW919-SWJYRUh/view?usp=sharing) Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
 
-**Lecture 8:** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
+[**Lecture 8:**](https://drive.google.com/file/d/1v2fKXP4QwNvDmFssjlINKWY-BrvRq3Ra/view?usp=sharing) Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
 ---
 Notebooks
 ^^^
