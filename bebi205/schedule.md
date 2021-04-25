@@ -104,6 +104,7 @@ Lectures
 Notebooks
 ^^^
 {doc}`notebooks/vision-model`
+{doc}`notebooks/segmentation`
 ---
 Papers
 ^^^
