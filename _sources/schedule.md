@@ -104,6 +104,7 @@ Lectures
 Notebooks
 ^^^
 {doc}`notebooks/vision-model`
+{doc}`notebooks/segmentation`
 ---
 Papers
 ^^^
@@ -124,6 +125,8 @@ Avsec, Z. et al (2021). [Effective gene expression prediction from sequence by i
 Gurovich, Y. et al. (2019). [Identifying facial phenotypes of genetic disorders using deep learning.](https://doi.org/10.1038/s41591-018-0279-0) Nature Medicine 25, 60–64.
 
 Young, T., Hazarika, D., Poria, S., and Cambria, E. (2017). [Recent Trends in Deep Learning Based Natural Language Processing.](https://arxiv.org/abs/1708.02709v8) ArXiv.
+
+Rives, A. et al. (2021). [Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences.](https://doi.org/10.1073/pnas.2016239118) Proc Natl Acad Sci USA 118, e2016239118.
 ````
 
 ## Week 6 - 5/3, 5/5

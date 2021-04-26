@@ -155,6 +155,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="segmentation.html">
+     Cell Segmentation with DeepCell
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="vision-model.html">
      Vision Model
     </a>
@@ -336,7 +341,7 @@
                 
   <div class="section" id="tensorflow-data">
 <h1>TensorFlow Data<a class="headerlink" href="#tensorflow-data" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 24, 2021</p>
+<p>Last updated Apr 26, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/tf-dataset.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/tf-dataset-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>Some code cells will be marked with</p>
@@ -460,14 +465,14 @@
 <p>Finally, we augment the dataset by performing random transformations to each batch of samples. In order to to this, we revisit the transformation matrices discussed previously. When we initially discussed transformations, we used 2x2 matrices to rotate, reflect, etc a 2D image. For dataset augmentation, we also want to translate the image such that it is shifted in 2D space away from its original center point. In order to do this, we will use a 3x3 matrix and consider each point <span class="math notranslate nohighlight">\(P(x,y) = \begin{bmatrix}x&amp;y&amp;1\end{bmatrix}\)</span>.</p>
 <p>In order to translate point <span class="math notranslate nohighlight">\(P(x,y)\)</span> by <span class="math notranslate nohighlight">\((\delta x, \delta y)\)</span>, we multiply P by the translation matrix
 $\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac1e4b1d-d9da-43ed-b34d-d9ff90f0711d">
-<span class="eqno">(6)<a class="headerlink" href="#equation-ac1e4b1d-d9da-43ed-b34d-d9ff90f0711d" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-040da10a-280f-4f3b-9012-93ab13224d28">
+<span class="eqno">(6)<a class="headerlink" href="#equation-040da10a-280f-4f3b-9012-93ab13224d28" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
     1 &amp; 0 &amp; 0\\
     0 &amp; 1 &amp; 0\\
     \delta x &amp; \delta y &amp; 1
 \end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-e4f1bc7b-58ef-47db-b981-57888d159b9d">
-<span class="eqno">(7)<a class="headerlink" href="#equation-e4f1bc7b-58ef-47db-b981-57888d159b9d" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-5a49566d-17e6-42bc-98a8-d5c97d07df59">
+<span class="eqno">(7)<a class="headerlink" href="#equation-5a49566d-17e6-42bc-98a8-d5c97d07df59" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\]</div>
 <p>In order to apply random transformations to the dataset, we can use the <code class="docutils literal notranslate"><span class="pre">dataset.map</span></code> function which will apply any python function to each element in the dataset. First we will write a function to calculate a random transformation matrix that scales the data within the limits of a specified zoom range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1081,10 +1086,9 @@ please refer to Weirauch et al., 2013 (Nature Biotechnology, doi:10.1038/nbt.248
 
       </div>
     </div>
-    
+  
   <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-
-    
+  
   </body>
 </html>
