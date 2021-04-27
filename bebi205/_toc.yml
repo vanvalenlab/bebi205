@@ -19,7 +19,7 @@
     - file: notebooks/tf-dataset-key
     - file: notebooks/tf-classifier
     - file: notebooks/optimizer
-    - file: notebooks/segmentation
-    - file: notebooks/vision-model
+    - file: vision-model-toc
+      sections:
+        - file: notebooks/spot-detection
     - file: notebooks/sequence-model
-    - file: notebooks/debugging
