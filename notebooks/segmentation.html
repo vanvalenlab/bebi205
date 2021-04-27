@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cell Segmentation &#8212; BEBi 205: Deep Learning for Biological Data</title>
+    <title>Vision Models: Cell Segmentation &#8212; BEBi 205: Deep Learning for Biological Data</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -169,7 +169,7 @@
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Cell Segmentation
+       Vision Models: Cell Segmentation
       </a>
      </li>
     </ul>
@@ -345,8 +345,8 @@
         
               <div>
                 
-  <div class="section" id="cell-segmentation">
-<h1>Cell Segmentation<a class="headerlink" href="#cell-segmentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="vision-models-cell-segmentation">
+<h1>Vision Models: Cell Segmentation<a class="headerlink" href="#vision-models-cell-segmentation" title="Permalink to this headline">¶</a></h1>
 <p>Last updated Apr 27, 2021</p>
 <p>In this section we will build a model to perform cell segmentation on phase contrast images. You can learn more about the model architecture used in this notebook in <a class="reference internal" href="spot-detection.html"><span class="doc">Spot Detection</span></a>.</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/segmentation.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
@@ -675,6 +675,7 @@ Epoch 00005: val_loss improved from 0.00931 to 0.00794, saving model to phase_de
 
 <span class="n">prediction_model</span> <span class="o">=</span> <span class="n">PanopticNet</span><span class="p">(</span>
     <span class="n">backbone</span><span class="o">=</span><span class="s1">&#39;resnet50&#39;</span><span class="p">,</span>
+    <span class="n">include_top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">norm_method</span><span class="o">=</span><span class="s1">&#39;whole_image&#39;</span><span class="p">,</span>
     <span class="n">num_semantic_classes</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="c1"># inner distance, outer distance</span>
     <span class="n">input_shape</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
@@ -705,7 +706,7 @@ Epoch 00005: val_loss improved from 0.00931 to 0.00794, saving model to phase_de
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Watershed segmentation of shape (468, 256, 256, 1) in 4.933405328003573 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Watershed segmentation of shape (468, 256, 256, 1) in 4.126937585999258 seconds.
 </pre></div>
 </div>
 </div>
@@ -753,7 +754,7 @@ Epoch 00005: val_loss improved from 0.00931 to 0.00794, saving model to phase_de
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>155
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111
 </pre></div>
 </div>
 <img alt="../_images/segmentation_25_1.png" src="../_images/segmentation_25_1.png" />
@@ -812,7 +813,9 @@ Average Pixel IOU (Jaccard Index): 0.8863
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>deepcell 0.9.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The watermark extension is already loaded. To reload it, use:
+  %reload_ext watermark
+deepcell 0.9.0
 numpy    1.19.5
 last updated: 2021-04-27 
 

@@ -55,7 +55,7 @@
     <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/spot-detection.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Cell Segmentation" href="segmentation.html" />
+    <link rel="next" title="Vision Models: Cell Segmentation" href="segmentation.html" />
     <link rel="prev" title="Vision Models" href="../vision-model-toc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -171,7 +171,7 @@
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="segmentation.html">
-       Cell Segmentation
+       Vision Models: Cell Segmentation
       </a>
      </li>
     </ul>
@@ -367,8 +367,8 @@
 </div>
 <p>To solve this problem, we will treat it as a regression problem. For each image we will try to predict a transform image. This transform image will tell us how far each pixel is from the nearest spot. By looking for the extrema in the predicted transform image, we will be able to identify the appendages.</p>
 <p>The transform we will use is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0d9445d-8fba-4160-b333-3ddd0855844a">
-<span class="eqno">(8)<a class="headerlink" href="#equation-b0d9445d-8fba-4160-b333-3ddd0855844a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5acc4178-6292-400a-8677-91fd8a6925d1">
+<span class="eqno">(8)<a class="headerlink" href="#equation-5acc4178-6292-400a-8677-91fd8a6925d1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 transform = \frac{1}{1+\frac{distance}{\alpha}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is a parameter that determines the length scale. We will set <span class="math notranslate nohighlight">\(\alpha\)</span> to be ~10 pixels, which is roughly the length scale for an appendage.</p>
@@ -2020,7 +2020,7 @@ interpreter: 64bit
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../vision-model-toc.html" title="previous page">Vision Models</a>
-    <a class='right-next' id="next-link" href="segmentation.html" title="next page">Cell Segmentation</a>
+    <a class='right-next' id="next-link" href="segmentation.html" title="next page">Vision Models: Cell Segmentation</a>
 
         </div>
         
