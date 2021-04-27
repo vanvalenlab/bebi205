@@ -104,6 +104,7 @@ Lectures
 Notebooks
 ^^^
 {doc}`notebooks/spot-detection`
+{doc}`notebooks/segmentation`
 ---
 Papers
 ^^^
