@@ -103,7 +103,7 @@ Lectures
 ---
 Notebooks
 ^^^
-{doc}`notebooks/vision-model`
+{doc}`notebooks/spot-detection`
 {doc}`notebooks/segmentation`
 ---
 Papers
@@ -140,8 +140,6 @@ Lectures
 Notebooks
 ^^^
 {doc}`notebooks/sequence-model`
-
-{doc}`notebooks/debugging`
 ---
 Papers
 ^^^

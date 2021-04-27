@@ -154,24 +154,31 @@
      Optimizers
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="segmentation.html">
-     Cell Segmentation with DeepCell
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../vision-model-toc.html">
+     Vision Models
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vision-model.html">
-     Vision Model
-    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spot-detection.html">
+       Spot Detection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="segmentation.html">
+       Cell Segmentation
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="sequence-model.html">
      Sequence Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="debugging.html">
-     Debugging
     </a>
    </li>
   </ul>
@@ -320,7 +327,7 @@
                 
   <div class="section" id="sequences">
 <h1>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 26, 2021</p>
+<p>Last updated Apr 27, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell docutils container">
@@ -515,8 +522,8 @@ RNA to protein: MAIVMGR*KGAR*
 <p>For most machine learning applications, DNA or RNA sequence is represented using one-hot encoding. In this schema, each nucleotide is treated as its own class such that DNA sequence would be represented as four classes. Each class/nucleotide has a binary value of 0 (absent) or 1 (present).</p>
 <p>For example, the sequence <code class="docutils literal notranslate"><span class="pre">ATGTC</span></code> would be encoded as
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f3a9f4be-7a86-44bd-81eb-a73c5199ebb7">
-<span class="eqno">(2)<a class="headerlink" href="#equation-f3a9f4be-7a86-44bd-81eb-a73c5199ebb7" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-57f240f5-7450-4018-8b00-bf1daec1b276">
+<span class="eqno">(2)<a class="headerlink" href="#equation-57f240f5-7450-4018-8b00-bf1daec1b276" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
     1&amp;0&amp;0&amp;0\\
     0&amp;1&amp;0&amp;0\\
     0&amp;0&amp;0&amp;1\\

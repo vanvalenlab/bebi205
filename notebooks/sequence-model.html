@@ -55,8 +55,7 @@
     <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/sequence-model.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Debugging" href="debugging.html" />
-    <link rel="prev" title="Vision Model" href="vision-model.html" />
+    <link rel="prev" title="Cell Segmentation" href="segmentation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -154,24 +153,31 @@
      Optimizers
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="segmentation.html">
-     Cell Segmentation with DeepCell
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../vision-model-toc.html">
+     Vision Models
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vision-model.html">
-     Vision Model
-    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="spot-detection.html">
+       Spot Detection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="segmentation.html">
+       Cell Segmentation
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Sequence Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="debugging.html">
-     Debugging
     </a>
    </li>
   </ul>
@@ -320,7 +326,7 @@
                 
   <div class="section" id="sequence-models">
 <h1>Sequence Models<a class="headerlink" href="#sequence-models" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 26, 2021</p>
+<p>Last updated Apr 27, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequence-model.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>We are going to reproduce the models published in Hie et al. 2021. The fasta file that we will initially work with is hosted in the class bucket, but the full dataset can be donwloaded using the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://cb.csail.mit.edu/cb/viral-mutation/data.tar.gz
@@ -1150,8 +1156,7 @@ ________________________________________________________________________________
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="vision-model.html" title="previous page">Vision Model</a>
-    <a class='right-next' id="next-link" href="debugging.html" title="next page">Debugging</a>
+    <a class='left-prev' id="prev-link" href="segmentation.html" title="previous page">Cell Segmentation</a>
 
         </div>
         

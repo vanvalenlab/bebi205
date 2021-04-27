@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cell Segmentation with DeepCell &#8212; BEBi 205: Deep Learning for Biological Data</title>
+    <title>Cell Segmentation &#8212; BEBi 205: Deep Learning for Biological Data</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/segmentation.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Vision Model" href="vision-model.html" />
-    <link rel="prev" title="Optimizers" href="optimizer.html" />
+    <link rel="next" title="Sequence Models" href="sequence-model.html" />
+    <link rel="prev" title="Spot Detection" href="spot-detection.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -152,24 +152,31 @@
      Optimizers
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Cell Segmentation with DeepCell
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="../vision-model-toc.html">
+     Vision Models
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="vision-model.html">
-     Vision Model
-    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="spot-detection.html">
+       Spot Detection
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Cell Segmentation
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="sequence-model.html">
      Sequence Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="debugging.html">
-     Debugging
     </a>
    </li>
   </ul>
@@ -338,14 +345,15 @@
         
               <div>
                 
-  <div class="section" id="cell-segmentation-with-deepcell">
-<h1>Cell Segmentation with DeepCell<a class="headerlink" href="#cell-segmentation-with-deepcell" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 26, 2021</p>
+  <div class="section" id="cell-segmentation">
+<h1>Cell Segmentation<a class="headerlink" href="#cell-segmentation" title="Permalink to this headline">¶</a></h1>
+<p>Last updated Apr 27, 2021</p>
+<p>In this section we will build a model to perform cell segmentation on phase contrast images. You can learn more about the model architecture used in this notebook in <a class="reference internal" href="spot-detection.html"><span class="doc">Spot Detection</span></a>.</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/segmentation.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the latest version of DeepCell</span>
-<span class="o">!</span>pip install -U deepcell
+<span class="o">!</span>pip install <span class="s2">&quot;deepcell==0.9.0&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -368,7 +376,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">base_url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://deepcell-data.s3-us-west-1.amazonaws.com/&#39;</span>
             <span class="s1">&#39;demos/janelia/hela_s3_</span><span class="si">{}</span><span class="s1">_256.npz&#39;</span><span class="p">)</span>
 
-<span class="n">phase</span> <span class="o">=</span> <span class="n">deepcell</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">deepcell</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
     <span class="n">path</span><span class="o">=</span><span class="s1">&#39;phase.npz&#39;</span><span class="p">,</span>
     <span class="n">url</span><span class="o">=</span><span class="n">base_url</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;phase&#39;</span><span class="p">),</span>
     <span class="n">file_hash</span><span class="o">=</span><span class="s1">&#39;c56df51039fe6cae15c818118dfb8ce8&#39;</span><span class="p">,</span>
@@ -387,9 +395,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://deepcell-data.s3-us-west-1.amazonaws.com/demos/janelia/hela_s3_phase_256.npz
-460070912/460063210 [==============================] - 28s 0us/step
-X_train.shape: (1872, 256, 256, 1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train.shape: (1872, 256, 256, 1)
 X_test.shape: (468, 256, 256, 1)
 </pre></div>
 </div>
@@ -450,15 +456,10 @@ X_test.shape: (468, 256, 256, 1)
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">PanopticNet</span><span class="p">(</span>
     <span class="n">backbone</span><span class="o">=</span><span class="s1">&#39;resnet50&#39;</span><span class="p">,</span>
+    <span class="n">include_top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">input_shape</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
     <span class="n">norm_method</span><span class="o">=</span><span class="s1">&#39;whole_image&#39;</span><span class="p">,</span>
     <span class="n">num_semantic_classes</span><span class="o">=</span><span class="n">semantic_classes</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/resnet/resnet50_weights_tf_dim_ordering_tf_kernels_notop.h5
-94773248/94765736 [==============================] - 0s 0us/step
 </pre></div>
 </div>
 </div>
@@ -641,25 +642,25 @@ X_test.shape: (468, 256, 256, 1)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training on 1 GPUs.
 Epoch 1/5
-234/234 [==============================] - 151s 442ms/step - loss: nan - semantic_0_loss: 0.4047 - semantic_1_loss: 0.0744 - semantic_2_loss: nan - val_loss: 0.1436 - val_semantic_0_loss: 0.0045 - val_semantic_1_loss: 0.0615 - val_semantic_2_loss: 0.0776
+234/234 [==============================] - 132s 491ms/step - loss: 0.2044 - semantic_0_loss: 0.0081 - semantic_1_loss: 0.1931 - semantic_2_loss: 0.0032 - val_loss: 0.1349 - val_semantic_0_loss: 0.0045 - val_semantic_1_loss: 0.0618 - val_semantic_2_loss: 0.0686
 
-Epoch 00001: val_loss improved from inf to 0.14364, saving model to phase_deep_watershed.h5
+Epoch 00001: val_loss improved from inf to 0.13486, saving model to phase_deep_watershed.h5
 Epoch 2/5
-234/234 [==============================] - 103s 439ms/step - loss: nan - semantic_0_loss: 0.0025 - semantic_1_loss: 0.0079 - semantic_2_loss: nan - val_loss: 0.1450 - val_semantic_0_loss: 0.0045 - val_semantic_1_loss: 0.0611 - val_semantic_2_loss: 0.0794
+234/234 [==============================] - 113s 482ms/step - loss: 0.0108 - semantic_0_loss: 0.0024 - semantic_1_loss: 0.0074 - semantic_2_loss: 0.0010 - val_loss: 0.0502 - val_semantic_0_loss: 0.0045 - val_semantic_1_loss: 0.0365 - val_semantic_2_loss: 0.0092
 
-Epoch 00002: val_loss did not improve from 0.14364
+Epoch 00002: val_loss improved from 0.13486 to 0.05022, saving model to phase_deep_watershed.h5
 Epoch 3/5
-234/234 [==============================] - 103s 442ms/step - loss: nan - semantic_0_loss: 0.0022 - semantic_1_loss: 0.0064 - semantic_2_loss: nan - val_loss: 0.0679 - val_semantic_0_loss: 0.0035 - val_semantic_1_loss: 0.0350 - val_semantic_2_loss: 0.0295
+234/234 [==============================] - 113s 480ms/step - loss: 0.0133 - semantic_0_loss: 0.0025 - semantic_1_loss: 0.0098 - semantic_2_loss: 9.0433e-04 - val_loss: 0.0126 - val_semantic_0_loss: 0.0024 - val_semantic_1_loss: 0.0084 - val_semantic_2_loss: 0.0018
 
-Epoch 00003: val_loss improved from 0.14364 to 0.06789, saving model to phase_deep_watershed.h5
+Epoch 00003: val_loss improved from 0.05022 to 0.01263, saving model to phase_deep_watershed.h5
 Epoch 4/5
-234/234 [==============================] - 103s 441ms/step - loss: nan - semantic_0_loss: 0.0021 - semantic_1_loss: 0.0054 - semantic_2_loss: nan - val_loss: 0.0108 - val_semantic_0_loss: 0.0022 - val_semantic_1_loss: 0.0071 - val_semantic_2_loss: 0.0015
+234/234 [==============================] - 112s 478ms/step - loss: 0.0088 - semantic_0_loss: 0.0022 - semantic_1_loss: 0.0058 - semantic_2_loss: 8.4244e-04 - val_loss: 0.0093 - val_semantic_0_loss: 0.0022 - val_semantic_1_loss: 0.0061 - val_semantic_2_loss: 0.0010
 
-Epoch 00004: val_loss improved from 0.06789 to 0.01083, saving model to phase_deep_watershed.h5
+Epoch 00004: val_loss improved from 0.01263 to 0.00931, saving model to phase_deep_watershed.h5
 Epoch 5/5
-234/234 [==============================] - 104s 442ms/step - loss: 0.0078 - semantic_0_loss: 0.0019 - semantic_1_loss: 0.0050 - semantic_2_loss: 8.6835e-04 - val_loss: nan - val_semantic_0_loss: 0.0024 - val_semantic_1_loss: 0.0379 - val_semantic_2_loss: nan
+234/234 [==============================] - 112s 479ms/step - loss: 0.0078 - semantic_0_loss: 0.0020 - semantic_1_loss: 0.0049 - semantic_2_loss: 7.9971e-04 - val_loss: 0.0079 - val_semantic_0_loss: 0.0020 - val_semantic_1_loss: 0.0051 - val_semantic_2_loss: 8.0669e-04
 
-Epoch 00005: val_loss did not improve from 0.01083
+Epoch 00005: val_loss improved from 0.00931 to 0.00794, saving model to phase_deep_watershed.h5
 </pre></div>
 </div>
 </div>
@@ -704,7 +705,7 @@ Epoch 00005: val_loss did not improve from 0.01083
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Watershed segmentation of shape (468, 256, 256, 1) in 8.620675393000056 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Watershed segmentation of shape (468, 256, 256, 1) in 4.933405328003573 seconds.
 </pre></div>
 </div>
 </div>
@@ -752,7 +753,7 @@ Epoch 00005: val_loss did not improve from 0.01083
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>364
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>155
 </pre></div>
 </div>
 <img alt="../_images/segmentation_25_1.png" src="../_images/segmentation_25_1.png" />
@@ -782,23 +783,49 @@ Epoch 00005: val_loss did not improve from 0.01083
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>____________Object-based statistics____________
 
 Number of true cells:		 4727
-Number of predicted cells:	 4165
+Number of predicted cells:	 4140
 
-Correct detections:  3730	Recall: 78.9084%
-Incorrect detections: 435	Precision: 89.5558%
+Correct detections:  3922	Recall: 82.9702%
+Incorrect detections: 218	Precision: 94.7343%
 
-Gained detections: 236	Perc Error: 20.9035%
-Missed detections: 767	Perc Error: 67.9362%
-Merges: 59		Perc Error: 5.2259%
-Splits: 38		Perc Error: 3.3658%
-Catastrophes: 29		Perc Error: 2.5686%
+Gained detections: 74	Perc Error: 9.0686%
+Missed detections: 654	Perc Error: 80.1471%
+Merges: 38		Perc Error: 4.6569%
+Splits: 32		Perc Error: 3.9216%
+Catastrophes: 18		Perc Error: 2.2059%
 
-Gained detections from splits: 39
-Missed detections from merges: 67
-True detections involved in catastrophes: 64
-Predicted detections involved in catastrophes: 61 
+Gained detections from splits: 33
+Missed detections from merges: 41
+True detections involved in catastrophes: 40
+Predicted detections involved in catastrophes: 41 
 
-Average Pixel IOU (Jaccard Index): 0.8603 
+Average Pixel IOU (Jaccard Index): 0.8863 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -u -d -vm --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>deepcell 0.9.0
+numpy    1.19.5
+last updated: 2021-04-27 
+
+CPython 3.6.9
+IPython 7.16.1
+
+compiler   : GCC 8.4.0
+system     : Linux
+release    : 4.15.0-142-generic
+machine    : x86_64
+processor  : x86_64
+CPU cores  : 24
+interpreter: 64bit
 </pre></div>
 </div>
 </div>
@@ -831,8 +858,8 @@ Average Pixel IOU (Jaccard Index): 0.8603
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="optimizer.html" title="previous page">Optimizers</a>
-    <a class='right-next' id="next-link" href="vision-model.html" title="next page">Vision Model</a>
+    <a class='left-prev' id="prev-link" href="spot-detection.html" title="previous page">Spot Detection</a>
+    <a class='right-next' id="next-link" href="sequence-model.html" title="next page">Sequence Models</a>
 
         </div>
         
