@@ -327,7 +327,6 @@
                 
   <div class="section" id="sequences">
 <h1>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 27, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequences-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell docutils container">
@@ -522,8 +521,8 @@ RNA to protein: MAIVMGR*KGAR*
 <p>For most machine learning applications, DNA or RNA sequence is represented using one-hot encoding. In this schema, each nucleotide is treated as its own class such that DNA sequence would be represented as four classes. Each class/nucleotide has a binary value of 0 (absent) or 1 (present).</p>
 <p>For example, the sequence <code class="docutils literal notranslate"><span class="pre">ATGTC</span></code> would be encoded as
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2685bf48-1c1f-4a56-b495-d28072920e8e">
-<span class="eqno">(2)<a class="headerlink" href="#equation-2685bf48-1c1f-4a56-b495-d28072920e8e" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-93d76b1f-f58c-4858-af40-c283d8bed398">
+<span class="eqno">(2)<a class="headerlink" href="#equation-93d76b1f-f58c-4858-af40-c283d8bed398" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
     1&amp;0&amp;0&amp;0\\
     0&amp;1&amp;0&amp;0\\
     0&amp;0&amp;0&amp;1\\
@@ -696,6 +695,36 @@ pad_sequences<span class="o">?</span>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>576
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -u -d -vm --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2021-04-28
+
+Python implementation: CPython
+Python version       : 3.7.10
+IPython version      : 5.5.0
+
+Compiler    : GCC 7.5.0
+OS          : Linux
+Release     : 4.19.112+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+
+numpy  : 1.19.5
+Bio    : 1.78
+IPython: 5.5.0
 </pre></div>
 </div>
 </div>

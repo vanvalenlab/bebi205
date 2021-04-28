@@ -326,7 +326,6 @@
                 
   <div class="section" id="sequence-models">
 <h1>Sequence Models<a class="headerlink" href="#sequence-models" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 27, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/sequence-model.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>We are going to reproduce the models published in Hie et al. 2021. The fasta file that we will initially work with is hosted in the class bucket, but the full dataset can be donwloaded using the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://cb.csail.mit.edu/cb/viral-mutation/data.tar.gz
@@ -336,7 +335,22 @@ tar xvf data.tar.gz
 <p>Hie, B., Zhong, E. D., Berger, B., &amp; Bryson, B. (2021). <a class="reference external" href="https://doi.org/10.1126/science.abd7331">Learning the language of viral evolution and escape.</a> <em>Science</em>, 371(6526), 284-288.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install biopython
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install biopython umap
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: biopython in /usr/local/lib/python3.7/dist-packages (1.78)
+Collecting umap
+  Downloading https://files.pythonhosted.org/packages/4b/46/08ab68936625400fe690684428d4db4764f49b406782cc133df1d0299d06/umap-0.1.1.tar.gz
+Requirement already satisfied: numpy in /usr/local/lib/python3.7/dist-packages (from biopython) (1.19.5)
+Building wheels for collected packages: umap
+  Building wheel for umap (setup.py) ... ?25l?25hdone
+  Created wheel for umap: filename=umap-0.1.1-cp37-none-any.whl size=3568 sha256=bee392842d39671c50733af5996a988b7846da5848efc8dae0916d404ee926b0
+  Stored in directory: /root/.cache/pip/wheels/7b/29/33/b4d917dc95f69c0a060e2ab012d95e15db9ed4cc0b94ccac26
+Successfully built umap
+Installing collected packages: umap
+Successfully installed umap-0.1.1
 </pre></div>
 </div>
 </div>
@@ -922,6 +936,18 @@ array([ 0,  0,  0,  0,  0,  0,  0,  0,  0,  9,  3,  9, 17,  3, 16, 12, 18,
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-5ea10628f7d7&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">return</span> <span class="n">bilstm</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> 
+<span class="ne">---&gt; </span><span class="mi">40</span> <span class="n">model</span> <span class="o">=</span> <span class="n">BiLSTM</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="nb">len</span><span class="p">(</span><span class="n">vocabulary</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;X&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -975,6 +1001,20 @@ ________________________________________________________________________________
               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 
 <span class="n">MODEL_PATH</span> <span class="o">=</span> <span class="s1">&#39;flu-sequence-20210330-epoch</span><span class="si">{epoch:02d}</span><span class="s1">.h5&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-da8682489ce4&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">beta_1</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">beta_2</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span> <span class="n">amsgrad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>               <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;model&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1126,6 +1166,40 @@ ________________________________________________________________________________
 </pre></div>
 </div>
 <img alt="../_images/sequence-model_45_1.png" src="../_images/sequence-model_45_1.png" />
+</div>
+</div>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -u -d -vm --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2021-04-28
+
+Python implementation: CPython
+Python version       : 3.7.10
+IPython version      : 5.5.0
+
+Compiler    : GCC 7.5.0
+OS          : Linux
+Release     : 4.19.112+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+
+Bio       : 1.78
+IPython   : 5.5.0
+numpy     : 1.19.5
+pandas    : 1.1.5
+tensorflow: 2.4.1
+matplotlib: 3.2.2
+umap      : 0.1.1
+</pre></div>
+</div>
 </div>
 </div>
 </div>

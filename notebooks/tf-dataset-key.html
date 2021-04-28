@@ -348,7 +348,6 @@
                 
   <div class="section" id="tensorflow-data">
 <h1>TensorFlow Data<a class="headerlink" href="#tensorflow-data" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 27, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/tf-dataset.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/tf-dataset-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>Some code cells will be marked with</p>
@@ -472,14 +471,14 @@
 <p>Finally, we augment the dataset by performing random transformations to each batch of samples. In order to to this, we revisit the transformation matrices discussed previously. When we initially discussed transformations, we used 2x2 matrices to rotate, reflect, etc a 2D image. For dataset augmentation, we also want to translate the image such that it is shifted in 2D space away from its original center point. In order to do this, we will use a 3x3 matrix and consider each point <span class="math notranslate nohighlight">\(P(x,y) = \begin{bmatrix}x&amp;y&amp;1\end{bmatrix}\)</span>.</p>
 <p>In order to translate point <span class="math notranslate nohighlight">\(P(x,y)\)</span> by <span class="math notranslate nohighlight">\((\delta x, \delta y)\)</span>, we multiply P by the translation matrix
 $\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2cc09810-69ec-4305-8f89-94133473b997">
-<span class="eqno">(6)<a class="headerlink" href="#equation-2cc09810-69ec-4305-8f89-94133473b997" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-352545b7-5961-4673-a0ef-740c7cbe23f4">
+<span class="eqno">(6)<a class="headerlink" href="#equation-352545b7-5961-4673-a0ef-740c7cbe23f4" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
     1 &amp; 0 &amp; 0\\
     0 &amp; 1 &amp; 0\\
     \delta x &amp; \delta y &amp; 1
 \end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-bfa0b954-52a5-4e05-b1cc-80b1e1289825">
-<span class="eqno">(7)<a class="headerlink" href="#equation-bfa0b954-52a5-4e05-b1cc-80b1e1289825" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-287e51cd-8556-47f8-b0f1-ef38d6b49cb6">
+<span class="eqno">(7)<a class="headerlink" href="#equation-287e51cd-8556-47f8-b0f1-ef38d6b49cb6" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\]</div>
 <p>In order to apply random transformations to the dataset, we can use the <code class="docutils literal notranslate"><span class="pre">dataset.map</span></code> function which will apply any python function to each element in the dataset. First we will write a function to calculate a random transformation matrix that scales the data within the limits of a specified zoom range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1042,6 +1041,39 @@ please refer to Weirauch et al., 2013 (Nature Biotechnology, doi:10.1038/nbt.248
 </div>
 </div>
 <p>We are now ready to shuffle and batch the dataset for training. In a future notebook, we’ll spend more time thinking about appropriate augmentation strategies for sequence data.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -u -d -vm --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2021-04-28
+
+Python implementation: CPython
+Python version       : 3.7.10
+IPython version      : 5.5.0
+
+Compiler    : GCC 7.5.0
+OS          : Linux
+Release     : 4.19.112+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+
+tensorflow       : 2.4.1
+tensorflow_addons: 0.12.1
+numpy            : 1.19.5
+IPython          : 5.5.0
+pandas           : 1.1.5
+matplotlib       : 3.2.2
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>

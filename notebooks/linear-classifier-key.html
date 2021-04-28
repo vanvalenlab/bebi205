@@ -356,7 +356,6 @@
                 
   <div class="section" id="the-linear-classifier">
 <h1>The Linear Classifier<a class="headerlink" href="#the-linear-classifier" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 27, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/linear-classifier-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>To illustrate the workflow for training a deep learning model in a supervised manner, this notebook will walk you through the simple case of training a linear classifier to recognize images of cats and dogs. While deep learning might seem intimidating, dont worry. Its conceptual underpinnings are rooted in linear algebra and calculus - if you can perform matrix multiplication and take derivatives you can understand what is happening in a deep learning workflow.</p>
@@ -496,8 +495,8 @@ While there is no hard and fast rule, 80%, 10%, 10% splits are a reasonable star
 <div class="section" id="create-the-matrix-of-weights">
 <h3>Create the matrix of weights<a class="headerlink" href="#create-the-matrix-of-weights" title="Permalink to this headline">¶</a></h3>
 <p>Properly initializing weights is essential for getting deep learning methods to work correctly. The two most common initialization methods you’ll see in this class are <a class="reference external" href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf?hc_location=ufi%5D">glorot uniform (also known as Xavier) initialization</a> and <a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html">he initialization</a> - both papers are worth reading. For this exercise, we will randomly initialize weights by using glorot uniform initialization. In this initialization method, we sample our weights according to the formula</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8abb5061-850a-4e60-be3d-a4b8a5e7222e">
-<span class="eqno">(3)<a class="headerlink" href="#equation-8abb5061-850a-4e60-be3d-a4b8a5e7222e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a3ac0e8d-2553-4bff-a8bb-a3698e955097">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a3ac0e8d-2553-4bff-a8bb-a3698e955097" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of columns in the weight matrix (4096 in our case).</p>
@@ -550,8 +549,8 @@ W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 <div class="section" id="apply-the-softmax-transform-to-complete-the-model-outputs">
 <h3>Apply the softmax transform to complete the model outputs<a class="headerlink" href="#apply-the-softmax-transform-to-complete-the-model-outputs" title="Permalink to this headline">¶</a></h3>
 <p>Our LinearClassifier class needs a method to perform predictions - which in our case is performing matrix multiplication and then applying the softmax transform. Recall from class that the softmax transform is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e9c7d82-5cfe-47b9-b908-7eb41c2057af">
-<span class="eqno">(4)<a class="headerlink" href="#equation-5e9c7d82-5cfe-47b9-b908-7eb41c2057af" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-24763c59-1659-472d-ae4d-e7686820aacd">
+<span class="eqno">(4)<a class="headerlink" href="#equation-24763c59-1659-472d-ae4d-e7686820aacd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 \end{equation}\]</div>
 <p>and provides a convenient way to convert our class scores into probabilities</p>
@@ -638,8 +637,8 @@ softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 </ul>
 <p>Recall that the origin of this update rule is from multivariable calculus - the gradient tells us the direction in which the loss function increases the most. So to minimize the loss function we move in the opposite direction of the gradient.</p>
 <p>Also recall from the course notes that for this problem we can compute the gradient analytically. The gradient is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3759232-278a-4f40-bce5-e03deef0ad7e">
-<span class="eqno">(5)<a class="headerlink" href="#equation-c3759232-278a-4f40-bce5-e03deef0ad7e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2402e491-802b-4a59-a3c9-6a87b86e68ef">
+<span class="eqno">(5)<a class="headerlink" href="#equation-2402e491-802b-4a59-a3c9-6a87b86e68ef" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\partial loss}{\partial W_{ij}} = \left(p_i - 1(i \mbox{ is correct}) \right)x_j,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(1\)</span> is an indicator function that is 1 if the statement inside the parentheses is true and 0 if it is false.</p>
@@ -794,6 +793,40 @@ Testing F1 Score: 0.49771920932589964
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>Try running your training algorithm a few times and record the results. What do you note about the overall performance? What about the differences between training runs? What about the difference in performance when evaluated on training data as opposed to validation data?</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -u -d -vm --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2021-04-28
+
+Python implementation: CPython
+Python version       : 3.7.10
+IPython version      : 5.5.0
+
+Compiler    : GCC 7.5.0
+OS          : Linux
+Release     : 4.19.112+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+
+sklearn   : 0.0
+numpy     : 1.19.5
+matplotlib: 3.2.2
+skimage   : 0.16.2
+pandas    : 1.1.5
+imageio   : 2.4.1
+IPython   : 5.5.0
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

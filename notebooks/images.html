@@ -346,7 +346,6 @@
                 
   <div class="section" id="images-as-data">
 <h1>Images as Data<a class="headerlink" href="#images-as-data" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 27, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/images.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -458,8 +457,8 @@
 <p>In the course of training a machine learning model, we can augment the training dataset by performing image transformations to present the model with the same data in a new form. These transformations can take the form of reflections, rotations, scaling and others. In its simplest form, any transformation can be applied to an image by multiplying it with an appropriate transformation matrix. We will briefly review the linear algebra behind transformation matrices before looking at code examples.</p>
 <p>For this discussion, we will consider the point <span class="math notranslate nohighlight">\(P(x,y) = \begin{bmatrix}x&amp;y\end{bmatrix}\)</span>. Any transformation matrix is a modification of the identity matrix
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9611ce21-d672-4d6f-a9d6-c342869ba492">
-<span class="eqno">(1)<a class="headerlink" href="#equation-9611ce21-d672-4d6f-a9d6-c342869ba492" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-a66fcf78-feb4-4f51-8e2b-dd9ba4cd3255">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a66fcf78-feb4-4f51-8e2b-dd9ba4cd3255" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
     1 &amp; 0 \\
     0 &amp; 1 \\
 \end{bmatrix}\]</div>
@@ -597,6 +596,36 @@ $$</p>
 </div>
 </div>
 <p>We will revisit transformation matrices again when we begin peparing augmented data for model training.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -u -d -vm --iversions
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2021-04-28
+
+Python implementation: CPython
+Python version       : 3.7.10
+IPython version      : 5.5.0
+
+Compiler    : GCC 7.5.0
+OS          : Linux
+Release     : 4.19.112+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+
+numpy     : 1.19.5
+IPython   : 5.5.0
+matplotlib: 3.2.2
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
