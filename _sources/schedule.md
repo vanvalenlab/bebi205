@@ -99,7 +99,7 @@ Lectures
 [**Lecture 9:**](https://drive.google.com/file/d/1v2fKXP4QwNvDmFssjlINKWY-BrvRq3Ra/view?usp=sharing) Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
 
 
-**Lecture 10:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
+[**Lecture 10:**](https://drive.google.com/file/d/1Qh8Sj2VxCF8fh4sEIWQFFgl7tejKDiLv/view?usp=sharing) Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
 ---
 Notebooks
 ^^^
