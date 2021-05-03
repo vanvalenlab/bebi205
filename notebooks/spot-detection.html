@@ -332,7 +332,7 @@
                 
   <div class="section" id="spot-detection">
 <h1>Spot Detection<a class="headerlink" href="#spot-detection" title="Permalink to this headline">¶</a></h1>
-<p>Last updated Apr 29, 2021</p>
+<p>Last updated May 03, 2021</p>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/spot-detection.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <p>In this section we will build a model that will detect beetle appendages in images of beetles. The training data is courtesy of the Parker lab at Caltech. The images of ants are annotated with coordinates for different types of appendages (head, abdomen, thorax, etc.)</p>
 <div class="cell tag_remove-output docutils container">
@@ -367,8 +367,8 @@
 </div>
 <p>To solve this problem, we will treat it as a regression problem. For each image we will try to predict a transform image. This transform image will tell us how far each pixel is from the nearest spot. By looking for the extrema in the predicted transform image, we will be able to identify the appendages.</p>
 <p>The transform we will use is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a47c663-134f-4d17-af7a-da8d06ba0db0">
-<span class="eqno">(8)<a class="headerlink" href="#equation-7a47c663-134f-4d17-af7a-da8d06ba0db0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8de031d2-625d-4d36-8f75-375b088d0e1d">
+<span class="eqno">(8)<a class="headerlink" href="#equation-8de031d2-625d-4d36-8f75-375b088d0e1d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 transform = \frac{1}{1+\frac{distance}{\alpha}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is a parameter that determines the length scale. We will set <span class="math notranslate nohighlight">\(\alpha\)</span> to be ~10 pixels, which is roughly the length scale for an appendage.</p>

@@ -133,7 +133,7 @@ Rives, A. et al. (2021). [Biological structure and function emerge from scaling 
 ````{panels}
 Lectures
 ^^^
-**Lecture 11:** Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others.
+[**Lecture 11:**](https://drive.google.com/file/d/15iyACebNYEtDMX-94U29aHV0ne59O7OS/view?usp=sharing) Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others.
 
 **Lecture 12:** Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 ---
@@ -146,6 +146,9 @@ Papers
 Hie, B., Zhong, E. D., Berger, B., & Bryson, B. (2021). [Learning the language of viral evolution and escape.](https://doi.org/10.1126/science.abd7331) *Science*, 371(6526), 284-288.
 
 Ash, J.T., Darnell, G., Munro, D., and Engelhardt, B.E. (2021). [Joint analysis of expression levels and histological images identifies genes associated with tissue morphology.](https://doi.org/10.1038/s41467-021-21727-x) *Nature Communications* 12, 1609.
+
+Rives, A. et al. (2021). [Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences.](https://doi.org/10.1073/pnas.2016239118) *Proc Natl Acad Sci USA* 118, e2016239118.
+
 ````
 
 ## Week 7 - 5/10, 5/12
