@@ -495,8 +495,8 @@ While there is no hard and fast rule, 80%, 10%, 10% splits are a reasonable star
 <div class="section" id="create-the-matrix-of-weights">
 <h3>Create the matrix of weights<a class="headerlink" href="#create-the-matrix-of-weights" title="Permalink to this headline">¶</a></h3>
 <p>Properly initializing weights is essential for getting deep learning methods to work correctly. The two most common initialization methods you’ll see in this class are <a class="reference external" href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf?hc_location=ufi%5D">glorot uniform (also known as Xavier) initialization</a> and <a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html">he initialization</a> - both papers are worth reading. For this exercise, we will randomly initialize weights by using glorot uniform initialization. In this initialization method, we sample our weights according to the formula</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af4c7b7a-adef-42cb-97e9-f500303e6106">
-<span class="eqno">(3)<a class="headerlink" href="#equation-af4c7b7a-adef-42cb-97e9-f500303e6106" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-149f4ea9-9385-4570-857a-384b84a3f42f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-149f4ea9-9385-4570-857a-384b84a3f42f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of columns in the weight matrix (4096 in our case).</p>
@@ -549,8 +549,8 @@ W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 <div class="section" id="apply-the-softmax-transform-to-complete-the-model-outputs">
 <h3>Apply the softmax transform to complete the model outputs<a class="headerlink" href="#apply-the-softmax-transform-to-complete-the-model-outputs" title="Permalink to this headline">¶</a></h3>
 <p>Our LinearClassifier class needs a method to perform predictions - which in our case is performing matrix multiplication and then applying the softmax transform. Recall from class that the softmax transform is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b170988e-aebe-4b37-a5cf-d72810ec8015">
-<span class="eqno">(4)<a class="headerlink" href="#equation-b170988e-aebe-4b37-a5cf-d72810ec8015" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-02dd039e-3b4c-4bd0-ad8e-a7540d34056e">
+<span class="eqno">(4)<a class="headerlink" href="#equation-02dd039e-3b4c-4bd0-ad8e-a7540d34056e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 \end{equation}\]</div>
 <p>and provides a convenient way to convert our class scores into probabilities</p>
@@ -637,8 +637,8 @@ softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 </ul>
 <p>Recall that the origin of this update rule is from multivariable calculus - the gradient tells us the direction in which the loss function increases the most. So to minimize the loss function we move in the opposite direction of the gradient.</p>
 <p>Also recall from the course notes that for this problem we can compute the gradient analytically. The gradient is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d11fbfd-6f49-4741-9a2b-203e5e77da18">
-<span class="eqno">(5)<a class="headerlink" href="#equation-7d11fbfd-6f49-4741-9a2b-203e5e77da18" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ac0c8ed-c963-4478-a12a-c8364e0d8f5d">
+<span class="eqno">(5)<a class="headerlink" href="#equation-2ac0c8ed-c963-4478-a12a-c8364e0d8f5d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{\partial loss}{\partial W_{ij}} = \left(p_i - 1(i \mbox{ is correct}) \right)x_j,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(1\)</span> is an indicator function that is 1 if the statement inside the parentheses is true and 0 if it is false.</p>
