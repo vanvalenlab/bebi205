@@ -6,9 +6,9 @@ Last updated |lastupdate|
 ````{panels}
 Lectures
 ^^^
-[**Lecture 1:**](https://drive.google.com/file/d/1ajarGa-ECDXP_UooTstb6QGN7sNzFrin/view?usp=sharing) Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)
+[**Lecture 1:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%201.pdf) Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)
 
-[**Lecture 2:**](https://drive.google.com/file/d/1jNkFFUivzfltfgtZ7o7QCIXWqU9KWr7T/view?usp=sharing) Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors
+[**Lecture 2:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%202.pdf) Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors
 ---
 
 Notebooks
@@ -33,9 +33,9 @@ Eraslan, G., Avsec, Z., Gagneur, J., & Theis, F. J. (2019). [Deep learning: new 
 ````{panels}
 Lectures
 ^^^
-[**Lecture 3:**](https://drive.google.com/file/d/1iy8lqlBactkxKtx0DRPlnlu1ZKV6ocT0/view?usp=sharing) Example Linear Classifier
+[**Lecture 3:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%203%20-The%20Linear%20Classifier.pdf) Example Linear Classifier
 
-[**Lecture 4:**](https://drive.google.com/file/d/1qXV2nsgBX0uLVcOhZ0XzOZ3GQMI47le3/view?usp=sharing) Conceptual overview of deep learning. Supervised vs unsupervised,
+[**Lecture 4:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%204.pdf) Conceptual overview of deep learning. Supervised vs unsupervised,
 ---
 Notebooks
 ^^^
@@ -52,9 +52,9 @@ Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification 
 ````{panels}
 Lectures
 ^^^
-[**Lecture 5:**](https://drive.google.com/file/d/1qXV2nsgBX0uLVcOhZ0XzOZ3GQMI47le3/view?usp=sharing) Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
+[**Lecture 5:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%205.pdf) Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.
 
-**Lecture 6:** [DeepCell Label](label.deepcell.org) Workshop. [Introductory materials](https://github.com/vanvalenlab/intro-to-deepcell/blob/master/data_labeling/DeepCell_Label_interactive_demo.md)
+[**Lecture 6:**](https://github.com/vanvalenlab/intro-to-deepcell/blob/master/data_labeling/DeepCell_Label_interactive_demo.md) [DeepCell Label](label.deepcell.org) Workshop.
 ---
 Notebooks
 ^^^
@@ -74,9 +74,9 @@ Ronneberger, O., Fischer, P., & Brox, T. (2015). [U-net: Convolutional networks 
 ````{panels}
 Lectures
 ^^^
-[**Lecture 7:**](https://drive.google.com/file/d/1zqbwcGU3krDjC3lZ9bXCW919-SWJYRUh/view?usp=sharing) Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
+[**Lecture 7:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%207.pdf) Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.
 
-[**Lecture 8:**](https://drive.google.com/file/d/1ZGl5xVrUQICuj-R1Kg8oAEroblsB6W8X/view?usp=sharing) Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
+[**Lecture 8:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%208.pdf) Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants
 ---
 Notebooks
 ^^^
@@ -96,10 +96,10 @@ Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss f
 ````{panels}
 Lectures
 ^^^
-[**Lecture 9:**](https://drive.google.com/file/d/1v2fKXP4QwNvDmFssjlINKWY-BrvRq3Ra/view?usp=sharing) Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
+[**Lecture 9:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%208.pdf) Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.
 
 
-[**Lecture 10:**](https://drive.google.com/file/d/1Qh8Sj2VxCF8fh4sEIWQFFgl7tejKDiLv/view?usp=sharing) Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
+[**Lecture 10:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2010.pdf) Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
 ---
 Notebooks
 ^^^
@@ -133,9 +133,9 @@ Rives, A. et al. (2021). [Biological structure and function emerge from scaling 
 ````{panels}
 Lectures
 ^^^
-[**Lecture 11:**](https://drive.google.com/file/d/15iyACebNYEtDMX-94U29aHV0ne59O7OS/view?usp=sharing) Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others.
+[**Lecture 11:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2011.pdf) Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others.
 
-**Lecture 12:** Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
+[**Lecture 12:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2012.pdf) Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 ---
 Notebooks
 ^^^
@@ -165,7 +165,7 @@ Lectures
 ````{panels}
 Lectures
 ^^^
-**Lecture 15:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
+[**Lecture 15:**](https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2012.pdf) Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 
 **Lecture 16:**
 ---
