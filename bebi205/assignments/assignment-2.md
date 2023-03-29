@@ -1,4 +1,5 @@
 # Assignment 2: Preliminary Proposal and Dataset Exploration
+
 ```{admonition} Due Date
 Friday 4/21 at 5pm
 ```
@@ -18,6 +19,8 @@ For this assignment, please submit a jupyter notebook (as an html or pdf file) t
 Reasonable attempts at progress will be awarded full credit.
 
 ```{admonition} Submission
-:class: note
+---
+class: note
+---
 Please submit your jupyter notebook as an html or pdf on Canvas. Only one per person per group should submit.
 ```

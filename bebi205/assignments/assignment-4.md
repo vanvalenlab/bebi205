@@ -1,4 +1,5 @@
 # Assignment 4: Project Proposal
+
 ```{admonition} Due Date
 Friday 5/5 at 5pm
 ```
@@ -12,6 +13,8 @@ A project proposal is due in week 5. Please submit your proposal through Canvas.
 1. How are you going to evaluate your results? Consider both qualitative and quantitative analysis.
 
 ```{admonition} Submission
-:class: note
+---
+class: note
+---
 Please submit your proposal as a pdf on Canvas. Only one per person per group should submit.
 ```

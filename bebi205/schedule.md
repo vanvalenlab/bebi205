@@ -1,8 +1,11 @@
 # Course Schedule
+
 ```{eval-rst}
 Last updated |lastupdate|
 ```
+
 ## Week 1 - 4/4, 4/6
+
 ````{grid} 2
 ```{grid-item-card}
 Lectures
@@ -40,8 +43,11 @@ Eraslan, G., Avsec, Z., Gagneur, J., & Theis, F. J. (2019). [Deep learning: new 
 ````
 
 ## Week 2 - 4/11, 4/13
+
 ```{admonition} Assignment
-:class: attention
+---
+class: attention
+---
 {doc}`assignments/assignment-1`
 ```
 
@@ -76,8 +82,11 @@ Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification 
 ````
 
 ## Week 3 - 4/18, 4/20
+
 ```{admonition} Assignment
-:class: attention
+---
+class: attention
+---
 {doc}`assignments/assignment-2`
 ```
 
@@ -114,8 +123,11 @@ Ronneberger, O., Fischer, P., & Brox, T. (2015). [U-net: Convolutional networks 
 ````
 
 ## Week 4 - 4/25, 4/27
+
 ```{admonition} Assignment
-:class: attention
+---
+class: attention
+---
 {doc}`assignments/assignment-3`
 ```
 
@@ -150,8 +162,11 @@ Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss f
 ````
 
 ## Week 5 - 5/2, 5/4
+
 ```{admonition} Assignment
-:class: attention
+---
+class: attention
+---
 {doc}`assignments/assignment-4`
 ```
 
@@ -204,6 +219,7 @@ Rives, A. et al. (2021). [Biological structure and function emerge from scaling 
 ````
 
 ## Week 6 - 5/9, 5/11
+
 ````{grid} 2
 ```{grid-item-card}
 Lectures
@@ -237,8 +253,11 @@ Rives, A. et al. (2021). [Biological structure and function emerge from scaling 
 ````
 
 ## Week 7 - 5/16, 5/18
+
 ```{admonition} Assignment
-:class: attention
+---
+class: attention
+---
 {doc}`assignments/assignment-5`
 ```
 
@@ -259,6 +278,7 @@ Recitations
 ````
 
 ## Week 8 - 5/23, 5/25
+
 ````{grid} 2
 ```{grid-item-card}
 Lectures
@@ -282,6 +302,7 @@ Karpathy, A. (2019). [A Recipe for Training Neural Networks](http://karpathy.git
 ````
 
 ## Week 9 - 5/30, 6/1
+
 ````{grid} 2
 ```{grid-item-card}
 Lectures
@@ -293,6 +314,7 @@ Lectures
 ````
 
 ## Week 10 - 6/6, 6/8
+
 ````{grid} 2
 ```{grid-item-card}
 Lectures

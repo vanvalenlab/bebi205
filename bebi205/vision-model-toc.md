@@ -1,6 +1,7 @@
 # Vision Models
 
 In these notebooks we will go over deep learning methods for biological image data. We will be covering several applications:
+
 ```{tableofcontents}
 ```
 

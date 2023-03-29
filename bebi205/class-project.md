@@ -1,4 +1,5 @@
 # Class Project
+
 ```{eval-rst}
 Last updated |lastupdate|
 ```
@@ -8,17 +9,18 @@ The majority of the class will be graded based on a project that will span the d
 Your project for this course will require writing a substantial amount of code to implement a deep learning model. The official language/package for this class is Python and the instructors will be able to provide assistance with debugging your code. You may choose to work with another language or package, but there will not be able to provide any support.
 
 The following assignments are directly related to your project:
+
 - {doc}`assignments/assignment-2`
 - {doc}`assignments/assignment-4`
 - {doc}`assignments/assignment-5`
 - {doc}`assignments/final-presentation`
 - {doc}`assignments/final-report`
 
-
 ## Publicly Available Datasets
 
 [Dryad](https://datadryad.org/search?f%5Bdc_subject_sm%5D%5B%5D=Biological+sciences)
 : Public database for publication associated datasets
+
 ### Images
 
 [Broad Bioimage Benchmark Collection](https://bbbc.broadinstitute.org/image_sets)
