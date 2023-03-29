@@ -1,26 +1,29 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-- file: syllabus
-
+format: jb-article
+root: syllabus
+sections:
 - file: schedule
-
-- file: final-project
-
-- file: cluster-access
-
-# - file: lecture-toc
-
+- file: class-project
+- file: compute-resources
+- file: assignments/toc
+  sections:
+  - file: assignments/assignment-1
+  - file: assignments/assignment-2
+  - file: assignments/assignment-3
+  - file: assignments/assignment-4
+  - file: assignments/assignment-5
+  - file: assignments/final-presentation
+  - file: assignments/final-report
 - file: notebooks-toc
   sections:
-    - file: notebooks/data-science-in-python-key
-    - file: notebooks/images
-    - file: notebooks/sequences-key
-    - file: notebooks/linear-classifier-key
-    - file: notebooks/tf-dataset-key
-    - file: notebooks/tf-classifier
-    - file: notebooks/optimizer
-    - file: vision-model-toc
-      sections:
-        - file: notebooks/spot-detection
-        - file: notebooks/segmentation
-    - file: notebooks/sequence-model
+  - file: notebooks/data-science-in-python-key
+  - file: notebooks/images
+  - file: notebooks/sequences-key
+  - file: notebooks/linear-classifier-key
+  - file: notebooks/tf-dataset-key
+  - file: notebooks/tf-classifier
+  - file: notebooks/optimizer
+  - file: vision-model-toc
+    sections:
+    - file: notebooks/spot-detection
+    - file: notebooks/segmentation
+  - file: notebooks/sequence-model

@@ -30,7 +30,7 @@ Live attendance of lectures is not required, but is necessary for the journal cl
 | Assignment                | Points | Due Date                   |
 |---------------------------|--------|----------------------------|
 | Journal Club Presentation | 250    |                            |
-| {doc}`final-project`:     | (750)  |                            |
+| {doc}`class-project`:     | (750)  |                            |
 | - Dataset Exploration     | 150    | 4/19                       |
 | - Project Proposal        | 150    | 4/26                       |
 | - Progress Report         | 50     | 5/17                       |
