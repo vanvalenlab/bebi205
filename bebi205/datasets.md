@@ -1,22 +1,8 @@
-# Class Project
+# Publicly Available Datasets
 
 ```{eval-rst}
 Last updated |lastupdate|
 ```
-
-The majority of the class will be graded based on a project that will span the duration the course. You should begin thinking about the project you would like to pursue during the first few weeks of the course. Your class project serves as an opportunity for hands on exploration of using deep learning on a biological question of your choice. You may work on your own or in a group. There will be a series of brief assignments leading up to the final submission.
-
-Your project for this course will require writing a substantial amount of code to implement a deep learning model. The official language/package for this class is Python and the instructors will be able to provide assistance with debugging your code. You may choose to work with another language or package, but there will not be able to provide any support.
-
-The following assignments are directly related to your project:
-
-- {doc}`assignments/assignment-2`
-- {doc}`assignments/assignment-4`
-- {doc}`assignments/assignment-5`
-- {doc}`assignments/final-presentation`
-- {doc}`assignments/final-report`
-
-## Publicly Available Datasets
 
 [Dryad](https://datadryad.org/search?f%5Bdc_subject_sm%5D%5B%5D=Biological+sciences)
 : Public database for publication associated datasets

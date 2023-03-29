@@ -2,7 +2,7 @@ format: jb-article
 root: syllabus
 sections:
 - file: schedule
-- file: class-project
+- file: datasets
 - file: compute-resources
 - file: assignments/toc
   sections:
