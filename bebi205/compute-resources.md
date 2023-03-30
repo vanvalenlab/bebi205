@@ -41,21 +41,17 @@ We are going to use [`mamba`](https://mamba.readthedocs.io/en/latest/) as our pa
 
 7. Run the following commands to download and install `mamba`. Follow the installation prompts.
 
-```{warning}
-Do not use sudo during the installation process
-```
-
 ```bash
 wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
 bash Mambaforge-Linux-x86_64.sh
 ```
 
-| Prompt                                                                                                              | Answer |
-| ------------------------------------------------------------------------------------------------------------------- | ------ |
-| In order to continue the installation process, please review the license agreement. Please, press ENTER to continue | ENTER  |
-| Do you accept the license terms?                                                                                    | yes    |
-| Mambaforge will now be installed into this location: /home/\$USER/mambaforge                                        | ENTER  |
-| Do you wish the installer to initialize Mambaforge by running conda init?                                           | no     |
+| Prompt                                                                                                              | Answer                                                            |
+| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| In order to continue the installation process, please review the license agreement. Please, press ENTER to continue | ENTER, continue hitting ENTER until you exit the license document |
+| Do you accept the license terms?                                                                                    | yes                                                               |
+| Mambaforge will now be installed into this location: /home/\$USER/mambaforge                                        | ENTER                                                             |
+| Do you wish the installer to initialize Mambaforge by running conda init?                                           | no                                                                |
 
 8. Initialize `mamba`
 
@@ -65,7 +61,7 @@ mambaforge/bin/mamba init
 
 9. Exit your current ssh session and reconnect.
 
-1. Create a new environment for running course notebooks
+1. Create a new environment for running course notebooks. Installing `pytorch` may take a few minutes.
 
 ```bash
 mamba create --name bebi205 python=3.10
