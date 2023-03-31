@@ -34,6 +34,18 @@ Last updated |lastupdate|
 [Yeast Resource Center](http://images.yeastrc.org/imagerepo/searchImageRepoInit.do)
 : Collection of yeast expressing fluorescent tagged proteins
 
+[OpenOrganelle](https://openorganelle.janelia.org/datasets)
+: FIB-SEM data of individual cells with pixel-level annotations of organelles
+
+[Cell states beyond transcriptomics: Integrating structural organization and gene expression in hiPSC-derived cardiomyocytes](https://open.quiltdata.com/b/allencell/packages/aics/integrated_transcriptomics_structural_organization_hipsc_cm)
+: hiPSC-derived cardiomyocytes as a model system for studying the relationship between transcript abundance and cellular organization
+
+[Allen Institute for Cell Science](https://open.quiltdata.com/b/allencell/packages/?filter=aics%2F)
+: Collection of datasets published by the AICS hosted on Quilt
+
+[OpenCell](https://opencell.czbiohub.org/)
+: Proteome-scale measurements of human protein localization and interactions
+
 ### Sequences
 
 [Therapeutics Data Commons](https://tdcommons.ai/)
