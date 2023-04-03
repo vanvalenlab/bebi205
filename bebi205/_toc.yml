@@ -26,4 +26,3 @@ sections:
     sections:
     - file: notebooks/spot-detection
     - file: notebooks/segmentation
-  - file: notebooks/sequence-model
