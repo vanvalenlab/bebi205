@@ -28,7 +28,7 @@ Office Hours: Available for sign up through [Calendly](https://calendly.com/bebi
 
 Rohit Dilip<br/>
 `rdilip[at]caltech[dot]edu`<br/>
-Office Hours: Available for sign up through [Calendly](calendly.com/rdilip/30min).
+Office Hours: Available for sign up through [Calendly](https://calendly.com/rdilip/30min).
 
 ## Course Communication
 
