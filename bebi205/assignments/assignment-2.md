@@ -1,7 +1,7 @@
 # Assignment 2: Preliminary Proposal and Dataset Exploration
 
 ```{admonition} Due Date
-Friday 4/21 at 5pm
+Friday 4/28 at 5pm
 ```
 
 Please select a preliminary dataset that you are considering using for your final project. In a few sentences, describe what question or task you are planning to address with this dataset. You may change your mind in the future as your project develops.

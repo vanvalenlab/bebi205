@@ -18,7 +18,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 1:** Cloud compute system intro. Introduction to assignment one. 
+**Recitation 1:** Cloud compute system intro. Introduction to assignment one.
 ```
 
 ```{grid-item-card}
@@ -44,20 +44,13 @@ Eraslan, G., Avsec, Z., Gagneur, J., & Theis, F. J. (2019). [Deep learning: new 
 
 ## Week 2 - 4/11, 4/13
 
-```{admonition} Assignment
----
-class: attention
----
-{doc}`assignments/assignment-1`
-```
-
 ````{grid} 2
 ```{grid-item-card}
 Lectures
 ^^^
 **Lecture 3:** Example Linear Classifier
 
-**Lecture 4:** Conceptual overview of deep learning. 
+**Lecture 4:** Conceptual overview of deep learning.
 ```
 
 ```{grid-item-card}
@@ -87,7 +80,7 @@ Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification 
 ---
 class: attention
 ---
-{doc}`assignments/assignment-2`
+{doc}`assignments/assignment-1`
 ```
 
 ````{grid} 2
@@ -128,7 +121,7 @@ Ronneberger, O., Fischer, P., & Brox, T. (2015). [U-net: Convolutional networks 
 ---
 class: attention
 ---
-{doc}`assignments/assignment-3`
+{doc}`assignments/assignment-2`
 ```
 
 ````{grid} 2
@@ -143,7 +136,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 4:** Data sharding / serialization / intermediate scale data 
+**Recitation 4:** Data sharding / serialization / intermediate scale data
 ```
 
 ```{grid-item-card}
@@ -167,22 +160,22 @@ Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss f
 ---
 class: attention
 ---
-{doc}`assignments/assignment-4`
+{doc}`assignments/project-proposal`
 ```
 
 ````{grid} 2
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 9:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
+**Lecture 9:** Guest Lecture by Kevin Yang (Microsoft Research)
 
-**Lecture 10:** TBA
+**Lecture 10:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
 ```
 
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 5:** Using pretrained models. 
+**Recitation 5:** Using pretrained models.
 ```
 
 ```{grid-item-card}
@@ -206,11 +199,18 @@ Lin, T. Y., Dollár, P., Girshick, R., He, K., Hariharan, B., & Belongie, S. (20
 
 ## Week 6 - 5/9, 5/11
 
+```{admonition} Assignment
+---
+class: attention
+---
+{doc}`assignments/assignment-4`
+```
+
 ````{grid} 2
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 11:** Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others. Transformers — applications outside of language. Discussion of celltype classifier. 
+**Lecture 11:** Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others. Transformers — applications outside of language. Discussion of celltype classifier.
 
 **Lecture 12:** Guest Lecture by Ross Barnowski
 ```
@@ -251,9 +251,9 @@ class: attention
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 13:** TBA
+**Lecture 13:** Tips and tricks I. Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 
-**Lecture 14:** Tips and tricks I. Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
+**Lecture 14:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 ```
 
 ```{grid-item-card}
@@ -271,7 +271,7 @@ Lectures
 ^^^
 **Lecture 15:** Guest lecture by Sam Cooper (Phenomic AI)
 
-**Lecture 16:** Guest lecture from Gabriele Corso (MIT) 
+**Lecture 16:** Guest lecture by Gabriele Corso (MIT)
 
 ```
 
@@ -296,7 +296,7 @@ Lectures
 ^^^
 **Lecture 17:** Guest lecture by Brian Hie (Stanford/Meta)
 
-**Lecture 18:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
+**Lecture 18:** TBA
 ```
 ````
 
@@ -306,8 +306,5 @@ Lectures
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 19:** Student presentations
-
-**Lecture 20:** Student presentations
-```
+No lectures.
 ````

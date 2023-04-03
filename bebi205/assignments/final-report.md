@@ -1,8 +1,8 @@
 # Final Report
 
 ```{admonition} Due Date
-Seniors: 6/2
-All Others: 6/9
+Seniors and Grad Students: 6/9 (End of finals)
+Undergraduates: 6/16 (End of finals)
 ```
 
 The written report should be around 4 pages (and no more than 10) and will be due at the end of finals period (seniors, 6/2; all others, 6/9). You should address the following topics:

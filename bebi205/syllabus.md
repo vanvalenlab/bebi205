@@ -28,7 +28,7 @@ Office Hours: Available for sign up through [Calendly](https://calendly.com/bebi
 
 Rohit Dilip<br/>
 `rdilip[at]caltech[dot]edu`<br/>
-Office Hours: Available for sign up through Calendly.
+Office Hours: Available for sign up through [Calendly](calendly.com/rdilip/30min).
 
 ## Course Communication
 
@@ -48,8 +48,8 @@ Recitations will be held once a week. Time TBD.
 | ------------------------------------- | ------ | ------------------------------ |
 | {doc}`assignments/assignment-1`       | 125    | 4/14                           |
 | {doc}`assignments/assignment-2`       | 150    | 4/21                           |
-| {doc}`assignments/assignment-3`       | 125    | 4/28                           |
-| {doc}`assignments/assignment-4`       | 150    | 5/5                            |
+| {doc}`assignments/assignment-4`       | 125    | 4/28                           |
+| {doc}`assignments/project-proposal`       | 150    | 5/5                            |
 | {doc}`assignments/assignment-5`       | 50     | 5/19                           |
 | {doc}`assignments/final-presentation` | 100    | Seniors: 6/2; Others: 6/6, 6/8 |
 | {doc}`assignments/final-report`       | 300    | Seniors: 6/2; Others: 6/9      |
@@ -64,7 +64,7 @@ Your project for this course will require writing a substantial amount of code t
 The following assignments are directly related to your project:
 
 - {doc}`assignments/assignment-2`
-- {doc}`assignments/assignment-4`
+- {doc}`assignments/project-proposal`
 - {doc}`assignments/assignment-5`
 - {doc}`assignments/final-presentation`
 - {doc}`assignments/final-report`

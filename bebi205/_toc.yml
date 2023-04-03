@@ -7,6 +7,12 @@ sections:
 - file: assignments/toc
   sections:
   - file: assignments/assignment-1
+  - file: assignments/assignment-2
+  - file: assignments/assignment-4
+  - file: assignments/project-proposal
+  - file: assignments/assignment-5
+  - file: assignments/final-presentation
+  - file: assignments/final-report
 - file: notebooks-toc
   sections:
   - file: notebooks/data-science-in-python-key
