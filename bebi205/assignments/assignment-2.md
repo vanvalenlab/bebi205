@@ -12,8 +12,6 @@ For this assignment, please submit a jupyter notebook (as an html or pdf file) t
 - Describe what question or task you are planning to address with this dataset
 - Loading the dataset into the notebook
 - Perform any necessary preprocessing that would be necessary in order to train a model from the dataset
-- Set up a tensorflow `Dataset` object
-- Call `Dataset.take(1)` in order to demonstrate what a single datapoint will look like
 - Provide plots and/or statistics to summarize your dataset
 
 Reasonable attempts at progress will be awarded full credit.

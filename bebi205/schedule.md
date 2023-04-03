@@ -18,7 +18,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 1:** Introduction to segmentation with Mesmer. Introduction to data storage.
+**Recitation 1:** Cloud compute system intro. Introduction to assignment one. 
 ```
 
 ```{grid-item-card}
@@ -57,7 +57,7 @@ Lectures
 ^^^
 **Lecture 3:** Example Linear Classifier
 
-**Lecture 4:** Conceptual overview of deep learning. Supervised vs unsupervised,
+**Lecture 4:** Conceptual overview of deep learning. 
 ```
 
 ```{grid-item-card}
@@ -143,7 +143,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 4:** Cell type classifier -- focal loss and class imbalance
+**Recitation 4:** Data sharding / serialization / intermediate scale data 
 ```
 
 ```{grid-item-card}
@@ -176,13 +176,13 @@ Lectures
 ^^^
 **Lecture 9:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
 
-**Lecture 10:** ?????
+**Lecture 10:** TBA
 ```
 
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 5:** Data sharding / serialization / large scale data overview
+**Recitation 5:** Using pretrained models. 
 ```
 
 ```{grid-item-card}
@@ -201,20 +201,6 @@ He, K., Zhang, X., Ren, S., & Sun, J. (2016). [Deep residual learning for image 
 Huang, G., Liu, Z., Van Der Maaten, L., & Weinberger, K. Q. (2017). [Densely connected convolutional networks.](https://arxiv.org/abs/1608.06993v5) In *Proceedings of the IEEE conference on computer vision and pattern recognition* (pp. 4700-4708).
 
 Lin, T. Y., Dollár, P., Girshick, R., He, K., Hariharan, B., & Belongie, S. (2017). [Feature pyramid networks for object detection.](http://arxiv.org/abs/1612.03144v2) In *Proceedings of the IEEE conference on computer vision and pattern recognition* (pp. 2117-2125).
-
-Poplin, R. et al. (2018). [A universal SNP and small-indel variant caller using deep neural networks.](https://doi.org/10.1038/nbt.4235) *Nature biotechnology*, 36(10), 983-987.
-
-Alipanahi, B., Delong, A., Weirauch, M. T., & Frey, B. J. (2015). [Predicting the sequence specificities of DNA-and RNA-binding proteins by deep learning.](https://doi.org/10.1038/nbt.3300) *Nature biotechnology*, 33(8), 831-838.
-
-Zhou, J., & Troyanskaya, O. G. (2015). [Predicting effects of noncoding variants with deep learning–based sequence model.](https://doi.org/10.1038/nmeth.3547) *Nature methods*, 12(10), 931-934.
-
-Avsec, Z. et al (2021). [Effective gene expression prediction from sequence by integrating long-range interactions.](https://doi.org/10.1101/2021.04.07.438649) BioRxiv 438649.
-
-Gurovich, Y. et al. (2019). [Identifying facial phenotypes of genetic disorders using deep learning.](https://doi.org/10.1038/s41591-018-0279-0) Nature Medicine 25, 60–64.
-
-Young, T., Hazarika, D., Poria, S., and Cambria, E. (2017). [Recent Trends in Deep Learning Based Natural Language Processing.](https://arxiv.org/abs/1708.02709v8) ArXiv.
-
-Rives, A. et al. (2021). [Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences.](https://doi.org/10.1073/pnas.2016239118) Proc Natl Acad Sci USA 118, e2016239118.
 ```
 ````
 
@@ -224,7 +210,7 @@ Rives, A. et al. (2021). [Biological structure and function emerge from scaling 
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 11:** Rohit???
+**Lecture 11:** Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others. Transformers — applications outside of language. Discussion of celltype classifier. 
 
 **Lecture 12:** Guest Lecture by Ross Barnowski
 ```
@@ -265,9 +251,9 @@ class: attention
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 13:** Guest Lecture ???
+**Lecture 13:** TBA
 
-**Lecture 14:** Structure models. Graph neural networks. Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
+**Lecture 14:** Tips and tricks I. Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 ```
 
 ```{grid-item-card}
@@ -283,9 +269,10 @@ Recitations
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 15:** Guest lecture by ????
+**Lecture 15:** Guest lecture by Sam Cooper (Phenomic AI)
 
-**Lecture 16:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
+**Lecture 16:** Guest lecture from Gabriele Corso (MIT) 
+
 ```
 
 ```{grid-item-card}
@@ -307,9 +294,9 @@ Karpathy, A. (2019). [A Recipe for Training Neural Networks](http://karpathy.git
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 17:** ????
+**Lecture 17:** Guest lecture by Brian Hie (Stanford/Meta)
 
-**Lecture 18:** ???
+**Lecture 18:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 ```
 ````
 
@@ -319,8 +306,8 @@ Lectures
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 19:** Student Presentations
+**Lecture 19:** Student presentations
 
-**Lecture 20:** Student Presentations
+**Lecture 20:** Student presentations
 ```
 ````

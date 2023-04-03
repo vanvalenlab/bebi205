@@ -119,6 +119,7 @@ Thumbs.db
 *.h5
 *.trk
 *.trks
+*.tar.gz
 
 */_build/*
 sandbox/
