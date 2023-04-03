@@ -253,7 +253,7 @@ Lectures
 ^^^
 **Lecture 13:** Tips and tricks I. Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.
 
-**Lecture 14:** Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
+**Lecture 14:** Tips and tricks II: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.
 ```
 
 ```{grid-item-card}

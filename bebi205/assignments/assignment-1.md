@@ -113,17 +113,40 @@ You should prepare a short report (~1 page) containing four things
 
 ![](../images/marker_expression.jpg "Marker expression panel")
 
-Spend a little time and think about the best way to normalize the expressions -- e.g., do you want to average over cells? How do you deal with the fact that different channels will have different scales (e.g., for some channels, 1 may be a large number, whereas for others 1 may be a very small number)? How do you deal with outliers? The marker expression panel is useful to guide the data processing -- see [the original paper](<https://www.cell.com/cell/fulltext/S0092-8674(18)31100-0>) if you want some more details on what sorts of transformations people use.
+The marker expression panel is meant to be a visual guide indicating correlations between individual markers and cells, to indicate which markers are important in the model. It is not designed to be a precise numerical tool, so there is no standardized approach across the literature (e.g., see [the original paper](<https://www.cell.com/cell/fulltext/S0092-8674(18)31100-0>) in which this dataset was introduced). That being said, we suggest the following procedure. 
+
+1. Normalize the data.
+1. Make a training dataset composed of cropped views of each cell. 
+1. Take the average expression of each marker within each cell. You can average twice -- once over an individual cell, and once over all the total cells.
+
+Here's some basic pseudocode showing this process.
+
+```python
+X = adaptive_histogram(X) # see skimage.exposure.equalize_hist
+all_cells = get_patches(X, y) # see skimage.measure.regionprops
+marker_expr_panel = zeros(shape=(num_celltypes, num_channels))
+counts_by_celltype = zeros(shape=(num_celltypes,))
+
+for cell in all_cells:
+    celltype = cell.celltype
+    average_expression_by_marker = mean(cell.marker_intensity)
+    marker_expr_panel[celltype] += average_expression_by_marker
+    counts_by_celltype[celltype] += 1
+
+marker_expr_panel = marker_expr_panel / counts_by_celltype # When you make this actual code, be careful with broadcasting here
+```
 
 2. A confusion matrix. This plots the predicted versus the actual cell types. An example is shown below
 
 ![](../images/confusion_matrix.jpg "Confusion matrix")
 
-Note: you should use a "holdout" dataset to make the confusion matrix -- i.e., don't include some small fraction of your dataset in training, and use it to both ensure your model generalizes and to make the confusion matrix (this will be a familiar idea if you've done ML before.)
+Note: you should use a "holdout" dataset to make the confusion matrix -- i.e., don't include some small fraction of your dataset in training, and use it to both ensure your model generalizes and to make the confusion matrix (this will be a familiar idea if you've done ML before). See [`sklearn.metrics.confusion_matrix`](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html) -- if you have a list of predictions and ground truths, this function should generate things fairly easily. 
 
 3. A link to a Github repo with your code. *Your code must be runnable and approximately reproduce your confusion matrix.* We've held out several images from the dataset that we'll use to test your code. This means your code must expose a function (and specify what that function is in your README) that accepts an `X` and `y` (use the data we gave you as a base), does whatever data preprocessing you want, passes it through your model, and then returns a dictionary mapping segmentation mask ids to celltype codes.
 
-There are different levels/complexity to reproducibility. For truly reproducible code, you should run your experiments from within a Docker container and commit your Dockerfile to the Git repo. For the purposes of this class, you could simply commit an `environment.yaml` (generated from conda) or a `requirements.txt` file. If you're using vanilla PyTorch/Tensorflow/Jax, these will probably suffice (Docker does make setting up a GPU compatible environment much, much easier, though). We make two recommendations: first, save your model (Tensorflow, PyTorch, and Jax all have built in functionality for this) and upload it to Google Drive, then leave a link in your Github. You should include a small script showing how the model weights can be loaded and run. Second, include a training script so your model can be retrained from scratch.
+    There are different levels/complexity to reproducibility. For truly reproducible code, you should run your experiments from within a Docker container and commit your Dockerfile to the Git repo. For the purposes of this class, you could simply commit an `environment.yaml` (generated from conda) or a `requirements.txt` file. If you're using vanilla PyTorch/Tensorflow/Jax, these will probably suffice. There are two points to remember:
+    1. Save your model and upload the weights somewhere. Leave a link in your Github, and show how to load the weights (e.g., Tensorflow has `tf.keras.models.load_model`). Be sure to actually try downloading and loading your model. 
+    1. Leave a script or Jupyter Notebook showing how to train your model and how to use your model for inference. If you use a Jupyter Notebook, **be sure to check that your Jupyter Notebook actually runs from scratch!**. It's very easy for a variable to be saved in memory but not created anyway in a notebook environment. 
 
 4. A *brief* description of any issues / thoughts you have on the data, the nature of the task, downstream issues, etc. Describe any decisions and their rationale you made during data preprocessing (e.g., I included channel X because...) We emphasize brief -- most of your time on this assignment should spent coding -- after making the images and pushing to Github, this section of the submssion should take ~15 minutes.
 
