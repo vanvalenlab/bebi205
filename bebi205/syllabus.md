@@ -44,16 +44,16 @@ Recitations will be held once a week. Time TBD.
 
 ## Grading
 
-| Assignment                            | Points | Due Date                       |
-| ------------------------------------- | ------ | ------------------------------ |
-| {doc}`assignments/assignment-1`       | 125    | 4/14                           |
-| {doc}`assignments/assignment-2`       | 150    | 4/21                           |
-| {doc}`assignments/assignment-4`       | 125    | 4/28                           |
-| {doc}`assignments/project-proposal`       | 150    | 5/5                            |
-| {doc}`assignments/assignment-5`       | 50     | 5/19                           |
-| {doc}`assignments/final-presentation` | 100    | Seniors: 6/2; Others: 6/6, 6/8 |
-| {doc}`assignments/final-report`       | 300    | Seniors: 6/2; Others: 6/9      |
-| **Class Total**                       | 1000   |                                |
+| Assignment                            | Points | Due Date                             |
+| ------------------------------------- | ------ | ------------------------------------ |
+| {doc}`assignments/assignment-1`       | 125    | 4/21                                 |
+| {doc}`assignments/assignment-2`       | 150    | 4/28                                 |
+| {doc}`assignments/project-proposal`   | 150    | 5/5                                  |
+| {doc}`assignments/assignment-4`       | 125    | 5/12                                 |
+| {doc}`assignments/assignment-5`       | 50     | 5/19                                 |
+| {doc}`assignments/final-presentation` | 100    | Seniors/Grads: 6/9; Undergrads: 6/16 |
+| {doc}`assignments/final-report`       | 300    | Seniors/Grads: 6/9; Undergrads: 6/16 |
+| **Class Total**                       | 1000   |                                      |
 
 ### Class Project
 
@@ -70,6 +70,7 @@ The following assignments are directly related to your project:
 - {doc}`assignments/final-report`
 
 You are welcome to use your own data for your project, but you may also select from any publicly available dataset. You can explore our collection of {doc}`datasets`.
+
 ### Late Assignments
 
 Late assignments will lose 10% for each day late. Extensions for due dates can be granted by the TA in light of extenuating circumstances. Please reach out prior to the deadline.

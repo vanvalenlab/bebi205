@@ -3,12 +3,15 @@
 ```{admonition} Due Date
 Friday 4/21 at 5pm
 ```
+
 The purpose of this assignment is to get some practice with the machine learning pipeline -- data preprocessing, setting up a model, making a training loop, and reading out metrics. In this assignment, you'll be classifying single cell data from a [MIBI-TOF](https://www.science.org/doi/10.1126/sciadv.aax5851) experiment. You can download the data from [here](https://storage.googleapis.com/bebi205-spring2023/keren.tar.gz).
 
 ## Task
+
 For this assignment, you should make a classifier that takes an image of a single cell as input and returns the cell type. Your model can be anything -- if you've never done any machine learning, feel free to make a linear classifier as covered in [class](notebooks/linear-classifier), but you're welcome to try something more complicated.
 
 ## Data Schema
+
 The data for this assignment is a sanitized version of data published by the [Angelo Lab](https://www.angelolab.com/mibi-data). The dataset contains `*.npz` files, which you can read using numpy ([`np.load`](https://numpy.org/doc/stable/reference/generated/numpy.load.html)). There are three fields in the data: `X`, `y`, and `cell_types`. `X` provides a numpy array with shape (batch, height, width, channel). `y` is a segmentation mask -- a numpy array with shape (batch, height, width, 2). The last index referring to nuclear and whole cell segmentations respectively. `cell_types` is a dictionary mapping the mask indices to the cell types. To download and unarchive the data, use the following commands. The download itself may take about 10 minutes depending on your internet speed.
 
 ```bash
@@ -19,7 +22,9 @@ tar -xzvf keren.tar.gz
 `meta.yaml` contains a mapping between the cell type codes (in `cell_types`) and the actual cell types as strings. It also contains the names of the channels in `X`. A sample `meta.yaml` file is included below. You may notice that there are several targets that are not biological, e.g. Au, C and P. These are controls associated with the MIBI-TOF workflow and can be excluded from cell type analysis.
 
 ````{admonition} meta.yaml
-:class: dropdown, note
+---
+class: dropdown, note
+---
 ```yaml
 cell_types:
   0: BACKGROUND
@@ -91,21 +96,24 @@ targets:
 ````
 
 ## Suggested outline
-If you're stuck on where to start, here's a suggested outline.
-1. Make the marker expression panel (see [Deliverables](deliverables) for more details). Use this to decide which channels to keep.
-2. Use the cell segmentations to make a training dataset, where each element is a cropped view with channel data centered on each cell. Your training dataset will reqire some amount of feature engineering (e.g., normalize the channels). Save this dataset. Note: you can make a small version of this dataset with just a couple of images, use this to debug and make sure your model is "somewhat" learning, then expand using the remaining images.
-3. Set up a training pipeline (e.g., with a linear model) using the dataset of individual cells.
 
+If you're stuck on where to start, here's a suggested outline.
+
+1. Make the marker expression panel (see [Deliverables](deliverables) for more details). Use this to decide which channels to keep.
+1. Use the cell segmentations to make a training dataset, where each element is a cropped view with channel data centered on each cell. Your training dataset will reqire some amount of feature engineering (e.g., normalize the channels). Save this dataset. Note: you can make a small version of this dataset with just a couple of images, use this to debug and make sure your model is "somewhat" learning, then expand using the remaining images.
+1. Set up a training pipeline (e.g., with a linear model) using the dataset of individual cells.
 
 (deliverables)=
+
 ## Deliverables
+
 You should prepare a short report (~1 page) containing four things
 
 1. A marker expression panel. This is a representation of how different markers (channels) correlate with the different celltypes. An example (for an unrelated dataset) is shown below.
 
 ![](../images/marker_expression.jpg "Marker expression panel")
 
-Spend a little time and think about the best way to normalize the expressions -- e.g., do you want to average over cells? How do you deal with the fact that different channels will have different scales (e.g., for some channels, 1 may be a large number, whereas for others 1 may be a very small number)? How do you deal with outliers? The marker expression panel is useful to guide the data processing -- see [the original paper](https://www.cell.com/cell/fulltext/S0092-8674(18)31100-0) if you want some more details on what sorts of transformations people use.
+Spend a little time and think about the best way to normalize the expressions -- e.g., do you want to average over cells? How do you deal with the fact that different channels will have different scales (e.g., for some channels, 1 may be a large number, whereas for others 1 may be a very small number)? How do you deal with outliers? The marker expression panel is useful to guide the data processing -- see [the original paper](<https://www.cell.com/cell/fulltext/S0092-8674(18)31100-0>) if you want some more details on what sorts of transformations people use.
 
 2. A confusion matrix. This plots the predicted versus the actual cell types. An example is shown below
 
@@ -120,9 +128,10 @@ There are different levels/complexity to reproducibility. For truly reproducible
 4. A *brief* description of any issues / thoughts you have on the data, the nature of the task, downstream issues, etc. Describe any decisions and their rationale you made during data preprocessing (e.g., I included channel X because...) We emphasize brief -- most of your time on this assignment should spent coding -- after making the images and pushing to Github, this section of the submssion should take ~15 minutes.
 
 ## General guidelines
+
 1. Keep your code modular and clean.
-2. We aren't grading you on performance -- just think carefully about the problem and make a reasonable first pass of a model. If your data processing/model are well thought out but your accuracies aren't great, that's fine, just document what you think are the likely reasons your model isn't performing well.
-3. Start early and reach out with specific questions. You will need time to actually train the model and these things always take longer than you expect.
+1. We aren't grading you on performance -- just think carefully about the problem and make a reasonable first pass of a model. If your data processing/model are well thought out but your accuracies aren't great, that's fine, just document what you think are the likely reasons your model isn't performing well.
+1. Start early and reach out with specific questions. You will need time to actually train the model and these things always take longer than you expect.
 
 ```{admonition} Submission
 ---
