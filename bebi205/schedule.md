@@ -32,7 +32,7 @@ Notebooks
 ```
 
 ```{grid-item-card}
-Papers
+Resources
 ^^^
 Moen, E., Bannon, D., Kudo, T., Graf, W., Covert, M., & Van Valen, D. (2019). [Deep learning for cellular image analysis.](https://doi.org/10.1038/s41592-019-0403-1) *Nature methods*, 1-14.
 
@@ -66,11 +66,13 @@ Notebooks
 ```
 
 ```{grid-item-card}
-Papers
+Resources
 ^^^
 Gamper, J., Koohbanani, N. A., Benet, K., Khuram, A., & Rajpoot, N. (2019). [PanNuke: an open pan-cancer histology dataset for nuclei instance segmentation and classification.](https://rdcu.be/cdn1Y) In *European Congress on Digital Pathology* (pp. 11-19). Springer, Cham.
 
 Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2017). [ImageNet classification with deep convolutional neural networks.](https://doi.org/10.1145/3065386) *Communications of the ACM*, 60(6), 84-90.
+
+[Breaking Linear Classifiers on ImageNet](http://karpathy.github.io/2015/03/30/breaking-convnets/)
 ```
 ````
 
@@ -107,7 +109,7 @@ Notebooks
 ```
 
 ```{grid-item-card}
-Papers
+Resources
 ^^^
 Van Valen, D.A. et al. (2016). [Deep Learning Automates the Quantitative Analysis of Individual Cells in Live-Cell Imaging Experiments.](https://doi.org/10.1371/journal.pcbi.1005177) *PLOS Computational Biology* 12, e1005177.
 
@@ -146,11 +148,16 @@ Notebooks
 ```
 
 ```{grid-item-card}
-Papers
+Resources
 ^^^
+Simon Prince, [Understanding Deep Learning (Chapter 5)](https://udlbook.github.io/udlbook/)
+
+Jay Alammar, [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
+
+Vaswani, Ashish, et al. (2017) [Attention is all you need.](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf) In Advances in neural information processing systems 30.
+
 Bai, M., & Urtasun, R. (2017). [Deep watershed transform for instance segmentation.](https://arxiv.org/abs/1611.08303v2) In *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition* (pp. 5221-5229).
 
-Lin, T. Y., Goyal, P., Girshick, R., He, K., & Dollár, P. (2017). [Focal loss for dense object detection.](https://arxiv.org/abs/1708.02002v2) In *Proceedings of the IEEE international conference on computer vision* (pp. 2980-2988).
 ```
 ````
 
@@ -187,8 +194,11 @@ Notebooks
 ```
 
 ```{grid-item-card}
-Papers
+Resources
 ^^^
+
+Wu, K. E., Yang, K. K., Berg, R. V. D., Zou, J. Y., Lu, A. X., & Amini, A. P. (2022). [Protein structure generation via folding diffusion](https://openreview.net/pdf?id=Nkd7AS2USRd). arXiv preprint arXiv:2209.15611.
+
 He, K., Zhang, X., Ren, S., & Sun, J. (2016). [Deep residual learning for image recognition.](https://arxiv.org/abs/1512.03385v1) In *Proceedings of the IEEE conference on computer vision and pattern recognition* (pp. 770-778).
 
 Huang, G., Liu, Z., Van Der Maaten, L., & Weinberger, K. Q. (2017). [Densely connected convolutional networks.](https://arxiv.org/abs/1608.06993v5) In *Proceedings of the IEEE conference on computer vision and pattern recognition* (pp. 4700-4708).
@@ -218,7 +228,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 6:**
+**Recitation 6:** Using sequence models for celltype classification.
 ```
 
 ```{grid-item-card}
@@ -228,9 +238,8 @@ Notebooks
 ```
 
 ```{grid-item-card}
-Papers
+Resources
 ^^^
-Hie, B., Zhong, E. D., Berger, B., & Bryson, B. (2021). [Learning the language of viral evolution and escape.](https://doi.org/10.1126/science.abd7331) *Science*, 371(6526), 284-288.
 
 Ash, J.T., Darnell, G., Munro, D., and Engelhardt, B.E. (2021). [Joint analysis of expression levels and histological images identifies genes associated with tissue morphology.](https://doi.org/10.1038/s41467-021-21727-x) *Nature Communications* 12, 1609.
 
@@ -259,7 +268,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 7:**
+**Recitation 7:** None
 ```
 ````
 
@@ -278,12 +287,14 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 8:**
+**Recitation 8:** None
 ```
 
 ```{grid-item-card}
-Papers
+Resources
 ^^^
+Corso, G., Stärk, H., Jing, B., Barzilay, R., & Jaakkola, T. (2022). [Diffdock: Diffusion steps, twists, and turns for molecular docking](https://arxiv.org/pdf/2210.01776.pdf%3C/p%3E). arXiv preprint arXiv:2210.01776.
+
 Karpathy, A. (2019). [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/).
 ```
 ````
@@ -296,7 +307,22 @@ Lectures
 ^^^
 **Lecture 17:** Guest lecture by Brian Hie (Stanford/Meta)
 
-**Lecture 18:** TBA
+**Lecture 18:** Intro to generative modeling
+```
+
+```{grid-item-card}
+Recitations
+^^^
+**Recitation 9:** Basic VAE
+```
+
+```{grid-item-card}
+Resources
+^^^
+
+Hsu, C., Verkuil, R., Liu, J., Lin, Z., Hie, B., Sercu, T., ... & Rives, A. (2022, June). [Learning inverse folding from millions of predicted structures](https://proceedings.mlr.press/v162/hsu22a/hsu22a.pdf). In International Conference on Machine Learning (pp. 8946-8970). PMLR.
+
+Hie, B., Zhong, E. D., Berger, B., & Bryson, B. (2021). [Learning the language of viral evolution and escape.](https://doi.org/10.1126/science.abd7331) *Science*, 371(6526), 284-288.
 ```
 ````
 
