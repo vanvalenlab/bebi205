@@ -509,7 +509,7 @@ tar<span class="w"> </span>-xzvf<span class="w"> </span>keren.tar.gz
 <p>If you’re stuck on where to start, here’s a suggested outline.</p>
 <ol class="arabic simple">
 <li><p>Make the marker expression panel (see <a class="reference internal" href="#deliverables"><span class="std std-ref">Deliverables</span></a> for more details). Use this to decide which channels to keep.</p></li>
-<li><p>Use the cell segmentations to make a training dataset, where each element is a cropped view with channel data centered on each cell. Your training dataset will reqire some amount of feature engineering (e.g., normalize the channels). Save this dataset. Note: you can make a small version of this dataset with just a couple of images, use this to debug and make sure your model is “somewhat” learning, then expand using the remaining images.</p></li>
+<li><p>Use the cell segmentations to make a training dataset, where each element is a cropped view with channel data centered on each cell. Your training dataset will reqire some amount of feature engineering (e.g., normalize the channels). Save this dataset. Note: you can make a small version of this dataset with just a couple of images, use this to debug and make sure your model is “somewhat” learning, then expand using the remaining images. <em>You may not need the full dataset: start with a small subset and see how your model does before scaling up training.</em></p></li>
 <li><p>Set up a training pipeline (e.g., with a linear model) using the dataset of individual cells.</p></li>
 </ol>
 </section>
@@ -527,18 +527,13 @@ tar<span class="w"> </span>-xzvf<span class="w"> </span>keren.tar.gz
 <li><p>Take the average expression of each marker within each cell. You can average twice – once over an individual cell, and once over all the total cells.</p></li>
 </ol>
 <p>Here’s some basic pseudocode showing this process.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">adaptive_histogram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># see skimage.exposure.equalize_hist</span>
-<span class="n">all_cells</span> <span class="o">=</span> <span class="n">get_patches</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># see skimage.measure.regionprops</span>
-<span class="n">marker_expr_panel</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_celltypes</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">))</span>
-<span class="n">counts_by_celltype</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_celltypes</span><span class="p">,))</span>
-
-<span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">all_cells</span><span class="p">:</span>
-    <span class="n">celltype</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">celltype</span>
-    <span class="n">average_expression_by_marker</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">marker_intensity</span><span class="p">)</span>
-    <span class="n">marker_expr_panel</span><span class="p">[</span><span class="n">celltype</span><span class="p">]</span> <span class="o">+=</span> <span class="n">average_expression_by_marker</span>
-    <span class="n">counts_by_celltype</span><span class="p">[</span><span class="n">celltype</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="n">marker_expr_panel</span> <span class="o">=</span> <span class="n">marker_expr_panel</span> <span class="o">/</span> <span class="n">counts_by_celltype</span> <span class="c1"># When you make this actual code, be careful with broadcasting here</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Normalize</span> <span class="n">image</span> <span class="c1"># e.g., adaptive histogram normalization</span>
+<span class="n">Collect</span> <span class="n">views</span> <span class="n">of</span> <span class="n">each</span> <span class="n">cell</span> <span class="ow">and</span> <span class="n">associated</span> <span class="n">celltype</span>
+<span class="n">Initialize</span> <span class="n">a</span> <span class="n">marker</span> <span class="n">expression</span> <span class="n">panel</span> <span class="k">with</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">number</span> <span class="n">of</span> <span class="n">celltypes</span><span class="p">,</span> <span class="n">number</span> <span class="n">of</span> <span class="n">markers</span><span class="p">)</span>
+<span class="n">Iterate</span> <span class="n">through</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">cell</span> <span class="n">views</span>
+    <span class="n">Take</span> <span class="n">the</span> <span class="n">mean</span> <span class="n">marker</span> <span class="n">intensity</span> <span class="k">for</span> <span class="n">each</span> <span class="n">marker</span>
+    <span class="n">Add</span> <span class="n">the</span> <span class="n">mean</span> <span class="n">marker</span> <span class="n">intensity</span> <span class="n">to</span> <span class="n">marker</span> <span class="n">expression</span> <span class="n">panel</span> <span class="k">for</span> <span class="n">the</span> <span class="n">associated</span> <span class="n">celltype</span>
+<span class="n">Average</span> <span class="n">the</span> <span class="n">marker</span> <span class="n">expression</span> <span class="n">panel</span> <span class="n">over</span> <span class="nb">all</span> <span class="n">cell</span> <span class="n">instances</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">

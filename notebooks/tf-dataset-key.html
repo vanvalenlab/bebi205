@@ -548,14 +548,14 @@ document.write(`
 <p>Finally, we augment the dataset by performing random transformations to each batch of samples. In order to to this, we revisit the transformation matrices discussed previously. When we initially discussed transformations, we used 2x2 matrices to rotate, reflect, etc a 2D image. For dataset augmentation, we also want to translate the image such that it is shifted in 2D space away from its original center point. In order to do this, we will use a 3x3 matrix and consider each point $P(x,y) = \begin{bmatrix}x&amp;y&amp;1\end{bmatrix}$.</p>
 <p>In order to translate point $P(x,y)$ by $(\delta x, \delta y)$, we multiply P by the translation matrix
 $\begin{bmatrix}x &amp; y &amp; 1\end{bmatrix} \times</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5497ef25-03ca-47f5-a78c-37a279460660">
-<span class="eqno">(14)<a class="headerlink" href="#equation-5497ef25-03ca-47f5-a78c-37a279460660" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-676c16fc-8a0b-4e2e-8f0a-055abb89284d">
+<span class="eqno">(14)<a class="headerlink" href="#equation-676c16fc-8a0b-4e2e-8f0a-055abb89284d" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     1 &amp; 0 &amp; 0\\
     0 &amp; 1 &amp; 0\\
     \delta x &amp; \delta y &amp; 1
 \end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-09dc8263-3a35-4ef5-9c84-bf9fa3b38624">
-<span class="eqno">(15)<a class="headerlink" href="#equation-09dc8263-3a35-4ef5-9c84-bf9fa3b38624" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-741b11b8-b528-48b8-9a78-99c0d944657c">
+<span class="eqno">(15)<a class="headerlink" href="#equation-741b11b8-b528-48b8-9a78-99c0d944657c" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x+\delta x &amp; y+\delta y &amp; 1\end{bmatrix}\]</div>
 <p>In order to apply random transformations to the dataset, we can use the <code class="docutils literal notranslate"><span class="pre">dataset.map</span></code> function which will apply any python function to each element in the dataset. First we will write a function to calculate a random transformation matrix that scales the data within the limits of a specified zoom range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
