@@ -1,351 +1,428 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Images as Data &#8212; BEBi 205: Deep Learning for Biological Data</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/images';</script>
     <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/images.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Sequences" href="sequences-key.html" />
     <link rel="prev" title="Data Science in Python" href="data-science-in-python-key.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../syllabus.html">
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">BEBi 205: Deep Learning for Biological Data</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus.html">
-   Syllabus
-  </a>
- </li>
+    
+    
+    <img src="../_static/bebi205-logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/bebi205-logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../syllabus.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Publicly Available Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compute-resources.html">Compute Resources</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/toc.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-1.html">Assignment 1: Cell Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-2.html">Assignment 2: Preliminary Proposal and Dataset Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/project-proposal.html">Assignment 3: Project Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-4.html">Assignment 4: Celltype classification redux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-5.html">Assignment 5: Progress Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/final-presentation.html">Final Presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/final-report.html">Final Report</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../schedule.html">
-   Course Schedule
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../final-project.html">
-   Class Project
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../cluster-access.html">
-   Caltech Cluster Access
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../notebooks-toc.html">
-   Course Notebooks
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="data-science-in-python-key.html">
-     Data Science in Python
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Images as Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sequences-key.html">
-     Sequences
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="linear-classifier-key.html">
-     The Linear Classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset-key.html">
-     TensorFlow Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tf-classifier.html">
-     Image classification with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="optimizer.html">
-     Optimizers
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../vision-model-toc.html">
-     Vision Models
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="spot-detection.html">
-       Spot Detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="segmentation.html">
-       Vision Models: Cell Segmentation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sequence-model.html">
-     Sequence Models
-    </a>
-   </li>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../notebooks-toc.html">Course Notebooks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data-science-in-python-key.html">Data Science in Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Images as Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sequences-key.html">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear-classifier-key.html">The Linear Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tf-dataset-key.html">TensorFlow Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tf-classifier.html">Image classification with TensorFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">Optimizers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../vision-model-toc.html">Vision Models</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="spot-detection.html">Spot Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="segmentation.html">Vision Models: Cell Segmentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/images.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/images.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/images.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  
 </div>
-
 </div>
+              
+              
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Images as Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/images.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/vanvalenlab/bebi205"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/images.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/images.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/vanvalenlab/bebi205/master?urlpath=tree/bebi205/notebooks/images.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#file-formats">
-   File Formats
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#open-source-file-formats">
-     Open source file formats
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#proprietary-file-formats">
-     Proprietary File Formats
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#large-dataset-formats">
-     Large dataset formats
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-transformations">
-   Image Transformations
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reflection">
-     Reflection
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scale">
-     Scale
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rotation">
-     Rotation
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-formats">File Formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-file-formats">Open source file formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proprietary-file-formats">Proprietary File Formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-dataset-formats">Large dataset formats</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-transformations">Image Transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale">Scale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="images-as-data">
-<h1>Images as Data<a class="headerlink" href="#images-as-data" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="images-as-data">
+<h1>Images as Data<a class="headerlink" href="#images-as-data" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/images.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -356,10 +433,10 @@
 </div>
 </div>
 </div>
-<div class="section" id="file-formats">
-<h2>File Formats<a class="headerlink" href="#file-formats" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="open-source-file-formats">
-<h3>Open source file formats<a class="headerlink" href="#open-source-file-formats" title="Permalink to this headline">¶</a></h3>
+<section id="file-formats">
+<h2>File Formats<a class="headerlink" href="#file-formats" title="Permalink to this heading">#</a></h2>
+<section id="open-source-file-formats">
+<h3>Open source file formats<a class="headerlink" href="#open-source-file-formats" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://imageio.github.io/">imageio</a> is an incredibly useful library that can read and write most standard image formats including <code class="docutils literal notranslate"><span class="pre">tiff</span></code>, <code class="docutils literal notranslate"><span class="pre">jpg</span></code> and <code class="docutils literal notranslate"><span class="pre">png</span></code>. Check the docs for a complete list of supported <a class="reference external" href="https://imageio.readthedocs.io/en/stable/formats.html">formats</a>. We will start by loading two key functions: <code class="docutils literal notranslate"><span class="pre">imread</span></code> and <code class="docutils literal notranslate"><span class="pre">imwrite</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -400,7 +477,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fcba17b6cd0&gt;
 </pre></div>
 </div>
-<img alt="../_images/images_10_1.png" src="../_images/images_10_1.png" />
+<img alt="../_images/452ea6c93898e81adcc9151dbf169eaa34f14640223e01f625810052d7de93ff.png" src="../_images/452ea6c93898e81adcc9151dbf169eaa34f14640223e01f625810052d7de93ff.png" />
 </div>
 </div>
 <p>This function supports a variety of <a class="reference external" href="https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.imshow.html">keyword arguments</a> that include changing the colormap used to display the image and changing the minimum and maximum values that scale the colormap. Matplotlib will generally default to using the <code class="docutils literal notranslate"><span class="pre">viridis</span></code> colormap, but we can choose from a range of <a class="reference external" href="https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html">options</a> supported by matplotlib. As an example, we will switch to using the <code class="docutils literal notranslate"><span class="pre">inferno</span></code> colormap and look at the effect of changing the minimum and maximum scaling values.</p>
@@ -434,31 +511,31 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7fcba0d88a90&gt;
 </pre></div>
 </div>
-<img alt="../_images/images_13_1.png" src="../_images/images_13_1.png" />
+<img alt="../_images/c11acde4a1ca4c5c17a41d34c80f8d8e8e512990cac1de65a6acdfa866dc0f30.png" src="../_images/c11acde4a1ca4c5c17a41d34c80f8d8e8e512990cac1de65a6acdfa866dc0f30.png" />
 </div>
 </div>
-</div>
-<div class="section" id="proprietary-file-formats">
-<h3>Proprietary File Formats<a class="headerlink" href="#proprietary-file-formats" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="proprietary-file-formats">
+<h3>Proprietary File Formats<a class="headerlink" href="#proprietary-file-formats" title="Permalink to this heading">#</a></h3>
 <p>Most microscopes store data using proprietary file formats designed by the manufacturer of the microscope, such as <code class="docutils literal notranslate"><span class="pre">lif</span></code> (Leica), <code class="docutils literal notranslate"><span class="pre">nd2</span></code> (Nikon) and <code class="docutils literal notranslate"><span class="pre">czi</span></code> (Zeiss).</p>
 <p>The <a class="reference external" href="https://www.openmicroscopy.org/">Open Microscopy Environment</a> (OME) is a consortium spanning academia and industry that produces open source software and format standards for microscopy data. They develop <a class="reference external" href="https://www.openmicroscopy.org/bio-formats/">Bioformats</a> which is a critical library for reading and writing the vast majority of biological image data types. You may have encountered the Bioformats plugin for <a class="reference external" href="https://fiji.sc/">Fiji</a> which enables to Fiji to open practically any file you throw at it. Python support for Bioformats is limited, but CellProfiler has published a <a class="reference external" href="https://github.com/CellProfiler/python-bioformats">python wrapper</a> for the core Java library underlying Bioformats.</p>
-</div>
-<div class="section" id="large-dataset-formats">
-<h3>Large dataset formats<a class="headerlink" href="#large-dataset-formats" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="large-dataset-formats">
+<h3>Large dataset formats<a class="headerlink" href="#large-dataset-formats" title="Permalink to this heading">#</a></h3>
 <p>Ultimately large image datasets are generally stored in one of two ways:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>As a directory of individual fields of view (FOV) in a generally accessible format such as <code class="docutils literal notranslate"><span class="pre">tiff</span></code>. Information regarding the channel, z position or t step captured in each file is typically encoded in the file name such that high dimensional datasets can be reconstructed from individual files.</p></li>
 <li><p>As a multidimensional hyperstack containing the entire dataset within a single file. There are many choices for this type of file format, but numpy’s file format <code class="docutils literal notranslate"><span class="pre">npz</span></code> is a common choice. <code class="docutils literal notranslate"><span class="pre">h5</span></code> files by <a class="reference external" href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a> are also favored for the flexibility of data organization within each file.</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="image-transformations">
-<h2>Image Transformations<a class="headerlink" href="#image-transformations" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="image-transformations">
+<h2>Image Transformations<a class="headerlink" href="#image-transformations" title="Permalink to this heading">#</a></h2>
 <p>In the course of training a machine learning model, we can augment the training dataset by performing image transformations to present the model with the same data in a new form. These transformations can take the form of reflections, rotations, scaling and others. In its simplest form, any transformation can be applied to an image by multiplying it with an appropriate transformation matrix. We will briefly review the linear algebra behind transformation matrices before looking at code examples.</p>
-<p>For this discussion, we will consider the point <span class="math notranslate nohighlight">\(P(x,y) = \begin{bmatrix}x&amp;y\end{bmatrix}\)</span>. Any transformation matrix is a modification of the identity matrix
+<p>For this discussion, we will consider the point $P(x,y) = \begin{bmatrix}x&amp;y\end{bmatrix}$. Any transformation matrix is a modification of the identity matrix
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ece47dea-36c8-4e20-84e0-b7e875579efb">
-<span class="eqno">(1)<a class="headerlink" href="#equation-ece47dea-36c8-4e20-84e0-b7e875579efb" title="Permalink to this equation">¶</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-395d4b26-b96d-4118-a7a0-503687cfcf6f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-395d4b26-b96d-4118-a7a0-503687cfcf6f" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     1 &amp; 0 \\
     0 &amp; 1 \\
 \end{bmatrix}\]</div>
@@ -471,19 +548,21 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="section" id="reflection">
-<h3>Reflection<a class="headerlink" href="#reflection" title="Permalink to this headline">¶</a></h3>
-<p>In order to reflect <span class="math notranslate nohighlight">\(P(x,y)\)</span> across the x axis</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}x &amp; y\end{bmatrix} \times
-\begin{bmatrix}
+<section id="reflection">
+<h3>Reflection<a class="headerlink" href="#reflection" title="Permalink to this heading">#</a></h3>
+<p>In order to reflect $P(x,y)$ across the x axis</p>
+<p>$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c4e528d1-e431-4eed-a051-32daadba0e82">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c4e528d1-e431-4eed-a051-32daadba0e82" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ed9c7300-e263-4507-8fe4-bc4f63c157bd">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ed9c7300-e263-4507-8fe4-bc4f63c157bd" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     -1 &amp; 0\\
     0 &amp; 1\\
-\end{bmatrix}
-=
-\begin{bmatrix}-x &amp; y\end{bmatrix}
-\end{split}\]</div>
+\end{bmatrix}\]</div>
+<p>=</p>
+<div class="amsmath math notranslate nohighlight" id="equation-98ac0318-6112-42d1-9ada-d204c3f1a9b2">
+<span class="eqno">(4)<a class="headerlink" href="#equation-98ac0318-6112-42d1-9ada-d204c3f1a9b2" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}-x &amp; y\end{bmatrix}\]</div>
+<p>$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define transformation matrix</span>
@@ -509,23 +588,25 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/images_22_0.png" src="../_images/images_22_0.png" />
+<img alt="../_images/e86d4a49a4780261e23c248b80952627c2f68d0534d1bf02e49955ffec5c8789.png" src="../_images/e86d4a49a4780261e23c248b80952627c2f68d0534d1bf02e49955ffec5c8789.png" />
 </div>
 </div>
-</div>
-<div class="section" id="scale">
-<h3>Scale<a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h3>
-<p>In order to scale <span class="math notranslate nohighlight">\(P(x,y)\)</span> by a factor of 2</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}x &amp; y\end{bmatrix} \times
-\begin{bmatrix}
+</section>
+<section id="scale">
+<h3>Scale<a class="headerlink" href="#scale" title="Permalink to this heading">#</a></h3>
+<p>In order to scale $P(x,y)$ by a factor of 2</p>
+<p>$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-38f45930-c2f9-47c5-8044-d69690566a23">
+<span class="eqno">(5)<a class="headerlink" href="#equation-38f45930-c2f9-47c5-8044-d69690566a23" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-60cc6fcb-d5ea-497a-90cf-158a29c3fb8c">
+<span class="eqno">(6)<a class="headerlink" href="#equation-60cc6fcb-d5ea-497a-90cf-158a29c3fb8c" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     2 &amp; 0\\
     0 &amp; 2\\
-\end{bmatrix}
-=
-\begin{bmatrix}2x &amp; 2y\end{bmatrix}
-\end{split}\]</div>
+\end{bmatrix}\]</div>
+<p>=</p>
+<div class="amsmath math notranslate nohighlight" id="equation-11d4e218-71d8-48fc-a5a2-ff82147ecd2c">
+<span class="eqno">(7)<a class="headerlink" href="#equation-11d4e218-71d8-48fc-a5a2-ff82147ecd2c" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}2x &amp; 2y\end{bmatrix}\]</div>
+<p>$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define transformation matrix</span>
@@ -551,21 +632,22 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/images_24_0.png" src="../_images/images_24_0.png" />
+<img alt="../_images/c5cc9d24a6c558d8a20101894366ab541004045367296df62305307e86b9e4e4.png" src="../_images/c5cc9d24a6c558d8a20101894366ab541004045367296df62305307e86b9e4e4.png" />
 </div>
 </div>
-</div>
-<div class="section" id="rotation">
-<h3>Rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h3>
-<p>In order to rotate <span class="math notranslate nohighlight">\(P(x,y)\)</span> around the origin by the angle <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}x &amp; y\end{bmatrix} \times
-\begin{bmatrix}
+</section>
+<section id="rotation">
+<h3>Rotation<a class="headerlink" href="#rotation" title="Permalink to this heading">#</a></h3>
+<p>In order to rotate $P(x,y)$ around the origin by the angle $\theta$</p>
+<p>$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b923a287-3fad-40ba-b6d4-1ea0febbb2fc">
+<span class="eqno">(8)<a class="headerlink" href="#equation-b923a287-3fad-40ba-b6d4-1ea0febbb2fc" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a1268a7c-0886-4312-b5a1-35564a5a5d11">
+<span class="eqno">(9)<a class="headerlink" href="#equation-a1268a7c-0886-4312-b5a1-35564a5a5d11" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     \cos{\theta} &amp; -\sin{\theta}\\
     \sin{\theta} &amp; \cos{\theta}\\
-\end{bmatrix}
-\end{split}\]</div>
+\end{bmatrix}\]</div>
+<p>$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define transformation matrix</span>
@@ -592,7 +674,7 @@ $$</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/images_26_0.png" src="../_images/images_26_0.png" />
+<img alt="../_images/79cb94d7c3911029c80559414156020d8b388b2ff9316031d5076d1db918c019.png" src="../_images/79cb94d7c3911029c80559414156020d8b388b2ff9316031d5076d1db918c019.png" />
 </div>
 </div>
 <p>We will revisit transformation matrices again when we begin peparing augmented data for model training.</p>
@@ -626,9 +708,9 @@ matplotlib: 3.2.2
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -642,7 +724,7 @@ matplotlib: 3.2.2
             mode: "conda-env-bebi205-py"
         },
         kernelOptions: {
-            kernelName: "conda-env-bebi205-py",
+            name: "conda-env-bebi205-py",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -650,36 +732,116 @@ matplotlib: 3.2.2
     </script>
     <script>kernelName = 'conda-env-bebi205-py'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="data-science-in-python-key.html" title="previous page">Data Science in Python</a>
-    <a class='right-next' id="next-link" href="sequences-key.html" title="next page">Sequences</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By David Van Valen and Morgan Schwartz<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data-science-in-python-key.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Science in Python</p>
       </div>
-    </div>
+    </a>
+    <a class="right-next"
+       href="sequences-key.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sequences</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-formats">File Formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-file-formats">Open source file formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proprietary-file-formats">Proprietary File Formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-dataset-formats">Large dataset formats</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-transformations">Image Transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reflection">Reflection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale">Scale</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rotation">Rotation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Van Valen, Morgan Schwartz and Rohit Dilip
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

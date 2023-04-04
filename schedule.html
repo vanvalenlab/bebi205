@@ -1,675 +1,874 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Course Schedule &#8212; BEBi 205: Deep Learning for Biological Data</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'schedule';</script>
     <link rel="canonical" href="vanvalenlab.github.io/bebi205/schedule.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Class Project" href="final-project.html" />
+    <link rel="next" title="Publicly Available Datasets" href="datasets.html" />
     <link rel="prev" title="Syllabus" href="syllabus.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-      <img src="_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">BEBi 205: Deep Learning for Biological Data</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="syllabus.html">
-   Syllabus
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Course Schedule
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="final-project.html">
-   Class Project
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="cluster-access.html">
-   Caltech Cluster Access
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="notebooks-toc.html">
-   Course Notebooks
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/data-science-in-python-key.html">
-     Data Science in Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/images.html">
-     Images as Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/sequences-key.html">
-     Sequences
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/linear-classifier-key.html">
-     The Linear Classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/tf-dataset-key.html">
-     TensorFlow Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/tf-classifier.html">
-     Image classification with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/optimizer.html">
-     Optimizers
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="vision-model-toc.html">
-     Vision Models
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="notebooks/spot-detection.html">
-       Spot Detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="notebooks/segmentation.html">
-       Vision Models: Cell Segmentation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/sequence-model.html">
-     Sequence Models
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/schedule.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
 
-            <!-- Source interaction buttons -->
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/vanvalenlab/bebi205"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fschedule.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/schedule.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-1-3-29-3-31">
-   Week 1 - 3/29, 3/31
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-2-4-5-4-7">
-   Week 2 - 4/5, 4/7
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-3-4-12-4-14">
-   Week 3 - 4/12, 4/14
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-4-4-19-4-21">
-   Week 4 - 4/19, 4/21
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-5-4-26-4-28">
-   Week 5 - 4/26, 4/28
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-6-5-3-5-5">
-   Week 6 - 5/3, 5/5
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-7-5-10-5-12">
-   Week 7 - 5/10, 5/12
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-8-5-17-5-19">
-   Week 8 - 5/17, 5/19
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-9-5-24-5-26">
-   Week 9 - 5/24, 5/26
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#week-10-5-31-6-2">
-   Week 10 - 5/31, 6/2
-  </a>
- </li>
+<a class="navbar-brand logo" href="syllabus.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/bebi205-logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/bebi205-logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="syllabus.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Publicly Available Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute-resources.html">Compute Resources</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="assignments/toc.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-1.html">Assignment 1: Cell Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-2.html">Assignment 2: Preliminary Proposal and Dataset Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/project-proposal.html">Assignment 3: Project Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-4.html">Assignment 4: Celltype classification redux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-5.html">Assignment 5: Progress Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/final-presentation.html">Final Presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/final-report.html">Final Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks-toc.html">Course Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/data-science-in-python-key.html">Data Science in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/images.html">Images as Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/sequences-key.html">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/linear-classifier-key.html">The Linear Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/tf-dataset-key.html">TensorFlow Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/tf-classifier.html">Image classification with TensorFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/optimizer.html">Optimizers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vision-model-toc.html">Vision Models</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/spot-detection.html">Spot Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/segmentation.html">Vision Models: Cell Segmentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/schedule.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fschedule.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/schedule.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Course Schedule</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-4-4-4-6">Week 1 - 4/4, 4/6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-4-11-4-13">Week 2 - 4/11, 4/13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-4-18-4-20">Week 3 - 4/18, 4/20</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-4-4-25-4-27">Week 4 - 4/25, 4/27</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-5-5-2-5-4">Week 5 - 5/2, 5/4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-6-5-9-5-11">Week 6 - 5/9, 5/11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7-5-16-5-18">Week 7 - 5/16, 5/18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8-5-23-5-25">Week 8 - 5/23, 5/25</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9-5-30-6-1">Week 9 - 5/30, 6/1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-10-6-6-6-8">Week 10 - 6/6, 6/8</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="course-schedule">
-<h1>Course Schedule<a class="headerlink" href="#course-schedule" title="Permalink to this headline">¶</a></h1>
-<p>Last updated May 26, 2021</p>
-<div class="section" id="week-1-3-29-3-31">
-<h2>Week 1 - 3/29, 3/31<a class="headerlink" href="#week-1-3-29-3-31" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="course-schedule">
+<h1>Course Schedule<a class="headerlink" href="#course-schedule" title="Permalink to this heading">#</a></h1>
+<p>Last updated Apr 04, 2023</p>
+<section id="week-1-4-4-4-6">
+<h2>Week 1 - 4/4, 4/6<a class="headerlink" href="#week-1-4-4-4-6" title="Permalink to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%201.pdf"><strong>Lecture 1:</strong></a> Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)</p>
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%202.pdf"><strong>Lecture 2:</strong></a> Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 1:</strong> Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)</p>
+<p class="sd-card-text"><strong>Lecture 2:</strong> Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Notebooks</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference internal" href="notebooks/data-science-in-python-key.html"><span class="doc">Data Science in Python</span></a></p>
-<p class="card-text"><a class="reference internal" href="notebooks/images.html"><span class="doc">Images as Data</span></a></p>
-<p class="card-text"><a class="reference internal" href="notebooks/sequences-key.html"><span class="doc">Sequences</span></a></p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 1:</strong> Cloud compute system intro. Introduction to assignment one.</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Papers</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Notebooks</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Moen, E., Bannon, D., Kudo, T., Graf, W., Covert, M., &amp; Van Valen, D. (2019). <a class="reference external" href="https://doi.org/10.1038/s41592-019-0403-1">Deep learning for cellular image analysis.</a> <em>Nature methods</em>, 1-14.</p>
-<p class="card-text">LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). <a class="reference external" href="https://doi.org/10.1038/nature14539">Deep learning.</a> <em>Nature</em>, 521(7553), 436-444.</p>
-<p class="card-text">Eraslan, G., Avsec, Z., Gagneur, J., &amp; Theis, F. J. (2019). <a class="reference external" href="https://doi.org/10.1038/s41576-019-0122-6">Deep learning: new computational modelling techniques for genomics.</a> <em>Nature Reviews Genetics</em>, 20(7), 389-403.</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference internal" href="notebooks/data-science-in-python-key.html"><span class="doc">Data Science in Python</span></a></p>
+<p class="sd-card-text"><a class="reference internal" href="notebooks/images.html"><span class="doc">Images as Data</span></a></p>
+<p class="sd-card-text"><a class="reference internal" href="notebooks/sequences-key.html"><span class="doc">Sequences</span></a></p>
 </div>
 </div>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Moen, E., Bannon, D., Kudo, T., Graf, W., Covert, M., &amp; Van Valen, D. (2019). <a class="reference external" href="https://doi.org/10.1038/s41592-019-0403-1">Deep learning for cellular image analysis.</a> <em>Nature methods</em>, 1-14.</p>
+<p class="sd-card-text">LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). <a class="reference external" href="https://doi.org/10.1038/nature14539">Deep learning.</a> <em>Nature</em>, 521(7553), 436-444.</p>
+<p class="sd-card-text">Eraslan, G., Avsec, Z., Gagneur, J., &amp; Theis, F. J. (2019). <a class="reference external" href="https://doi.org/10.1038/s41576-019-0122-6">Deep learning: new computational modelling techniques for genomics.</a> <em>Nature Reviews Genetics</em>, 20(7), 389-403.</p>
 </div>
 </div>
-<div class="section" id="week-2-4-5-4-7">
-<h2>Week 2 - 4/5, 4/7<a class="headerlink" href="#week-2-4-5-4-7" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%203%20-The%20Linear%20Classifier.pdf"><strong>Lecture 3:</strong></a> Example Linear Classifier</p>
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%204.pdf"><strong>Lecture 4:</strong></a> Conceptual overview of deep learning. Supervised vs unsupervised,</p>
 </div>
 </div>
+</section>
+<section id="week-2-4-11-4-13">
+<h2>Week 2 - 4/11, 4/13<a class="headerlink" href="#week-2-4-11-4-13" title="Permalink to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Notebooks</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 3:</strong> Example Linear Classifier</p>
+<p class="sd-card-text"><strong>Lecture 4:</strong> Conceptual overview of deep learning.</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference internal" href="notebooks/linear-classifier-key.html"><span class="doc">The Linear Classifier</span></a></p>
 </div>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Papers</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 2:</strong> Intro to PyTorch. Basic linear MLP on MNIST.</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Gamper, J., Koohbanani, N. A., Benet, K., Khuram, A., &amp; Rajpoot, N. (2019). <a class="reference external" href="https://rdcu.be/cdn1Y">PanNuke: an open pan-cancer histology dataset for nuclei instance segmentation and classification.</a> In <em>European Congress on Digital Pathology</em> (pp. 11-19). Springer, Cham.</p>
-<p class="card-text">Krizhevsky, A., Sutskever, I., &amp; Hinton, G. E. (2017). <a class="reference external" href="https://doi.org/10.1145/3065386">ImageNet classification with deep convolutional neural networks.</a> <em>Communications of the ACM</em>, 60(6), 84-90.</p>
 </div>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Notebooks</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference internal" href="notebooks/linear-classifier-key.html"><span class="doc">The Linear Classifier</span></a></p>
 </div>
 </div>
 </div>
-<div class="section" id="week-3-4-12-4-14">
-<h2>Week 3 - 4/12, 4/14<a class="headerlink" href="#week-3-4-12-4-14" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%205.pdf"><strong>Lecture 5:</strong></a> Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences. DeepCell label demo for imaging data. Human-in-the-loop concept for data annotation.</p>
-<p class="card-text"><a class="reference external" href="https://github.com/vanvalenlab/intro-to-deepcell/blob/master/data_labeling/DeepCell_Label_interactive_demo.md"><strong>Lecture 6:</strong></a> <span class="xref myst">DeepCell Label</span> Workshop.</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Gamper, J., Koohbanani, N. A., Benet, K., Khuram, A., &amp; Rajpoot, N. (2019). <a class="reference external" href="https://rdcu.be/cdn1Y">PanNuke: an open pan-cancer histology dataset for nuclei instance segmentation and classification.</a> In <em>European Congress on Digital Pathology</em> (pp. 11-19). Springer, Cham.</p>
+<p class="sd-card-text">Krizhevsky, A., Sutskever, I., &amp; Hinton, G. E. (2017). <a class="reference external" href="https://doi.org/10.1145/3065386">ImageNet classification with deep convolutional neural networks.</a> <em>Communications of the ACM</em>, 60(6), 84-90.</p>
+<p class="sd-card-text"><a class="reference external" href="http://karpathy.github.io/2015/03/30/breaking-convnets/">Breaking Linear Classifiers on ImageNet</a></p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Notebooks</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference internal" href="notebooks/tf-dataset-key.html"><span class="doc">TensorFlow Data</span></a></p>
-<p class="card-text"><a class="reference internal" href="notebooks/tf-classifier.html"><span class="doc">Image classification with TensorFlow</span></a></p>
 </div>
+</section>
+<section id="week-3-4-18-4-20">
+<h2>Week 3 - 4/18, 4/20<a class="headerlink" href="#week-3-4-18-4-20" title="Permalink to this heading">#</a></h2>
+<div class="attention admonition">
+<p class="admonition-title">Assignment</p>
+<p><a class="reference internal" href="assignments/assignment-1.html"><span class="doc">Assignment 1: Cell Classification</span></a></p>
 </div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Papers</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 5:</strong> Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences.</p>
+<p class="sd-card-text"><strong>Lecture 6:</strong> Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Van Valen, D.A. et al. (2016). <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1005177">Deep Learning Automates the Quantitative Analysis of Individual Cells in Live-Cell Imaging Experiments.</a> <em>PLOS Computational Biology</em> 12, e1005177.</p>
-<p class="card-text">Ronneberger, O., Fischer, P., &amp; Brox, T. (2015). <a class="reference external" href="https://doi.org/10.1007/978-3-319-24574-4_28">U-net: Convolutional networks for biomedical image segmentation.</a> In <em>International Conference on Medical image computing and computer-assisted intervention</em> (pp. 234-241). Springer, Cham.</p>
 </div>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 3:</strong> Intro to attention</p>
 </div>
 </div>
 </div>
-<div class="section" id="week-4-4-19-4-21">
-<h2>Week 4 - 4/19, 4/21<a class="headerlink" href="#week-4-4-19-4-21" title="Permalink to this headline">¶</a></h2>
-<p><strong>Assignment:</strong> <a class="reference internal" href="final-project.html#dataset-exploration"><span class="std std-ref">Assignment 1: Preliminary Proposal and Dataset Exploration - Due 4/19</span></a></p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Notebooks</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%207.pdf"><strong>Lecture 7:</strong></a> Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks.</p>
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%208.pdf"><strong>Lecture 8:</strong></a> Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference internal" href="notebooks/tf-dataset-key.html"><span class="doc">TensorFlow Data</span></a></p>
+<p class="sd-card-text"><a class="reference internal" href="notebooks/tf-classifier.html"><span class="doc">Image classification with TensorFlow</span></a></p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Notebooks</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference internal" href="notebooks/optimizer.html"><span class="doc">Optimizers</span></a></p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Van Valen, D.A. et al. (2016). <a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1005177">Deep Learning Automates the Quantitative Analysis of Individual Cells in Live-Cell Imaging Experiments.</a> <em>PLOS Computational Biology</em> 12, e1005177.</p>
+<p class="sd-card-text">Ronneberger, O., Fischer, P., &amp; Brox, T. (2015). <a class="reference external" href="https://doi.org/10.1007/978-3-319-24574-4_28">U-net: Convolutional networks for biomedical image segmentation.</a> In <em>International Conference on Medical image computing and computer-assisted intervention</em> (pp. 234-241). Springer, Cham.</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Papers</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Fang, L. et al. (2021). <a class="reference external" href="https://doi.org/10.1038/s41592-021-01080-z">Deep learning-based point-scanning super-resolution imaging.</a> <em>Nature Methods</em> 1–11.</p>
-<p class="card-text">Bai, M., &amp; Urtasun, R. (2017). <a class="reference external" href="https://arxiv.org/abs/1611.08303v2">Deep watershed transform for instance segmentation.</a> In <em>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition</em> (pp. 5221-5229).</p>
-<p class="card-text">Lin, T. Y., Goyal, P., Girshick, R., He, K., &amp; Dollár, P. (2017). <a class="reference external" href="https://arxiv.org/abs/1708.02002v2">Focal loss for dense object detection.</a> In <em>Proceedings of the IEEE international conference on computer vision</em> (pp. 2980-2988).</p>
 </div>
+</section>
+<section id="week-4-4-25-4-27">
+<h2>Week 4 - 4/25, 4/27<a class="headerlink" href="#week-4-4-25-4-27" title="Permalink to this heading">#</a></h2>
+<div class="attention admonition">
+<p class="admonition-title">Assignment</p>
+<p><a class="reference internal" href="assignments/assignment-2.html"><span class="doc">Assignment 2: Preliminary Proposal and Dataset Exploration</span></a></p>
 </div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 7:</strong> Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants.</p>
+<p class="sd-card-text"><strong>Lecture 8:</strong> Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -&gt; Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search. Attention.</p>
 </div>
 </div>
 </div>
-<div class="section" id="week-5-4-26-4-28">
-<h2>Week 5 - 4/26, 4/28<a class="headerlink" href="#week-5-4-26-4-28" title="Permalink to this headline">¶</a></h2>
-<p><strong>Assignment:</strong> <a class="reference internal" href="final-project.html#project-proposal"><span class="std std-ref">Assignment 2: Project Proposal - Due 4/26</span></a></p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20-%20Lecture%208.pdf"><strong>Lecture 9:</strong></a> Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -&gt; Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search.</p>
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2010.pdf"><strong>Lecture 10:</strong></a> Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 4:</strong> Data sharding / serialization / intermediate scale data</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Notebooks</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Notebooks</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference internal" href="notebooks/spot-detection.html"><span class="doc">Spot Detection</span></a>
-<a class="reference internal" href="notebooks/segmentation.html"><span class="doc">Vision Models: Cell Segmentation</span></a></p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference internal" href="notebooks/optimizer.html"><span class="doc">Optimizers</span></a></p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Papers</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">He, K., Zhang, X., Ren, S., &amp; Sun, J. (2016). <a class="reference external" href="https://arxiv.org/abs/1512.03385v1">Deep residual learning for image recognition.</a> In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em> (pp. 770-778).</p>
-<p class="card-text">Huang, G., Liu, Z., Van Der Maaten, L., &amp; Weinberger, K. Q. (2017). <a class="reference external" href="https://arxiv.org/abs/1608.06993v5">Densely connected convolutional networks.</a> In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em> (pp. 4700-4708).</p>
-<p class="card-text">Lin, T. Y., Dollár, P., Girshick, R., He, K., Hariharan, B., &amp; Belongie, S. (2017). <a class="reference external" href="http://arxiv.org/abs/1612.03144v2">Feature pyramid networks for object detection.</a> In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em> (pp. 2117-2125).</p>
-<p class="card-text">Poplin, R. et al. (2018). <a class="reference external" href="https://doi.org/10.1038/nbt.4235">A universal SNP and small-indel variant caller using deep neural networks.</a> <em>Nature biotechnology</em>, 36(10), 983-987.</p>
-<p class="card-text">Alipanahi, B., Delong, A., Weirauch, M. T., &amp; Frey, B. J. (2015). <a class="reference external" href="https://doi.org/10.1038/nbt.3300">Predicting the sequence specificities of DNA-and RNA-binding proteins by deep learning.</a> <em>Nature biotechnology</em>, 33(8), 831-838.</p>
-<p class="card-text">Zhou, J., &amp; Troyanskaya, O. G. (2015). <a class="reference external" href="https://doi.org/10.1038/nmeth.3547">Predicting effects of noncoding variants with deep learning–based sequence model.</a> <em>Nature methods</em>, 12(10), 931-934.</p>
-<p class="card-text">Avsec, Z. et al (2021). <a class="reference external" href="https://doi.org/10.1101/2021.04.07.438649">Effective gene expression prediction from sequence by integrating long-range interactions.</a> BioRxiv 438649.</p>
-<p class="card-text">Gurovich, Y. et al. (2019). <a class="reference external" href="https://doi.org/10.1038/s41591-018-0279-0">Identifying facial phenotypes of genetic disorders using deep learning.</a> Nature Medicine 25, 60–64.</p>
-<p class="card-text">Young, T., Hazarika, D., Poria, S., and Cambria, E. (2017). <a class="reference external" href="https://arxiv.org/abs/1708.02709v8">Recent Trends in Deep Learning Based Natural Language Processing.</a> ArXiv.</p>
-<p class="card-text">Rives, A. et al. (2021). <a class="reference external" href="https://doi.org/10.1073/pnas.2016239118">Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences.</a> Proc Natl Acad Sci USA 118, e2016239118.</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Simon Prince, <a class="reference external" href="https://udlbook.github.io/udlbook/">Understanding Deep Learning (Chapter 5)</a></p>
+<p class="sd-card-text">Jay Alammar, <a class="reference external" href="https://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a></p>
+<p class="sd-card-text">Vaswani, Ashish, et al. (2017) <a class="reference external" href="https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">Attention is all you need.</a> In Advances in neural information processing systems 30.</p>
+<p class="sd-card-text">Bai, M., &amp; Urtasun, R. (2017). <a class="reference external" href="https://arxiv.org/abs/1611.08303v2">Deep watershed transform for instance segmentation.</a> In <em>Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition</em> (pp. 5221-5229).</p>
 </div>
 </div>
 </div>
 </div>
 </div>
+</section>
+<section id="week-5-5-2-5-4">
+<h2>Week 5 - 5/2, 5/4<a class="headerlink" href="#week-5-5-2-5-4" title="Permalink to this heading">#</a></h2>
+<div class="attention admonition">
+<p class="admonition-title">Assignment</p>
+<p><a class="reference internal" href="assignments/project-proposal.html"><span class="doc">Assignment 3: Project Proposal</span></a></p>
 </div>
-<div class="section" id="week-6-5-3-5-5">
-<h2>Week 6 - 5/3, 5/5<a class="headerlink" href="#week-6-5-3-5-5" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2011.pdf"><strong>Lecture 11:</strong></a> Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others.</p>
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2012.pdf"><strong>Lecture 12:</strong></a> Tips and tricks 1: Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 9:</strong> Guest Lecture by Kevin Yang (Microsoft Research)</p>
+<p class="sd-card-text"><strong>Lecture 10:</strong> Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Notebooks</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference internal" href="notebooks/sequence-model.html"><span class="doc">Sequence Models</span></a></p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 5:</strong> Using pretrained models.</p>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Papers</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Notebooks</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Hie, B., Zhong, E. D., Berger, B., &amp; Bryson, B. (2021). <a class="reference external" href="https://doi.org/10.1126/science.abd7331">Learning the language of viral evolution and escape.</a> <em>Science</em>, 371(6526), 284-288.</p>
-<p class="card-text">Ash, J.T., Darnell, G., Munro, D., and Engelhardt, B.E. (2021). <a class="reference external" href="https://doi.org/10.1038/s41467-021-21727-x">Joint analysis of expression levels and histological images identifies genes associated with tissue morphology.</a> <em>Nature Communications</em> 12, 1609.</p>
-<p class="card-text">Rives, A. et al. (2021). <a class="reference external" href="https://doi.org/10.1073/pnas.2016239118">Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences.</a> <em>Proc Natl Acad Sci USA</em> 118, e2016239118.</p>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><a class="reference internal" href="notebooks/spot-detection.html"><span class="doc">Spot Detection</span></a></p>
+<p class="sd-card-text"><a class="reference internal" href="notebooks/segmentation.html"><span class="doc">Vision Models: Cell Segmentation</span></a></p>
 </div>
 </div>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Wu, K. E., Yang, K. K., Berg, R. V. D., Zou, J. Y., Lu, A. X., &amp; Amini, A. P. (2022). <a class="reference external" href="https://openreview.net/pdf?id=Nkd7AS2USRd">Protein structure generation via folding diffusion</a>. arXiv preprint arXiv:2209.15611.</p>
+<p class="sd-card-text">He, K., Zhang, X., Ren, S., &amp; Sun, J. (2016). <a class="reference external" href="https://arxiv.org/abs/1512.03385v1">Deep residual learning for image recognition.</a> In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em> (pp. 770-778).</p>
+<p class="sd-card-text">Huang, G., Liu, Z., Van Der Maaten, L., &amp; Weinberger, K. Q. (2017). <a class="reference external" href="https://arxiv.org/abs/1608.06993v5">Densely connected convolutional networks.</a> In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em> (pp. 4700-4708).</p>
+<p class="sd-card-text">Lin, T. Y., Dollár, P., Girshick, R., He, K., Hariharan, B., &amp; Belongie, S. (2017). <a class="reference external" href="http://arxiv.org/abs/1612.03144v2">Feature pyramid networks for object detection.</a> In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em> (pp. 2117-2125).</p>
 </div>
 </div>
-<div class="section" id="week-7-5-10-5-12">
-<h2>Week 7 - 5/10, 5/12<a class="headerlink" href="#week-7-5-10-5-12" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><strong>Lecture 13:</strong> Guest Lecture by Uri Manor</p>
-<p class="card-text"><strong>Lecture 14:</strong> Guest Lecture by Barbara E Engelhardt</p>
 </div>
 </div>
+</section>
+<section id="week-6-5-9-5-11">
+<h2>Week 6 - 5/9, 5/11<a class="headerlink" href="#week-6-5-9-5-11" title="Permalink to this heading">#</a></h2>
+<div class="attention admonition">
+<p class="admonition-title">Assignment</p>
+<p><a class="reference internal" href="assignments/assignment-4.html"><span class="doc">Assignment 4: Celltype classification redux</span></a></p>
 </div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 11:</strong> Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others. Transformers — applications outside of language. Discussion of celltype classifier.</p>
+<p class="sd-card-text"><strong>Lecture 12:</strong> Guest Lecture by Ross Barnowski</p>
 </div>
 </div>
-<div class="section" id="week-8-5-17-5-19">
-<h2>Week 8 - 5/17, 5/19<a class="headerlink" href="#week-8-5-17-5-19" title="Permalink to this headline">¶</a></h2>
-<p><strong>Assignment:</strong> <a class="reference internal" href="final-project.html#progress-report"><span class="std std-ref">Assignment 3: Progress Report - Due 5/17</span></a></p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><a class="reference external" href="https://storage.googleapis.com/slides-spring2021/BEBi%20205%20%E2%80%93%20Lecture%2012.pdf"><strong>Lecture 15:</strong></a> Tips and tricks 2: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.</p>
-<p class="card-text"><strong>Lecture 16:</strong></p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 6:</strong> Using sequence models for celltype classification.</p>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Papers</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text">Karpathy, A. (2019). <a class="reference external" href="http://karpathy.github.io/2019/04/25/recipe/">A Recipe for Training Neural Networks</a>.</p>
-<p class="card-text">AlQuraishi, M. (2019). <a class="reference external" href="https://doi.org/10.1016/j.cels.2019.03.006">End-to-End Differentiable Learning of Protein Structure.</a> <em>Cell Systems</em> 8, 292-301.e3.</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Notebooks</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><span class="xref std std-doc">notebooks/sequence-model</span></p>
 </div>
 </div>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Ash, J.T., Darnell, G., Munro, D., and Engelhardt, B.E. (2021). <a class="reference external" href="https://doi.org/10.1038/s41467-021-21727-x">Joint analysis of expression levels and histological images identifies genes associated with tissue morphology.</a> <em>Nature Communications</em> 12, 1609.</p>
+<p class="sd-card-text">Rives, A. et al. (2021). <a class="reference external" href="https://doi.org/10.1073/pnas.2016239118">Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences.</a> <em>Proc Natl Acad Sci USA</em> 118, e2016239118.</p>
 </div>
-<div class="section" id="week-9-5-24-5-26">
-<h2>Week 9 - 5/24, 5/26<a class="headerlink" href="#week-9-5-24-5-26" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><strong>Lecture 17:</strong> Guest Lecture by Mohammed Al Quarishi</p>
-<p class="card-text"><strong>Lecture 18:</strong> Guest Lecture by Bryan Bryson</p>
 </div>
 </div>
 </div>
+</section>
+<section id="week-7-5-16-5-18">
+<h2>Week 7 - 5/16, 5/18<a class="headerlink" href="#week-7-5-16-5-18" title="Permalink to this heading">#</a></h2>
+<div class="attention admonition">
+<p class="admonition-title">Assignment</p>
+<p><a class="reference internal" href="assignments/assignment-5.html"><span class="doc">Assignment 5: Progress Report</span></a></p>
 </div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 13:</strong> Tips and tricks I. Problem framing, data collection and curation, what architecture to choose, what loss function to choose, blending deep learning with existing methods.</p>
+<p class="sd-card-text"><strong>Lecture 14:</strong> Tips and tricks II: How to debug when things go wrong. Follow the data schema for debugging deep learning workflows. Common errors and their fixes.</p>
 </div>
-<div class="section" id="week-10-5-31-6-2">
-<h2>Week 10 - 5/31, 6/2<a class="headerlink" href="#week-10-5-31-6-2" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lectures</p>
 </div>
-<div class="card-body docutils">
-<p class="card-text"><strong>Lecture 19:</strong> Student Presentations</p>
-<p class="card-text"><strong>Lecture 20:</strong> Student Presentations</p>
 </div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
 </div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 7:</strong> None</p>
 </div>
 </div>
 </div>
 </div>
 </div>
+</section>
+<section id="week-8-5-23-5-25">
+<h2>Week 8 - 5/23, 5/25<a class="headerlink" href="#week-8-5-23-5-25" title="Permalink to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 15:</strong> Guest lecture by Sam Cooper (Phenomic AI)</p>
+<p class="sd-card-text"><strong>Lecture 16:</strong> Guest lecture by Gabriele Corso (MIT)</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 8:</strong> None</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Corso, G., Stärk, H., Jing, B., Barzilay, R., &amp; Jaakkola, T. (2022). <a class="reference external" href="https://arxiv.org/pdf/2210.01776.pdf%3C/p%3E">Diffdock: Diffusion steps, twists, and turns for molecular docking</a>. arXiv preprint arXiv:2210.01776.</p>
+<p class="sd-card-text">Karpathy, A. (2019). <a class="reference external" href="http://karpathy.github.io/2019/04/25/recipe/">A Recipe for Training Neural Networks</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="week-9-5-30-6-1">
+<h2>Week 9 - 5/30, 6/1<a class="headerlink" href="#week-9-5-30-6-1" title="Permalink to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Lecture 17:</strong> Guest lecture by Brian Hie (Stanford/Meta)</p>
+<p class="sd-card-text"><strong>Lecture 18:</strong> Intro to generative modeling</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Recitations</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>Recitation 9:</strong> Basic VAE</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Resources</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Hsu, C., Verkuil, R., Liu, J., Lin, Z., Hie, B., Sercu, T., … &amp; Rives, A. (2022, June). <a class="reference external" href="https://proceedings.mlr.press/v162/hsu22a/hsu22a.pdf">Learning inverse folding from millions of predicted structures</a>. In International Conference on Machine Learning (pp. 8946-8970). PMLR.</p>
+<p class="sd-card-text">Hie, B., Zhong, E. D., Berger, B., &amp; Bryson, B. (2021). <a class="reference external" href="https://doi.org/10.1126/science.abd7331">Learning the language of viral evolution and escape.</a> <em>Science</em>, 371(6526), 284-288.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="week-10-6-6-6-8">
+<h2>Week 10 - 6/6, 6/8<a class="headerlink" href="#week-10-6-6-6-8" title="Permalink to this heading">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<p class="sd-card-text">Lectures</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text">No lectures.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -683,7 +882,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -691,36 +890,114 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="syllabus.html" title="previous page">Syllabus</a>
-    <a class='right-next' id="next-link" href="final-project.html" title="next page">Class Project</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By David Van Valen and Morgan Schwartz<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="syllabus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Syllabus</p>
       </div>
-    </div>
+    </a>
+    <a class="right-next"
+       href="datasets.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Publicly Available Datasets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-1-4-4-4-6">Week 1 - 4/4, 4/6</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-2-4-11-4-13">Week 2 - 4/11, 4/13</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-3-4-18-4-20">Week 3 - 4/18, 4/20</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-4-4-25-4-27">Week 4 - 4/25, 4/27</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-5-5-2-5-4">Week 5 - 5/2, 5/4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-6-5-9-5-11">Week 6 - 5/9, 5/11</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-7-5-16-5-18">Week 7 - 5/16, 5/18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-8-5-23-5-25">Week 8 - 5/23, 5/25</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-9-5-30-6-1">Week 9 - 5/30, 6/1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#week-10-6-6-6-8">Week 10 - 6/6, 6/8</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Van Valen, Morgan Schwartz and Rohit Dilip
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,551 +1,481 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Data Science in Python &#8212; BEBi 205: Deep Learning for Biological Data</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/data-science-in-python-key';</script>
     <link rel="canonical" href="vanvalenlab.github.io/bebi205/notebooks/data-science-in-python-key.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Images as Data" href="images.html" />
     <link rel="prev" title="Course Notebooks" href="../notebooks-toc.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../syllabus.html">
+  
+  
+  
+  
+    
+    
       
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">BEBi 205: Deep Learning for Biological Data</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../syllabus.html">
-   Syllabus
-  </a>
- </li>
+    
+    
+    <img src="../_static/bebi205-logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/bebi205-logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../syllabus.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Publicly Available Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compute-resources.html">Compute Resources</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assignments/toc.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-1.html">Assignment 1: Cell Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-2.html">Assignment 2: Preliminary Proposal and Dataset Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/project-proposal.html">Assignment 3: Project Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-4.html">Assignment 4: Celltype classification redux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-5.html">Assignment 5: Progress Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/final-presentation.html">Final Presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/final-report.html">Final Report</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../schedule.html">
-   Course Schedule
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../final-project.html">
-   Class Project
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../cluster-access.html">
-   Caltech Cluster Access
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../notebooks-toc.html">
-   Course Notebooks
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Data Science in Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="images.html">
-     Images as Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sequences-key.html">
-     Sequences
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="linear-classifier-key.html">
-     The Linear Classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tf-dataset-key.html">
-     TensorFlow Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="tf-classifier.html">
-     Image classification with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="optimizer.html">
-     Optimizers
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../vision-model-toc.html">
-     Vision Models
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="spot-detection.html">
-       Spot Detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="segmentation.html">
-       Vision Models: Cell Segmentation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sequence-model.html">
-     Sequence Models
-    </a>
-   </li>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../notebooks-toc.html">Course Notebooks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Science in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images as Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sequences-key.html">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear-classifier-key.html">The Linear Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tf-dataset-key.html">TensorFlow Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tf-classifier.html">Image classification with TensorFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">Optimizers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../vision-model-toc.html">Vision Models</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="spot-detection.html">Spot Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="segmentation.html">Vision Models: Cell Segmentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/data-science-in-python-key.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-science-in-python-key.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/data-science-in-python-key.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  
 </div>
-
 </div>
+              
+              
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Science in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/data-science-in-python-key.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/vanvalenlab/bebi205"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fnotebooks/data-science-in-python-key.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/notebooks/data-science-in-python-key.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/vanvalenlab/bebi205/master?urlpath=tree/bebi205/notebooks/data-science-in-python-key.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basics-of-python">
-   Basics of Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#section-1-variable-types-and-data-structures">
-   Section 1: Variable Types and Data Structures
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numbers">
-     Numbers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#booleans">
-     Booleans
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#strings">
-     Strings
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#containers">
-     Containers
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#lists">
-       Lists
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#dictionaries">
-       Dictionaries
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sets">
-       Sets
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tuples">
-       Tuples
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions">
-     Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#classes">
-     Classes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#section-2-control-and-flow-statements">
-   Section 2: Control and Flow Statements
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#conditionals-if-and-else">
-     Conditionals: if and else
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loops">
-     Loops
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#breaks-and-continues">
-     Breaks and Continues
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#catching-exceptions">
-     Catching Exceptions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#section-3-installing-packages">
-   Section 3: Installing Packages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#section-4-numpy">
-   Section 4: NumPy
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arrays">
-     Arrays
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-indexing">
-     Array indexing
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#datatypes">
-     Datatypes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#array-math">
-     Array math
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#broadcasting">
-     Broadcasting
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#section-5-matplotlib">
-   Section 5: Matplotlib
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting">
-     Plotting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#subplots">
-     Subplots
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#section-6-scipy">
-   Section 6: SciPy
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distance-between-points">
-     Distance between points
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#section-7-pandas">
-   Section 7: Pandas
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#inspecting-dataframes">
-     Inspecting Dataframes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#categorical-data">
-     Categorical Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-visualization">
-     1. Data Visualization
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#boolean-indexing">
-     2. Boolean Indexing
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-what-is-the-age-of-the-oldest-patient-to-experience-typical-chest-pain">
-       a) What is the age of the oldest patient to experience typical chest pain?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#b-how-many-patients-under-the-age-of-50-had-restbp-greater-than-150">
-       b) How many patients under the age of 50 had
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         RestBP
-        </span>
-       </code>
-       greater than 150?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#c-what-is-the-average-maxhr-for-patients-who-had-chestpain-of-either-nonanginal-or-nontypical-and-age-less-60">
-       c) What is the average
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         MaxHR
-        </span>
-       </code>
-       for patients who had
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         ChestPain
-        </span>
-       </code>
-       of either nonanginal or nontypical and
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         Age
-        </span>
-       </code>
-       less 60?
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-python">Basics of Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-variable-types-and-data-structures">Section 1: Variable Types and Data Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">Containers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
 </ul>
-
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-control-and-flow-statements">Section 2: Control and Flow Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-if-and-else">Conditionals: if and else</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaks-and-continues">Breaks and Continues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catching-exceptions">Catching Exceptions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-installing-packages">Section 3: Installing Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-numpy">Section 4: NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing">Array indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datatypes">Datatypes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-math">Array math</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-5-matplotlib">Section 5: Matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-6-scipy">Section 6: SciPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-between-points">Distance between points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-7-pandas">Section 7: Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-dataframes">Inspecting Dataframes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-data">Categorical Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">1. Data Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-indexing">2. Boolean Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-what-is-the-age-of-the-oldest-patient-to-experience-typical-chest-pain">a) What is the age of the oldest patient to experience typical chest pain?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-how-many-patients-under-the-age-of-50-had-restbp-greater-than-150">b) How many patients under the age of 50 had <code class="docutils literal notranslate"><span class="pre">RestBP</span></code> greater than 150?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-what-is-the-average-maxhr-for-patients-who-had-chestpain-of-either-nonanginal-or-nontypical-and-age-less-60">c) What is the average <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> for patients who had <code class="docutils literal notranslate"><span class="pre">ChestPain</span></code> of either nonanginal or nontypical and <code class="docutils literal notranslate"><span class="pre">Age</span></code> less 60?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="data-science-in-python">
-<h1>Data Science in Python<a class="headerlink" href="#data-science-in-python" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="data-science-in-python">
+<h1>Data Science in Python<a class="headerlink" href="#data-science-in-python" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/data-science-in-python.ipynb"><img alt="Open in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a>
 <a class="reference external" href="https://colab.research.google.com/github/vanvalenlab/bebi205/blob/master/bebi205/notebooks/data-science-in-python-key.ipynb"><img alt="Open key in Colab" src="https://img.shields.io/static/v1?logo=google-colab&amp;message=Open%20key%20in%20colab&amp;color=blue&amp;label=%20&amp;labelColor=5c5c5c" /></a></p>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
 <p>Python is a general-purpose programming language and with the addition of a few popular libraries like <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, has become a powerful scientific computing environment.</p>
 <p>This notebook walks through some Python basics and an introduction to the computing libraries.</p>
 <p>Those with previous coding experience in Matlab may find the <a class="reference external" href="https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html">NumPy for Matlab users page hepful</a>.</p>
 <p>In this tutorial, we will cover:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Basic Python: Data Structures (Containers, Lists, Dictionaries, Sets, Tuples), Functions, Classes</p></li>
 <li><p>Basic Python: Control and Flow Statements</p></li>
 <li><p>Installing Packages</p></li>
@@ -553,9 +483,9 @@
 <li><p>Matplotlib: Plotting, Subplots, Images</p></li>
 <li><p>SciPy: Distance Between Points</p></li>
 </ol>
-</div>
-<div class="section" id="basics-of-python">
-<h2>Basics of Python<a class="headerlink" href="#basics-of-python" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="basics-of-python">
+<h2>Basics of Python<a class="headerlink" href="#basics-of-python" title="Permalink to this heading">#</a></h2>
 <p>Python is a high-level, dynamically-typed, object-oriented programming language. More to the point, Python code often appears very similar pseudocode and is more or less human-readable. As an example, here is an implementation of the <a href="https://en.wikipedia.org/wiki/Quicksort"/>classic quicksort algorithm</a> in Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -581,11 +511,11 @@
 <p>Note: while most programming languages ignore whitespace and allow coders to put spaces, tabs, and newlines wherever they like in order to make their code readable, Python is different. In Python, indentation levels matter and each line of your code must be indented properly for it to run. Don’t worry, though. You’ll have an intuitive understanding of how to indent your Python code in no time.</p>
 <p>Other note: there are two different supported versions of Python: 2.# and 3.#. The two version are not compatible with one another, so code written for 2.# may not work under 3.# and vice versa. DeepCell is written in python 3, so all code in this tutorial will use Python 3.7.</p>
 <p>You can check your Python version at the command line by running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code>.</p>
-</div>
-<div class="section" id="section-1-variable-types-and-data-structures">
-<h2>Section 1: Variable Types and Data Structures<a class="headerlink" href="#section-1-variable-types-and-data-structures" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="numbers">
-<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="section-1-variable-types-and-data-structures">
+<h2>Section 1: Variable Types and Data Structures<a class="headerlink" href="#section-1-variable-types-and-data-structures" title="Permalink to this heading">#</a></h2>
+<section id="numbers">
+<h3>Numbers<a class="headerlink" href="#numbers" title="Permalink to this heading">#</a></h3>
 <p>Integers and floats work as you would expect from other languages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -655,9 +585,9 @@
 </div>
 <p>Note that unlike many languages, Python does not have unary increment (x++) or decrement (x–) operators.</p>
 <p>Python also has built-in types for long integers and complex numbers; you can find all of the details in the <a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#numeric-types-int-float-long-complex">documentation</a>.</p>
-</div>
-<div class="section" id="booleans">
-<h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="booleans">
+<h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this heading">#</a></h3>
 <p>Python implements all of the usual operators for Boolean logic, but uses English words rather than symbols (<code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>, etc.):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -691,9 +621,9 @@ True
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>   <span class="c1"># String literals can use single quotes</span>
@@ -759,12 +689,12 @@ world
 </div>
 </div>
 <p>You can find a list of all string methods in the <a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#string-methods">documentation</a>.</p>
-</div>
-<div class="section" id="containers">
-<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="containers">
+<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this heading">#</a></h3>
 <p>Containers are objects which <em>contain</em> multiple other objects. Python includes several built-in container types: lists, dictionaries, sets, and tuples.</p>
-<div class="section" id="lists">
-<h4>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h4>
+<section id="lists">
+<h4>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h4>
 <p>A list is the Python equivalent of an array, but is resizeable and can contain elements of different types:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,9 +861,9 @@ monkey
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dictionaries">
-<h4>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="dictionaries">
+<h4>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h4>
 <p>A dictionary stores (key, value) pairs, similar to an object in Javascript. You can use it like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1053,9 +983,9 @@ A spider has 8 legs
 </div>
 </div>
 <p>More information on dictionaries is available in the <a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict">documentation</a>.</p>
-</div>
-<div class="section" id="sets">
-<h4>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sets">
+<h4>Sets<a class="headerlink" href="#sets" title="Permalink to this heading">#</a></h4>
 <p>A set is an unordered collection of distinct elements. As a simple example, consider the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1135,9 +1065,9 @@ False
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="tuples">
-<h4>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="tuples">
+<h4>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h4>
 <p>A tuple is an (immutable) ordered list of values. A tuple is in many ways similar to a list; one of the most important differences is that tuples can be used as keys in dictionaries and as elements of sets, while lists cannot. Here is a trivial example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1176,10 +1106,10 @@ False
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <p>Python functions are defined using the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1225,9 +1155,9 @@ HELLO, FRED
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
 <p>The syntax for defining classes in Python is straightforward:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1263,14 +1193,14 @@ HELLO, FRED!
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="section-2-control-and-flow-statements">
-<h2>Section 2: Control and Flow Statements<a class="headerlink" href="#section-2-control-and-flow-statements" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="section-2-control-and-flow-statements">
+<h2>Section 2: Control and Flow Statements<a class="headerlink" href="#section-2-control-and-flow-statements" title="Permalink to this heading">#</a></h2>
 <p>We’ve seen a few if and for statements already, but let’s explicitly describe them before we move on to the various libraries (or Python “add-ons” if you will) we will be using.</p>
 <p>The key thing to note about Python’s control flow statements and program structure is that it uses indentations to mark blocks. So the number of spaces at the start of a line is very important.</p>
-<div class="section" id="conditionals-if-and-else">
-<h3>Conditionals: if and else<a class="headerlink" href="#conditionals-if-and-else" title="Permalink to this headline">¶</a></h3>
+<section id="conditionals-if-and-else">
+<h3>Conditionals: if and else<a class="headerlink" href="#conditionals-if-and-else" title="Permalink to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">some_condition</span><span class="p">:</span>
     <span class="n">code</span> <span class="n">block</span>
 </pre></div>
@@ -1340,9 +1270,9 @@ HELLO, FRED!
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="loops">
-<h3>Loops<a class="headerlink" href="#loops" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="loops">
+<h3>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">something</span><span class="p">:</span>
     <span class="n">algorithm</span>
 </pre></div>
@@ -1397,9 +1327,9 @@ Bye
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="breaks-and-continues">
-<h3>Breaks and Continues<a class="headerlink" href="#breaks-and-continues" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="breaks-and-continues">
+<h3>Breaks and Continues<a class="headerlink" href="#breaks-and-continues" title="Permalink to this heading">#</a></h3>
 <p>As the name implies, a break statement is used to break out of a loop when a condition becomes true when executing the loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1450,9 +1380,9 @@ Ignored 9
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="catching-exceptions">
-<h3>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="catching-exceptions">
+<h3>Catching Exceptions<a class="headerlink" href="#catching-exceptions" title="Permalink to this heading">#</a></h3>
 <p>To break out of deeply nested execution sometimes it is useful to raise an exception.
 A try block allows you to catch exceptions that happen anywhere during the execution of the try block:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -1490,10 +1420,10 @@ Caught exception: abort
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="section-3-installing-packages">
-<h2>Section 3: Installing Packages<a class="headerlink" href="#section-3-installing-packages" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="section-3-installing-packages">
+<h2>Section 3: Installing Packages<a class="headerlink" href="#section-3-installing-packages" title="Permalink to this heading">#</a></h2>
 <p>Out of the box, Python comes with a lot of cool functionality for manipulating text files, interfacing with the operating system, keeping track of time…</p>
 <p>Ok, so not a lot of flashy stuff. BUT there are tons of packages that can do very cool things!</p>
 <p>We will look at three of them in the following sections. However, to use a Python package, you first have to install it.</p>
@@ -1505,9 +1435,9 @@ Caught exception: abort
 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code>
 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>
 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">scipy</span></code></p>
-</div>
-<div class="section" id="section-4-numpy">
-<h2>Section 4: NumPy<a class="headerlink" href="#section-4-numpy" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="section-4-numpy">
+<h2>Section 4: NumPy<a class="headerlink" href="#section-4-numpy" title="Permalink to this heading">#</a></h2>
 <p>NumPy is the core library for scientific computing in Python. It provides a high-performance multidimensional array object and tools for working with these arrays. If you are already familiar with MATLAB, you might find this <a class="reference external" href="http://wiki.scipy.org/NumPy_for_Matlab_Users">tutorial</a> useful to get started with Numpy.</p>
 <p>To use NumPy, we first need to import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package:</p>
 <div class="cell docutils container">
@@ -1517,8 +1447,8 @@ Caught exception: abort
 </div>
 </div>
 </div>
-<div class="section" id="arrays">
-<h3>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h3>
+<section id="arrays">
+<h3>Arrays<a class="headerlink" href="#arrays" title="Permalink to this heading">#</a></h3>
 <p>A numpy array is a grid of values, all of the same type, and is indexed by a tuple of nonnegative integers. The number of dimensions is the rank of the array; the shape of an array is a tuple of integers giving the size of the array along each dimension.</p>
 <p>We can initialize numpy arrays from nested Python lists, and access elements using square brackets:</p>
 <div class="cell docutils container">
@@ -1636,9 +1566,9 @@ Caught exception: abort
 </div>
 </div>
 <p><i>N.B. numpy.random.random is an alias for numpy.random.random_sample.</i></p>
-</div>
-<div class="section" id="array-indexing">
-<h3>Array indexing<a class="headerlink" href="#array-indexing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="array-indexing">
+<h3>Array indexing<a class="headerlink" href="#array-indexing" title="Permalink to this heading">#</a></h3>
 <p>Numpy offers several ways to index into arrays.</p>
 <p>Slicing: Similar to Python lists, numpy arrays can be sliced. Since arrays may be multidimensional, you must specify a slice for each dimension of the array:</p>
 <div class="cell docutils container">
@@ -1878,9 +1808,9 @@ original array:</p>
 </div>
 </div>
 <p>For brevity we have left out a lot of details about numpy array indexing; if you want to know more you should read the documentation.</p>
-</div>
-<div class="section" id="datatypes">
-<h3>Datatypes<a class="headerlink" href="#datatypes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="datatypes">
+<h3>Datatypes<a class="headerlink" href="#datatypes" title="Permalink to this heading">#</a></h3>
 <p>Every numpy array is a grid of elements of the same type. Numpy provides a large set of numeric datatypes that you can use to construct arrays. Numpy tries to guess a datatype when you create an array, but functions that construct arrays usually also include an optional argument to explicitly specify the datatype. Here is an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1899,9 +1829,9 @@ original array:</p>
 </div>
 </div>
 <p>You can read all about numpy datatypes in the <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html">documentation</a>.</p>
-</div>
-<div class="section" id="array-math">
-<h3>Array math<a class="headerlink" href="#array-math" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="array-math">
+<h3>Array math<a class="headerlink" href="#array-math" title="Permalink to this heading">#</a></h3>
 <p>Basic mathematical functions operate elementwise on arrays, and are available both as operator overloads and as functions in the numpy module:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2102,9 +2032,9 @@ original array:</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="broadcasting">
-<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="broadcasting">
+<h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this heading">#</a></h3>
 <p>Broadcasting is a powerful mechanism that allows numpy to work with arrays of different shapes when performing arithmetic operations. Frequently, we have a smaller array and a larger array, and we want to use the smaller array multiple times to perform some operation on the larger array.</p>
 <p>For example, suppose that we want to add a constant vector to each row of a matrix. We could do it like this:</p>
 <div class="cell docutils container">
@@ -2200,7 +2130,7 @@ original array:</p>
 </div>
 <p>The line <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">v</span></code> works even though <code class="docutils literal notranslate"><span class="pre">x</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code> and <code class="docutils literal notranslate"><span class="pre">v</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(3,)</span></code> due to broadcasting; this line works as if v actually had shape <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">3)</span></code>, where each row was a copy of <code class="docutils literal notranslate"><span class="pre">v</span></code>, and the sum was performed elementwise.</p>
 <p>Broadcasting two arrays together follows these rules:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>If the arrays do not have the same rank, prepend the shape of the lower rank array with 1s until both shapes have the same length.</p></li>
 <li><p>The two arrays are said to be compatible in a dimension if they have the same size in the dimension, or if one of the arrays has size 1 in that dimension.</p></li>
 <li><p>The arrays can be broadcast together if they are compatible in all dimensions.</p></li>
@@ -2304,10 +2234,10 @@ original array:</p>
 </div>
 <p>Broadcasting typically makes your code more concise and faster, so you should strive to use it where possible.</p>
 <p>This brief overview has touched on many of the important things that you need to know about numpy, but is far from complete. Check out the <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">numpy reference</a> to find out much more about numpy.</p>
-</div>
-</div>
-<div class="section" id="section-5-matplotlib">
-<h2>Section 5: Matplotlib<a class="headerlink" href="#section-5-matplotlib" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="section-5-matplotlib">
+<h2>Section 5: Matplotlib<a class="headerlink" href="#section-5-matplotlib" title="Permalink to this heading">#</a></h2>
 <p>Matplotlib is a plotting library. In this section, we give a brief introduction to the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> module, which provides a plotting system similar to that of MATLAB.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2324,8 +2254,8 @@ original array:</p>
 </div>
 </div>
 </div>
-<div class="section" id="plotting">
-<h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h3>
+<section id="plotting">
+<h3>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h3>
 <p>The most important function in <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is plot, which allows you to plot 2D data. Here is a simple example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2342,7 +2272,7 @@ original array:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2f2cb5b310&gt;]
 </pre></div>
 </div>
-<img alt="../_images/data-science-in-python-key_193_1.png" src="../_images/data-science-in-python-key_193_1.png" />
+<img alt="../_images/fe071ed408235f2aa3c055943b6bbcbc4b354c9ee84d5a628a46282ce5ef442e.png" src="../_images/fe071ed408235f2aa3c055943b6bbcbc4b354c9ee84d5a628a46282ce5ef442e.png" />
 </div>
 </div>
 <p>With just a little bit of extra work we can easily plot multiple lines at once, and add a title, legend, and axis labels:</p>
@@ -2365,12 +2295,12 @@ original array:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2f2cb797d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/data-science-in-python-key_195_1.png" src="../_images/data-science-in-python-key_195_1.png" />
+<img alt="../_images/5e650e39b8bb312c7d75fa60709cad13f3abf4b0089930fc939230510963922a.png" src="../_images/5e650e39b8bb312c7d75fa60709cad13f3abf4b0089930fc939230510963922a.png" />
 </div>
 </div>
-</div>
-<div class="section" id="subplots">
-<h3>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="subplots">
+<h3>Subplots<a class="headerlink" href="#subplots" title="Permalink to this heading">#</a></h3>
 <p>You can plot different things in the same figure using the subplot function. Here is an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2398,7 +2328,7 @@ original array:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/data-science-in-python-key_198_0.png" src="../_images/data-science-in-python-key_198_0.png" />
+<img alt="../_images/2a8efbd26b7da615188aad55d1c4a5979415233ce96e943cd6bf68bd560ed412.png" src="../_images/2a8efbd26b7da615188aad55d1c4a5979415233ce96e943cd6bf68bd560ed412.png" />
 </div>
 </div>
 <p>Alternatively the <code class="docutils literal notranslate"><span class="pre">plt.subplots</span></code> function creates a figure and an array of subplots which can be easily iterated over.</p>
@@ -2420,17 +2350,17 @@ original array:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Cosine&#39;)
 </pre></div>
 </div>
-<img alt="../_images/data-science-in-python-key_200_1.png" src="../_images/data-science-in-python-key_200_1.png" />
+<img alt="../_images/2a8efbd26b7da615188aad55d1c4a5979415233ce96e943cd6bf68bd560ed412.png" src="../_images/2a8efbd26b7da615188aad55d1c4a5979415233ce96e943cd6bf68bd560ed412.png" />
 </div>
 </div>
 <p>As always, you can read much more about the <code class="docutils literal notranslate"><span class="pre">subplot</span></code> function in the <a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplot">documentation</a>. So far this is just a taste of what matplotlib can do for data visualization. Check out the <a class="reference external" href="https://matplotlib.org/gallery/index.html">gallery</a> provided in matplotlib’s documentation for more examples.</p>
-</div>
-</div>
-<div class="section" id="section-6-scipy">
-<h2>Section 6: SciPy<a class="headerlink" href="#section-6-scipy" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="section-6-scipy">
+<h2>Section 6: SciPy<a class="headerlink" href="#section-6-scipy" title="Permalink to this heading">#</a></h2>
 <p>Numpy provides a high-performance multidimensional array and basic tools to compute with and manipulate these arrays. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/">SciPy</a> builds on this, and provides a large number of functions that operate on numpy arrays and are useful for different types of scientific and engineering applications.</p>
-<div class="section" id="distance-between-points">
-<h3>Distance between points<a class="headerlink" href="#distance-between-points" title="Permalink to this headline">¶</a></h3>
+<section id="distance-between-points">
+<h3>Distance between points<a class="headerlink" href="#distance-between-points" title="Permalink to this heading">#</a></h3>
 <p>SciPy defines some useful functions for computing distances between sets of points.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">scipy.spatial.distance.pdist</span></code> computes the distance between all pairs of points in a given set:</p>
 <div class="cell docutils container">
@@ -2470,10 +2400,10 @@ original array:</p>
 <p>You can read all the details about this function in the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.pdist.html">documentation</a>.</p>
 <p>A similar function (<code class="docutils literal notranslate"><span class="pre">scipy.spatial.distance.cdist</span></code>) computes the distance between all pairs across two sets of points; you can read about it in the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.cdist.html">documentation</a>.</p>
 <p>The best way to get familiar with SciPy is to browse the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/index.html">documentation</a>. Day 2 will highlight more parts of SciPy that you might find useful in developing for DeepCell.</p>
-</div>
-</div>
-<div class="section" id="section-7-pandas">
-<h2>Section 7: Pandas<a class="headerlink" href="#section-7-pandas" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="section-7-pandas">
+<h2>Section 7: Pandas<a class="headerlink" href="#section-7-pandas" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -2929,8 +2859,8 @@ Name: Age, Length: 303, dtype: int64
 </div></div></div>
 </div>
 <p>Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html#selection">documentation</a> covers a variety of other applications of boolean indexing and dataframes.</p>
-<div class="section" id="inspecting-dataframes">
-<h3>Inspecting Dataframes<a class="headerlink" href="#inspecting-dataframes" title="Permalink to this headline">¶</a></h3>
+<section id="inspecting-dataframes">
+<h3>Inspecting Dataframes<a class="headerlink" href="#inspecting-dataframes" title="Permalink to this heading">#</a></h3>
 <p>Pandas supplies several useful methods for quickly inspecting data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3627,9 +3557,9 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="categorical-data">
-<h3>Categorical Data<a class="headerlink" href="#categorical-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="categorical-data">
+<h3>Categorical Data<a class="headerlink" href="#categorical-data" title="Permalink to this heading">#</a></h3>
 <p>Pandas can also be used to handle categorical data intelligently. A column in an existing dataframe, in this case <code class="docutils literal notranslate"><span class="pre">ChestPain</span></code>, can be converted from an ambiguous <code class="docutils literal notranslate"><span class="pre">object</span></code> to <code class="docutils literal notranslate"><span class="pre">category</span></code> using <code class="docutils literal notranslate"><span class="pre">DataFrame.astype()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3703,12 +3633,12 @@ Categories (4, int64): [0, 1, 2, 3]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="data-visualization">
-<h3>1. Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="data-visualization">
+<h3>1. Data Visualization<a class="headerlink" href="#data-visualization" title="Permalink to this heading">#</a></h3>
 <p>Working with the heart dataset introduced in <span class="xref std std-doc">data-science-in-python</span>, generate a 4 panel visualization of the data. Choose visualizations that help you explore the dataset according to your interest. At minimum, your plots should fulfill the following criteria:</p>
 <ul class="simple">
 <li><p>One plot that includes color codes the data according to the <code class="docutils literal notranslate"><span class="pre">ChestPain</span></code> category</p></li>
@@ -3718,6 +3648,11 @@ Categories (4, int64): [0, 1, 2, 3]
 <li><p>One plot which only includes patients where <code class="docutils literal notranslate"><span class="pre">AHD</span></code> = Yes</p></li>
 </ul>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://www.statlearning.com/s/Heart.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span>
@@ -3951,14 +3886,20 @@ Categories (4, int64): [0, 1, 2, 3]
 </table>
 <p>303 rows × 14 columns</p>
 </div></div></div>
+</details>
 </div>
-</div>
-<div class="section" id="boolean-indexing">
-<h3>2. Boolean Indexing<a class="headerlink" href="#boolean-indexing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="boolean-indexing">
+<h3>2. Boolean Indexing<a class="headerlink" href="#boolean-indexing" title="Permalink to this heading">#</a></h3>
 <p>Continuing with the heart dataset, answer the following questions about the dataset using boolean indexing when appropriate.</p>
-<div class="section" id="a-what-is-the-age-of-the-oldest-patient-to-experience-typical-chest-pain">
-<h4>a) What is the age of the oldest patient to experience typical chest pain?<a class="headerlink" href="#a-what-is-the-age-of-the-oldest-patient-to-experience-typical-chest-pain" title="Permalink to this headline">¶</a></h4>
+<section id="a-what-is-the-age-of-the-oldest-patient-to-experience-typical-chest-pain">
+<h4>a) What is the age of the oldest patient to experience typical chest pain?<a class="headerlink" href="#a-what-is-the-age-of-the-oldest-patient-to-experience-typical-chest-pain" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ChestPain&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;typical&#39;</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----------------------&#39;</span><span class="p">)</span>
@@ -3987,11 +3928,17 @@ Age = 69
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-</div>
-<div class="section" id="b-how-many-patients-under-the-age-of-50-had-restbp-greater-than-150">
-<h4>b) How many patients under the age of 50 had <code class="docutils literal notranslate"><span class="pre">RestBP</span></code> greater than 150?<a class="headerlink" href="#b-how-many-patients-under-the-age-of-50-had-restbp-greater-than-150" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="b-how-many-patients-under-the-age-of-50-had-restbp-greater-than-150">
+<h4>b) How many patients under the age of 50 had <code class="docutils literal notranslate"><span class="pre">RestBP</span></code> greater than 150?<a class="headerlink" href="#b-how-many-patients-under-the-age-of-50-had-restbp-greater-than-150" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RestBP&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">150</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">70</span><span class="p">)]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----------------------&#39;</span><span class="p">)</span>
@@ -4020,11 +3967,17 @@ dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-</div>
-<div class="section" id="c-what-is-the-average-maxhr-for-patients-who-had-chestpain-of-either-nonanginal-or-nontypical-and-age-less-60">
-<h4>c) What is the average <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> for patients who had <code class="docutils literal notranslate"><span class="pre">ChestPain</span></code> of either nonanginal or nontypical and <code class="docutils literal notranslate"><span class="pre">Age</span></code> less 60?<a class="headerlink" href="#c-what-is-the-average-maxhr-for-patients-who-had-chestpain-of-either-nonanginal-or-nontypical-and-age-less-60" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="c-what-is-the-average-maxhr-for-patients-who-had-chestpain-of-either-nonanginal-or-nontypical-and-age-less-60">
+<h4>c) What is the average <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> for patients who had <code class="docutils literal notranslate"><span class="pre">ChestPain</span></code> of either nonanginal or nontypical and <code class="docutils literal notranslate"><span class="pre">Age</span></code> less 60?<a class="headerlink" href="#c-what-is-the-average-maxhr-for-patients-who-had-chestpain-of-either-nonanginal-or-nontypical-and-age-less-60" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;MaxHR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ChestPain&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;nonanginal&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ChestPain&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;nontypical&#39;</span><span class="p">))</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">60</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
@@ -4052,6 +4005,7 @@ Average MaxHR = 163
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <hr class="docutils" />
 <div class="cell docutils container">
@@ -4084,10 +4038,10 @@ numpy     : 1.19.5
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -4101,7 +4055,7 @@ numpy     : 1.19.5
             mode: "conda-env-bebi205-py"
         },
         kernelOptions: {
-            kernelName: "conda-env-bebi205-py",
+            name: "conda-env-bebi205-py",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -4109,36 +4063,161 @@ numpy     : 1.19.5
     </script>
     <script>kernelName = 'conda-env-bebi205-py'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='left-prev' id="prev-link" href="../notebooks-toc.html" title="previous page">Course Notebooks</a>
-    <a class='right-next' id="next-link" href="images.html" title="next page">Images as Data</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By David Van Valen and Morgan Schwartz<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../notebooks-toc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Course Notebooks</p>
       </div>
-    </div>
+    </a>
+    <a class="right-next"
+       href="images.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Images as Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics-of-python">Basics of Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-variable-types-and-data-structures">Section 1: Variable Types and Data Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#containers">Containers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-control-and-flow-statements">Section 2: Control and Flow Statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-if-and-else">Conditionals: if and else</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaks-and-continues">Breaks and Continues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#catching-exceptions">Catching Exceptions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-installing-packages">Section 3: Installing Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-numpy">Section 4: NumPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays">Arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-indexing">Array indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datatypes">Datatypes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-math">Array math</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-5-matplotlib">Section 5: Matplotlib</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-6-scipy">Section 6: SciPy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-between-points">Distance between points</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-7-pandas">Section 7: Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-dataframes">Inspecting Dataframes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-data">Categorical Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">1. Data Visualization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-indexing">2. Boolean Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-what-is-the-age-of-the-oldest-patient-to-experience-typical-chest-pain">a) What is the age of the oldest patient to experience typical chest pain?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#b-how-many-patients-under-the-age-of-50-had-restbp-greater-than-150">b) How many patients under the age of 50 had <code class="docutils literal notranslate"><span class="pre">RestBP</span></code> greater than 150?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#c-what-is-the-average-maxhr-for-patients-who-had-chestpain-of-either-nonanginal-or-nontypical-and-age-less-60">c) What is the average <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> for patients who had <code class="docutils literal notranslate"><span class="pre">ChestPain</span></code> of either nonanginal or nontypical and <code class="docutils literal notranslate"><span class="pre">Age</span></code> less 60?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Van Valen, Morgan Schwartz and Rohit Dilip
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

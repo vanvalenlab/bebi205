@@ -1,378 +1,470 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Syllabus &#8212; BEBi 205: Deep Learning for Biological Data</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'syllabus';</script>
     <link rel="canonical" href="vanvalenlab.github.io/bebi205/syllabus.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Course Schedule" href="schedule.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-      <img src="_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">BEBi 205: Deep Learning for Biological Data</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   Syllabus
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="schedule.html">
-   Course Schedule
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="final-project.html">
-   Class Project
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="cluster-access.html">
-   Caltech Cluster Access
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="notebooks-toc.html">
-   Course Notebooks
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/data-science-in-python-key.html">
-     Data Science in Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/images.html">
-     Images as Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/sequences-key.html">
-     Sequences
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/linear-classifier-key.html">
-     The Linear Classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/tf-dataset-key.html">
-     TensorFlow Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/tf-classifier.html">
-     Image classification with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/optimizer.html">
-     Optimizers
-    </a>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="vision-model-toc.html">
-     Vision Models
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-    <label for="toctree-checkbox-2">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="notebooks/spot-detection.html">
-       Spot Detection
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="notebooks/segmentation.html">
-       Vision Models: Cell Segmentation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks/sequence-model.html">
-     Sequence Models
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/syllabus.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
 
-            <!-- Source interaction buttons -->
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/vanvalenlab/bebi205"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fsyllabus.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/syllabus.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objective">
-   Objective
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#course-instructor">
-   Course Instructor
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#teaching-assistant">
-   Teaching Assistant
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#course-communication">
-   Course Communication
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lectures">
-   Lectures
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grading">
-   Grading
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#journal-club">
-     Journal Club
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#late-assignments">
-     Late Assignments
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compute-resources">
-   Compute Resources
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#academic-integrity">
-   Academic Integrity
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#students-with-documented-disabilities">
-   Students with Documented Disabilities
-  </a>
- </li>
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/bebi205-logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/bebi205-logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Publicly Available Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compute-resources.html">Compute Resources</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="assignments/toc.html">Assignments</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-1.html">Assignment 1: Cell Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-2.html">Assignment 2: Preliminary Proposal and Dataset Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/project-proposal.html">Assignment 3: Project Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-4.html">Assignment 4: Celltype classification redux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/assignment-5.html">Assignment 5: Progress Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/final-presentation.html">Final Presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/final-report.html">Final Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks-toc.html">Course Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/data-science-in-python-key.html">Data Science in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/images.html">Images as Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/sequences-key.html">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/linear-classifier-key.html">The Linear Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/tf-dataset-key.html">TensorFlow Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/tf-classifier.html">Image classification with TensorFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/optimizer.html">Optimizers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="vision-model-toc.html">Vision Models</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/spot-detection.html">Spot Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/segmentation.html">Vision Models: Cell Segmentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/syllabus.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fsyllabus.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/syllabus.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Syllabus</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-instructor">Course Instructor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching Assistants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-communication">Course Communication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">Lectures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recitations">Recitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-project">Class Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#late-assignments">Late Assignments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaboration-policy">Collaboration Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wellness-policy">Wellness Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-with-documented-disabilities">Students with Documented Disabilities</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="syllabus">
-<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">¶</a></h1>
-<p>Last updated May 26, 2021</p>
-<div class="section" id="objective">
-<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="syllabus">
+<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this heading">#</a></h1>
+<p>Last updated Apr 04, 2023</p>
+<section id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h2>
 <p>This course is meant to be a practical introduction to deep learning methods for biological data. Our goal is to provide you with the tools necessary to apply these methods to your own data. We also want to give you enough conceptual knowledge to know what to do when things do not work.</p>
 <p>The course will be have two primary components.</p>
-<ol class="simple">
-<li><p>Lectures will be high level and conceptual. They will be recorded, but live attendance is encouraged.</p></li>
+<ol class="arabic simple">
+<li><p>Lectures will be high level and conceptual.</p></li>
+<li><p>Recitations will be hands on demonstrations of best practices.</p></li>
 <li><p>Jupyter Notebooks will serve as practical guides to the concepts introduced in lecture.</p></li>
 </ol>
-</div>
-<div class="section" id="course-instructor">
-<h2>Course Instructor<a class="headerlink" href="#course-instructor" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="course-instructor">
+<h2>Course Instructor<a class="headerlink" href="#course-instructor" title="Permalink to this heading">#</a></h2>
 <p>Professor David Van Valen<br/>
 <code class="docutils literal notranslate"><span class="pre">vanvalen[at]caltech[dot]edu</span></code><br/>
-Office Hours: Fridays 3-4pm (Zoom link through Canvas)</p>
-</div>
-<div class="section" id="teaching-assistant">
-<h2>Teaching Assistant<a class="headerlink" href="#teaching-assistant" title="Permalink to this headline">¶</a></h2>
+Office Hours: Available by request.</p>
+</section>
+<section id="teaching-assistants">
+<h2>Teaching Assistants<a class="headerlink" href="#teaching-assistants" title="Permalink to this heading">#</a></h2>
 <p>Morgan Schwartz<br/>
 <code class="docutils literal notranslate"><span class="pre">msschwartz[at]caltech[dot]edu</span></code><br/>
 Office Hours: Available for sign up through <a class="reference external" href="https://calendly.com/bebi205-office-hours">Calendly</a></p>
-</div>
-<div class="section" id="course-communication">
-<h2>Course Communication<a class="headerlink" href="#course-communication" title="Permalink to this headline">¶</a></h2>
+<p>Rohit Dilip<br/>
+<code class="docutils literal notranslate"><span class="pre">rdilip[at]caltech[dot]edu</span></code><br/>
+Office Hours: Available for sign up through <a class="reference external" href="https://calendly.com/rdilip/30min">Calendly</a>.</p>
+</section>
+<section id="course-communication">
+<h2>Course Communication<a class="headerlink" href="#course-communication" title="Permalink to this heading">#</a></h2>
 <p>This website will serve as the central hub for the course. Canvas will be used for distributing announcements and collecting any submissions for the course. Discussion threads have been established for course questions and coding problems or bugs.</p>
-</div>
-<div class="section" id="lectures">
-<h2>Lectures<a class="headerlink" href="#lectures" title="Permalink to this headline">¶</a></h2>
-<p>Lectures will be held Monday/Wednesday 1-2:30 PM PST. Zoom links are available on Canvas. Lectures notes will be linked on the <a class="reference internal" href="schedule.html"><span class="doc">Course Schedule</span></a> and hosted on Google Drive. Lecture recordings will be posted in <a class="reference external" href="https://drive.google.com/drive/folders/1Q-ZpF6k61KKaHq4QoGlMcEXa6kioD0n_?usp=sharing">this Google Drive folder</a>. They will only be accessible through a Caltech gmail account.</p>
-<p>Live attendance of lectures is not required, but is necessary for the journal club and final presentations.</p>
-</div>
-<div class="section" id="grading">
-<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto table">
+</section>
+<section id="lectures">
+<h2>Lectures<a class="headerlink" href="#lectures" title="Permalink to this heading">#</a></h2>
+<p>Lectures will be held Tuesday/Thursday 1-2:30 PM in Chen 130. Lectures notes will be linked on the <a class="reference internal" href="schedule.html"><span class="doc">Course Schedule</span></a> after the lecture.</p>
+</section>
+<section id="recitations">
+<h2>Recitations<a class="headerlink" href="#recitations" title="Permalink to this heading">#</a></h2>
+<p>Recitations will be held once a week. Time TBD.</p>
+</section>
+<section id="grading">
+<h2>Grading<a class="headerlink" href="#grading" title="Permalink to this heading">#</a></h2>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Assignment</p></th>
 <th class="head"><p>Points</p></th>
@@ -380,33 +472,33 @@ Office Hours: Available for sign up through <a class="reference external" href="
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Journal Club Presentation</p></td>
-<td><p>250</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="assignments/assignment-1.html"><span class="doc">Assignment 1: Cell Classification</span></a></p></td>
+<td><p>125</p></td>
+<td><p>4/21</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="final-project.html"><span class="doc">Class Project</span></a>:</p></td>
-<td><p>(750)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>- Dataset Exploration</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="assignments/assignment-2.html"><span class="doc">Assignment 2: Preliminary Proposal and Dataset Exploration</span></a></p></td>
 <td><p>150</p></td>
-<td><p>4/19</p></td>
+<td><p>4/28</p></td>
 </tr>
-<tr class="row-odd"><td><p>- Project Proposal</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="assignments/project-proposal.html"><span class="doc">Assignment 3: Project Proposal</span></a></p></td>
 <td><p>150</p></td>
-<td><p>4/26</p></td>
+<td><p>5/5</p></td>
 </tr>
-<tr class="row-even"><td><p>- Progress Report</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="assignments/assignment-4.html"><span class="doc">Assignment 4: Celltype classification redux</span></a></p></td>
+<td><p>125</p></td>
+<td><p>5/12</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="assignments/assignment-5.html"><span class="doc">Assignment 5: Progress Report</span></a></p></td>
 <td><p>50</p></td>
-<td><p>5/17</p></td>
+<td><p>5/19</p></td>
 </tr>
-<tr class="row-odd"><td><p>- Final Presentation</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="assignments/final-presentation.html"><span class="doc">Final Presentation</span></a></p></td>
 <td><p>100</p></td>
-<td><p>Seniors: 5/28; Others: 6/2</p></td>
+<td><p>Seniors/Grads: 6/9; Undergrads: 6/16</p></td>
 </tr>
-<tr class="row-even"><td><p>- Final Report</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="assignments/final-report.html"><span class="doc">Final Report</span></a></p></td>
 <td><p>300</p></td>
-<td><p>Seniors: 6/4; Others: 6/11</p></td>
+<td><p>Seniors/Grads: 6/9; Undergrads: 6/16</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Class Total</strong></p></td>
 <td><p>1000</p></td>
@@ -414,38 +506,47 @@ Office Hours: Available for sign up through <a class="reference external" href="
 </tr>
 </tbody>
 </table>
-<div class="section" id="journal-club">
-<h3>Journal Club<a class="headerlink" href="#journal-club" title="Permalink to this headline">¶</a></h3>
-<p>Students will assemble into groups of up to 4 individuals to present a single paper for journal club. Live attendance is required in order to give the presentation. Make-ups will not be available. A sign up sheet is posted on Canvas. Please sign up by the end of the day on April 5.</p>
-<p>Journal club presentations should be between 15-20 minutes. You should prepare ~10 slides in order to walk us through the relevant figures and address the following points:</p>
+<section id="class-project">
+<h3>Class Project<a class="headerlink" href="#class-project" title="Permalink to this heading">#</a></h3>
+<p>The majority of the class will be graded based on a project that will span the duration the course. You should begin thinking about the project you would like to pursue during the first few weeks of the course. Your class project serves as an opportunity for hands on exploration of using deep learning on a biological question of your choice. You may work on your own or in a group. There will be a series of brief assignments leading up to the final submission.</p>
+<p>Your project for this course will require writing a substantial amount of code to implement a deep learning model. The official language/package for this class is Python and the instructors will be able to provide assistance with debugging your code. You may choose to work with another language or package, but we will not be able to provide any support.</p>
+<p>The following assignments are directly related to your project:</p>
 <ul class="simple">
-<li><p>What problem is the paper trying to solve?</p></li>
-<li><p>How do they solve the problem?</p></li>
+<li><p><a class="reference internal" href="assignments/assignment-2.html"><span class="doc">Assignment 2: Preliminary Proposal and Dataset Exploration</span></a></p></li>
+<li><p><a class="reference internal" href="assignments/project-proposal.html"><span class="doc">Assignment 3: Project Proposal</span></a></p></li>
+<li><p><a class="reference internal" href="assignments/assignment-5.html"><span class="doc">Assignment 5: Progress Report</span></a></p></li>
+<li><p><a class="reference internal" href="assignments/final-presentation.html"><span class="doc">Final Presentation</span></a></p></li>
+<li><p><a class="reference internal" href="assignments/final-report.html"><span class="doc">Final Report</span></a></p></li>
 </ul>
-</div>
-<div class="section" id="late-assignments">
-<h3>Late Assignments<a class="headerlink" href="#late-assignments" title="Permalink to this headline">¶</a></h3>
+<p>You are welcome to use your own data for your project, but you may also select from any publicly available dataset. You can explore our collection of <a class="reference internal" href="datasets.html"><span class="doc">Publicly Available Datasets</span></a>.</p>
+</section>
+<section id="late-assignments">
+<h3>Late Assignments<a class="headerlink" href="#late-assignments" title="Permalink to this heading">#</a></h3>
 <p>Late assignments will lose 10% for each day late. Extensions for due dates can be granted by the TA in light of extenuating circumstances. Please reach out prior to the deadline.</p>
-</div>
-</div>
-<div class="section" id="compute-resources">
-<h2>Compute Resources<a class="headerlink" href="#compute-resources" title="Permalink to this headline">¶</a></h2>
-<p>Weekly course notebooks can be run in <a class="reference external" href="https://colab.research.google.com/notebooks/intro.ipynb">Google Colab</a> for free. Each notebook in this book has one or two buttons that will launch the notebook and its key in Colab.</p>
-<p>Cluster access will be provided for your final projects and more information will be added in the next few weeks.</p>
-</div>
-<div class="section" id="academic-integrity">
-<h2>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="collaboration-policy">
+<h2>Collaboration Policy<a class="headerlink" href="#collaboration-policy" title="Permalink to this heading">#</a></h2>
+<p>Collaboration on homework assignments is encouraged. You may consult outside reference materials, other students, the TA, or the instructor, but you cannot consult homework solutions from prior years, and you must cite any use of material from outside references. All solutions that are handed in should be written up individually and should reflect your own understanding of the subject matter at the time of writing. Python scripts and plots are considered part of your write-up and should be done individually (you can share ideas, but not code).</p>
+</section>
+<section id="academic-integrity">
+<h2>Academic Integrity<a class="headerlink" href="#academic-integrity" title="Permalink to this heading">#</a></h2>
 <p>Caltech’s Honor Code: “No member of the Caltech community shall take unfair advantage of any other member of the Caltech community.”</p>
-<p>Understanding and Avoiding Plagiarism: Plagiarism is the appropriation of another person’s ideas, processes, results, or words without giving appropriate credit, and it violates the honor code in a fundamental way. You can find more information at: <a class="reference external" href="http://writing.caltech.edu/resources/plagiarism">http://writing.caltech.edu/resources/plagiarism</a> (Links to an external site.).</p>
-</div>
-<div class="section" id="students-with-documented-disabilities">
-<h2>Students with Documented Disabilities<a class="headerlink" href="#students-with-documented-disabilities" title="Permalink to this headline">¶</a></h2>
-<p>Students who may need an academic accommodation based on the impact of a disability must initiate the request with Caltech Accessibility Services for Students (CASS).  Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact CASS as soon as possible, since timely notice is needed to coordinate accommodations. <a class="reference external" href="http://cass.caltech.edu/">http://cass.caltech.edu/</a> (Links to an external site.)</p>
-<p>Undergraduate students should contact Dr. Lesley Nye, Associate Dean of Undergraduate Students (administrative contact: Beth Larranaga) and graduate students should contact Dr. Kate McAnulty, Associate Dean of Graduate Studies (administrative contact: Jacob Dalton).</p>
+<p>Understanding and Avoiding Plagiarism: Plagiarism is the appropriation of another person’s ideas, processes, results, or words without giving appropriate credit, and it violates the honor code in a fundamental way. You can find more information at: <a class="reference external" href="http://writing.caltech.edu/resources/plagiarism">http://writing.caltech.edu/resources/plagiarism</a>.</p>
+<p>All instances of plagiarism or other academic misconduct will be referred to the <a class="reference external" href="https://deans.caltech.edu/HonorCode">Board of Control</a> for undergraduates. For graduate students, contact the <a class="reference external" href="https://www.gradoffice.caltech.edu/current/community-standards">Graduate Office</a>.</p>
+</section>
+<section id="wellness-policy">
+<h2>Wellness Policy<a class="headerlink" href="#wellness-policy" title="Permalink to this heading">#</a></h2>
+<p>While COVID-19 remains a concern, all members of the Caltech community, including students and others, are required to <a class="reference external" href="https://access.caltech.edu/auth/login?service=https://access.caltech.edu/covid19_reporting/">promptly report</a>. to the Institute if they have become ill with <a class="reference external" href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html">COVID-like symptoms</a> or have been exposed to someone who has tested positive for COVID-19. Furthermore, any individual, regardless of vaccination status, who is ill or has been exposed to COVID-19 should stay home or return home if they have already reported on-site (including not attending class or other meetings in person), and report their status through the <a class="reference external" href="https://access.caltech.edu/auth/login?service=https://access.caltech.edu/covid19_reporting/">Caltech COVID-19 Reporting Application</a>. Individuals who have reported their status through the COVID-19 Reporting Application will receive personal follow up and guidance from Student Wellness Services on next steps. For additional information on the Institute’s COVID-19 preventative health measures and requirements, visit the <a class="reference external" href="http://together.caltech.edu/">Caltech Together</a> website.</p>
+<p>If you would like to ask about flexibility with coursework for a temporary or minor wellness issue, please contact Rohit Dilip directly. The Deans’ Office, Student Wellness Services (SWS) and Caltech Accessibility Services for Students (CASS) are available to help you with illness and health conditions that may impact your coursework.</p>
+</section>
+<section id="students-with-documented-disabilities">
+<h2>Students with Documented Disabilities<a class="headerlink" href="#students-with-documented-disabilities" title="Permalink to this heading">#</a></h2>
+<p>Students who may need an academic accommodation based on the impact of a disability must initiate the request with Caltech Accessibility Services for Students (CASS).  Professional staff will evaluate the request with required documentation, recommend reasonable accommodations, and prepare an Accommodation Letter for faculty dated in the current quarter in which the request is being made. Students should contact CASS as soon as possible, since timely notice is needed to coordinate accommodations. For more information: <a class="reference external" href="https://cass.caltech.edu/">https://cass.caltech.edu/</a>, <a class="reference external" href="mailto:cass&#37;&#52;&#48;caltech&#46;edu">cass<span>&#64;</span>caltech<span>&#46;</span>edu</a>. If you are having difficulties with access or other challenges in the class you think might be related to a disability, but do not yet have a diagnosis, please feel free to reach out to CASS to learn more about resources.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
-</div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -459,7 +560,7 @@ Office Hours: Available for sign up through <a class="reference external" href="
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -467,35 +568,110 @@ Office Hours: Available for sign up through <a class="reference external" href="
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-        <div class='prev-next-bottom'>
-            
-    <a class='right-next' id="next-link" href="schedule.html" title="next page">Course Schedule</a>
 
-        </div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By David Van Valen and Morgan Schwartz<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="schedule.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Course Schedule</p>
       </div>
-    </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+</div>
 
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-instructor">Course Instructor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teaching-assistants">Teaching Assistants</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-communication">Course Communication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectures">Lectures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recitations">Recitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading">Grading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-project">Class Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#late-assignments">Late Assignments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collaboration-policy">Collaboration Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#academic-integrity">Academic Integrity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wellness-policy">Wellness Policy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#students-with-documented-disabilities">Students with Documented Disabilities</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Van Valen, Morgan Schwartz and Rohit Dilip
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

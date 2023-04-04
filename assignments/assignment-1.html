@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Assignment 1: Cell Classification &#8212; BEBi 205: Deep Learning for Biological Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'assignments/assignment-1';</script>
+    <link rel="canonical" href="vanvalenlab.github.io/bebi205/assignments/assignment-1.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assignment 2: Preliminary Proposal and Dataset Exploration" href="assignment-2.html" />
+    <link rel="prev" title="Assignments" href="toc.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../syllabus.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/bebi205-logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/bebi205-logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../syllabus.html">
+                    Syllabus
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Course Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets.html">Publicly Available Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compute-resources.html">Compute Resources</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="toc.html">Assignments</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Assignment 1: Cell Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignment-2.html">Assignment 2: Preliminary Proposal and Dataset Exploration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-proposal.html">Assignment 3: Project Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignment-4.html">Assignment 4: Celltype classification redux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignment-5.html">Assignment 5: Progress Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="final-presentation.html">Final Presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="final-report.html">Final Report</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks-toc.html">Course Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/data-science-in-python-key.html">Data Science in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/images.html">Images as Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/sequences-key.html">Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/linear-classifier-key.html">The Linear Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tf-dataset-key.html">TensorFlow Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tf-classifier.html">Image classification with TensorFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/optimizer.html">Optimizers</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../vision-model-toc.html">Vision Models</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/spot-detection.html">Spot Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/segmentation.html">Vision Models: Cell Segmentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/edit/master/bebi205/assignments/assignment-1.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/vanvalenlab/bebi205/issues/new?title=Issue%20on%20page%20%2Fassignments/assignment-1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/assignments/assignment-1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Assignment 1: Cell Classification</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-schema">Data Schema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-outline">Suggested outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines">General guidelines</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="assignment-1-cell-classification">
+<h1>Assignment 1: Cell Classification<a class="headerlink" href="#assignment-1-cell-classification" title="Permalink to this heading">#</a></h1>
+<div class="admonition-due-date admonition">
+<p class="admonition-title">Due Date</p>
+<p>Friday 4/21 at 5pm</p>
+</div>
+<p>The purpose of this assignment is to get some practice with the machine learning pipeline – data preprocessing, setting up a model, making a training loop, and reading out metrics. In this assignment, you’ll be classifying single cell data from a <a class="reference external" href="https://www.science.org/doi/10.1126/sciadv.aax5851">MIBI-TOF</a> experiment. You can download the data from <a class="reference external" href="https://storage.googleapis.com/bebi205-spring2023/keren.tar.gz">here</a>.</p>
+<section id="task">
+<h2>Task<a class="headerlink" href="#task" title="Permalink to this heading">#</a></h2>
+<p>For this assignment, you should make a classifier that takes an image of a single cell as input and returns the cell type. Your model can be anything – if you’ve never done any machine learning, feel free to make a linear classifier as covered in <span class="xref myst">class</span>, but you’re welcome to try something more complicated.</p>
+</section>
+<section id="data-schema">
+<h2>Data Schema<a class="headerlink" href="#data-schema" title="Permalink to this heading">#</a></h2>
+<p>The data for this assignment is a sanitized version of data published by the <a class="reference external" href="https://www.angelolab.com/mibi-data">Angelo Lab</a>. The dataset contains <code class="docutils literal notranslate"><span class="pre">*.npz</span></code> files, which you can read using numpy (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.load.html"><code class="docutils literal notranslate"><span class="pre">np.load</span></code></a>). There are three fields in the data: <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">cell_types</span></code>. <code class="docutils literal notranslate"><span class="pre">X</span></code> provides a numpy array with shape (batch, height, width, channel). <code class="docutils literal notranslate"><span class="pre">y</span></code> is a segmentation mask – a numpy array with shape (batch, height, width, 2). The last index referring to nuclear and whole cell segmentations respectively. <code class="docutils literal notranslate"><span class="pre">cell_types</span></code> is a dictionary mapping the mask indices to the cell types. To download and unarchive the data, use the following commands. The download itself may take about 10 minutes depending on your internet speed.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-o<span class="w"> </span>keren.tar.gz<span class="w"> </span>https://storage.googleapis.com/bebi205-spring2023/keren.tar.gz
+tar<span class="w"> </span>-xzvf<span class="w"> </span>keren.tar.gz
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code> contains a mapping between the cell type codes (in <code class="docutils literal notranslate"><span class="pre">cell_types</span></code>) and the actual cell types as strings. It also contains the names of the channels in <code class="docutils literal notranslate"><span class="pre">X</span></code>. A sample <code class="docutils literal notranslate"><span class="pre">meta.yaml</span></code> file is included below. You may notice that there are several targets that are not biological, e.g. Au, C and P. These are controls associated with the MIBI-TOF workflow and can be excluded from cell type analysis.</p>
+<div class="dropdown note admonition">
+<p class="admonition-title">meta.yaml</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cell_types</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BACKGROUND</span>
+<span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TUMOR</span>
+<span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYOEP</span>
+<span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIBROBLAST</span>
+<span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ENDO</span>
+<span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONODC</span>
+<span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONO</span>
+<span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MACS</span>
+<span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DC</span>
+<span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">APC</span>
+<span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MAST</span>
+<span class="w">  </span><span class="nt">11</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD8T</span>
+<span class="w">  </span><span class="nt">12</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD4T</span>
+<span class="w">  </span><span class="nt">13</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BCELL</span>
+<span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TCELL</span>
+<span class="w">  </span><span class="nt">15</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NEUT</span>
+<span class="w">  </span><span class="nt">16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IMMUNEOTHER</span>
+<span class="w">  </span><span class="nt">17</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OTHER</span>
+<span class="w">  </span><span class="nt">18</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FAILED_HARMONIZATION</span>
+<span class="nt">targets</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AR</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Au</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ca40</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD11c</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD14</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD20</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD31</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD36</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD44</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD45</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD4</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD56</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD68</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CD8</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CK5</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CK7</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">COL1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">COX2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">E-cadherin</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ER</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FAP</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FOXP3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GLUT1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZMB</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HER2</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HH3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HIF1a</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HLADRDPDQ</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IDO1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ki67</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MMP9</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MPO</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P63</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PanCK</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PD1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDL1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pS6</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">P</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SMA</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tryptase</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VIM</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sum of P and Histone H3</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sum_PanCK_CD45</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="suggested-outline">
+<h2>Suggested outline<a class="headerlink" href="#suggested-outline" title="Permalink to this heading">#</a></h2>
+<p>If you’re stuck on where to start, here’s a suggested outline.</p>
+<ol class="arabic simple">
+<li><p>Make the marker expression panel (see <a class="reference internal" href="#deliverables"><span class="std std-ref">Deliverables</span></a> for more details). Use this to decide which channels to keep.</p></li>
+<li><p>Use the cell segmentations to make a training dataset, where each element is a cropped view with channel data centered on each cell. Your training dataset will reqire some amount of feature engineering (e.g., normalize the channels). Save this dataset. Note: you can make a small version of this dataset with just a couple of images, use this to debug and make sure your model is “somewhat” learning, then expand using the remaining images.</p></li>
+<li><p>Set up a training pipeline (e.g., with a linear model) using the dataset of individual cells.</p></li>
+</ol>
+</section>
+<section id="deliverables">
+<span id="id1"></span><h2>Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this heading">#</a></h2>
+<p>You should prepare a short report (~1 page) containing four things</p>
+<ol class="arabic simple">
+<li><p>A marker expression panel. This is a representation of how different markers (channels) correlate with the different celltypes. An example (for an unrelated dataset) is shown below.</p></li>
+</ol>
+<p><img alt="" src="../_images/marker_expression.jpg" /></p>
+<p>The marker expression panel is meant to be a visual guide indicating correlations between individual markers and cells, to indicate which markers are important in the model. It is not designed to be a precise numerical tool, so there is no standardized approach across the literature (e.g., see <a class="reference external" href="https://www.cell.com/cell/fulltext/S0092-8674(18)31100-0">the original paper</a> in which this dataset was introduced). That being said, we suggest the following procedure.</p>
+<ol class="arabic simple">
+<li><p>Normalize the data.</p></li>
+<li><p>Make a training dataset composed of cropped views of each cell.</p></li>
+<li><p>Take the average expression of each marker within each cell. You can average twice – once over an individual cell, and once over all the total cells.</p></li>
+</ol>
+<p>Here’s some basic pseudocode showing this process.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">adaptive_histogram</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># see skimage.exposure.equalize_hist</span>
+<span class="n">all_cells</span> <span class="o">=</span> <span class="n">get_patches</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># see skimage.measure.regionprops</span>
+<span class="n">marker_expr_panel</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_celltypes</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">))</span>
+<span class="n">counts_by_celltype</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_celltypes</span><span class="p">,))</span>
+
+<span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">all_cells</span><span class="p">:</span>
+    <span class="n">celltype</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">celltype</span>
+    <span class="n">average_expression_by_marker</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">cell</span><span class="o">.</span><span class="n">marker_intensity</span><span class="p">)</span>
+    <span class="n">marker_expr_panel</span><span class="p">[</span><span class="n">celltype</span><span class="p">]</span> <span class="o">+=</span> <span class="n">average_expression_by_marker</span>
+    <span class="n">counts_by_celltype</span><span class="p">[</span><span class="n">celltype</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">marker_expr_panel</span> <span class="o">=</span> <span class="n">marker_expr_panel</span> <span class="o">/</span> <span class="n">counts_by_celltype</span> <span class="c1"># When you make this actual code, be careful with broadcasting here</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>A confusion matrix. This plots the predicted versus the actual cell types. An example is shown below</p></li>
+</ol>
+<p><img alt="" src="../_images/confusion_matrix.jpg" /></p>
+<p>Note: you should use a “holdout” dataset to make the confusion matrix – i.e., don’t include some small fraction of your dataset in training, and use it to both ensure your model generalizes and to make the confusion matrix (this will be a familiar idea if you’ve done ML before). See <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html"><code class="docutils literal notranslate"><span class="pre">sklearn.metrics.confusion_matrix</span></code></a> – if you have a list of predictions and ground truths, this function should generate things fairly easily.</p>
+<ol class="arabic" start="3">
+<li><p>A link to a Github repo with your code. <em>Your code must be runnable and approximately reproduce your confusion matrix.</em> We’ve held out several images from the dataset that we’ll use to test your code. This means your code must expose a function (and specify what that function is in your README) that accepts an <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> (use the data we gave you as a base), does whatever data preprocessing you want, passes it through your model, and then returns a dictionary mapping segmentation mask ids to celltype codes.</p>
+<p>There are different levels/complexity to reproducibility. For truly reproducible code, you should run your experiments from within a Docker container and commit your Dockerfile to the Git repo. For the purposes of this class, you could simply commit an <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> (generated from conda) or a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file. If you’re using vanilla PyTorch/Tensorflow/Jax, these will probably suffice. There are two points to remember:</p>
+<ol class="arabic simple">
+<li><p>Save your model and upload the weights somewhere. Leave a link in your Github, and show how to load the weights (e.g., Tensorflow has <code class="docutils literal notranslate"><span class="pre">tf.keras.models.load_model</span></code>). Be sure to actually try downloading and loading your model.</p></li>
+<li><p>Leave a script or Jupyter Notebook showing how to train your model and how to use your model for inference. If you use a Jupyter Notebook, <strong>be sure to check that your Jupyter Notebook actually runs from scratch!</strong>. It’s very easy for a variable to be saved in memory but not created anyway in a notebook environment.</p></li>
+</ol>
+</li>
+<li><p>A <em>brief</em> description of any issues / thoughts you have on the data, the nature of the task, downstream issues, etc. Describe any decisions and their rationale you made during data preprocessing (e.g., I included channel X because…) We emphasize brief – most of your time on this assignment should spent coding – after making the images and pushing to Github, this section of the submssion should take ~15 minutes.</p></li>
+</ol>
+</section>
+<section id="general-guidelines">
+<h2>General guidelines<a class="headerlink" href="#general-guidelines" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Keep your code modular and clean.</p></li>
+<li><p>We aren’t grading you on performance – just think carefully about the problem and make a reasonable first pass of a model. If your data processing/model are well thought out but your accuracies aren’t great, that’s fine, just document what you think are the likely reasons your model isn’t performing well.</p></li>
+<li><p>Start early and reach out with specific questions. You will need time to actually train the model and these things always take longer than you expect.</p></li>
+</ol>
+<div class="note admonition">
+<p class="admonition-title">Submission</p>
+<p>Submit on Canvas by April 14th at 5pm.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./assignments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="toc.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Assignments</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="assignment-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assignment 2: Preliminary Proposal and Dataset Exploration</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-schema">Data Schema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suggested-outline">Suggested outline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deliverables">Deliverables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines">General guidelines</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Van Valen, Morgan Schwartz and Rohit Dilip
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
