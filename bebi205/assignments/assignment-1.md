@@ -100,7 +100,7 @@ targets:
 If you're stuck on where to start, here's a suggested outline.
 
 1. Make the marker expression panel (see [Deliverables](deliverables) for more details). Use this to decide which channels to keep.
-1. Use the cell segmentations to make a training dataset, where each element is a cropped view with channel data centered on each cell. Your training dataset will reqire some amount of feature engineering (e.g., normalize the channels). Save this dataset. Note: you can make a small version of this dataset with just a couple of images, use this to debug and make sure your model is "somewhat" learning, then expand using the remaining images.
+1. Use the cell segmentations to make a training dataset, where each element is a cropped view with channel data centered on each cell. Your training dataset will reqire some amount of feature engineering (e.g., normalize the channels). Save this dataset. Note: you can make a small version of this dataset with just a couple of images, use this to debug and make sure your model is "somewhat" learning, then expand using the remaining images. _You may not need the full dataset: start with a small subset and see how your model does before scaling up training._
 1. Set up a training pipeline (e.g., with a linear model) using the dataset of individual cells.
 
 (deliverables)=
@@ -121,19 +121,14 @@ The marker expression panel is meant to be a visual guide indicating correlation
 
 Here's some basic pseudocode showing this process.
 
-```python
-X = adaptive_histogram(X) # see skimage.exposure.equalize_hist
-all_cells = get_patches(X, y) # see skimage.measure.regionprops
-marker_expr_panel = zeros(shape=(num_celltypes, num_channels))
-counts_by_celltype = zeros(shape=(num_celltypes,))
-
-for cell in all_cells:
-    celltype = cell.celltype
-    average_expression_by_marker = mean(cell.marker_intensity)
-    marker_expr_panel[celltype] += average_expression_by_marker
-    counts_by_celltype[celltype] += 1
-
-marker_expr_panel = marker_expr_panel / counts_by_celltype # When you make this actual code, be careful with broadcasting here
+```
+Normalize image # e.g., adaptive histogram normalization
+Collect views of each cell and associated celltype
+Initialize a marker expression panel with shape=(number of celltypes, number of markers)
+Iterate through all the cell views
+    Take the mean marker intensity for each marker
+    Add the mean marker intensity to marker expression panel for the associated celltype
+Average the marker expression panel over all cell instances
 ```
 
 2. A confusion matrix. This plots the predicted versus the actual cell types. An example is shown below

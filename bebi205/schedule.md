@@ -10,7 +10,7 @@ Last updated |lastupdate|
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 1:** Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)
+**[Lecture 1:](https://storage.googleapis.com/bebi205-spring2023/BEBi%20205%20-%20Lecture%201.pdf)** Logistics, Introduction to course, goals, biological data types, conceptual overview of deep learning and terminology (e.g. what are features, representations, tasks, etc.)
 
 **Lecture 2:** Images as data, Sequences as data. Image augmentation with affine transformations. Representing sequences as one hot vectors
 ```
