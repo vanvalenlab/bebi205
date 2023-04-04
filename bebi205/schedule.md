@@ -232,12 +232,6 @@ Recitations
 ```
 
 ```{grid-item-card}
-Notebooks
-^^^
-{doc}`notebooks/sequence-model`
-```
-
-```{grid-item-card}
 Resources
 ^^^
 
