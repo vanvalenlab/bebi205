@@ -452,8 +452,8 @@ document.write(`
 </div>
 <p>To solve this problem, we will treat it as a regression problem. For each image we will try to predict a transform image. This transform image will tell us how far each pixel is from the nearest spot. By looking for the extrema in the predicted transform image, we will be able to identify the appendages.</p>
 <p>The transform we will use is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77a6c8a7-7942-4652-9cb1-1b8cb09db7c5">
-<span class="eqno">(16)<a class="headerlink" href="#equation-77a6c8a7-7942-4652-9cb1-1b8cb09db7c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-086b8035-af7c-4572-a569-c0c41412f539">
+<span class="eqno">(16)<a class="headerlink" href="#equation-086b8035-af7c-4572-a569-c0c41412f539" title="Permalink to this equation">#</a></span>\[\begin{equation}
 transform = \frac{1}{1+\frac{distance}{\alpha}},
 \end{equation}\]</div>
 <p>where $\alpha$ is a parameter that determines the length scale. We will set $\alpha$ to be ~10 pixels, which is roughly the length scale for an appendage.</p>

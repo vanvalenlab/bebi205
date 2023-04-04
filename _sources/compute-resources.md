@@ -2,6 +2,10 @@
 
 We are going to use Google Cloud VMs for this course. There are a few different ways to interact with your VM, but we recommend that you use the `gcloud` CLI. You can find instructions for installing it [here](https://cloud.google.com/sdk/docs/install).
 
+```{admonition}
+We've made VM instances for all students in the course. Your VM instance name will match your Caltech email address. Do not interact with anyone else's VM.
+```
+
 ```{danger}
 You are responsible for starting and stopping your instance. We are charged any time your instance is running.
 ```
