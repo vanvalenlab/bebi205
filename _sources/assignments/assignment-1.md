@@ -155,5 +155,5 @@ Note: you should use a "holdout" dataset to make the confusion matrix -- i.e., d
 ---
 class: note
 ---
-Submit on Canvas by April 14th at 5pm.
+Submit on Canvas by April 21st at 5pm.
 ```
