@@ -56,7 +56,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 2:** Intro to PyTorch. Basic linear MLP on MNIST.
+**Recitation 2:** [Intro to PyTorch. Basic linear MLP on MNIST.](https://storage.googleapis.com/bebi205-spring2023/recitation1.ipynb)
 ```
 
 ```{grid-item-card}
