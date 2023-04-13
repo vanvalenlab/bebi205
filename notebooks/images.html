@@ -534,8 +534,8 @@ document.write(`
 <p>In the course of training a machine learning model, we can augment the training dataset by performing image transformations to present the model with the same data in a new form. These transformations can take the form of reflections, rotations, scaling and others. In its simplest form, any transformation can be applied to an image by multiplying it with an appropriate transformation matrix. We will briefly review the linear algebra behind transformation matrices before looking at code examples.</p>
 <p>For this discussion, we will consider the point $P(x,y) = \begin{bmatrix}x&amp;y\end{bmatrix}$. Any transformation matrix is a modification of the identity matrix
 $$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-909d219f-64bc-46f0-9928-7ada205efbbb">
-<span class="eqno">(1)<a class="headerlink" href="#equation-909d219f-64bc-46f0-9928-7ada205efbbb" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-4db3aee1-ed0f-4e3d-bd68-93054bc98bca">
+<span class="eqno">(1)<a class="headerlink" href="#equation-4db3aee1-ed0f-4e3d-bd68-93054bc98bca" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     1 &amp; 0 \\
     0 &amp; 1 \\
 \end{bmatrix}\]</div>
@@ -552,16 +552,16 @@ $$</p>
 <h3>Reflection<a class="headerlink" href="#reflection" title="Permalink to this heading">#</a></h3>
 <p>In order to reflect $P(x,y)$ across the x axis</p>
 <p>$$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd5c4d90-dde0-4ccd-b205-cc738dfdfe99">
-<span class="eqno">(2)<a class="headerlink" href="#equation-fd5c4d90-dde0-4ccd-b205-cc738dfdfe99" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-81e1bd2d-1f6a-4b56-860a-8edcc9a90f07">
-<span class="eqno">(3)<a class="headerlink" href="#equation-81e1bd2d-1f6a-4b56-860a-8edcc9a90f07" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-56573a2c-3682-4af4-877a-edc1b3e730b6">
+<span class="eqno">(2)<a class="headerlink" href="#equation-56573a2c-3682-4af4-877a-edc1b3e730b6" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-98a3c23b-b264-4346-bbf2-589cebfb4ef7">
+<span class="eqno">(3)<a class="headerlink" href="#equation-98a3c23b-b264-4346-bbf2-589cebfb4ef7" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     -1 &amp; 0\\
     0 &amp; 1\\
 \end{bmatrix}\]</div>
 <p>=</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d9b9e2e-ff75-41d6-8afe-1a19986712c7">
-<span class="eqno">(4)<a class="headerlink" href="#equation-2d9b9e2e-ff75-41d6-8afe-1a19986712c7" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}-x &amp; y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-ff771485-db5f-4cf6-aa9e-4f18289a1a72">
+<span class="eqno">(4)<a class="headerlink" href="#equation-ff771485-db5f-4cf6-aa9e-4f18289a1a72" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}-x &amp; y\end{bmatrix}\]</div>
 <p>$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -596,16 +596,16 @@ $$</p>
 <h3>Scale<a class="headerlink" href="#scale" title="Permalink to this heading">#</a></h3>
 <p>In order to scale $P(x,y)$ by a factor of 2</p>
 <p>$$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b2a626c-b7c1-4ee6-b067-13c928bd5c3a">
-<span class="eqno">(5)<a class="headerlink" href="#equation-0b2a626c-b7c1-4ee6-b067-13c928bd5c3a" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-6a0ba50e-b867-429f-a163-bdbd61b91ff9">
-<span class="eqno">(6)<a class="headerlink" href="#equation-6a0ba50e-b867-429f-a163-bdbd61b91ff9" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-d5e99b6c-9446-4fc4-8bfa-a5410e882a8a">
+<span class="eqno">(5)<a class="headerlink" href="#equation-d5e99b6c-9446-4fc4-8bfa-a5410e882a8a" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-eb2c6f6b-bfc7-43ab-af2c-a860aa283d3f">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eb2c6f6b-bfc7-43ab-af2c-a860aa283d3f" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     2 &amp; 0\\
     0 &amp; 2\\
 \end{bmatrix}\]</div>
 <p>=</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8bfd8db-0a5d-4525-b619-7b557ea3f8cb">
-<span class="eqno">(7)<a class="headerlink" href="#equation-a8bfd8db-0a5d-4525-b619-7b557ea3f8cb" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}2x &amp; 2y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-6e996d9f-90cb-4f29-ab33-dfc8af85902f">
+<span class="eqno">(7)<a class="headerlink" href="#equation-6e996d9f-90cb-4f29-ab33-dfc8af85902f" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}2x &amp; 2y\end{bmatrix}\]</div>
 <p>$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -640,10 +640,10 @@ $$</p>
 <h3>Rotation<a class="headerlink" href="#rotation" title="Permalink to this heading">#</a></h3>
 <p>In order to rotate $P(x,y)$ around the origin by the angle $\theta$</p>
 <p>$$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03e429ca-01b6-4300-b9cf-5f7f064e2330">
-<span class="eqno">(8)<a class="headerlink" href="#equation-03e429ca-01b6-4300-b9cf-5f7f064e2330" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c3118bd1-6a2d-4e95-ac53-133d73575c64">
-<span class="eqno">(9)<a class="headerlink" href="#equation-c3118bd1-6a2d-4e95-ac53-133d73575c64" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-e453e750-f91b-4534-bf74-6e4ab4ef65d3">
+<span class="eqno">(8)<a class="headerlink" href="#equation-e453e750-f91b-4534-bf74-6e4ab4ef65d3" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}x &amp; y\end{bmatrix}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-af221967-939e-4324-8db6-45bbd92953d1">
+<span class="eqno">(9)<a class="headerlink" href="#equation-af221967-939e-4324-8db6-45bbd92953d1" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
     \cos{\theta} &amp; -\sin{\theta}\\
     \sin{\theta} &amp; \cos{\theta}\\
 \end{bmatrix}\]</div>

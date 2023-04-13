@@ -570,8 +570,8 @@ While there is no hard and fast rule, 80%, 10%, 10% splits are a reasonable star
 <section id="create-the-matrix-of-weights">
 <h3>Create the matrix of weights<a class="headerlink" href="#create-the-matrix-of-weights" title="Permalink to this heading">#</a></h3>
 <p>Properly initializing weights is essential for getting deep learning methods to work correctly. The two most common initialization methods you’ll see in this class are <a class="reference external" href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf?hc_location=ufi%5D">glorot uniform (also known as Xavier) initialization</a> and <a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html">he initialization</a> - both papers are worth reading. For this exercise, we will randomly initialize weights by using glorot uniform initialization. In this initialization method, we sample our weights according to the formula</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7551e41-171e-4b31-a0f5-4c47ce79652f">
-<span class="eqno">(11)<a class="headerlink" href="#equation-c7551e41-171e-4b31-a0f5-4c47ce79652f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4ae51a9b-51bb-4497-82cf-418173957825">
+<span class="eqno">(11)<a class="headerlink" href="#equation-4ae51a9b-51bb-4497-82cf-418173957825" title="Permalink to this equation">#</a></span>\[\begin{equation}
 W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 \end{equation}\]</div>
 <p>where $n$ is the number of columns in the weight matrix (4096 in our case).</p>
@@ -630,8 +630,8 @@ W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 <section id="apply-the-softmax-transform-to-complete-the-model-outputs">
 <h3>Apply the softmax transform to complete the model outputs<a class="headerlink" href="#apply-the-softmax-transform-to-complete-the-model-outputs" title="Permalink to this heading">#</a></h3>
 <p>Our LinearClassifier class needs a method to perform predictions - which in our case is performing matrix multiplication and then applying the softmax transform. Recall from class that the softmax transform is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-683a2132-cd82-46e3-b022-553017d0d5c0">
-<span class="eqno">(12)<a class="headerlink" href="#equation-683a2132-cd82-46e3-b022-553017d0d5c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dfa166de-4c35-475a-ae01-16f061eefae3">
+<span class="eqno">(12)<a class="headerlink" href="#equation-dfa166de-4c35-475a-ae01-16f061eefae3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 \end{equation}\]</div>
 <p>and provides a convenient way to convert our class scores into probabilities</p>
@@ -724,8 +724,8 @@ softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 </ul>
 <p>Recall that the origin of this update rule is from multivariable calculus - the gradient tells us the direction in which the loss function increases the most. So to minimize the loss function we move in the opposite direction of the gradient.</p>
 <p>Also recall from the course notes that for this problem we can compute the gradient analytically. The gradient is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba737f49-803c-481a-82e5-d06de9d58d90">
-<span class="eqno">(13)<a class="headerlink" href="#equation-ba737f49-803c-481a-82e5-d06de9d58d90" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a850c1f-127d-4f6e-a1b1-a385054508db">
+<span class="eqno">(13)<a class="headerlink" href="#equation-7a850c1f-127d-4f6e-a1b1-a385054508db" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial loss}{\partial W_{ij}} = \left(p_i - 1(i \mbox{ is correct}) \right)x_j,
 \end{equation}\]</div>
 <p>where $1$ is an indicator function that is 1 if the statement inside the parentheses is true and 0 if it is false.</p>
