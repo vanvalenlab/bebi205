@@ -10,9 +10,8 @@ For this assignment, please submit a jupyter notebook (as an html or pdf file) t
 
 - Description and source of the dataset
 - Describe what question or task you are planning to address with this dataset
-- Loading the dataset into the notebook
+- Demonstrate your ability to load the dataset. You don't need to load the entire thing -- if the dataset isn't already in a nice format, just show that you can scrape it and save it in a readable format. 
 - Perform any necessary preprocessing that would be necessary in order to train a model from the dataset
-- Provide plots and/or statistics to summarize your dataset
 
 Reasonable attempts at progress will be awarded full credit.
 
