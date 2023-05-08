@@ -27,7 +27,7 @@ Remmeber, this data is already normalized for you and most of the irrelevant cha
 1. A brief description of your model, and changes you made between the first and second assignments. 
 1. Discuss anything you think is important to consider while approaching this problem. Some things we're specifically looking for: how does having multiple datasets change things, and what adjustments (if any) do you need to make? How do you deal with having different channels across datasets? How do you determine a reasonable baseline for your model?
 
-```{warning} Due Date
+```{warning} 
 We will be considering model performance in your grade for this assignment. You have access to more data and should be able to develop more sophisticated models. You will be marked down if you don't take advantage of all the data (in particular, the cloud compute resources you have access to should suffice for this). 
 ```
 
