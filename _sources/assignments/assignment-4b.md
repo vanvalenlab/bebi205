@@ -11,7 +11,6 @@ We went over a few different language models in lecture / recitation. Pick one, 
 ```{note}
 This assignment should not take very long. For context, our solution takes around 100 lines of code without using any pre-made layers. The most important thing is to understand how to properly set up a sequence prediction problem. This is particularly important to understand the failure modes of e.g., large pretrained language models like ESM. 
 ```
-
 ## Data
 ```python
 import datasets
