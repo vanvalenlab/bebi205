@@ -1,4 +1,4 @@
-# Assignment 4b: Masked proteins
+# Assignment 4b: Protein sequence modeling
 
 ```{admonition} Due Date
 Friday 5/12 at 5pm
