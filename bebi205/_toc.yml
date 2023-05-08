@@ -9,7 +9,8 @@ sections:
   - file: assignments/assignment-1
   - file: assignments/assignment-2
   - file: assignments/project-proposal
-  - file: assignments/assignment-4
+  - file: assignments/assignment-4a
+  - file: assignments/assignment-4b
   - file: assignments/assignment-5
   - file: assignments/final-presentation
   - file: assignments/final-report
