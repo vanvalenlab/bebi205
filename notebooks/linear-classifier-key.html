@@ -167,7 +167,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-1.html">Assignment 1: Cell Classification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-2.html">Assignment 2: Preliminary Proposal and Dataset Exploration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/project-proposal.html">Assignment 3: Project Proposal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-4.html">Assignment 4: Celltype classification redux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-4a.html">Assignment 4a: Celltype classification redux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-4b.html">Assignment 4b: Masked proteins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/assignment-5.html">Assignment 5: Progress Report</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/final-presentation.html">Final Presentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assignments/final-report.html">Final Report</a></li>
@@ -570,8 +571,8 @@ While there is no hard and fast rule, 80%, 10%, 10% splits are a reasonable star
 <section id="create-the-matrix-of-weights">
 <h3>Create the matrix of weights<a class="headerlink" href="#create-the-matrix-of-weights" title="Permalink to this heading">#</a></h3>
 <p>Properly initializing weights is essential for getting deep learning methods to work correctly. The two most common initialization methods you’ll see in this class are <a class="reference external" href="http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf?hc_location=ufi%5D">glorot uniform (also known as Xavier) initialization</a> and <a class="reference external" href="http://openaccess.thecvf.com/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html">he initialization</a> - both papers are worth reading. For this exercise, we will randomly initialize weights by using glorot uniform initialization. In this initialization method, we sample our weights according to the formula</p>
-<div class="amsmath math notranslate nohighlight" id="equation-79450512-5f70-4de7-8449-a138b0764b0b">
-<span class="eqno">(11)<a class="headerlink" href="#equation-79450512-5f70-4de7-8449-a138b0764b0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39df50fc-30c8-486c-b16a-98e938ac54e8">
+<span class="eqno">(11)<a class="headerlink" href="#equation-39df50fc-30c8-486c-b16a-98e938ac54e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 \end{equation}\]</div>
 <p>where $n$ is the number of columns in the weight matrix (4096 in our case).</p>
@@ -630,8 +631,8 @@ W_{ij} \sim U\left[ -\frac{1}{\sqrt{n}}, \frac{1}{\sqrt{n}} \right],
 <section id="apply-the-softmax-transform-to-complete-the-model-outputs">
 <h3>Apply the softmax transform to complete the model outputs<a class="headerlink" href="#apply-the-softmax-transform-to-complete-the-model-outputs" title="Permalink to this heading">#</a></h3>
 <p>Our LinearClassifier class needs a method to perform predictions - which in our case is performing matrix multiplication and then applying the softmax transform. Recall from class that the softmax transform is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-338a22fb-a8a0-48a4-8f8a-00c6147e0c3e">
-<span class="eqno">(12)<a class="headerlink" href="#equation-338a22fb-a8a0-48a4-8f8a-00c6147e0c3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a3ac8e3a-0770-433b-87ca-686265cd1459">
+<span class="eqno">(12)<a class="headerlink" href="#equation-a3ac8e3a-0770-433b-87ca-686265cd1459" title="Permalink to this equation">#</a></span>\[\begin{equation}
 softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 \end{equation}\]</div>
 <p>and provides a convenient way to convert our class scores into probabilities</p>
@@ -724,8 +725,8 @@ softmax(y_i) = \frac{e^{y_i}}{\sum_j e^{y_j}}
 </ul>
 <p>Recall that the origin of this update rule is from multivariable calculus - the gradient tells us the direction in which the loss function increases the most. So to minimize the loss function we move in the opposite direction of the gradient.</p>
 <p>Also recall from the course notes that for this problem we can compute the gradient analytically. The gradient is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0346655a-5933-41fa-a7cb-23d9403ad7d1">
-<span class="eqno">(13)<a class="headerlink" href="#equation-0346655a-5933-41fa-a7cb-23d9403ad7d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-68bdae26-b13c-42cf-aa14-439930a7a15d">
+<span class="eqno">(13)<a class="headerlink" href="#equation-68bdae26-b13c-42cf-aa14-439930a7a15d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial loss}{\partial W_{ij}} = \left(p_i - 1(i \mbox{ is correct}) \right)x_j,
 \end{equation}\]</div>
 <p>where $1$ is an indicator function that is 1 if the statement inside the parentheses is true and 0 if it is false.</p>
