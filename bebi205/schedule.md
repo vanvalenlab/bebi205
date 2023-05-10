@@ -50,7 +50,7 @@ Lectures
 ^^^
 **Lecture 3:** Example Linear Classifier
 
-**Lecture 4:** Conceptual overview of deep learning.
+**[Lecture 4:](https://storage.googleapis.com/bebi205-spring2023/BEBi%20205%20Lecture%204.pptx)** Conceptual overview of deep learning.
 ```
 
 ```{grid-item-card}
@@ -89,9 +89,9 @@ class: attention
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 5:** Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences.
+**[Lecture 5:](https://storage.googleapis.com/bebi205-spring2023/BEBi%20205%20Lecture%205.pptx)** Linear classifier example: stochastic gradient descent, backpropagation, regularization, overfitting, underfitting, dataset splitting. Data annotation. Types of annotations for images - points, bounding boxes, dense pixel level labeling. Annotation for sequences.
 
-**Lecture 6:** Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks
+**[Lecture 6:](https://storage.googleapis.com/bebi205-spring2023/BEBi%20205%20Lecture%206.pptx)** Problem framing. Real world tasks: Classification, segmentation, tracking, clustering. Model tasks: Classification, regression, vector embedding. How to frame real world tasks as model tasks
 ```
 
 ```{grid-item-card}
@@ -130,15 +130,15 @@ class: attention
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 7:** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants.
+**[Lecture 7:](https://storage.googleapis.com/bebi205-spring2023/BEBi%20205%20Lecture%207.pptx)** Loss functions and optimizers. Classification - cross entropies, class imbalance, weighted cross entropy, focal loss. Regression - MSE. Optimizers - SGD, Momentum, RMSprop, Adam, Adam variants.
 
-**Lecture 8:** Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search. Attention.
+**[Lecture 8:](https://storage.googleapis.com/bebi205-spring2023/BEBi%20205%20Lecture%208.pptx)** Vision models. Model components - convolutions, pooling, activations, batch normalization. Initialization of weights. Components -> Layers. Model elements dealing with multiple spatial scales (U-Nets and FPNs). Themes in modern architectures - ResNets, DenseNets, Neural Architecture Search. Attention.
 ```
 
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 4:** Data sharding / serialization / intermediate scale data
+**Recitation 4:** Project discussions
 ```
 
 ```{grid-item-card}
@@ -176,13 +176,13 @@ Lectures
 ^^^
 **Lecture 9:** Guest Lecture by Kevin Yang (Microsoft Research)
 
-**Lecture 10:** Vision model applications. Classification, object detection, semantic segmentation, instance segmentation. Cover object detection methods (Faster-RCNN, YOLO, RetinaNet), semantic segmentation (U-Net), instance segmentation (Mask-RCNN, Deep Watershed)
+**Lecture 10:** No lecture
 ```
 
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 5:** Using pretrained models.
+**Recitation 5:** Project discussions
 ```
 
 ```{grid-item-card}
@@ -220,7 +220,7 @@ class: attention
 ```{grid-item-card}
 Lectures
 ^^^
-**Lecture 11:** Sequence models. 1D convolution, recurrent layers, attention, modern language models. Applications. DeepBind and others. Transformers — applications outside of language. Discussion of celltype classifier.
+**[Lecture 11:](https://storage.googleapis.com/bebi205-spring2023/basic_mlp_prediction.ipynb)** Example: character level language modeling using MLP.
 
 **Lecture 12:** Guest Lecture by Ross Barnowski
 ```
@@ -228,7 +228,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 6:** Using sequence models for celltype classification.
+**Recitation 6:** Project discussions
 ```
 
 ```{grid-item-card}
@@ -262,7 +262,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 7:** None
+**Recitation 7:** No recitation
 ```
 ````
 
@@ -281,7 +281,7 @@ Lectures
 ```{grid-item-card}
 Recitations
 ^^^
-**Recitation 8:** None
+**Recitation 8:** Intro to generative modeling: VAEs
 ```
 
 ```{grid-item-card}
@@ -301,7 +301,7 @@ Lectures
 ^^^
 **Lecture 17:** Guest lecture by Brian Hie (Stanford/Meta)
 
-**Lecture 18:** Intro to generative modeling
+**Lecture 18:** Project discussions
 ```
 
 ```{grid-item-card}
