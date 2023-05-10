@@ -238,6 +238,8 @@ Resources
 Ash, J.T., Darnell, G., Munro, D., and Engelhardt, B.E. (2021). [Joint analysis of expression levels and histological images identifies genes associated with tissue morphology.](https://doi.org/10.1038/s41467-021-21727-x) *Nature Communications* 12, 1609.
 
 Rives, A. et al. (2021). [Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences.](https://doi.org/10.1073/pnas.2016239118) *Proc Natl Acad Sci USA* 118, e2016239118.
+
+[Makemore series](https://www.youtube.com/@AndrejKarpathy/videos)
 ```
 ````
 
