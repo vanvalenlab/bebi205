@@ -3,7 +3,8 @@
 ```{admonition} Due Date
 Friday 5/12 at 5pm
 ```
-In this assignment, you'll expand your ML pipeline from the previous assignment to include 2 datasets -- the TNBC dataset from the first assignment, and an additional Ductal carcinoma in situ (DCIS) dataset. For this assignment, we encourage you to expand your ML models and address some of the issues you brought up in your first pass. For that reason, we've cleaned and normalized the data for you (including channel selection). You'll still have to make decisions about the celltypes and consider the best way to divide the data (remember, you have two datasets from two different research groups -- you should expect nontrivial differences!). The data preprocessing should be much easier.
+In this assignment, you'll expand your ML pipeline from the previous assignment to include 2 datasets -- the TNBC dataset from the first assignment, and an additional Ductal carcinoma in situ (DCIS) dataset. For this assignment, we encourage you to expand your ML models and address some of the issues you brought up in your first pass. For that reason, we've cleaned and normalized the data for you (including channel selection). You'll still have to make decisions about the celltypes and consider the best way to divide the data (remember, you have two datasets from two different research groups -- you should expect nontrivial differences!). The data preprocessing should be much easier. This assignment is individual -- you must write your one code and create your own submission.
+
 
 ## Task
 Make a classifier that takes an image of a single cell as input and returns the celltype. 

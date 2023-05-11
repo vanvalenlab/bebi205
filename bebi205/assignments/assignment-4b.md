@@ -3,7 +3,7 @@
 ```{admonition} Due Date
 Friday 5/12 at 5pm
 ```
-In this assignment, you'll use masked pretraining to develop embeddings for amino acids. You'll use the Uniprot dataset, which is an excellent starting point for protein modeling containing thousands of proteins, conveniently available on HuggingFace (`damlab/uniprot`).
+In this assignment, you'll use masked pretraining to develop embeddings for amino acids. You'll use the Uniprot dataset, which is an excellent starting point for protein modeling containing thousands of proteins, conveniently available on HuggingFace (`damlab/uniprot`).  This assignment is individual -- you must write your one code and create your own submission.
 
 ## Suggested outline
 We went over a few different language models in lecture / recitation. Pick one, and use masked pretraining (i.e., block out part of the sequence and predict it) as a task. There are numerous models you can use -- a full transformer, a WaveNet, etc. Speak to the TAs if you have questions.
