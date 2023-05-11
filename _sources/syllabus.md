@@ -49,7 +49,8 @@ Recitations will be held once a week. Time TBD.
 | {doc}`assignments/assignment-1`       | 125    | 4/21                                 |
 | {doc}`assignments/assignment-2`       | 150    | 4/28                                 |
 | {doc}`assignments/project-proposal`   | 150    | 5/5                                  |
-| {doc}`assignments/assignment-4`       | 125    | 5/12                                 |
+| {doc}`assignments/assignment-4a`       | 125    | 5/12                                 |
+| {doc}`assignments/assignment-4b`       | 125    | 5/12                                 |
 | {doc}`assignments/assignment-5`       | 50     | 5/19                                 |
 | {doc}`assignments/final-presentation` | 100    | Seniors/Grads: 6/9; Undergrads: 6/16 |
 | {doc}`assignments/final-report`       | 300    | Seniors/Grads: 6/9; Undergrads: 6/16 |
