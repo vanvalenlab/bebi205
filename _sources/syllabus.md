@@ -40,9 +40,11 @@ Lectures will be held Tuesday/Thursday 1-2:30 PM in Chen 130. Lectures notes wil
 
 ## Recitations
 
-Recitations will be held once a week. Time TBD.
+Recitations will be held once a week on Wednesdays from 5 to 6pm in Chen 240a. 
 
 ## Grading
+
+Guest lecture attendance is mandatory. If you have an unavoidable conflict, you must reach out to the TAs beforehand.
 
 | Assignment                            | Points | Due Date                             |
 | ------------------------------------- | ------ | ------------------------------------ |
@@ -54,6 +56,7 @@ Recitations will be held once a week. Time TBD.
 | {doc}`assignments/assignment-5`       | 50     | 5/19                                 |
 | {doc}`assignments/final-presentation` | 100    | Seniors/Grads: 6/9; Undergrads: 6/16 |
 | {doc}`assignments/final-report`       | 300    | Seniors/Grads: 6/9; Undergrads: 6/16 |
+| Guest lecture attendance              | TBD    | 
 | **Class Total**                       | 1000   |                                      |
 
 ### Class Project
